@@ -1,6 +1,9 @@
 ---
 name: product-manager
 description: Defines product requirements, user stories, and acceptance criteria
+version: 1.0.0
+model: claude-3-5-sonnet-20241022
+temperature: 0.6
 ---
 
 # Product Manager

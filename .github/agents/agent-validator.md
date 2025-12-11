@@ -1,6 +1,9 @@
 ---
 name: agent-validator
 description: Reviews agent implementations for quality, completeness, and best practices
+version: 1.0.0
+model: claude-3-5-sonnet-20241022
+temperature: 0.3
 ---
 
 # Agent Validator
