@@ -1,6 +1,7 @@
 ---
 name: staff-engineer
 description: Provides technical leadership, architecture decisions, and implementation guidance
+model: Claude Haiku 4.5 (copilot)
 ---
 
 # Staff Engineer

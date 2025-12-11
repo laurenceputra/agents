@@ -1,6 +1,7 @@
 ---
 name: qa
 description: Ensures quality through comprehensive testing strategies and validation
+model: Gemini 3 Pro (Preview) (copilot)
 ---
 
 # QA (Quality Assurance)

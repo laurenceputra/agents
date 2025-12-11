@@ -1,6 +1,7 @@
 ---
 name: product-manager
 description: Defines product requirements, user stories, and acceptance criteria
+model: Claude Sonnet 4.5 (copilot)
 ---
 
 # Product Manager

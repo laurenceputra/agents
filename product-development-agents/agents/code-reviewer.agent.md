@@ -1,6 +1,7 @@
 ---
 name: code-reviewer
 description: Reviews code for quality, security, maintainability, and product alignment
+model: Claude Sonnet 4.5 (copilot)
 ---
 
 # Code Reviewer
