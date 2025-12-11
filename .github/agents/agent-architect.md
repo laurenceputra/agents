@@ -2,8 +2,7 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 version: 1.0.0
-model: claude-3-5-sonnet-20241022
-temperature: 0.7
+model: claude-sonnet-4-5-20250929
 ---
 
 # Agent Architect

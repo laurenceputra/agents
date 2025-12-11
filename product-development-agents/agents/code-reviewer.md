@@ -2,8 +2,7 @@
 name: code-reviewer
 description: Reviews code for quality, security, maintainability, and product alignment
 version: 1.0.0
-model: claude-3-5-sonnet-20241022
-temperature: 0.3
+model: claude-sonnet-4-5-20250929
 ---
 
 # Code Reviewer

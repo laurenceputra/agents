@@ -2,8 +2,7 @@
 name: staff-engineer
 description: Provides technical leadership, architecture decisions, and implementation guidance
 version: 1.0.0
-model: claude-3-5-sonnet-20241022
-temperature: 0.5
+model: claude-sonnet-4-5-20250929
 ---
 
 # Staff Engineer
