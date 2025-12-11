@@ -52,29 +52,7 @@ agent-group-name/
 
 ### 4. Validate Before Committing
 
-Use the validator script to ensure portability:
-
-```bash
-# Validate all agents
-python .github/scripts/validate-agents.py
-
-# Validate a specific agent group
-python .github/scripts/validate-agents.py agent-group-name/
-
-# Validate a specific agent file
-python .github/scripts/validate-agents.py agent-group-name/agents/agent-name.agent.md
-
-# Show portable schema reference
-python .github/scripts/validate-agents.py --schema
-```
-
-The validator checks:
-- ✓ Required frontmatter fields (name, description, model)
-- ✓ Frontmatter format (valid YAML)
-- ✓ Name matches filename (kebab-case)
-- ✓ Folder structure (agents/ subdirectory)
-- ✓ Handoff references (valid agent names)
-- ✓ Model identifiers (from architect recommendations)
+Let the `validator` agent validate that theagents are created correctly
 
 ## Portable Frontmatter Schema
 
