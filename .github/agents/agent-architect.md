@@ -1,7 +1,6 @@
 ---
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
-version: 1.0.0
 ---
 
 # Agent Architect
