@@ -46,15 +46,15 @@ Once you have a specification, the Agent Implementer:
 **Agent**: `agent-validator.md`
 
 Before deploying, the Agent Validator:
-- Reviews implementations for completeness
-- Validates best practices adherence
+- Validates implementations for completeness
+- Verifies best practices adherence
 - Checks examples and quality criteria
-- Provides structured feedback
-- Approves or requests revisions
+- Provides validation decision (APPROVED / APPROVED with Recommendations / CHANGES REQUIRED)
+- Ensures quality standards are met
 
-**When to use**: You have a draft agent definition and need quality assurance before using it.
+**When to use**: Required step before deployment. You have a draft agent definition and need validation before using it.
 
-**Example**: Reviews the API Design Reviewer implementation → Provides approval or detailed feedback for improvements.
+**Example**: Validates the API Design Reviewer implementation → Provides APPROVED status or identifies required changes.
 
 ## Quick Start
 
@@ -75,10 +75,11 @@ Before deploying, the Agent Validator:
    - Receive complete agent definition file
    - Review structure and examples
 
-4. **Consult Agent Validator**
+4. **Validate with Agent Validator**
    - Provide the implementation
    - Receive validation report
-   - Address any issues found
+   - Address any required changes
+   - Resubmit if changes required
 
 5. **Deploy and Iterate**
    - Use your new agent
@@ -142,7 +143,7 @@ The meta-system can help you build agents for:
 └── agents/
     ├── agent-architect.md            # Designs agent specifications
     ├── agent-implementer.md          # Implements agent definitions
-    └── agent-validator.md            # Validates agent quality
+    └── agent-validator.md            # Validates agent quality (required)
 ```
 
 ## Examples
@@ -171,12 +172,13 @@ Agent Implementer creates agent-security-reviewer.md:
 
 **Step 3 - Validation**
 ```
-Agent Validator reviews implementation:
+Agent Validator validates implementation:
 ✅ All sections present and comprehensive
 ✅ Examples cover happy path and edge cases
 ✅ Quality checklist is measurable
 ⚠️ Recommendation: Add example for large PR handling
-→ APPROVED WITH RECOMMENDATIONS
+→ Status: APPROVED with Recommendations
+→ Agent ready for deployment
 ```
 
 ### Example 2: Building a Test Strategy Designer
@@ -199,16 +201,17 @@ Agent Implementer creates agent-test-strategy-designer.md:
 - Response Format: 5-step structured approach
 - Examples: Login feature, API endpoint, complex workflow
 - Quality Checklist: Coverage, edge cases, risk assessment
+→ Submitted for validation
 ```
 
 **Step 3 - Validation**
 ```
-Agent Validator reviews implementation:
-✅ Clear purpose and responsibilities
-✅ Comprehensive examples with inputs/outputs
-✅ Detailed quality checklist
-✅ Integration points documented
-→ APPROVED
+Agent Validator validates implementation:
+✅ All required sections present
+✅ Comprehensive examples provided
+✅ Quality checklist is clear and measurable
+→ Status: APPROVED
+→ Agent ready for deployment
 ```
 
 ## Workflow Tips
@@ -225,22 +228,25 @@ Agent Validator reviews implementation:
 - Maintain consistency in structure and style
 - Adapt patterns to your specific needs
 
-**Validate Early and Often**
-- Don't wait until complete to validate
-- Quick validation checks can save rework
-- Iterate based on feedback
+**Validation is Required**
+- All agents must pass validation before deployment
+- Validation ensures quality and consistency
+- Address required changes before deployment
+- Optional recommendations can be addressed in future iterations
 
 ### When Using the Meta-System
 
-**For Simple Agents**: You might combine phases
+**For Simple Agents**: Follow streamlined three-phase process
 - Quick architecture (sketch scope)
 - Direct implementation from pattern
-- Light validation review
+- Validation for quality assurance
+- Deploy and iterate based on real usage
 
-**For Complex Agents**: Follow full workflow
+**For Complex Agents**: Follow full three-phase workflow
 - Detailed specification with stakeholder review
 - Implementation with comprehensive examples
-- Thorough validation with multiple reviewers
+- Thorough validation before deployment
+- Deploy with confidence in quality
 
 **For Agent Families**: Establish patterns
 - First agent: Full workflow with extra care
@@ -271,7 +277,7 @@ Agent Validator reviews implementation:
 - **Solution**: Review existing agents for patterns, consult Agent Implementer with examples
 
 **Issue**: Not sure if agent is ready
-- **Solution**: Run through Agent Validator checklist, request formal validation
+- **Solution**: Submit to Agent Validator for required quality validation
 
 **Issue**: Agent isn't working as expected
 - **Solution**: Review examples and quality checklist, may need specification revision

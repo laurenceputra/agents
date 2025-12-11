@@ -32,15 +32,15 @@ The Agent Implementer creates the agent definition file following best practices
 - Quality checklists
 - GitHub Copilot optimization
 
-### Phase 3: Agent Validation (Quality Assurance)
+### Phase 3: Agent Validation (Quality Review)
 **Consult**: `.github/agents/agent-validator.md`
 
-The Agent Validator reviews the agent implementation for:
-- Clarity and completeness
-- Adherence to best practices
-- Testability and measurability
-- Documentation quality
-- Usability
+The Agent Validator validates the implementation and ensures quality standards are met:
+- Clarity and completeness assessment
+- Best practices adherence validation
+- Testability and measurability verification
+- Documentation quality review
+- Usability assessment
 
 ## Best Practices (from GitHub Copilot Documentation)
 
@@ -148,8 +148,8 @@ Track changes and improvements over time.
 
 1. **Start with the Agent Architect**: Describe what you need
 2. **Use the Agent Implementer**: Turn the spec into a working agent file
-3. **Validate with the Agent Validator**: Ensure quality and best practices
-4. **Iterate**: Refine based on feedback and real-world usage
+3. **Validate with Agent Validator**: Ensure quality standards are met
+4. **Deploy and Iterate**: Use your agent and refine based on real-world usage
 
 ## Common Agent Categories
 
