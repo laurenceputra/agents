@@ -23,6 +23,65 @@ When generating the agent file, set the `model:` front-matter to the recommended
 ### Frontmatter Setting Checklist (Implementer)
 - [ ] Confirm if architect provided centralized model guidance for the agent (check `architect.agent.md`). Always use architect's recommended model.
 - [ ] Set the `model:` key in front-matter to the chosen model and add a `## Recommended Model` paragraph with rationale.
+- [ ] Validate agent name matches filename exactly (kebab-case, no spaces)
+- [ ] Ensure folder structure is `./agent-group-name/agents/{name}.agent.md` for portability
+- [ ] Include valid handoff references (if applicable) pointing to other agents in the group
+- [ ] Document integration points showing agent coordination within group
+
+### Portable Output Standards (For All Agent Implementations)
+
+Every agent implementation MUST follow this structure to ensure portability and drop-in capability:
+
+**Required File Structure:**
+```
+agent-group-name/
+├── agents/
+│   └── {agent-name}.agent.md              # Agent definition (must use portable frontmatter)
+├── copilot-instructions.md                # Group setup and integration guide
+├── README.md                              # Usage guide and agent overview
+└── CHANGELOG.md                           # Version history (for versions >1.0.0)
+```
+
+**Agent Definition Requirements:**
+1. **Frontmatter (YAML)**: Use standardized schema from `architect.agent.md`
+   - `name`: Kebab-case identifier matching filename
+   - `description`: One-line summary (50-100 chars)
+   - `model`: Must match Architect's recommendations
+   - `version`: Semantic version (defaults to 1.0.0)
+   - `handoffs`: Optional array of agent names for coordination
+
+2. **Structure**: Follow this exact section order
+   - Purpose
+   - Recommended Model (with rationale)
+   - Responsibilities
+   - Domain Context
+   - Input Requirements
+   - Output Format
+   - Response Format
+   - Examples (minimum 2, ideally 3)
+   - Quality Checklist
+   - Integration Points
+   - Version History
+
+3. **Agent Coordination**: If part of a group with multiple agents
+   - Define handoff recipients in frontmatter `handoffs` field
+   - Document input/output contracts clearly for downstream agents
+   - Include integration points showing workflow with other agents
+
+4. **Cross-Agent References**: Use relative paths
+   - Reference sibling agents by name: `See {agent-name}.agent.md for...`
+   - Never use absolute paths or hardcoded directory names
+   - Assume the folder can be renamed to anything (including `.github`)
+
+**Validation Checklist (Before Returning to Validator):**
+- [ ] Frontmatter validates against architect schema
+- [ ] Filename matches `name` field (kebab-case, no spaces)
+- [ ] Folder structure is `./agent-group-name/agents/`
+- [ ] All handoff references point to valid agents in group
+- [ ] Integration points document agent communication
+- [ ] No hardcoded paths or repo-specific names
+- [ ] At least 2 examples (3 strongly recommended)
+- [ ] Quality checklist has 8-15 items
 
 ## Responsibilities
 

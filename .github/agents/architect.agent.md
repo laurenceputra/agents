@@ -25,6 +25,53 @@ When the Architect defines new agents, recommend models based on the expected ta
 
 Include the rationale for model selection and any safety or jurisdictional notes in the agent's specification.
 
+### Portable Agent Group Schema (Required for Implementer)
+
+All agent specifications MUST define frontmatter using this standardized YAML schema to ensure agent groups are portable and can be dropped into any repository with folder renaming:
+
+```yaml
+---
+name: agent-identifier                    # Required: kebab-case unique identifier
+description: Brief one-line agent purpose # Required: 50-100 characters
+model: Claude Sonnet 4.5 (copilot)       # Required: Explicit model name from architect recommendations
+version: 1.0.0                            # Optional: Semantic versioning (default: 1.0.0)
+handoffs:                                 # Optional: List of agent names this agent can hand off to
+  - agent-name-1
+  - agent-name-2
+---
+```
+
+**Frontmatter Requirements:**
+- **name**: Kebab-case identifier (e.g., `legacy-planning-advisor`, `code-reviewer`). Must match filename (without .agent.md extension)
+- **description**: One-line summary of what the agent does. 50-100 characters recommended
+- **model**: Explicit model identifier (e.g., `Claude Sonnet 4.5 (copilot)`, `Gemini 3 Pro (Preview)`). Must match Architect's model recommendations
+- **version**: Semantic versioning format (e.g., `1.0.0`, `1.1.0`). Defaults to `1.0.0`
+- **handoffs**: Optional array of agent names this agent can delegate to. Used for agent coordination
+
+**Validation Rules:**
+- File name must match `name` field exactly: `{name}.agent.md`
+- File must be in `agents/` subdirectory: `./agent-group-name/agents/{name}.agent.md`
+- Model must match one of Architect's recommended options (no custom/unlisted models)
+- Each agent in a group must have valid handoff references (no broken chains)
+
+**Portable Folder Structure:**
+```
+agent-group-name/
+├── agents/
+│   ├── agent-1.agent.md          (Contains handoffs: [agent-2, agent-3])
+│   ├── agent-2.agent.md          (Contains handoffs: [agent-1])
+│   └── agent-3.agent.md          (Standalone, no handoffs)
+├── copilot-instructions.md       (Group-level setup and integration guidance)
+├── README.md                      (Usage guide and agent responsibilities)
+└── CHANGELOG.md                   (Version history and migration notes)
+```
+
+This schema enables:
+- **Portability**: Any agent group can be moved to another repository and renamed to `.github/agents/` without modification
+- **Validation**: Automated linters can enforce metadata consistency and naming conventions
+- **Coordination**: Handoff chains define agent communication patterns
+- **Versioning**: Track agent evolution and provide migration guidance
+
 ## Responsibilities
 
 - Analyze user needs and translate them into agent requirements
