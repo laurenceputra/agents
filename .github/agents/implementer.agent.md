@@ -1,8 +1,7 @@
 ---
 name: agent-implementer
 description: Implements agent definitions from specifications following best practices
-version: 1.0.0
-model: claude-sonnet-4-5-20250929
+model: Claude Haiku 4.5 (copilot)
 ---
 
 # Agent Implementer

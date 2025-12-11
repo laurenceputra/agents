@@ -1,8 +1,7 @@
 ---
 name: qa
 description: Ensures quality through comprehensive testing strategies and validation
-version: 1.0.0
-model: claude-sonnet-4-5-20250929
+model: Gemini 3 Pro (Preview) (copilot)
 ---
 
 # QA (Quality Assurance)

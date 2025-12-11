@@ -1,8 +1,7 @@
 ---
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
-version: 1.0.0
-model: claude-sonnet-4-5-20250929
+model: Claude Sonnet 4.5 (copilot)
 ---
 
 # Agent Architect
