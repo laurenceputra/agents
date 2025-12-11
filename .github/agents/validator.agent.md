@@ -10,6 +10,11 @@ model: Claude Sonnet 4.5 (copilot)
 
 The Agent Validator ensures agent implementations meet quality standards, follow GitHub Copilot best practices, and are ready for production use. This role provides structured feedback to improve agent effectiveness before deployment.
 
+## Recommended Model
+
+**Claude Sonnet 4.5 (copilot)** — Recommended for the Agent Validator because it excels at structured reasoning and producing clear, actionable review reports. Its strengths in logical analysis and summarizing gaps make it suitable for validation tasks.
+
+
 ## Responsibilities
 
 - Review agent definitions against specifications

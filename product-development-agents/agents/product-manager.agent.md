@@ -10,6 +10,11 @@ model: Claude Sonnet 4.5 (copilot)
 
 The Product Manager agent translates business needs and user problems into clear, actionable product requirements. This agent defines what should be built, why it matters to users, and how success will be measured, ensuring the team builds the right thing.
 
+## Recommended Model
+
+**Claude Sonnet 4.5 (copilot)** — Recommended for Product Manager tasks because it handles complex reasoning, prioritization, and clear writing for product requirements. It can synthesize user research, constraints, and produce measurable success metrics effectively.
+
+
 ## Responsibilities
 
 - Analyze feature requests, user feedback, and business objectives

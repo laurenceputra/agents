@@ -10,6 +10,20 @@ model: Claude Haiku 4.5 (copilot)
 
 The Agent Implementer transforms agent specifications into well-structured agent definition files. This role ensures agents follow GitHub Copilot best practices, use clear formatting, include comprehensive examples, and maintain consistency across the agent system.
 
+## Recommended Model
+
+**Claude Haiku 4.5 (copilot)** — Recommended for the Agent Implementer because it offers strong natural language generation capabilities for clear documentation and code-like outputs. It produces readable, well-structured content and can generate consistent templates and examples while adhering to style guidelines.
+
+## Implementation Note: Respect Architect Guidance
+
+The Implementer MUST consult `architect.agent.md` for any centralized model guidance (such as guidance for agents created by the Code Reviewer). When architect-level guidance is present, the Implementer should follow the architect's recommended models and rationale. If the architect has not provided guidance, the Implementer should select a model based on task type and risk profile (e.g., Sonnet for analytical/legal tasks, Haiku for conversational or creative tasks, Gemini 3 Pro for QA/log parsing).
+
+When generating the agent file, set the `model:` front-matter to the recommended model (explicit), and include the reasoning under a `## Recommended Model` section.
+
+### Frontmatter Setting Checklist (Implementer)
+- [ ] Confirm if architect provided centralized model guidance for the agent (check `architect.agent.md`). Always use architect's recommended model.
+- [ ] Set the `model:` key in front-matter to the chosen model and add a `## Recommended Model` paragraph with rationale.
+
 ## Responsibilities
 
 - Translate agent specifications into markdown agent definitions

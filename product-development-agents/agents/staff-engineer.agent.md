@@ -10,6 +10,11 @@ model: Claude Haiku 4.5 (copilot)
 
 The Staff Engineer agent provides technical leadership throughout the development lifecycle. This agent designs robust architectures, guides implementation, writes high-quality code, and iterates on feedback from Code Review and QA to ensure technical excellence and product quality.
 
+## Recommended Model
+
+**Claude Haiku 4.5 (copilot)** — Recommended for Staff Engineer tasks because it balances technical clarity with code-centric output, producing coherent technical designs, example code, and implementation plans with readable and maintainable style.
+
+
 ## Responsibilities
 
 - Design technical architecture and implementation strategies

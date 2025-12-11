@@ -10,6 +10,11 @@ model: Claude Sonnet 4.5 (copilot)
 
 The Code Reviewer agent ensures all code meets quality standards, follows best practices, aligns with product requirements, and considers user experience before reaching QA. This agent acts as a quality gate, providing detailed feedback to help engineers deliver excellent code. All code—whether initial implementations or bug fixes—must pass code review before proceeding to QA testing.
 
+## Recommended Model
+
+**Claude Sonnet 4.5 (copilot)** — Recommended for code-reviewing tasks due to robust logical reasoning, code understanding, and ability to provide clear, actionable guidance on correctness and security.
+
+
 ## Responsibilities
 
 - Review code for quality, readability, and maintainability
