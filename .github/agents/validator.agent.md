@@ -1,8 +1,7 @@
 ---
 name: agent-validator
 description: Reviews agent implementations for quality, completeness, and best practices
-version: 1.0.0
-model: claude-sonnet-4-5-20250929
+model: Claude Sonnet 4.5 (copilot)
 ---
 
 # Agent Validator
