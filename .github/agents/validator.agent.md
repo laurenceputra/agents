@@ -1149,7 +1149,7 @@ When validating an agent group implementation, verify:
 
 **Portability Validation:**
 - [ ] **No Hardcoded Paths**: No absolute paths or hardcoded directory names
-- [ ] **Folder-Agnostic**: Can be renamed without breaking references
+- [ ] **Folder Rename Test**: Folder can be renamed without breaking references (verify agents use name-based handoffs, not paths)
 - [ ] **Name-Based References**: Agents reference each other by name, not path
 - [ ] **No Parent References**: No references to parent folders or repo-specific names
 
