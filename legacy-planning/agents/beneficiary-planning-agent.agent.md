@@ -2,6 +2,9 @@
 name: beneficiary-planning-agent
 description: Analyzes beneficiary circumstances and helps users design fair, equitable distributions aligned with their values
 model: Claude Sonnet 4.5 (copilot)
+version: 1.0.0
+handoffs:
+  - legacy-planning-advisor
 ---
 
 # Beneficiary Planning Agent

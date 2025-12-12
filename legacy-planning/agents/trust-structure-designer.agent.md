@@ -2,6 +2,9 @@
 name: trust-structure-designer
 description: Helps users understand trust types and design appropriate trust structures for their estate plan
 model: Claude Sonnet 4.5 (copilot)
+version: 1.0.0
+handoffs:
+  - legacy-planning-advisor
 ---
 
 # Trust Structure Designer
