@@ -5,7 +5,7 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.0] - 2025-12-12
+## 1.1.0 - 2025-12-12
 
 ### Added
 
@@ -138,7 +138,7 @@ Follow the new workflow from the start:
 4. Iterate until approved
 5. Validator submits PR
 
-## [1.0.0] - 2024-12-01
+## 1.0.0 - 2024-12-01
 
 ### Added
 
@@ -205,6 +205,3 @@ Follow the new workflow from the start:
 - [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 - [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 - [GitHub Copilot Best Practices](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/coding-agent/get-the-best-results)
-
-[1.1.0]: https://github.com/your-org/your-repo/compare/v1.0.0...v1.1.0
-[1.0.0]: https://github.com/your-org/your-repo/releases/tag/v1.0.0
