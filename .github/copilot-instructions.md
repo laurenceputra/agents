@@ -83,6 +83,148 @@ Each meta-agent has a single, well-defined responsibility:
 - Approve agents with critical issues
 - Allow others to submit PRs for agent implementations
 
+---
+
+## Meta-Agent Workflow Diagram
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        META-AGENT SYSTEM WORKFLOW                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+                                   ┌──────────┐
+                                   │   USER   │
+                                   │  (Need)  │
+                                   └────┬─────┘
+                                        │
+                                        ▼
+                         ┌──────────────────────────────┐
+                         │   AGENT ARCHITECT            │
+                         │   Model: Claude Sonnet 4.5   │
+                         │   ─────────────────────      │
+                         │   • Design specification     │
+                         │   • Define scope/boundaries  │
+                         │   • Recommend models         │
+                         │   • Document handoffs        │
+                         └──────────┬───────────────────┘
+                                    │
+                                    │ Specification
+                                    ▼
+                         ┌──────────────────────────────┐
+                         │   AGENT IMPLEMENTER          │
+                         │   Model: Claude Haiku 4.5    │
+                         │   ─────────────────────      │
+                         │   • Create feature branch    │
+                         │   • Implement agent file(s)  │
+                         │   • Self-review checklist    │
+                         │   • Commit & push to branch  │
+                         └──────────┬───────────────────┘
+                                    │
+                                    │ Feature Branch
+                                    ▼
+                         ┌──────────────────────────────┐
+                         │   AGENT VALIDATOR            │
+                         │   Model: Claude Sonnet 4.5   │
+                         │   ─────────────────────      │
+                         │   • Review implementation    │
+                         │   • Check quality standards  │
+                         │   • Validate handoffs        │
+                         │   • Gate PR submission       │
+                         └──┬───────┬───────────────┬───┘
+                            │       │               │
+              ┌─────────────┘       │               └─────────────┐
+              │                     │                             │
+              ▼                     ▼                             ▼
+    ┌─────────────────┐   ┌─────────────────┐         ┌─────────────────┐
+    │  Code Issues    │   │  Spec Issues    │         │    APPROVED     │
+    │  (Minor/Major)  │   │  (Gaps/Unclear) │         │                 │
+    └────────┬────────┘   └────────┬────────┘         └────────┬────────┘
+             │                     │                            │
+             │ Feedback            │ Escalate                   │ PR Created
+             │ Report              │ to Architect               │ by Validator
+             ▼                     ▼                            ▼
+    ┌─────────────────┐   ┌─────────────────┐         ┌─────────────────┐
+    │  IMPLEMENTER    │   │   ARCHITECT     │         │   MAIN BRANCH   │
+    │  (Fix & Push)   │   │  (Revise Spec)  │         │  (Agent Live)   │
+    └────────┬────────┘   └────────┬────────┘         └─────────────────┘
+             │                     │
+             │ Re-submit           │ Updated Spec
+             │ to Validator        │ to Implementer
+             │                     │
+             └─────────┐     ┌─────┘
+                       │     │
+                       ▼     ▼
+                  [Iteration Loop]
+
+═════════════════════════════════════════════════════════════════════════════
+
+QUALITY GATES (Checkpoints):
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ GATE 1: SPECIFICATION COMPLETE                                          │
+│ ───────────────────────────────────────────────────────────────────     │
+│ ✓ Problem statement clear                    Owner: Architect           │
+│ ✓ Scope boundaries defined                   Pass: Ready for Impl.      │
+│ ✓ Model recommendations provided                                        │
+│ ✓ Success criteria measurable                                           │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ GATE 2: IMPLEMENTATION COMPLETE                                         │
+│ ───────────────────────────────────────────────────────────────────     │
+│ ✓ Agent file on feature branch (NOT main)   Owner: Implementer         │
+│ ✓ Frontmatter matches spec                   Pass: Ready for Review     │
+│ ✓ All sections present & complete                                       │
+│ ✓ Examples comprehensive (2+ required)                                  │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ GATE 3: QUALITY VERIFIED (MANDATORY PR GATE)                            │
+│ ───────────────────────────────────────────────────────────────────     │
+│ ✓ All quality standards met                  Owner: Validator           │
+│ ✓ No critical issues remaining               Pass: PR Submitted         │
+│ ✓ Aligns with specification                                             │
+│ ✓ Best practices followed                    ⚠️  Only Validator         │
+│                                                  submits PRs!            │
+└─────────────────────────────────────────────────────────────────────────┘
+
+═════════════════════════════════════════════════════════════════════════════
+
+LEGEND:
+
+  ┌─────┐
+  │ Box │     = Agent or stage in workflow
+  └─────┘
+
+     │        = Primary workflow path (sequential)
+     ▼
+
+     ↓        = Feedback/iteration loop (returns to earlier stage)
+
+  ═══════     = Section separator
+
+  ✓           = Checkpoint/requirement
+
+  ⚠️          = Critical enforcement point
+
+═════════════════════════════════════════════════════════════════════════════
+
+BRANCH WORKFLOW:
+
+  feature/agent-{name}  or  feature/group-{name}
+        ↓
+  [Development & Testing]
+        ↓
+  [Validation Review]
+        ↓
+  [PR Submission by Validator]
+        ↓
+  main branch (production)
+
+```
+
+---
+
 ## Workflows
 
 The meta-agent system supports two parallel workflows:
