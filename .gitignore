@@ -1,2 +1,4 @@
 # Agent specification artifacts
-.pr_details.md
+# PR details directory - contains branch-specific PR information
+# for manual PR creation by humans (not pushed to remote)
+.pr_details/
