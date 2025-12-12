@@ -907,15 +907,15 @@ You can add agents for additional roles:
 
 ### For New Projects
 
-1. **Install**: Copy `product-development-agents/` directory to your project root
-2. **Rename**: Rename directory to `.github`
+1. **Install**: Copy this agent group directory to your project root
+2. **Rename**: Rename directory to `.github` (or keep current name if preferred)
 3. **Customize**: Fill in "Domain Context (Project-Specific)" sections in each agent
 4. **Test**: Run through workflow with a small feature to validate
 5. **Iterate**: Adjust workflow as needed for your team
 
 ### For Existing Projects
 
-1. **Install**: Copy `product-development-agents/` to your project
+1. **Install**: Copy this agent group directory to your project
 2. **Customize**: Update agents with your existing standards and processes
 3. **Phase In**: Start with one phase (e.g., code review) and expand
 4. **Train**: Ensure team understands workflow and agents

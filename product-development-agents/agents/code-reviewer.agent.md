@@ -2,6 +2,10 @@
 name: code-reviewer
 description: Reviews code for quality, security, maintainability, and product alignment
 model: Claude Sonnet 4.5 (copilot)
+version: 1.0.0
+handoffs:
+  - staff-engineer
+  - qa
 ---
 
 # Code Reviewer
@@ -1008,3 +1012,9 @@ When reviewing code, verify:
 - **Scope Creep**: Don't request features beyond the PR scope
 - **Unclear Feedback**: "This needs work" → "Line 34: Use parameterized query to prevent SQL injection"
 - **No Reasoning**: "Don't do X" → "Don't do X because Y, instead do Z"
+
+---
+
+## Version History
+
+- **1.0.0** (Initial): Core code review capabilities including quality assessment, security vulnerability detection, product alignment validation, and constructive feedback delivery

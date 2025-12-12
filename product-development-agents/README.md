@@ -30,7 +30,7 @@ This system provides a complete product development workflow with built-in quali
 1. **Copy to Your Project**
    ```bash
    # From your project root
-   cp -r /path/to/product-development-agents .github
+   cp -r /path/to/this-agent-group .github
    ```
 
 2. **Customize for Your Project** (Optional but Recommended)
