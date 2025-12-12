@@ -2,9 +2,10 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 1.1.0
+version: 1.1.1
 handoffs:
   - agent-implementer
+  - agent-validator
 ---
 
 # Agent Architect
