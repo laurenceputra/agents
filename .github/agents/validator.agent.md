@@ -1096,6 +1096,362 @@ This agent definition has a strong foundation but requires significant work on e
 **Resubmission**: Please address the 3 required items and resubmit for validation.
 ```
 
+### Example 3: Validating Testing Agents Group (Needs Revision - Multiple Critical Issues)
+
+**Input:**
+[Agent group implementation on branch `feature/group-testing-strategy` with 3 agents: test-strategy-designer, test-implementer, test-validator]
+
+**Output:**
+```markdown
+# Group Validation Report: Testing Strategy Agents
+
+## Overall Assessment
+**Status**: ❌ Needs Revision
+**Confidence**: High
+
+The Testing Strategy agent group has a solid conceptual foundation with well-defined agent responsibilities and clear workflow intentions. However, there are **10 critical issues** that must be addressed before approval: structural problems (missing agent file, filename mismatch), broken handoff chains, infrastructure gaps (missing decision tree, incomplete README), model mismatches, and cross-agent inconsistencies. These issues prevent the group from functioning correctly and must be fixed for production deployment.
+
+**Critical Issue Count**: 10 (must fix)
+**Recommendations**: 5 (should fix)
+**Enhancements**: 3 (nice to have)
+
+## Structural Validation
+
+### Folder Structure
+- [x] Folder structure: `testing-agents/agents/`, `copilot-instructions.md`, `README.md`
+- [x] All agents in `agents/` subdirectory
+- [❌] **CRITICAL**: Filenames match `name` fields (test-implementer filename mismatch)
+- [x] CHANGELOG.md present (version is 1.0.0, so optional but included)
+
+**Issue 1 (CRITICAL): Filename Mismatch**
+- **Problem**: File `agents/test-implementation.agent.md` does not match frontmatter `name: test-implementer`
+- **Impact**: Agent references will break, handoffs won't work
+- **Location**: `agents/test-implementation.agent.md`
+- **Fix**: Rename file to `agents/test-implementer.agent.md` to match `name` field exactly
+
+### File Completeness
+- [x] Agent 1: test-strategy-designer
+- [❌] Agent 2: test-implementer (filename wrong, see above)
+- [❌] **CRITICAL**: Agent 3: test-validator (FILE MISSING - not found in agents/ folder)
+- [x] copilot-instructions.md
+- [x] README.md
+- [x] CHANGELOG.md (optional for v1.0.0)
+
+**Issue 2 (CRITICAL): Missing Agent File**
+- **Problem**: `test-validator.agent.md` file is completely missing from `agents/` folder
+- **Impact**: Group is incomplete, workflow cannot function (designer → implementer → MISSING)
+- **Location**: Should be at `agents/test-validator.agent.md`
+- **Fix**: Create `test-validator.agent.md` with full agent definition following specification
+
+## Handoff Chain Validation
+
+### Handoff References
+- [❌] **CRITICAL**: test-strategy-designer handoffs: `[test-implementer, test-reviewer]`
+  - `test-implementer` - Valid ✅
+  - `test-reviewer` - **BROKEN** ❌ (no agent named "test-reviewer", should be "test-validator")
+- [❌] **CRITICAL**: test-implementer handoffs: `[test-validator, test-strategy-designer]`
+  - `test-validator` - Valid but file missing ⚠️
+  - `test-strategy-designer` - Valid ✅
+- [❌] test-validator handoffs: Cannot validate (file missing)
+
+**Issue 3 (CRITICAL): Broken Handoff Reference**
+- **Problem**: test-strategy-designer references non-existent agent "test-reviewer"
+- **Impact**: Handoff chain broken, workflow fails at first step
+- **Location**: `agents/test-strategy-designer.agent.md` frontmatter line 7
+- **Fix**: Change `test-reviewer` to `test-validator` in handoffs array
+
+**Issue 4 (CRITICAL): Handoff to Missing Agent**
+- **Problem**: test-implementer tries to hand off to test-validator which doesn't exist
+- **Impact**: Cannot complete workflow, dead-end after implementation
+- **Location**: `agents/test-implementer.agent.md` frontmatter
+- **Fix**: Create test-validator.agent.md file (related to Issue 2)
+
+### Handoff Graph
+```
+User → test-strategy-designer → test-implementer → test-validator (MISSING)
+                                      ↓                    ↓
+                              (feedback loop)      (feedback loops)
+                                      ↑                    ↓
+                        test-strategy-designer ←───────────┘
+```
+
+**Issues**: 
+- test-validator node missing (breaks graph)
+- test-strategy-designer has wrong handoff reference (test-reviewer doesn't exist)
+
+## Infrastructure Completeness
+
+### copilot-instructions.md
+- [x] Group overview and purpose - Clear and well-written
+- [x] Agent descriptions (name, role, model, handoffs) - All 3 agents described
+- [❌] **CRITICAL**: Workflow documentation (INCOMPLETE - missing decision tree section)
+- [x] Examples - 2 examples provided showing handoff patterns
+- [x] Version history - Present
+
+**Issue 5 (CRITICAL): Missing Decision Tree**
+- **Problem**: copilot-instructions.md lacks "Decision Tree" or "Which Agent Do I Use?" section
+- **Impact**: Users won't know which agent to start with for different scenarios
+- **Location**: copilot-instructions.md (section missing entirely)
+- **Fix**: Add decision tree section after "Workflow" section:
+```markdown
+## Decision Tree: Which Agent Do I Use?
+
+START: I need testing help
+  ↓
+What stage are you at?
+  │
+  ├─ I have requirements, need test plan
+  │  └→ Consult @test-strategy-designer
+  │
+  ├─ I have test strategy, need code
+  │  └→ Consult @test-implementer
+  │
+  └─ I have test code, need review
+     └→ Consult @test-validator
+```
+
+**Issue 6 (RECOMMENDATION): Workflow Diagram Needs Enhancement**
+- **Problem**: Workflow section shows linear flow, doesn't show feedback loops clearly
+- **Impact**: Users may not understand iteration process
+- **Location**: copilot-instructions.md lines 45-52
+- **Fix**: Add iteration arrows and decision points to workflow diagram
+
+### README.md
+- [x] Getting started guide - Present
+- [x] Agent list - All 3 agents listed with descriptions
+- [❌] **CRITICAL**: Usage examples (INSUFFICIENT - only 1 example, recommend minimum 3)
+- [x] Integration instructions - Basic instructions provided
+- [⚠️] Troubleshooting section missing (optional but recommended)
+
+**Issue 7 (CRITICAL): Insufficient Usage Examples**
+- **Problem**: README.md has only 1 usage example (simple happy path)
+- **Impact**: Users lack guidance for edge cases and iteration workflows
+- **Location**: README.md "Usage Examples" section
+- **Fix**: Add at minimum:
+  - Example 1: Happy path (already present)
+  - Example 2: Iteration loop (validator finds issues, implementer fixes)
+  - Example 3: Edge case (complex feature requiring multiple iterations)
+
+**Issue 8 (RECOMMENDATION): Add Troubleshooting Section**
+- **Problem**: No troubleshooting guidance for common issues
+- **Location**: README.md (section missing)
+- **Fix**: Add section covering:
+  - "Validator keeps rejecting my tests" → Check strategy alignment
+  - "Not sure which testing level to use" → See test-strategy-designer guidance
+  - "Tests passing locally but failing in CI" → Environment differences
+
+## Cross-Agent Consistency
+
+### Structural Consistency
+- [x] test-strategy-designer follows standard structure
+- [⚠️] test-implementer follows standard structure (filename wrong)
+- [❌] test-validator structure cannot validate (file missing)
+
+**Issue 9 (RECOMMENDATION): Integration Points Inconsistency**
+- **Problem**: test-strategy-designer has detailed Integration Points section (5 bullet points), test-implementer has only 2 sentences
+- **Impact**: Inconsistent quality across agents, implementer integration unclear
+- **Location**: `agents/test-implementer.agent.md` Integration Points section
+- **Fix**: Expand test-implementer Integration Points to match detail level:
+  - Upstream: What it receives from test-strategy-designer (format, required fields)
+  - Downstream: What it sends to test-validator (format, structure)
+  - Feedback: How it handles validator feedback
+
+### Model Alignment
+- [x] test-strategy-designer: Claude Sonnet 4.5 (copilot) - Matches spec ✅
+- [❌] **CRITICAL**: test-implementer: Claude Haiku 4.5 (copilot) - **SPEC SAYS GEMINI 3 PRO** ❌
+- [❌] test-validator: Cannot validate (file missing)
+
+**Issue 10 (CRITICAL): Model Mismatch**
+- **Problem**: test-implementer specifies "Claude Haiku 4.5 (copilot)" but specification requires "Gemini 3 Pro"
+- **Impact**: Agent using wrong model, may not perform as designed
+- **Location**: `agents/test-implementer.agent.md` frontmatter line 4
+- **Fix**: Change model to "Gemini 3 Pro" and update Recommended Model section rationale
+
+### Quality Standards
+- **test-strategy-designer**: High quality
+  - Purpose: Clear ✅
+  - Examples: 2 comprehensive examples ✅
+  - Quality Checklist: 10 measurable items ✅
+  - Integration Points: Well documented ✅
+  
+- **test-implementer**: Medium quality
+  - Purpose: Clear ✅
+  - Examples: 2 examples, but shallow (show code only, no input/output narrative) ⚠️
+  - Quality Checklist: 6 items (borderline, recommend 8-10) ⚠️
+  - Integration Points: Too brief (see Issue 9) ❌
+
+- **test-validator**: Cannot assess (file missing) ❌
+
+**Issue 11 (RECOMMENDATION): test-implementer Examples Need Depth**
+- **Problem**: Examples show generated test code but lack narrative explanation
+- **Impact**: Users don't understand the thinking behind implementation choices
+- **Location**: `agents/test-implementer.agent.md` Examples section
+- **Fix**: For each example, add:
+  - **Input**: Test strategy excerpt showing scenario
+  - **Analysis**: Brief explanation of implementation approach
+  - **Output**: Generated test code
+  - **Rationale**: Why this implementation pattern chosen
+
+**Issue 12 (RECOMMENDATION): test-implementer Quality Checklist Too Short**
+- **Problem**: Only 6 items in checklist (recommend 8-15 for consistency)
+- **Impact**: Less rigorous quality validation than other agents
+- **Location**: `agents/test-implementer.agent.md` Quality Checklist section
+- **Fix**: Add items like:
+  - [ ] Test names descriptive and follow naming convention
+  - [ ] Setup/teardown properly isolated between tests
+  - [ ] Assertions use appropriate matcher methods
+  - [ ] Edge cases from strategy all covered
+
+## Portability Validation
+- [x] No hardcoded paths - All references are relative ✅
+- [x] Agents reference each other by name (not path) ✅
+- [x] No references to parent folders ✅
+- [x] Folder can be renamed without breaking ✅
+
+**Portability Assessment**: ✅ Excellent - Group is fully portable
+
+## Individual Agent Reviews
+
+### test-strategy-designer
+**Status**: ✅ Meets Standards (except broken handoff reference)
+- All sections present and comprehensive
+- 2 high-quality examples with full input/output
+- 10-item measurable quality checklist
+- Integration points well documented
+- Only issue: Handoff reference error (Issue 3)
+
+### test-implementer
+**Status**: ⚠️ Needs Improvement (5 issues)
+- Filename mismatch (Issue 1) - CRITICAL
+- Model mismatch (Issue 10) - CRITICAL
+- Examples lack depth (Issue 11) - RECOMMENDATION
+- Quality checklist too short (Issue 12) - RECOMMENDATION
+- Integration points too brief (Issue 9) - RECOMMENDATION
+
+### test-validator
+**Status**: ❌ Missing Entirely (Issue 2)
+- File not found in agents/ folder
+- Cannot validate any aspect
+- Blocking approval
+
+## Approval Criteria Status (Group-Specific)
+
+- [❌] All structural validation passed
+  - Issue 1: Filename mismatch (test-implementer)
+  - Issue 2: Missing test-validator file
+- [❌] All handoff chains valid
+  - Issue 3: Broken reference to "test-reviewer"
+  - Issue 4: Handoff to missing test-validator
+- [❌] Infrastructure files complete
+  - Issue 5: copilot-instructions.md missing decision tree
+  - Issue 7: README.md insufficient usage examples (1 vs 3 required)
+- [⚠️] Cross-agent consistency verified
+  - Issue 9: Integration Points inconsistency
+  - Issue 10: Model mismatch
+  - Issue 11: Example depth inconsistency
+  - Issue 12: Quality checklist length inconsistency
+- [✅] Portability validated
+- [❌] All agents meet individual quality standards
+  - test-strategy-designer: Mostly good (1 handoff issue)
+  - test-implementer: Multiple issues (5 issues)
+  - test-validator: Missing entirely
+
+## Recommendation
+
+**❌ NEEDS REVISION**
+
+The Testing Strategy agent group cannot be approved due to 10 critical and structural issues. The group has strong conceptual design and good intentions, but implementation gaps prevent it from functioning correctly. Most critically:
+1. test-validator agent file is completely missing
+2. Handoff chain is broken (wrong agent name reference)
+3. Infrastructure files are incomplete (missing decision tree, insufficient examples)
+4. Model mismatch on test-implementer
+5. Filename doesn't match frontmatter
+
+These are all fixable issues, but they must be addressed before approval.
+
+**Estimated Effort**: 4-6 hours to address all critical issues
+
+## PR Submission Decision
+
+- [ ] **APPROVED - Validator will submit PR**
+- [✅] **NEEDS REVISION - Returning to Implementer with feedback**
+- [ ] **SPECIFICATION ISSUE - Escalating to Architect**
+
+## Next Steps
+
+**For Implementer (Priority Order):**
+
+### CRITICAL (Must Fix - Blocks Approval) - Est. 3-4 hours
+
+1. **Create test-validator.agent.md** (Issue 2) - Est. 90 min
+   - Follow standard agent structure
+   - Include frontmatter with correct handoffs
+   - Add 2-3 comprehensive examples
+   - 8-10 item quality checklist
+   - Integration points showing coordination with designer/implementer
+
+2. **Fix filename mismatch** (Issue 1) - Est. 2 min
+   - Rename `agents/test-implementation.agent.md` to `agents/test-implementer.agent.md`
+
+3. **Fix broken handoff reference** (Issue 3) - Est. 2 min
+   - In `agents/test-strategy-designer.agent.md` frontmatter
+   - Change `test-reviewer` to `test-validator`
+
+4. **Fix model mismatch** (Issue 10) - Est. 10 min
+   - In `agents/test-implementer.agent.md` frontmatter and Recommended Model section
+   - Change from "Claude Haiku 4.5 (copilot)" to "Gemini 3 Pro"
+   - Update rationale for model choice
+
+5. **Add decision tree to copilot-instructions.md** (Issue 5) - Est. 30 min
+   - Add "Decision Tree" section after "Workflow"
+   - Include at least 3 decision paths
+   - Show which agent to use in different scenarios
+
+6. **Add usage examples to README.md** (Issue 7) - Est. 45 min
+   - Add Example 2: Iteration workflow (validator feedback loop)
+   - Add Example 3: Complex feature (multiple iterations)
+   - Each example should be 10-15 lines with clear input/output
+
+### RECOMMENDED (Should Fix - Improves Quality) - Est. 1-2 hours
+
+7. **Expand test-implementer Integration Points** (Issue 9) - Est. 20 min
+   - Add upstream integration details
+   - Add downstream integration details
+   - Document feedback handling
+
+8. **Add depth to test-implementer examples** (Issue 11) - Est. 30 min
+   - Add Input/Analysis/Rationale narrative to each example
+   - Show thought process, not just code output
+
+9. **Expand test-implementer Quality Checklist** (Issue 12) - Est. 15 min
+   - Add 2-4 more items (target 8-10 total)
+   - Focus on code quality and strategy alignment
+
+10. **Enhance workflow diagram** (Issue 6) - Est. 20 min
+    - Add feedback loop arrows
+    - Show decision points
+    - Clarify iteration process
+
+11. **Add troubleshooting section to README.md** (Issue 8) - Est. 20 min
+    - Cover 3-5 common issues
+    - Provide clear solutions or workarounds
+
+### ENHANCEMENTS (Nice to Have - Optional) - Est. 1 hour
+
+12. Add more detailed examples to copilot-instructions.md
+13. Add anti-patterns section (what not to do)
+14. Include performance benchmarks in test-strategy-designer
+
+**Resubmission Process**:
+1. Address all CRITICAL items (1-6) on the same branch
+2. Commit and push changes to `feature/group-testing-strategy`
+3. Notify Agent Validator when ready for re-review
+4. Validator will re-review focusing on critical fixes
+5. If critical items resolved, may approve with recommendations as follow-up
+
+**Note**: After critical items fixed, this group should be approvable even if recommendations are deferred to future iteration.
+```
+
 ## Quality Checklist
 
 ### For Individual Agent Validation
