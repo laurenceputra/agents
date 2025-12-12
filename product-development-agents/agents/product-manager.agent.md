@@ -2,6 +2,9 @@
 name: product-manager
 description: Defines product requirements, user stories, and acceptance criteria
 model: Claude Sonnet 4.5 (copilot)
+version: 1.0.0
+handoffs:
+  - staff-engineer
 ---
 
 # Product Manager
@@ -604,3 +607,9 @@ When creating product requirements, verify:
 - **Missing edge cases**: Always consider error states and boundary conditions
 - **Untestable requirements**: Every requirement should be verifiable
 - **Scope creep**: Be disciplined about out-of-scope items
+
+---
+
+## Version History
+
+- **1.0.0** (Initial): Core product management capabilities including PRD creation, user story writing, acceptance criteria definition, and success metrics establishment

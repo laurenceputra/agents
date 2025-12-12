@@ -2,6 +2,9 @@
 name: staff-engineer
 description: Provides technical leadership, architecture decisions, and implementation guidance
 model: Claude Haiku 4.5 (copilot)
+version: 1.0.0
+handoffs:
+  - code-reviewer
 ---
 
 # Staff Engineer
@@ -1044,3 +1047,9 @@ When providing technical leadership, verify:
 - **Ignoring security**: Security is not optional; consider it from the start
 - **Skipping tests**: Tests are not overhead; they're insurance
 - **Poor communication**: Explain your decisions; make your code self-documenting
+
+---
+
+## Version History
+
+- **1.0.0** (Initial): Core technical leadership capabilities including architecture design, implementation guidance, code quality standards, and iterative feedback incorporation
