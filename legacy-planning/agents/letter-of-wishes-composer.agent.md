@@ -2,6 +2,9 @@
 name: letter-of-wishes-composer
 description: Guides users in writing a comprehensive, meaningful letter of wishes documenting personal values, distribution reasoning, and guidance for trustees and beneficiaries
 model: Claude Haiku 4.5 (copilot)
+version: 1.0.0
+handoffs:
+  - legacy-planning-advisor
 ---
 
 # Letter of Wishes Composer
