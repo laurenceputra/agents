@@ -1,46 +1,705 @@
-# GitHub Copilot Instructions - Agent Builder System
+# GitHub Copilot Instructions - Meta-Agent System
 
 ## Overview
 
-This is a meta-agent system designed to help you build high-quality, reusable agents for any purpose. The system follows GitHub Copilot best practices for agent development.
+This is a meta-agent system designed to help you build high-quality, reusable agents for any purpose. The system enforces strict separation of concerns through three specialized agents working in a defined workflow with quality gates.
+
+**This meta-agent group follows the same portable agent structure it enforces for other agent groups.**
 
 ## Core Principle
 
-**Agents are managerial roles that define job scope, requirements, and quality standards for specialized tasks.**
+**Strict separation of concerns with enforced workflow gates ensures quality agent implementations.**
 
-## Workflow: Building New Agents
+Each meta-agent has a single, well-defined responsibility:
+- **Agent Architect**: Designs specifications (planning only, no implementation)
+- **Agent Implementer**: Implements specifications on feature branches (implementation only, no design decisions)
+- **Agent Validator**: Reviews and gates PR submission (quality control only, controls merge process)
 
-When creating a new agent, follow this structured workflow:
+## The Three Meta-Agents
 
-### Phase 1: Agent Architecture (Define the Need)
-**Consult**: `.github/agents/agent-architect.md`
+### Agent Architect (`agents/agent-architect.md`)
+**Role**: Design specifications for new agents  
+**Model**: Claude Sonnet 4.5 (copilot)  
+**Handoffs to**: Agent Implementer
 
-The Agent Architect analyzes your requirements and designs the agent specification including:
-- Agent purpose and scope
-- Key responsibilities
-- Required inputs and expected outputs
-- Success criteria
-- Integration points with other agents (if applicable)
+**When to use**: 
+- You need a new agent but don't have a clear specification
+- You have a problem to solve and need to figure out what kind of agent would help
+- An existing specification has gaps or ambiguities
 
-### Phase 2: Agent Implementation (Build the Agent)
-**Consult**: `.github/agents/agent-implementer.md`
+**What it does**:
+- Analyzes requirements and translates into agent specifications
+- Defines scope, boundaries, inputs/outputs, success criteria
+- Recommends appropriate model for each agent
+- Designs frontmatter schema and handoff chains
+- Documents edge cases and integration points
 
-The Agent Implementer creates the agent definition file following best practices:
-- Clear, actionable instructions
-- Structured response formats
-- Example scenarios
-- Quality checklists
-- GitHub Copilot optimization
+**What it NEVER does**:
+- Implement agent definition files (.agent.md)
+- Write code or markdown for agents
+- Make technical implementation decisions
 
-### Phase 3: Agent Validation (Quality Assurance)
-**Consult**: `.github/agents/agent-validator.md`
+### Agent Implementer (`agents/agent-implementer.md`)
+**Role**: Implement agent definitions from specifications  
+**Model**: Claude Haiku 4.5 (copilot)  
+**Handoffs to**: Agent Validator
 
-The Agent Validator reviews the agent implementation for:
-- Clarity and completeness
-- Adherence to best practices
-- Testability and measurability
-- Documentation quality
-- Usability
+**When to use**:
+- You have a complete specification from Agent Architect
+- You need to turn a spec into an agent definition file
+- You need to update an existing agent based on Validator feedback
+
+**What it does**:
+- Creates agent definition markdown files from specifications
+- Works in feature branches (never directly on main)
+- Follows GitHub Copilot best practices
+- Creates comprehensive examples and quality checklists
+- Iterates based on Validator feedback
+
+**What it NEVER does**:
+- Make design decisions (that's Architect's role)
+- Merge PRs or commit to main (that's Validator's role)
+- Skip validation review
+
+### Agent Validator (`agents/agent-validator.md`)
+**Role**: Review implementations and control PR submission  
+**Model**: Claude Sonnet 4.5 (copilot)  
+**Handoffs to**: Agent Implementer (feedback), Agent Architect (spec issues)
+
+**When to use**:
+- Agent Implementer has completed an implementation on a feature branch
+- You need to ensure an agent meets quality standards
+- You're ready to approve and merge an agent to main
+
+**What it does**:
+- Reviews agent implementations against specifications and best practices
+- Provides structured feedback with severity levels (Critical/Recommendation/Enhancement)
+- Iterates with Implementer until approval criteria met
+- **Submits PRs when approved** (gatekeeper role)
+- Escalates specification issues back to Architect
+
+**What it NEVER does**:
+- Implement agents (that's Implementer's role)
+- Approve agents with critical issues
+- Allow others to submit PRs for agent implementations
+
+## Workflows
+
+The meta-agent system supports two parallel workflows:
+1. **Individual Agent Workflow**: Build a single agent with one .agent.md file
+2. **Agent Group Workflow**: Build multiple coordinated agents with infrastructure files
+
+### Choosing Between Individual vs Group Workflow
+
+**Use Individual Agent Workflow when:**
+- Building a single, standalone agent
+- Agent doesn't require coordination with other agents
+- Adding one agent to an existing group
+- Simple use case with one clear responsibility
+
+**Use Agent Group Workflow when:**
+- Building 2+ agents that coordinate via handoffs
+- Need infrastructure files (copilot-instructions.md, README.md)
+- Creating a portable, drop-in agent system
+- Agents share domain context and work together on complex workflows
+
+---
+
+## Workflow: Building Individual Agents
+
+### Phase 1: Specification Design (Architect)
+
+**Entry Point**: User describes need for new agent
+
+**Architect Responsibilities**:
+1. Ask clarifying questions if requirements are unclear
+2. Design comprehensive specification including:
+   - Problem statement and scope boundaries
+   - Key responsibilities and required inputs/outputs
+   - Success criteria and quality metrics
+   - Recommended model for the agent (REQUIRED)
+   - Frontmatter schema (name, description, model, version, handoffs)
+   - Integration points and edge cases
+   - Implementation sequence and next steps
+
+**Exit Criteria**:
+- [ ] Specification is complete and actionable
+- [ ] All required sections present
+- [ ] Model recommendation provided with rationale
+- [ ] Success criteria are measurable
+- [ ] Edge cases documented
+
+**Handoff**: Specification document → Agent Implementer
+
+---
+
+### Phase 2: Implementation (Implementer)
+
+**Entry Point**: Receive specification from Agent Architect
+
+**Implementer Responsibilities**:
+
+#### 2.1: Create Feature Branch
+```bash
+git checkout -b feature/agent-{agent-name}
+# or for refactoring:
+git checkout -b feature/refactor-{description}
+```
+
+**Branch Naming Convention**:
+- Individual agent: `feature/agent-{agent-name}`
+- Agent group: `feature/group-{group-name}`
+- Refactoring: `feature/refactor-{description}`
+
+**Examples**:
+- `feature/agent-security-reviewer` (single agent)
+- `feature/group-api-design` (multiple agents)
+- `feature/refactor-meta-agents-workflow`
+
+#### 2.2: Implement Agent Definition
+Create agent file following specification:
+- **Location**: `./agent-group-name/agents/{agent-name}.agent.md`
+- **Frontmatter**: Include name, description, model, version, handoffs (from spec)
+- **Sections**: Purpose, Responsibilities, Domain Context, Input Requirements, Output Format, Response Format, Examples (2+), Quality Checklist, Integration Points, Version History
+- **Examples**: Minimum 2 (happy path + edge case), ideally 3
+- **Quality Checklist**: 6-10 measurable criteria
+
+#### 2.3: Self-Review
+Before submitting to Validator, check:
+- [ ] Frontmatter matches specification exactly
+- [ ] Filename matches `name` field (kebab-case)
+- [ ] All required sections present and complete
+- [ ] At least 2 comprehensive examples with input/output
+- [ ] Quality checklist has 6-10 measurable items
+- [ ] No hardcoded paths or repo-specific references
+
+#### 2.4: Commit and Push
+```bash
+git add .
+git commit -m "Implement {agent-name} agent following specification"
+git push origin feature/agent-{agent-name}
+```
+
+#### 2.5: Submit to Validator
+- Notify Agent Validator that implementation is ready
+- Provide branch name and link to original specification
+- **DO NOT create PR** - Validator does that after approval
+
+**Exit Criteria**:
+- [ ] Agent file created on feature branch
+- [ ] Follows specification completely
+- [ ] Self-review checklist passed
+- [ ] Submitted to Validator (not merged)
+
+**Handoff**: Feature branch with implementation → Agent Validator
+
+---
+
+### Phase 3: Validation (Validator)
+
+**Entry Point**: Receive implementation from Agent Implementer on feature branch
+
+**Validator Responsibilities**:
+
+#### 3.1: Review Implementation
+Check against specification and best practices:
+- Completeness (all required sections present)
+- Quality (depth and clarity of each section)
+- Best practices (GitHub Copilot guidelines)
+- Examples (sufficient coverage, clear input/output)
+- Quality checklist (measurable criteria)
+- Frontmatter (matches spec, valid handoffs)
+
+#### 3.2: Decision Tree
+
+**Path A: Critical Issues Found → Feedback Loop**
+```
+Validator reviews → Issues found → Detailed feedback report
+   ↓
+Validator categorizes: Critical / Recommendations / Enhancements
+   ↓
+Validator sends back to Implementer with specific, actionable feedback
+   ↓
+Implementer fixes on same branch → Commits → Pushes → Notifies Validator
+   ↓
+Validator re-reviews (return to 3.1)
+   ↓
+Repeat until all critical issues resolved
+```
+
+**Feedback Report Structure**:
+- Overall Assessment (status, confidence, summary)
+- Completeness Review (all sections present and thorough)
+- Best Practices Compliance (GitHub Copilot guidelines)
+- Quality Assessment (strengths + issues by severity)
+- Testability Assessment
+- Integration Review
+- Approval Criteria Status
+- **PR Submission Decision** (Approved / Needs Revision / Spec Issue)
+- Next Steps (prioritized actions)
+
+**Path B: Specification Issues Found → Escalation**
+```
+Validator identifies specification gaps/ambiguities
+   ↓
+Validator escalates to Agent Architect with specific concerns
+   ↓
+Architect revises specification
+   ↓
+Architect hands revised spec back to Implementer
+   ↓
+Implementer updates implementation on same branch
+   ↓
+Return to Path A (validation loop)
+```
+
+**Path C: Approved → PR Submission**
+```
+Validator confirms all approval criteria met
+   ↓
+Validator marks as APPROVED in validation report
+   ↓
+Validator creates pull request from feature branch to main
+   ↓
+Validator includes validation summary in PR description
+   ↓
+Validator submits PR
+   ↓
+PR merged to main (agent goes live)
+```
+
+**Exit Criteria for Approval**:
+- [ ] All required sections present and complete
+- [ ] Instructions clear and actionable
+- [ ] At least 2 comprehensive examples
+- [ ] Quality checklist with measurable criteria (6-10 items)
+- [ ] Integration points documented
+- [ ] Follows markdown conventions
+- [ ] Aligns with specification
+- [ ] No critical issues remaining
+
+**Handoff Options**:
+- If needs revision → Agent Implementer (with feedback)
+- If spec issue → Agent Architect (for spec revision)
+- If approved → Repository (via PR submission)
+
+---
+
+## Workflow: Building Agent Groups
+
+Agent groups are collections of coordinated agents with infrastructure files (copilot-instructions.md, README.md). They are portable and can be dropped into any repository.
+
+### Phase 1: Group Specification Design (Architect)
+
+**Entry Point**: User describes need for multiple coordinated agents
+
+**Architect Responsibilities**:
+1. Ask clarifying questions about scope, coordination, and handoff patterns
+2. Design group specification including:
+   - Group purpose and scope boundaries
+   - List of agents in group with individual responsibilities
+   - Handoff chain design (which agents coordinate)
+   - Model recommendations for each agent
+   - Frontmatter schema for all agents
+   - Infrastructure file requirements (copilot-instructions.md, README.md)
+   - Integration points and workflow diagrams
+   - Quality gates for group cohesion
+
+**Exit Criteria**:
+- [ ] Group purpose clear and actionable
+- [ ] All agents defined with responsibilities
+- [ ] Handoff chains documented (which agent hands to which)
+- [ ] Model recommendations for each agent
+- [ ] Infrastructure file structure defined
+- [ ] Group-level quality criteria established
+- [ ] Portable structure requirements specified
+
+**Handoff**: Group specification document → Agent Implementer
+
+---
+
+### Phase 2: Group Implementation (Implementer)
+
+**Entry Point**: Receive group specification from Agent Architect
+
+**Implementer Responsibilities**:
+
+#### 2.1: Create Feature Branch
+```bash
+git checkout -b feature/group-{group-name}
+```
+
+**Branch Naming Examples**:
+- `feature/group-api-design`
+- `feature/group-security-review`
+- `feature/group-testing-strategy`
+
+#### 2.2: Implement Agent Group Structure
+Create folder structure following portable agent group pattern:
+```
+group-name/
+├── agents/
+│   ├── agent-1.agent.md
+│   ├── agent-2.agent.md
+│   └── agent-3.agent.md
+├── copilot-instructions.md
+├── README.md
+└── CHANGELOG.md (optional for v1.0.0, required for v1.1.0+)
+```
+
+#### 2.3: Implement Infrastructure Files
+
+**copilot-instructions.md**:
+- Group overview and purpose
+- Agent descriptions (name, role, model, handoffs)
+- Workflow documentation (how agents coordinate)
+- Decision trees for users
+- Quality gates
+- Examples
+- Version history
+
+**README.md**:
+- Getting started guide
+- Agent list with descriptions
+- Usage examples
+- Integration instructions
+- Troubleshooting
+
+**CHANGELOG.md** (for versions > 1.0.0):
+- Version history
+- Breaking changes
+- Migration guides
+
+#### 2.4: Implement Individual Agent Files
+For each agent in the group:
+- Create agent definition in `agents/` folder
+- Follow individual agent implementation standards
+- Ensure handoff references are valid (point to agents in group)
+- Include integration points section showing coordination
+- Use portable references (no hardcoded paths)
+
+#### 2.5: Validate Group Cohesion (Self-Review)
+Before submitting to Validator, check:
+- [ ] Folder structure matches portable pattern
+- [ ] All infrastructure files present and complete
+- [ ] All agent files present with valid frontmatter
+- [ ] Handoff chains form valid graph (no broken references)
+- [ ] Models match Architect recommendations
+- [ ] No hardcoded paths or repo-specific names
+- [ ] Filenames match agent `name` fields (kebab-case)
+- [ ] copilot-instructions.md includes workflow and examples
+- [ ] README.md provides usage guidance
+
+#### 2.6: Commit and Push
+```bash
+git add .
+git commit -m "Implement {group-name} agent group following specification"
+git push origin feature/group-{group-name}
+```
+
+#### 2.7: Submit to Validator
+- Notify Agent Validator that group implementation is ready
+- Provide branch name and specification reference
+- **DO NOT create PR** - Validator does that after approval
+
+**Exit Criteria**:
+- [ ] Agent group created on feature branch (not main)
+- [ ] All agents implemented with valid frontmatter
+- [ ] Infrastructure files complete
+- [ ] Handoff chains validated
+- [ ] Self-review checklist passed
+- [ ] Submitted to Validator (not merged)
+
+**Handoff**: Feature branch with agent group → Agent Validator
+
+---
+
+### Phase 3: Group Validation (Validator)
+
+**Entry Point**: Receive agent group implementation from Implementer on feature branch
+
+**Validator Responsibilities**:
+
+#### 3.1: Review Group Implementation
+Check against group specification and best practices:
+- **Completeness**: All agents and infrastructure files present
+- **Consistency**: Agents follow same patterns and quality standards
+- **Handoff Integrity**: All handoff references valid, no broken chains
+- **Infrastructure Quality**: copilot-instructions.md and README.md comprehensive
+- **Portability**: No hardcoded paths, folder-agnostic references
+- **Frontmatter Validity**: All agents have valid YAML frontmatter matching spec
+- **Model Alignment**: All agent models match Architect recommendations
+
+#### 3.2: Group-Specific Validation Criteria
+
+**Structural Validation**:
+- [ ] Folder structure: `group-name/agents/`, `copilot-instructions.md`, `README.md`
+- [ ] All agents in `agents/` subdirectory
+- [ ] Filenames match `name` fields exactly (kebab-case)
+- [ ] No agents outside `agents/` folder
+
+**Handoff Chain Validation**:
+- [ ] All handoff references point to agents in group
+- [ ] No broken handoff chains (dangling references)
+- [ ] Handoff chains form valid graph (can trace workflows)
+- [ ] Circular handoffs documented if intentional
+
+**Infrastructure Completeness**:
+- [ ] copilot-instructions.md includes: overview, agents, workflows, decision trees, examples
+- [ ] README.md includes: getting started, agent list, usage examples
+- [ ] CHANGELOG.md present if version > 1.0.0
+
+**Cross-Agent Consistency**:
+- [ ] All agents follow same section structure
+- [ ] Quality checklists comparable depth (6-10 items each)
+- [ ] Integration points documented for coordinating agents
+- [ ] Examples demonstrate handoff patterns
+
+**Portability Validation**:
+- [ ] No absolute paths
+- [ ] No references to parent folders or repo-specific names
+- [ ] Folder can be renamed without breaking references
+- [ ] Agents reference each other by name, not path
+
+#### 3.3: Decision Tree (Same as Individual Agent)
+
+**Path A: Critical Issues → Feedback Loop**  
+**Path B: Specification Issues → Escalate to Architect**  
+**Path C: Approved → PR Submission**
+
+**Exit Criteria for Group Approval**:
+- [ ] All structural validation passed
+- [ ] All handoff chains valid
+- [ ] Infrastructure files complete and comprehensive
+- [ ] Cross-agent consistency verified
+- [ ] Portability validated
+- [ ] All agents meet individual quality standards
+- [ ] No critical issues remaining
+
+**Handoff Options**:
+- If needs revision → Agent Implementer (with feedback)
+- If spec issue → Agent Architect (for spec revision)
+- If approved → Repository (via PR submission)
+
+---
+
+## Decision Trees
+
+### "Should I build an individual agent or an agent group?"
+```
+START: I have a need for agent(s)
+  ↓
+How many agents do I need?
+  │
+  ├─ ONE agent
+  │  └─> Use Individual Agent Workflow
+  │      - Branch: feature/agent-{name}
+  │      - Create single .agent.md file
+  │      - Simpler process
+  │
+  └─ MULTIPLE agents that coordinate
+     │
+     Do they need to hand off to each other?
+       │
+       ├─ YES → Use Agent Group Workflow
+       │        - Branch: feature/group-{name}
+       │        - Create agents/ folder + infrastructure
+       │        - Define handoff chains
+       │        - More comprehensive validation
+       │
+       └─ NO → Two options:
+               a) Individual Agent Workflow (add to existing group)
+               b) Agent Group Workflow (if creating new domain)
+```
+
+### "I need a new agent"
+```
+START: I have a problem/need
+  ↓
+Is there a clear specification?
+  │
+  ├─ NO → Consult @agent-architect
+  │        - Describe the problem and requirements
+  │        - Architect designs specification
+  │        - Receive comprehensive spec document
+  │        - Proceed to implementation
+  │
+  └─ YES → Skip to @agent-implementer
+           - Provide existing specification
+           - Implementer creates agent on feature branch
+           - Proceed to validation
+```
+
+### "I have a specification to implement"
+```
+START: Specification in hand
+  ↓
+Work with @agent-implementer
+  ↓
+Create branch: feature/agent-{name}
+  ↓
+Implement agent following spec
+  ↓
+Self-review checklist
+  ↓
+Commit and push to feature branch
+  ↓
+Submit to @agent-validator (DO NOT merge)
+  ↓
+Wait for validation feedback
+  ↓
+Iterate if needed, or celebrate when approved!
+```
+
+### "I have an implementation to review"
+```
+START: Implementation on feature branch
+  ↓
+Consult @agent-validator
+  ↓
+Validator reviews implementation
+  ↓
+Decision point:
+  │
+  ├─ Critical issues found
+  │  └─> Detailed feedback to Implementer
+  │      ↓
+  │      Implementer fixes
+  │      ↓
+  │      Return to Validator
+  │
+  ├─ Specification issues found
+  │  └─> Escalate to Architect
+  │      ↓
+  │      Architect revises spec
+  │      ↓
+  │      Implementer updates
+  │      ↓
+  │      Return to Validator
+  │
+  └─ Approved
+     └─> Validator submits PR
+         ↓
+         Merge to main
+         ↓
+         DONE!
+```
+
+### "Can I merge my agent implementation?"
+```
+START: Want to merge agent to main
+  ↓
+NO - Only Agent Validator submits PRs
+  ↓
+Has Agent Validator approved it?
+  │
+  ├─ NO → Submit to Validator for review
+  │       Wait for approval
+  │
+  └─ YES → Wait for Validator to submit PR
+           (Validator submits, not you)
+```
+
+## Quality Gates
+
+### Gate 1: Architect Approval (Specification Complete)
+**Checked by**: Agent Architect (self-review)
+
+Must have:
+- [ ] Problem statement clear and specific
+- [ ] Scope boundaries explicit (in-scope and out-of-scope)
+- [ ] Responsibilities actionable and measurable
+- [ ] Required inputs and expected outputs documented
+- [ ] Success criteria measurable
+- [ ] Recommended model specified with rationale
+- [ ] Frontmatter schema defined
+- [ ] Edge cases and constraints documented
+- [ ] Integration points designed
+- [ ] Implementation sequence provided
+
+**Pass criteria**: Specification is actionable and complete enough for Implementer to proceed without guessing.
+
+---
+
+### Gate 2: Implementer Completion (Agent Implemented on Branch)
+**Checked by**: Agent Implementer (self-review)
+
+Must have:
+- [ ] Agent file created on feature branch (not main)
+- [ ] Branch named correctly: `feature/agent-{name}` or `feature/refactor-{description}`
+- [ ] Frontmatter matches specification (name, description, model, version, handoffs)
+- [ ] Filename matches `name` field exactly (kebab-case)
+- [ ] All required sections present and complete
+- [ ] At least 2 comprehensive examples (ideally 3)
+- [ ] Quality checklist has 6-10 measurable criteria
+- [ ] Integration points documented
+- [ ] Version history started
+- [ ] No hardcoded paths or repo-specific names
+
+**Pass criteria**: Agent definition is complete and ready for quality review. Implementer has submitted to Validator (not merged).
+
+---
+
+### Gate 3: Validator Approval (Quality Verified, PR Submitted) - MANDATORY
+**Checked by**: Agent Validator
+
+Must have:
+- [ ] All required sections present and thorough
+- [ ] Instructions clear, specific, and actionable
+- [ ] At least 2 comprehensive examples with input/output
+- [ ] Quality checklist measurable (not subjective)
+- [ ] Integration points clear
+- [ ] Follows GitHub Copilot best practices
+- [ ] Follows markdown conventions
+- [ ] Aligns with original specification
+- [ ] No critical issues remaining
+- [ ] Frontmatter valid and handoffs correct
+
+**Pass criteria**: Agent meets all quality standards. Validator approves and submits PR to main.
+
+**Only after Gate 3**: Agent is merged and goes live.
+
+---
+
+## Portable Agent Group Pattern
+
+This meta-agent system enforces and exemplifies the portable agent group structure:
+
+### Required Structure
+```
+agent-group-name/
+├── agents/
+│   ├── agent-1.agent.md          # Individual agent definition
+│   ├── agent-2.agent.md
+│   └── agent-3.agent.md
+├── copilot-instructions.md       # Group-level workflow and setup (THIS FILE)
+├── README.md                      # Usage guide and agent overview
+└── CHANGELOG.md                   # Version history (optional, for v1.1.0+)
+```
+
+### Agent Frontmatter Schema (Required)
+```yaml
+---
+name: agent-identifier              # Required: kebab-case, matches filename
+description: One-line agent purpose # Required: 50-100 characters
+model: Claude Sonnet 4.5 (copilot) # Required: From Architect recommendations
+version: 1.0.0                      # Optional: Semantic versioning (default 1.0.0)
+handoffs:                           # Optional: Agents this one hands off to
+  - agent-name-1
+  - agent-name-2
+---
+```
+
+### Portability Features
+- **No hardcoded paths**: Agents use relative references
+- **Folder-agnostic**: Can be renamed from `product-development-agents` to `.github` without modification
+- **Self-contained**: All agents and workflow documentation in one folder
+- **Documented handoffs**: Frontmatter defines agent coordination
+- **Consistent structure**: Same pattern across all agent groups
+
+**This meta-agent system (`/.github/`) follows this exact pattern**, serving as the reference implementation.
+
+---
 
 ## Best Practices (from GitHub Copilot Documentation)
 
@@ -80,124 +739,136 @@ The Agent Validator reviews the agent implementation for:
 - Enable easy updates
 - Document versioning and changes
 
-## Agent Template Structure
-
-Every agent should follow this structure:
-
-```markdown
----
-name: agent-name
-description: Brief one-line description
-version: 1.0.0
 ---
 
-# Agent Name
+## Troubleshooting Common Issues
 
-## Purpose
-Clear statement of what this agent does and why it exists.
+### "Architect is implementing agents"
+**Problem**: Architect created agent definition file directly  
+**Violation**: Architect only designs specifications, never implements  
+**Solution**: 
+1. Architect provides specification ONLY
+2. Implementer creates agent file from spec
+3. Validator reviews implementation
 
-## Responsibilities
-- List of key responsibilities
-- Each should be actionable and specific
+---
 
-## Domain Context
-- Relevant background information
-- Key concepts and terminology
-- Constraints and requirements
+### "Implementer merged directly to main"
+**Problem**: Implementer created PR and merged without Validator review  
+**Violation**: Only Validator submits PRs  
+**Solution**:
+1. Implementer always works on feature branches
+2. Implementer submits to Validator (does not create PR)
+3. Validator reviews and submits PR when approved
 
-## Input Requirements
-What information this agent needs to operate effectively.
+---
 
-## Output Format
-Exact structure of what this agent produces.
+### "Validator approved but someone else merged"
+**Problem**: Validator said "approved" but didn't submit PR  
+**Violation**: Validator must submit the PR themselves  
+**Solution**:
+1. Validator approval includes PR submission
+2. Validator creates the PR after approval
+3. Validator is responsible for merge (can delegate click but owns process)
 
-## Response Format
-1. Section 1
-2. Section 2
-3. Section 3
+---
 
-## Examples
+### "Implementation doesn't match specification"
+**Problem**: Implementer made design decisions not in spec  
+**Violation**: Implementer should only implement what's specified  
+**Solution**:
+1. If spec is ambiguous: Implementer asks Architect for clarification
+2. Implementer does not guess or make design decisions
+3. Architect updates spec, then Implementer proceeds
 
-### Example 1: [Scenario Name]
-**Input:**
-[description]
+---
 
-**Output:**
-[expected result]
+### "Validator found specification issues during review"
+**Problem**: Specification had gaps that became apparent during implementation review  
+**Not a violation**: This is expected and part of workflow  
+**Solution**:
+1. Validator documents specification issues clearly
+2. Validator escalates to Architect (handoff)
+3. Architect revises specification
+4. Implementer updates implementation based on revised spec
+5. Validator re-reviews
 
-### Example 2: [Edge Case]
-**Input:**
-[description]
+---
 
-**Output:**
-[expected result]
+### "Too many validation iterations"
+**Problem**: Implementer and Validator going back and forth 5+ times  
+**Not necessarily a violation**: Iteration is expected  
+**Solutions**:
+- If repeated rejections for same issue type: Architect and Validator should clarify standards
+- If specification keeps changing: Architect should stabilize spec before implementation
+- If quality bar unclear: Validator should provide examples of "good" in feedback
+- Patience: Quality takes time; iteration is normal
 
-## Quality Checklist
-- [ ] Criterion 1
-- [ ] Criterion 2
-- [ ] Criterion 3
+---
 
-## Integration Points
-How this agent connects with other agents or systems.
+### "Emergency hotfix needed for agent"
+**Problem**: Critical bug in agent blocking users  
+**Acceptable exception**: Abbreviated workflow for emergencies  
+**Process**:
+1. Implementer fixes on emergency branch
+2. Validator does rapid review (same day)
+3. Validator fast-tracks approval if fix is clear
+4. Document why emergency process used
+5. Full retrospective review after fix deployed
 
-## Version History
-Track changes and improvements over time.
-```
-
-## Creating Your First Agent
-
-1. **Start with the Agent Architect**: Describe what you need
-2. **Use the Agent Implementer**: Turn the spec into a working agent file
-3. **Validate with the Agent Validator**: Ensure quality and best practices
-4. **Iterate**: Refine based on feedback and real-world usage
+---
 
 ## Common Agent Categories
 
-Consider building agents for these common needs:
+The meta-system can help you build agents for:
 
 ### Development Agents
-- **Code Reviewer**: Reviews code for quality, security, and best practices
-- **Technical Writer**: Creates documentation, API specs, and guides
-- **Test Designer**: Designs comprehensive test strategies
-- **Debugger**: Diagnoses and fixes issues systematically
+- **Code Reviewers**: Reviews code for quality, security, and best practices
+- **Test Designers**: Designs comprehensive test strategies
+- **Technical Writers**: Creates documentation, API specs, and guides
+- **Debuggers**: Diagnoses and fixes issues systematically
+- **Refactoring Advisors**: Plans code improvements and migrations
 
 ### Product Agents
-- **Product Manager**: Defines requirements and acceptance criteria
-- **User Researcher**: Analyzes user needs and feedback
-- **UX Designer**: Designs user experiences and interfaces
+- **Product Managers**: Defines requirements and acceptance criteria
+- **User Researchers**: Analyzes user needs and feedback
+- **UX Designers**: Designs user experiences and interfaces
+- **Feature Prioritizers**: Evaluates and ranks features by impact
 
 ### Operations Agents
-- **DevOps Engineer**: Handles deployment, infrastructure, monitoring
-- **Security Auditor**: Reviews for security vulnerabilities
-- **Performance Optimizer**: Analyzes and improves performance
+- **DevOps Engineers**: Handles deployment, infrastructure, monitoring
+- **Security Auditors**: Reviews for security vulnerabilities
+- **Performance Optimizers**: Analyzes and improves performance
+- **Incident Responders**: Troubleshoots production issues
 
 ### Specialized Agents
-- **Data Analyst**: Analyzes data and generates insights
-- **API Designer**: Designs clean, consistent APIs
-- **Migration Planner**: Plans and executes system migrations
+- **Data Analysts**: Analyzes data and generates insights
+- **API Designers**: Designs clean, consistent APIs
+- **Migration Planners**: Plans and executes system migrations
+- **Documentation Generators**: Automates documentation creation
+
+---
 
 ## Tips for Effective Agents
 
 1. **Single Responsibility**: Each agent should have one clear purpose
-2. **Composable**: Agents should work well together
-3. **Testable**: Include clear success criteria
+2. **Composable**: Agents should work well together through handoffs
+3. **Testable**: Include clear success criteria and quality checklists
 4. **Maintainable**: Document assumptions and limitations
-5. **Evolvable**: Design for change and improvement
+5. **Evolvable**: Design for change with version history
+6. **Portable**: No hardcoded paths, folder-agnostic references
 
-## Agent File Naming Convention
-
-- Use kebab-case: `agent-name.md`
-- Place in: `.github/agents/`
-- Version in front matter
-
-## Getting Help
-
-- Review existing agents as examples
-- Start with simple use cases
-- Iterate based on real usage
-- Document what works and what doesn't
+---
 
 ## References
 
-- [GitHub Copilot Best Practices](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/coding-agent/get-the-best-results)
-- Agent files in `.github/agents/`
+- **GitHub Copilot Best Practices**: [Official Documentation](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/coding-agent/get-the-best-results)
+- **Agent Files**: See `agents/` directory for the three meta-agents
+- **Example Agent Groups**: See `../product-development-agents/` and `../legacy-planning/` for working examples
+
+---
+
+## Version History
+
+- **1.1.0** - Added strict workflow enforcement, quality gates, decision trees, and PR gatekeeper pattern
+- **1.0.0** - Initial meta-agent system with Architect, Implementer, Validator
