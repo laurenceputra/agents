@@ -5,6 +5,174 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.3.0 - 2025-12-12
+
+### Changed
+- **Agent Architect**: All specification documents now created in `./.specifications/` directory at repository root (previously ad-hoc locations)
+  - **Before**: Specifications created without defined location, leading to inconsistent storage
+  - **After**: All specifications must be created in `./.specifications/` directory with consistent naming
+  - **Migration**: Existing specifications in `.github/specifications/` can remain as historical artifacts; new specifications go to `./.specifications/`
+- **Workflow**: Added specification storage convention requiring `.specifications/` directory for all Architect outputs
+  - Phase 1 workflows updated for both individual agents and agent groups
+  - Architect must create `.specifications/` directory if it doesn't exist before writing specs
+- **Version Control**: Added `.specifications/` to `.gitignore` to exclude specifications from repository commits
+
+### Added
+- **Documentation**: New "Specification Storage Convention" section in copilot-instructions.md explaining specification directory structure and rationale
+  - Documents why specifications are working documents (not final artifacts)
+  - Provides clear workflow showing specification lifecycle
+  - Includes directory structure diagram for clarity
+- **Agent Architect**: Added "Specification Storage Location" subsection documenting directory requirements and naming conventions
+  - Path requirement: `./.specifications/` (relative to repository root)
+  - Naming convention: `{agent-name}-specification.md` or `{group-name}-group-specification.md`
+  - Examples for individual agents, agent groups, and refactorings
+  - Exception documented for `.pr_details.md` (remains in root)
+
+### Context
+Specifications are working documents created during agent design phase. Storing them in a consistent, gitignored location keeps the repository clean while maintaining local access for reference during implementation and review. This addresses specification storage inconsistency and prevents accidental commits of intermediate artifacts.
+
+## 1.2.0 - 2025-12-12
+
+### Added
+
+#### Documentation Enforcement
+- **Mandatory CHANGELOG.md updates**: All version bumps now require CHANGELOG.md entries
+  - Implementer must add changelog entry following Keep a Changelog format
+  - Entry must include date (YYYY-MM-DD), specific component names, and context
+  - Breaking changes require migration guidance (Before/After/Migration sections)
+  - Added comprehensive changelog entry format guidelines with examples
+
+- **Mandatory README.md updates**: Significant changes require README.md updates
+  - Update when agents added/removed, responsibilities change, workflow changes
+  - Update when new user-facing features added or breaking changes made
+  - Update version badge for synchronized version bumps
+  - Added clear criteria for when README.md updates are required vs optional
+
+- **Documentation validation gate**: Validator now checks documentation completeness
+  - CHANGELOG.md validation checklist (format, completeness, specificity, context)
+  - README.md validation checklist (consistency, user-facing clarity, version badge)
+  - Version consistency validation across all files
+  - Added severity levels for documentation issues (Critical vs Recommendation)
+
+- **Documentation requirements section**: Agent Implementer enhanced with documentation guidance
+  - Self-review checklist for documentation updates
+  - Examples of good vs poor changelog entries
+  - Criteria for when to update README.md
+  - Format guidelines and quality criteria
+
+### Changed
+
+#### Implementer Workflow (Phase 2)
+- **Added Step 2.5 (Individual Agents)**: Update Documentation (MANDATORY)
+  - **Before**: Documentation updates were optional or informal
+  - **After**: CHANGELOG.md required for all version bumps, README.md required for significant changes
+  - **Migration**: Review existing agents and ensure CHANGELOG.md exists for versions > 1.0.0
+
+- **Added Step 2.7 (Agent Groups)**: Update Documentation (MANDATORY)
+  - **Before**: Group implementations could skip documentation updates
+  - **After**: Same documentation requirements as individual agents apply to groups
+  - **Migration**: Ensure all agent groups have CHANGELOG.md if version > 1.0.0
+
+- **Updated exit criteria**: Added documentation update verification to Phase 2 exit gates
+  - **Before**: Exit criteria focused on agent file completeness only
+  - **After**: Must verify CHANGELOG.md and README.md updates before submission to Validator
+  - **Migration**: No breaking changes; new criteria apply to future implementations
+
+#### Validator Workflow (Phase 3)
+- **Added Section 3.1.1 (Individual Agents)**: Documentation Validation (MANDATORY)
+  - **Before**: Validator focused primarily on agent definition file quality
+  - **After**: Validator must check CHANGELOG.md and README.md for every PR
+  - **Migration**: No breaking changes; new validation criteria apply to future reviews
+
+- **Enhanced group validation**: Added documentation validation to group-specific criteria
+  - **Before**: Group validation focused on structure and handoff integrity
+  - **After**: Also validates documentation updates across all agents in group
+  - **Migration**: No breaking changes; applies to future agent group submissions
+
+- **Expanded feedback examples**: Added documentation-specific feedback templates
+  - Critical issues for missing/vague changelog entries
+  - Critical issues for version mismatches
+  - Critical issues for missing README updates
+  - Recommendation-level feedback for documentation clarity improvements
+
+### Quality Improvements
+
+#### Documentation Standards
+- **Changelog format standardized**: All entries follow Added/Changed/Fixed/Deprecated/Removed/Security categories
+- **Version consistency enforced**: Version numbers must match across agent frontmatter, CHANGELOG.md, and README.md
+- **Context requirement**: All changelog entries must explain why changes were made, not just what changed
+- **Migration guidance**: Breaking changes must include Before/After/Migration sections
+
+#### Self-Review Process
+- **Enhanced checklist**: Implementer self-review now includes 10 documentation-specific items
+- **Quality criteria**: Clear distinction between good vs poor changelog/README updates
+- **Examples provided**: Both positive examples and anti-patterns documented
+
+### Migration Guide
+
+#### For Implementers
+
+If implementing agents after v1.2.0:
+
+1. **Always update CHANGELOG.md** with every agent change:
+   ```markdown
+   ## [Version] - YYYY-MM-DD
+   
+   ### Added/Changed/Fixed
+   - **Component**: Description
+     - Context: Why the change was made
+     - Migration: How to adapt (if breaking)
+   ```
+
+2. **Update README.md when** (use judgment):
+   - Agent added/removed
+   - Responsibilities change significantly
+   - Workflow changes
+   - New user-facing features
+   - Breaking changes
+   - Synchronized version bumps (always update version badge)
+
+3. **Verify version consistency** before submitting to Validator:
+   - Agent frontmatter matches CHANGELOG.md
+   - README.md badge matches (if synchronized bump)
+   - Date is current (YYYY-MM-DD)
+
+4. **Use self-review checklist** in agent-implementer.md before submission
+
+#### For Validators
+
+If validating agents after v1.2.0:
+
+1. **Always check CHANGELOG.md**:
+   - Entry exists for current version
+   - Follows standard format
+   - Includes specific component names
+   - Provides context (why changed)
+   - Includes migration guidance for breaking changes
+
+2. **Check README.md if applicable**:
+   - Updated when responsibilities/workflow/agents change
+   - Version badge updated for synchronized bumps
+   - No outdated information
+
+3. **Verify version consistency**:
+   - Frontmatter matches CHANGELOG.md
+   - README.md badge matches (if synchronized)
+   - Date is current
+
+4. **Use severity levels appropriately**:
+   - Critical: Missing changelog, vague entries, version mismatches
+   - Recommendation: Could be clearer, more specific
+
+#### For Existing Agents (No Breaking Changes)
+
+No migration required for existing agents. New requirements apply only to:
+- New implementations after v1.2.0
+- Updates to existing agents after v1.2.0
+- PRs submitted after v1.2.0
+
+Existing agents with versions > 1.0.0 should have CHANGELOG.md, but retroactive updates are not required.
+
 ## 1.1.0 - 2025-12-12
 
 ### Added

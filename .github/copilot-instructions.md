@@ -247,6 +247,40 @@ The meta-agent system supports two parallel workflows:
 
 ---
 
+### Specification Storage Convention
+
+**All specifications created by Agent Architect are stored in `./.specifications/` directory at the repository root.**
+
+**Rationale:**
+- Consistent location for all specification documents
+- Excluded from version control (specifications are working documents, not final artifacts)
+- Easy to find and reference during implementation
+- Separates specifications from final agent implementations
+- Keeps repository clean (only committed code, not working documents)
+
+**Directory Structure:**
+```
+/
+├── .specifications/           # Agent Architect creates specs here (gitignored)
+│   ├── agent-name-specification.md
+│   ├── group-name-group-specification.md
+│   └── refactoring-specification.md
+├── .pr_details.md            # Created in root (gitignored, used by Validator)
+├── .github/                   # Final agent implementations (committed)
+│   ├── agents/
+│   └── copilot-instructions.md
+└── .gitignore                 # Excludes .specifications/ and .pr_details.md
+```
+
+**Workflow:**
+1. Agent Architect creates specification in `./.specifications/{name}-specification.md`
+2. Agent Implementer reads specification from `./.specifications/`
+3. Agent Implementer creates implementation on feature branch
+4. Agent Validator reviews implementation (may reference specification)
+5. After PR merge, specification remains in `.specifications/` as historical reference (local only)
+
+---
+
 ## Workflow: Building Individual Agents
 
 ### Phase 1: Specification Design (Architect)
@@ -255,7 +289,8 @@ The meta-agent system supports two parallel workflows:
 
 **Architect Responsibilities**:
 1. Ask clarifying questions if requirements are unclear
-2. Design comprehensive specification including:
+2. Create `.specifications/` directory at repository root if it doesn't exist
+3. Design comprehensive specification including:
    - Problem statement and scope boundaries
    - Key responsibilities and required inputs/outputs
    - Success criteria and quality metrics
@@ -266,12 +301,13 @@ The meta-agent system supports two parallel workflows:
 
 **Exit Criteria**:
 - [ ] Specification is complete and actionable
+- [ ] Specification saved in `./.specifications/` directory
 - [ ] All required sections present
 - [ ] Model recommendation provided with rationale
 - [ ] Success criteria are measurable
 - [ ] Edge cases documented
 
-**Handoff**: Specification document → Agent Implementer
+**Handoff**: Specification document (from `./.specifications/` directory) → Agent Implementer
 
 ---
 
@@ -322,7 +358,40 @@ git commit -m "Implement {agent-name} agent following specification"
 git push origin feature/agent-{agent-name}
 ```
 
-#### 2.5: Submit to Validator
+#### 2.5: Update Documentation (MANDATORY)
+
+Every implementation MUST update documentation files:
+
+**CHANGELOG.md** (Always Required):
+- Add entry for current version bump
+- Use standard format: Added/Changed/Fixed/Deprecated/Removed/Security
+- Include date (YYYY-MM-DD), specific component names, context
+- Provide migration guidance for breaking changes
+- See "Changelog Entry Format Guidelines" section for examples
+
+**README.md** (Required When):
+- Agent added/removed
+- Agent responsibilities change significantly
+- Workflow changes
+- New features affect user interaction
+- Breaking changes
+- Synchronized version bumps (update version badge)
+
+**Version Number Consistency**:
+- Ensure version matches across:
+  - Agent frontmatter (`version: X.Y.Z`)
+  - CHANGELOG.md (`## X.Y.Z - YYYY-MM-DD`)
+  - README.md version badge (if synchronized bump)
+
+**Self-Review Checklist**:
+- [ ] CHANGELOG.md entry added with all changes documented
+- [ ] Changelog follows standard format (Added/Changed/Fixed/etc.)
+- [ ] Changelog includes context (why changed) and migration guidance (if breaking)
+- [ ] README.md updated if responsibilities/workflow/features changed
+- [ ] Version numbers consistent across all files
+- [ ] Date in changelog is current (YYYY-MM-DD format)
+
+#### 2.6: Submit to Validator
 - Notify Agent Validator that implementation is ready
 - Provide branch name and link to original specification
 - **DO NOT create PR** - Validator does that after approval
@@ -331,6 +400,7 @@ git push origin feature/agent-{agent-name}
 - [ ] Agent file created on feature branch
 - [ ] Follows specification completely
 - [ ] Self-review checklist passed
+- [ ] Documentation updated (CHANGELOG.md and README.md if applicable)
 - [ ] Submitted to Validator (not merged)
 
 **Handoff**: Feature branch with implementation → Agent Validator
@@ -351,6 +421,48 @@ Check against specification and best practices:
 - Examples (sufficient coverage, clear input/output)
 - Quality checklist (measurable criteria)
 - Frontmatter (matches spec, valid handoffs)
+
+#### 3.1.1: Documentation Validation (MANDATORY)
+
+Validator MUST check documentation updates:
+
+**CHANGELOG.md Validation**:
+- [ ] Entry exists for current version
+- [ ] Entry uses standard format (Added/Changed/Fixed/Deprecated/Removed/Security)
+- [ ] Entry includes date in YYYY-MM-DD format
+- [ ] All changes from PR are documented in changelog
+- [ ] Descriptions are specific (not vague like "updated agent")
+- [ ] Context provided for why changes were made
+- [ ] Breaking changes include migration guidance
+- [ ] Version number matches agent frontmatter
+
+**README.md Validation**:
+- [ ] Updated if agent added/removed
+- [ ] Updated if agent responsibilities changed
+- [ ] Updated if workflow changed
+- [ ] Updated if new user-facing features added
+- [ ] Version badge updated (if synchronized bump)
+- [ ] Consistent with changes described in CHANGELOG.md
+- [ ] No outdated information remains
+
+**Version Consistency Check**:
+- [ ] Agent frontmatter version matches CHANGELOG.md
+- [ ] README.md version badge matches (if synchronized bump)
+- [ ] Date in changelog is current
+
+**Feedback Examples**:
+
+*Critical Issue - Missing Changelog*:
+"CRITICAL: CHANGELOG.md not updated. Every version bump requires a changelog entry following the standard format (Added/Changed/Fixed/etc.). Document the changes made in this PR with context and migration guidance."
+
+*Critical Issue - Incomplete Changelog*:
+"CRITICAL: Changelog entry is too vague. 'Updated agent' doesn't describe what changed or why. Provide specific component names, describe the change, and explain the context. See examples in copilot-instructions.md."
+
+*Critical Issue - Version Mismatch*:
+"CRITICAL: Version mismatch detected. Agent frontmatter shows 1.2.0, but CHANGELOG.md has 1.1.1. Ensure version numbers are consistent across all files."
+
+*Recommendation - README Could Be Clearer*:
+"RECOMMENDATION: README.md was updated but could be clearer. Consider adding an example in the 'Quick Start' section showing the new workflow step."
 
 #### 3.2: Decision Tree
 
@@ -437,7 +549,8 @@ Agent groups are collections of coordinated agents with infrastructure files (co
 
 **Architect Responsibilities**:
 1. Ask clarifying questions about scope, coordination, and handoff patterns
-2. Design group specification including:
+2. Create `.specifications/` directory at repository root if it doesn't exist
+3. Design group specification including:
    - Group purpose and scope boundaries
    - List of agents in group with individual responsibilities
    - Handoff chain design (which agents coordinate)
@@ -449,6 +562,7 @@ Agent groups are collections of coordinated agents with infrastructure files (co
 
 **Exit Criteria**:
 - [ ] Group purpose clear and actionable
+- [ ] Specification saved in `./.specifications/` directory
 - [ ] All agents defined with responsibilities
 - [ ] Handoff chains documented (which agent hands to which)
 - [ ] Model recommendations for each agent
@@ -456,7 +570,7 @@ Agent groups are collections of coordinated agents with infrastructure files (co
 - [ ] Group-level quality criteria established
 - [ ] Portable structure requirements specified
 
-**Handoff**: Group specification document → Agent Implementer
+**Handoff**: Group specification document (from `./.specifications/` directory) → Agent Implementer
 
 ---
 
@@ -539,7 +653,40 @@ git commit -m "Implement {group-name} agent group following specification"
 git push origin feature/group-{group-name}
 ```
 
-#### 2.7: Submit to Validator
+#### 2.7: Update Documentation (MANDATORY)
+
+Every agent group implementation MUST update documentation files (same requirements as individual agents):
+
+**CHANGELOG.md** (Always Required):
+- Add entry for current version bump
+- Use standard format: Added/Changed/Fixed/Deprecated/Removed/Security
+- Document changes to all agents in the group
+- Include context and migration guidance
+- See "Changelog Entry Format Guidelines" section for examples
+
+**README.md** (Required When):
+- Agent group structure changes
+- Agent added/removed from group
+- Workflow changes
+- New features affect user interaction
+- Breaking changes
+- Synchronized version bumps (update version badge)
+
+**Version Number Consistency**:
+- Ensure version matches across:
+  - All agent frontmatter fields (`version: X.Y.Z`)
+  - CHANGELOG.md (`## X.Y.Z - YYYY-MM-DD`)
+  - README.md version badge (if synchronized bump)
+
+**Self-Review Checklist**:
+- [ ] CHANGELOG.md entry added documenting all changes
+- [ ] Changelog follows standard format with specific component names
+- [ ] Changelog includes context and migration guidance
+- [ ] README.md updated if group structure/workflow changed
+- [ ] Version numbers consistent across all agent files
+- [ ] Date in changelog is current (YYYY-MM-DD format)
+
+#### 2.8: Submit to Validator
 - Notify Agent Validator that group implementation is ready
 - Provide branch name and specification reference
 - **DO NOT create PR** - Validator does that after approval
@@ -549,6 +696,7 @@ git push origin feature/group-{group-name}
 - [ ] All agents implemented with valid frontmatter
 - [ ] Infrastructure files complete
 - [ ] Handoff chains validated
+- [ ] Documentation updated (CHANGELOG.md and README.md if applicable)
 - [ ] Self-review checklist passed
 - [ ] Submitted to Validator (not merged)
 
@@ -602,6 +750,14 @@ Check against group specification and best practices:
 - [ ] No references to parent folders or repo-specific names
 - [ ] Folder can be renamed without breaking references
 - [ ] Agents reference each other by name, not path
+
+**Documentation Validation** (Same as Individual Agent):
+- [ ] CHANGELOG.md entry exists for current version
+- [ ] Changelog uses standard format and includes all changes
+- [ ] Changelog provides context and migration guidance
+- [ ] README.md updated if group structure/workflow changed
+- [ ] Version numbers consistent across all agent files
+- [ ] Date in changelog is current
 
 #### 3.3: Decision Tree (Same as Individual Agent)
 
@@ -1174,5 +1330,7 @@ When updating versions, verify:
 
 ## Version History
 
+- **1.3.0** - Required all specifications be created in `./.specifications/` directory at repository root, added specification storage convention section, updated workflows
+- **1.2.0** - Added mandatory CHANGELOG.md and README.md update requirements with format guidelines
 - **1.1.0** - Added strict workflow enforcement, quality gates, decision trees, and PR gatekeeper pattern
 - **1.0.0** - Initial meta-agent system with Architect, Implementer, Validator

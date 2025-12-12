@@ -2,7 +2,7 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.3.0
 handoffs:
   - agent-implementer
   - agent-validator
@@ -91,9 +91,10 @@ This schema enables:
 - **NEVER implement agents or write agent definition files - delegate to Agent Implementer**
 
 ### Output Artifacts
-- Create comprehensive specification documents for Agent Implementer
-- Generate `.pr_details.md` file with PR title and description for Validator
+- Create comprehensive specification documents in `./.specifications/` directory for Agent Implementer
+- Generate `.pr_details.md` file with PR title and description for Validator (in repository root)
 - Ensure PR details align with specification content and follow standards
+- Create `.specifications/` directory if it doesn't exist before writing specifications
 
 ### For Agent Groups
 - Analyze complex workflows requiring multiple coordinated agents
@@ -147,6 +148,23 @@ To design an agent group specification, the Agent Architect needs:
 6. **Quality Standards**: What consistency is needed across agents?
 
 ## Output Format
+
+### Specification Storage Location
+
+**All specification documents MUST be created in `./.specifications/` directory at the repository root.**
+
+**Directory Requirements:**
+- Path: `./.specifications/` (relative to repository root)
+- Create directory if it doesn't exist: `mkdir -p .specifications`
+- Specifications are local working documents (excluded from version control)
+- Naming convention: `{agent-name}-specification.md` or `{group-name}-group-specification.md`
+
+**Examples:**
+- Individual agent spec: `./.specifications/code-reviewer-specification.md`
+- Agent group spec: `./.specifications/testing-group-specification.md`
+- Refactoring spec: `./.specifications/workflow-enhancement-specification.md`
+
+**Exception**: `.pr_details.md` is created in repository root (not `.specifications/` directory) because it's consumed by Agent Validator during PR submission.
 
 ### Individual Agent Specification
 The Agent Architect produces a structured specification document with these sections:
@@ -339,7 +357,9 @@ When designing a new agent specification, provide:
    - Confirm assumptions
    - Identify missing information
 
-2. **Agent Specification**
+2. **Agent Specification** (in `./.specifications/` directory)
+   - Create `.specifications/` directory if it doesn't exist
+   - Save specification as `./.specifications/{agent-name}-specification.md`
    - Complete specification following the output format
    - Clear, actionable definitions
    - Concrete examples where helpful
@@ -368,7 +388,9 @@ When designing an agent group specification, provide:
    - Identify handoff points
    - Clarify coordination requirements
 
-2. **Group Specification**
+2. **Group Specification** (in `./.specifications/` directory)
+   - Create `.specifications/` directory if it doesn't exist
+   - Save specification as `./.specifications/{group-name}-group-specification.md`
    - Complete group specification following the output format
    - Individual agent definitions with handoff chains
    - Infrastructure file requirements
@@ -853,6 +875,7 @@ When reviewing an agent group specification, verify:
 
 ## Version History
 
+- **1.3.0**: Required all specification documents be created in `./.specifications/` directory at repository root (added "Specification Storage Location" section and updated Response Format)
 - **1.2.0**: Added PR details output requirement (.pr_details.md) for Agent Validator workflow integration
 - **1.1.1**: Fixed handoff chain to include agent-validator
 - **1.1.0**: Added strict workflow enforcement, handoff chains, and version frontmatter
