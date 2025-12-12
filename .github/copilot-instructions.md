@@ -485,120 +485,145 @@ Check against group specification and best practices:
 
 ## Decision Trees
 
-### "Should I build an individual agent or an agent group?"
+### Quick Reference
+
+| Your Situation | Agent to Consult | What They'll Do |
+|---|---|---|
+| **[A] Need agent, no spec** | @agent-architect | Design specification |
+| **[B] Have spec to implement** | @agent-implementer | Create agent on branch |
+| **[C] Have implementation to review** | @agent-validator | Review and provide feedback or approve |
+| **[D] Want to merge** | @agent-validator only | Validator submits PR after approval |
+
+---
+
+### Master Decision Tree
+
 ```
-START: I have a need for agent(s)
-  ↓
-How many agents do I need?
+START: Where are you in the agent lifecycle?
   │
-  ├─ ONE agent
-  │  └─> Use Individual Agent Workflow
-  │      - Branch: feature/agent-{name}
-  │      - Create single .agent.md file
-  │      - Simpler process
+  ├─ [A] I NEED AN AGENT (but no specification yet)
+  │   │
+  │   Is there a clear specification?
+  │     │
+  │     ├─ NO → Consult @agent-architect
+  │     │        │
+  │     │        Architect asks: Single agent or group?
+  │     │          │
+  │     │          ├─ SINGLE AGENT
+  │     │          │   - Architect designs specification
+  │     │          │   - Defines scope, model, inputs/outputs
+  │     │          │   - Provides spec document
+  │     │          │   └─> Proceed to [B]
+  │     │          │
+  │     │          └─ AGENT GROUP (multiple coordinating agents)
+  │     │              - Architect designs group specification
+  │     │              - Defines all agents, handoff chains, models
+  │     │              - Provides group spec document
+  │     │              └─> Proceed to [B]
+  │     │
+  │     └─ YES → Skip to [B]
   │
-  └─ MULTIPLE agents that coordinate
-     │
-     Do they need to hand off to each other?
-       │
-       ├─ YES → Use Agent Group Workflow
-       │        - Branch: feature/group-{name}
-       │        - Create agents/ folder + infrastructure
-       │        - Define handoff chains
-       │        - More comprehensive validation
-       │
-       └─ NO → Two options:
-               a) Individual Agent Workflow (add to existing group)
-               b) Agent Group Workflow (if creating new domain)
+  │
+  ├─ [B] I HAVE A SPECIFICATION TO IMPLEMENT
+  │   │
+  │   Consult @agent-implementer
+  │     │
+  │     Implementer asks: Individual agent or group?
+  │       │
+  │       ├─ INDIVIDUAL AGENT
+  │       │   1. Create branch: feature/agent-{name}
+  │       │   2. Create {name}.agent.md with frontmatter
+  │       │   3. Implement all sections from spec
+  │       │   4. Self-review checklist
+  │       │   5. Commit and push to branch
+  │       │   └─> Proceed to [C]
+  │       │
+  │       └─ AGENT GROUP
+  │           1. Create branch: feature/group-{name}
+  │           2. Create folder: {group-name}/agents/
+  │           3. Implement all agent files with frontmatter
+  │           4. Create copilot-instructions.md (workflow, decision trees)
+  │           5. Create README.md (usage guide)
+  │           6. Validate handoff chains (no broken references)
+  │           7. Self-review group cohesion
+  │           8. Commit and push to branch
+  │           └─> Proceed to [C]
+  │
+  │
+  ├─ [C] I HAVE AN IMPLEMENTATION TO REVIEW
+  │   │
+  │   Submit to @agent-validator (DO NOT merge yourself)
+  │     │
+  │     Validator reviews implementation
+  │       │
+  │       Decision point:
+  │         │
+  │         ├─ CRITICAL ISSUES FOUND
+  │         │   └─> Validator provides detailed feedback
+  │         │       ↓
+  │         │       @agent-implementer fixes on same branch
+  │         │       ↓
+  │         │       Commit and push fixes
+  │         │       ↓
+  │         │       Notify Validator
+  │         │       ↓
+  │         │       Return to [C] (re-review)
+  │         │
+  │         ├─ SPECIFICATION ISSUES FOUND
+  │         │   └─> Validator escalates to @agent-architect
+  │         │       ↓
+  │         │       Architect revises specification
+  │         │       ↓
+  │         │       @agent-implementer updates implementation
+  │         │       ↓
+  │         │       Commit and push updates
+  │         │       ↓
+  │         │       Return to [C] (re-review)
+  │         │
+  │         └─ APPROVED ✓
+  │             └─> Validator submits PR
+  │                 ↓
+  │                 PR merged to main
+  │                 ↓
+  │                 DONE! Agent goes live
+  │
+  │
+  └─ [D] I WANT TO MERGE MY IMPLEMENTATION
+      │
+      ⚠️  STOP - Only @agent-validator submits PRs
+      │
+      Has Agent Validator approved it?
+        │
+        ├─ NO → Return to [C]
+        │       Submit to Validator for review
+        │
+        └─ YES → Wait for Validator to submit PR
+                 (Validator handles merge process)
+                 You do NOT create the PR yourself
 ```
 
-### "I need a new agent"
-```
-START: I have a problem/need
-  ↓
-Is there a clear specification?
-  │
-  ├─ NO → Consult @agent-architect
-  │        - Describe the problem and requirements
-  │        - Architect designs specification
-  │        - Receive comprehensive spec document
-  │        - Proceed to implementation
-  │
-  └─ YES → Skip to @agent-implementer
-           - Provide existing specification
-           - Implementer creates agent on feature branch
-           - Proceed to validation
-```
+---
 
-### "I have a specification to implement"
-```
-START: Specification in hand
-  ↓
-Work with @agent-implementer
-  ↓
-Create branch: feature/agent-{name}
-  ↓
-Implement agent following spec
-  ↓
-Self-review checklist
-  ↓
-Commit and push to feature branch
-  ↓
-Submit to @agent-validator (DO NOT merge)
-  ↓
-Wait for validation feedback
-  ↓
-Iterate if needed, or celebrate when approved!
-```
+### Workflow Rules (Critical)
 
-### "I have an implementation to review"
-```
-START: Implementation on feature branch
-  ↓
-Consult @agent-validator
-  ↓
-Validator reviews implementation
-  ↓
-Decision point:
-  │
-  ├─ Critical issues found
-  │  └─> Detailed feedback to Implementer
-  │      ↓
-  │      Implementer fixes
-  │      ↓
-  │      Return to Validator
-  │
-  ├─ Specification issues found
-  │  └─> Escalate to Architect
-  │      ↓
-  │      Architect revises spec
-  │      ↓
-  │      Implementer updates
-  │      ↓
-  │      Return to Validator
-  │
-  └─ Approved
-     └─> Validator submits PR
-         ↓
-         Merge to main
-         ↓
-         DONE!
-```
+1. **All implementations on feature branches** - Never commit directly to main
+2. **Branch naming**:
+   - Individual agent: `feature/agent-{name}`
+   - Agent group: `feature/group-{name}`
+   - Refactoring: `feature/refactor-{description}`
+3. **Only Validator submits PRs** - Implementer and Architect never merge
+4. **Iterate until approved** - Expect feedback loops; quality takes time
+5. **Feature branch workflow**: Create branch → Implement → Submit to Validator → Iterate → Validator approves and submits PR
 
-### "Can I merge my agent implementation?"
-```
-START: Want to merge agent to main
-  ↓
-NO - Only Agent Validator submits PRs
-  ↓
-Has Agent Validator approved it?
-  │
-  ├─ NO → Submit to Validator for review
-  │       Wait for approval
-  │
-  └─ YES → Wait for Validator to submit PR
-           (Validator submits, not you)
-```
+---
+
+### Quick Navigation
+
+- **Need specification?** → Start at [A], consult @agent-architect
+- **Have specification?** → Start at [B], consult @agent-implementer  
+- **Have implementation?** → Start at [C], consult @agent-validator
+- **Want to merge?** → Start at [D], but remember: only Validator submits PRs
+- **Not sure which agent to use?** → See Quick Reference table above
 
 ## Quality Gates
 
