@@ -83,7 +83,29 @@ Each meta-agent has a single, well-defined responsibility:
 - Approve agents with critical issues
 - Allow others to submit PRs for agent implementations
 
-## Workflow: Building New Agents
+## Workflows
+
+The meta-agent system supports two parallel workflows:
+1. **Individual Agent Workflow**: Build a single agent with one .agent.md file
+2. **Agent Group Workflow**: Build multiple coordinated agents with infrastructure files
+
+### Choosing Between Individual vs Group Workflow
+
+**Use Individual Agent Workflow when:**
+- Building a single, standalone agent
+- Agent doesn't require coordination with other agents
+- Adding one agent to an existing group
+- Simple use case with one clear responsibility
+
+**Use Agent Group Workflow when:**
+- Building 2+ agents that coordinate via handoffs
+- Need infrastructure files (copilot-instructions.md, README.md)
+- Creating a portable, drop-in agent system
+- Agents share domain context and work together on complex workflows
+
+---
+
+## Workflow: Building Individual Agents
 
 ### Phase 1: Specification Design (Architect)
 
@@ -124,9 +146,14 @@ git checkout -b feature/agent-{agent-name}
 git checkout -b feature/refactor-{description}
 ```
 
-**Branch Naming Examples**:
-- `feature/agent-security-reviewer`
-- `feature/agent-api-designer`
+**Branch Naming Convention**:
+- Individual agent: `feature/agent-{agent-name}`
+- Agent group: `feature/group-{group-name}`
+- Refactoring: `feature/refactor-{description}`
+
+**Examples**:
+- `feature/agent-security-reviewer` (single agent)
+- `feature/group-api-design` (multiple agents)
 - `feature/refactor-meta-agents-workflow`
 
 #### 2.2: Implement Agent Definition
@@ -258,7 +285,232 @@ PR merged to main (agent goes live)
 
 ---
 
+## Workflow: Building Agent Groups
+
+Agent groups are collections of coordinated agents with infrastructure files (copilot-instructions.md, README.md). They are portable and can be dropped into any repository.
+
+### Phase 1: Group Specification Design (Architect)
+
+**Entry Point**: User describes need for multiple coordinated agents
+
+**Architect Responsibilities**:
+1. Ask clarifying questions about scope, coordination, and handoff patterns
+2. Design group specification including:
+   - Group purpose and scope boundaries
+   - List of agents in group with individual responsibilities
+   - Handoff chain design (which agents coordinate)
+   - Model recommendations for each agent
+   - Frontmatter schema for all agents
+   - Infrastructure file requirements (copilot-instructions.md, README.md)
+   - Integration points and workflow diagrams
+   - Quality gates for group cohesion
+
+**Exit Criteria**:
+- [ ] Group purpose clear and actionable
+- [ ] All agents defined with responsibilities
+- [ ] Handoff chains documented (which agent hands to which)
+- [ ] Model recommendations for each agent
+- [ ] Infrastructure file structure defined
+- [ ] Group-level quality criteria established
+- [ ] Portable structure requirements specified
+
+**Handoff**: Group specification document → Agent Implementer
+
+---
+
+### Phase 2: Group Implementation (Implementer)
+
+**Entry Point**: Receive group specification from Agent Architect
+
+**Implementer Responsibilities**:
+
+#### 2.1: Create Feature Branch
+```bash
+git checkout -b feature/group-{group-name}
+```
+
+**Branch Naming Examples**:
+- `feature/group-api-design`
+- `feature/group-security-review`
+- `feature/group-testing-strategy`
+
+#### 2.2: Implement Agent Group Structure
+Create folder structure following portable agent group pattern:
+```
+group-name/
+├── agents/
+│   ├── agent-1.agent.md
+│   ├── agent-2.agent.md
+│   └── agent-3.agent.md
+├── copilot-instructions.md
+├── README.md
+└── CHANGELOG.md (optional for v1.0.0, required for v1.1.0+)
+```
+
+#### 2.3: Implement Infrastructure Files
+
+**copilot-instructions.md**:
+- Group overview and purpose
+- Agent descriptions (name, role, model, handoffs)
+- Workflow documentation (how agents coordinate)
+- Decision trees for users
+- Quality gates
+- Examples
+- Version history
+
+**README.md**:
+- Getting started guide
+- Agent list with descriptions
+- Usage examples
+- Integration instructions
+- Troubleshooting
+
+**CHANGELOG.md** (for versions > 1.0.0):
+- Version history
+- Breaking changes
+- Migration guides
+
+#### 2.4: Implement Individual Agent Files
+For each agent in the group:
+- Create agent definition in `agents/` folder
+- Follow individual agent implementation standards
+- Ensure handoff references are valid (point to agents in group)
+- Include integration points section showing coordination
+- Use portable references (no hardcoded paths)
+
+#### 2.5: Validate Group Cohesion (Self-Review)
+Before submitting to Validator, check:
+- [ ] Folder structure matches portable pattern
+- [ ] All infrastructure files present and complete
+- [ ] All agent files present with valid frontmatter
+- [ ] Handoff chains form valid graph (no broken references)
+- [ ] Models match Architect recommendations
+- [ ] No hardcoded paths or repo-specific names
+- [ ] Filenames match agent `name` fields (kebab-case)
+- [ ] copilot-instructions.md includes workflow and examples
+- [ ] README.md provides usage guidance
+
+#### 2.6: Commit and Push
+```bash
+git add .
+git commit -m "Implement {group-name} agent group following specification"
+git push origin feature/group-{group-name}
+```
+
+#### 2.7: Submit to Validator
+- Notify Agent Validator that group implementation is ready
+- Provide branch name and specification reference
+- **DO NOT create PR** - Validator does that after approval
+
+**Exit Criteria**:
+- [ ] Agent group created on feature branch (not main)
+- [ ] All agents implemented with valid frontmatter
+- [ ] Infrastructure files complete
+- [ ] Handoff chains validated
+- [ ] Self-review checklist passed
+- [ ] Submitted to Validator (not merged)
+
+**Handoff**: Feature branch with agent group → Agent Validator
+
+---
+
+### Phase 3: Group Validation (Validator)
+
+**Entry Point**: Receive agent group implementation from Implementer on feature branch
+
+**Validator Responsibilities**:
+
+#### 3.1: Review Group Implementation
+Check against group specification and best practices:
+- **Completeness**: All agents and infrastructure files present
+- **Consistency**: Agents follow same patterns and quality standards
+- **Handoff Integrity**: All handoff references valid, no broken chains
+- **Infrastructure Quality**: copilot-instructions.md and README.md comprehensive
+- **Portability**: No hardcoded paths, folder-agnostic references
+- **Frontmatter Validity**: All agents have valid YAML frontmatter matching spec
+- **Model Alignment**: All agent models match Architect recommendations
+
+#### 3.2: Group-Specific Validation Criteria
+
+**Structural Validation**:
+- [ ] Folder structure: `group-name/agents/`, `copilot-instructions.md`, `README.md`
+- [ ] All agents in `agents/` subdirectory
+- [ ] Filenames match `name` fields exactly (kebab-case)
+- [ ] No agents outside `agents/` folder
+
+**Handoff Chain Validation**:
+- [ ] All handoff references point to agents in group
+- [ ] No broken handoff chains (dangling references)
+- [ ] Handoff chains form valid graph (can trace workflows)
+- [ ] Circular handoffs documented if intentional
+
+**Infrastructure Completeness**:
+- [ ] copilot-instructions.md includes: overview, agents, workflows, decision trees, examples
+- [ ] README.md includes: getting started, agent list, usage examples
+- [ ] CHANGELOG.md present if version > 1.0.0
+
+**Cross-Agent Consistency**:
+- [ ] All agents follow same section structure
+- [ ] Quality checklists comparable depth (6-10 items each)
+- [ ] Integration points documented for coordinating agents
+- [ ] Examples demonstrate handoff patterns
+
+**Portability Validation**:
+- [ ] No absolute paths
+- [ ] No references to parent folders or repo-specific names
+- [ ] Folder can be renamed without breaking references
+- [ ] Agents reference each other by name, not path
+
+#### 3.3: Decision Tree (Same as Individual Agent)
+
+**Path A: Critical Issues → Feedback Loop**  
+**Path B: Specification Issues → Escalate to Architect**  
+**Path C: Approved → PR Submission**
+
+**Exit Criteria for Group Approval**:
+- [ ] All structural validation passed
+- [ ] All handoff chains valid
+- [ ] Infrastructure files complete and comprehensive
+- [ ] Cross-agent consistency verified
+- [ ] Portability validated
+- [ ] All agents meet individual quality standards
+- [ ] No critical issues remaining
+
+**Handoff Options**:
+- If needs revision → Agent Implementer (with feedback)
+- If spec issue → Agent Architect (for spec revision)
+- If approved → Repository (via PR submission)
+
+---
+
 ## Decision Trees
+
+### "Should I build an individual agent or an agent group?"
+```
+START: I have a need for agent(s)
+  ↓
+How many agents do I need?
+  │
+  ├─ ONE agent
+  │  └─> Use Individual Agent Workflow
+  │      - Branch: feature/agent-{name}
+  │      - Create single .agent.md file
+  │      - Simpler process
+  │
+  └─ MULTIPLE agents that coordinate
+     │
+     Do they need to hand off to each other?
+       │
+       ├─ YES → Use Agent Group Workflow
+       │        - Branch: feature/group-{name}
+       │        - Create agents/ folder + infrastructure
+       │        - Define handoff chains
+       │        - More comprehensive validation
+       │
+       └─ NO → Two options:
+               a) Individual Agent Workflow (add to existing group)
+               b) Agent Group Workflow (if creating new domain)
+```
 
 ### "I need a new agent"
 ```
