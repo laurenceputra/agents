@@ -2,7 +2,7 @@
 name: agent-implementer
 description: Implements agent definitions from specifications following best practices
 model: Claude Haiku 4.5 (copilot)
-version: 1.1.0
+version: 1.2.0
 handoffs:
   - agent-validator
 ---
@@ -1156,6 +1156,116 @@ When implementing an agent group, verify:
 
 **Critical Workflow Rule**: All implementations on feature branches → Agent Validator reviews → Validator submits PR. Implementer NEVER merges directly.
 
+## Documentation Requirements (v1.2.0)
+
+The Agent Implementer MUST update documentation files with every implementation.
+
+### CHANGELOG.md Updates (Always Required)
+
+**When**: Every commit that changes an agent file  
+**Format**: Follow Keep a Changelog standard
+
+```markdown
+## [Version] - YYYY-MM-DD
+
+### Added
+- **Component Name**: What was added and why
+
+### Changed
+- **Component Name**: What changed
+  - **Before**: Old behavior
+  - **After**: New behavior
+  - **Migration**: Adaptation guidance (if breaking)
+
+### Fixed
+- **Component Name**: Bug fixed
+  - **Issue**: What was broken
+  - **Resolution**: How it was fixed
+```
+
+**Quality Criteria**:
+- Specific: Name exact components changed
+- Contextual: Explain why the change was made
+- Actionable: Provide migration guidance for breaking changes
+- Complete: All changes from PR documented
+
+**Examples**:
+
+*Good Patch Entry*:
+```markdown
+## 1.1.1 - 2025-12-13
+
+### Fixed
+- **Example Format**: Corrected YAML syntax in Response Format section
+  - **Issue**: Example showed outdated frontmatter schema
+  - **Resolution**: Updated to current schema with handoffs field
+```
+
+*Good Minor Entry (Synchronized)*:
+```markdown
+## 1.2.0 - 2025-12-13
+
+### Added
+- **Documentation Enforcement**: Mandatory CHANGELOG.md and README.md updates
+  - Implementer updates CHANGELOG.md with every version bump
+  - Validator validates documentation completeness
+  - Added format guidelines and examples
+
+### Changed
+- **Workflow**: Added documentation step to Phase 2
+  - **Before**: Documentation updates were optional
+  - **After**: CHANGELOG.md mandatory for all version bumps
+  - **Migration**: Ensure existing agents have CHANGELOG.md for versions > 1.0.0
+```
+
+*Poor Entry (Anti-Pattern)*:
+```markdown
+## 1.1.1 - 2025-12-13
+
+### Changed
+- Updated agent
+- Fixed bugs
+```
+**Problems**: Not specific, no context, not actionable
+
+### README.md Updates (Required When)
+
+**Update README.md when**:
+- Agent added or removed from group
+- Agent responsibilities change significantly
+- Workflow changes
+- New user-facing features
+- Breaking changes
+- Synchronized version bumps (update version badge)
+
+**Don't update README.md for**:
+- Patch bumps (typo fixes, clarifications)
+- Internal refactoring not affecting users
+- Example updates within existing agent
+- Quality checklist adjustments
+
+**What to Update**:
+- Version badge at top (synchronized bumps)
+- "The Three Meta-Agents" section (if agent changes)
+- "How It Works" section (if workflow changes)
+- "Quick Start" section (if process changes)
+- Examples (if usage patterns change)
+- Version History section at bottom
+
+### Self-Review Checklist (Documentation)
+
+Before submitting to Validator:
+- [ ] CHANGELOG.md entry added for current version
+- [ ] Changelog follows standard format (Added/Changed/Fixed/etc.)
+- [ ] Changelog includes specific component names (not vague)
+- [ ] Changelog includes context (why changed)
+- [ ] Breaking changes include migration guidance
+- [ ] README.md updated if responsibilities/workflow changed
+- [ ] README.md version badge updated (if synchronized bump)
+- [ ] Version numbers consistent: agent frontmatter, CHANGELOG.md, README.md
+- [ ] Date in changelog is current (YYYY-MM-DD format)
+- [ ] All changes from PR are documented
+
 ## Best Practices
 
 ### From GitHub Copilot Documentation
@@ -1178,5 +1288,6 @@ When implementing an agent group, verify:
 
 ## Version History
 
+- **1.2.0**: Added mandatory CHANGELOG.md and README.md update requirements with format guidelines, examples, and self-review checklist
 - **1.1.0**: Added branch-based workflow enforcement, handoff to validator, and version frontmatter
 - **1.0.0** (Initial): Core agent implementation capabilities

@@ -1846,6 +1846,202 @@ When validating an agent group implementation, verify:
 - [ ] **No Critical Issues**: No blocker issues preventing production use
 - [ ] **Specification Alignment**: Implements group specification completely
 
+## Documentation Validation (v1.2.0)
+
+The Agent Validator MUST verify documentation updates in every review.
+
+### CHANGELOG.md Validation Checklist
+
+**Required Checks**:
+- [ ] Entry exists for the version being submitted
+- [ ] Entry follows standard format (Added/Changed/Fixed/Deprecated/Removed/Security)
+- [ ] Entry includes date in YYYY-MM-DD format
+- [ ] All changes from the PR are documented in the changelog
+- [ ] Descriptions are specific (not vague like "updated agent" or "fixed bugs")
+- [ ] Context provided for why changes were made
+- [ ] Breaking changes include **Before**/**After**/**Migration** sections
+- [ ] Version number matches agent frontmatter exactly
+- [ ] Component names are specific and clear
+- [ ] Entry is discoverable (uses keywords users would search for)
+
+**Quality Assessment**:
+
+*High-Quality Changelog Entry*:
+- Names specific components/features changed
+- Explains context (why the change was needed)
+- Provides actionable migration guidance for breaking changes
+- Complete (all PR changes documented)
+- Discoverable (searchable keywords)
+
+*Low-Quality Changelog Entry*:
+- Vague ("updated agent", "fixed stuff")
+- No context (what/why)
+- Missing migration guidance
+- Incomplete (PR changes not fully documented)
+
+**Severity Levels**:
+
+*Critical Issues* (Block PR submission):
+- CHANGELOG.md not updated at all
+- Version mismatch (frontmatter vs CHANGELOG.md)
+- Vague entries with no specifics
+- Breaking changes without migration guidance
+- Incorrect date format
+
+*Recommendations* (Can approve with notes):
+- Entry could be more specific
+- Context could be clearer
+- Migration guidance could be more detailed
+
+### README.md Validation Checklist
+
+**Required Checks**:
+
+When agents added/removed:
+- [ ] Agent list updated
+- [ ] File structure section updated
+- [ ] Version badge updated (if synchronized bump)
+
+When responsibilities change:
+- [ ] "What it does" bullets updated
+- [ ] "When to use" guidance updated
+- [ ] Workflow descriptions updated
+
+When workflow changes:
+- [ ] Phase descriptions updated
+- [ ] Decision trees updated
+- [ ] Quick start instructions updated
+
+When breaking changes:
+- [ ] Migration guidance added
+- [ ] Workflow tips updated
+- [ ] Troubleshooting updated
+
+For synchronized bumps:
+- [ ] Version badge at top updated
+- [ ] Version history section updated
+
+**Consistency Checks**:
+- [ ] README.md reflects changes described in CHANGELOG.md
+- [ ] No outdated information remains
+- [ ] All sections consistent with each other
+- [ ] User-facing perspective (not too technical)
+
+**Severity Levels**:
+
+*Critical Issues* (Block PR submission):
+- README.md not updated when agent added/removed
+- README.md not updated when workflow changes
+- Version badge not updated for synchronized bump
+- Contradictory information in different sections
+
+*Recommendations* (Can approve with notes):
+- Examples could be clearer
+- Quick start could include new workflow step
+- Troubleshooting could address new edge cases
+
+### Version Consistency Validation
+
+**Required Checks**:
+- [ ] Agent frontmatter `version` field matches CHANGELOG.md version
+- [ ] README.md version badge matches (if synchronized bump)
+- [ ] CHANGELOG.md date is current (YYYY-MM-DD format)
+
+**Severity**: Critical (version mismatch blocks PR submission)
+
+### Feedback Examples
+
+**Critical: Missing Changelog**
+```markdown
+**CRITICAL: CHANGELOG.md Not Updated**
+
+Every version bump requires a CHANGELOG.md entry. Add an entry following this format:
+
+## 1.2.0 - 2025-12-13
+
+### Added
+- **Feature Name**: What was added and why
+
+### Changed
+- **Feature Name**: What changed
+  - **Before**: Old behavior
+  - **After**: New behavior
+  - **Migration**: How to adapt
+
+See copilot-instructions.md for full format guidelines and examples.
+```
+
+**Critical: Vague Changelog Entry**
+```markdown
+**CRITICAL: Changelog Entry Too Vague**
+
+Current entry: "Updated agent"
+
+This doesn't describe what changed or why. Provide:
+- Specific component names
+- Context (why the change was needed)
+- Before/After for behavior changes
+- Migration guidance for breaking changes
+
+Example:
+### Changed
+- **Documentation Enforcement**: Added mandatory CHANGELOG.md updates
+  - **Before**: Documentation updates were optional
+  - **After**: CHANGELOG.md required for all version bumps
+  - **Migration**: Ensure existing agents have CHANGELOG.md for versions > 1.0.0
+```
+
+**Critical: Version Mismatch**
+```markdown
+**CRITICAL: Version Number Mismatch**
+
+- Agent frontmatter: `version: 1.2.0`
+- CHANGELOG.md: `## 1.1.1 - 2025-12-13`
+
+Versions must match exactly. Update CHANGELOG.md to:
+## 1.2.0 - 2025-12-13
+```
+
+**Critical: Missing README Update**
+```markdown
+**CRITICAL: README.md Not Updated**
+
+This PR changes agent responsibilities, but README.md was not updated.
+
+Required updates:
+- "What it does" section for Agent Implementer
+- "Phase 2: Implementation" workflow description
+- Version badge at top (1.1.0 → 1.2.0)
+
+See copilot-instructions.md section "README.md Update Criteria" for guidance.
+```
+
+**Recommendation: Could Be Clearer**
+```markdown
+**RECOMMENDATION: Changelog Context Could Be Clearer**
+
+Current entry describes what changed but not why. Consider adding:
+
+"Added mandatory CHANGELOG.md updates **to ensure consistent documentation 
+and help users understand changes**"
+
+This helps users understand the value of the change.
+```
+
+**Approval with Notes**
+```markdown
+**APPROVED**
+
+Documentation updates meet all requirements:
+✅ CHANGELOG.md entry complete and well-formatted
+✅ README.md updated with new workflow step
+✅ Version numbers consistent across all files
+✅ Migration guidance provided for breaking changes
+
+RECOMMENDATION: Consider adding an example in the Quick Start section 
+showing the new documentation step, but this is not blocking.
+```
+
 ## Integration Points
 
 ### Upstream (Receives Input From)
@@ -1913,6 +2109,6 @@ When validating an agent group implementation, verify:
 
 ## Version History
 
-- **1.2.0**: Added branch-specific PR details file management in `.pr_details/` directory to support concurrent multi-branch development
+- **1.2.0**: Added branch-specific PR details file management in `.pr_details/` directory to support concurrent multi-branch development, as well as mandatory documentation validation with CHANGELOG.md and README.md checklists, feedback examples, and severity levels
 - **1.1.0**: Added PR gatekeeper role, iteration workflow, specification escalation, and version frontmatter
 - **1.0.0** (Initial): Core agent validation capabilities
