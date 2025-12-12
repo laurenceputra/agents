@@ -1,5 +1,7 @@
 # Agent Builder Meta-System
 
+![Version](https://img.shields.io/badge/version-1.1.0-blue)
+
 This directory contains the meta-agent system for designing, implementing, and validating agents for any purpose.
 
 ## What is This?
@@ -288,4 +290,5 @@ When improving the meta-system itself:
 
 ## Version History
 
+- **1.1.0** - Added strict workflow enforcement, quality gates, decision trees, PR gatekeeper pattern, and version frontmatter support
 - **1.0.0** - Initial meta-agent system with Architect, Implementer, Validator

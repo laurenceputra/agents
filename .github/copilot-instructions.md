@@ -860,6 +860,143 @@ The meta-system can help you build agents for:
 
 ---
 
+## Versioning Strategy
+
+This meta-agent system uses **hybrid versioning** to balance group cohesion with individual agent evolution:
+
+### Versioning Model
+
+**Hybrid Approach: Synchronized Major/Minor, Independent Patches**
+
+- **Major.Minor versions synchronized** across all agents in the group
+  - Breaking changes or significant feature additions trigger group-wide minor version bumps
+  - Example: When workflow changes affect all agents, bump 1.0.0 → 1.1.0 for all
+  
+- **Patch versions can be independent** for individual agents
+  - Bug fixes, documentation updates, or minor clarifications can increment patch independently
+  - Example: architect.agent.md can be 1.1.1 while others remain 1.1.0
+
+### Version Format
+
+```yaml
+version: MAJOR.MINOR.PATCH
+```
+
+- **MAJOR**: Breaking changes to agent behavior or workflow (synchronized)
+- **MINOR**: New features or workflow enhancements (synchronized)
+- **PATCH**: Bug fixes, clarifications, documentation updates (can be independent)
+
+### When to Bump Versions
+
+#### Synchronized (All Agents Updated)
+
+**Minor Version Bump (1.0.0 → 1.1.0)**:
+- Workflow changes affecting multiple agents
+- New handoff patterns introduced
+- Quality gates added or modified
+- Infrastructure file updates (copilot-instructions.md, README.md)
+- Breaking changes to agent coordination
+
+**Major Version Bump (1.0.0 → 2.0.0)**:
+- Complete workflow redesign
+- Incompatible changes to agent interfaces
+- Removal of agents from group
+- Breaking changes to frontmatter schema
+
+#### Independent (Single Agent Updated)
+
+**Patch Version Bump (1.1.0 → 1.1.1)**:
+- Bug fixes in individual agent instructions
+- Clarifications to examples or quality checklists
+- Typo corrections
+- Documentation improvements
+- Small refinements not affecting workflow
+
+### Decision Tree: Which Version to Bump?
+
+```
+START: Change proposed to meta-agent system
+  ↓
+Does it affect the workflow or coordination between agents?
+  │
+  ├─ YES → Does it break existing behavior?
+  │         │
+  │         ├─ YES → MAJOR version bump (synchronized)
+  │         │        Example: 1.1.0 → 2.0.0 all agents
+  │         │        Update: All agents, copilot-instructions.md, README.md
+  │         │
+  │         └─ NO → MINOR version bump (synchronized)
+  │                 Example: 1.0.0 → 1.1.0 all agents
+  │                 Update: All agents, copilot-instructions.md, README.md
+  │
+  └─ NO → Is it a single agent change?
+           │
+           ├─ YES → PATCH version bump (independent)
+           │        Example: architect.agent.md 1.1.0 → 1.1.1
+           │        Update: Only the affected agent file
+           │
+           └─ NO → Evaluate scope and choose appropriate version
+```
+
+### Examples
+
+**Scenario 1: Bug Fix in Agent Architect**
+- **Change**: Fixed typo in example output
+- **Decision**: Patch bump (independent)
+- **Action**: architect.agent.md 1.1.0 → 1.1.1
+- **Files Updated**: `agents/architect.agent.md` only
+
+**Scenario 2: New Quality Gate Added**
+- **Change**: Added portability validation checklist affecting all agents
+- **Decision**: Minor bump (synchronized)
+- **Action**: All agents 1.0.0 → 1.1.0
+- **Files Updated**: All agents, `copilot-instructions.md`, `README.md`
+
+**Scenario 3: Workflow Redesign**
+- **Change**: Replaced three-phase workflow with two-phase workflow
+- **Decision**: Major bump (synchronized)
+- **Action**: All agents 1.1.0 → 2.0.0
+- **Files Updated**: All agents, `copilot-instructions.md`, `README.md`, migration guide
+
+**Scenario 4: Documentation Clarification**
+- **Change**: Added example to Agent Implementer's Response Format section
+- **Decision**: Patch bump (independent)
+- **Action**: implementer.agent.md 1.1.0 → 1.1.1
+- **Files Updated**: `agents/implementer.agent.md` only
+
+### Version History Requirements
+
+All agent files and infrastructure files MUST include a Version History section:
+
+**Agent Files (agents/*.agent.md)**:
+```markdown
+## Version History
+
+- **1.1.1**: Fixed typo in example output
+- **1.1.0**: Added strict workflow enforcement, quality gates, decision trees
+- **1.0.0** (Initial): Core agent architecture design capabilities
+```
+
+**Infrastructure Files (copilot-instructions.md, README.md)**:
+```markdown
+## Version History
+
+- **1.1.0** - Added strict workflow enforcement, quality gates, decision trees
+- **1.0.0** - Initial meta-agent system with Architect, Implementer, Validator
+```
+
+### Validation Checklist
+
+When updating versions, verify:
+- [ ] Version numbers follow semantic versioning (MAJOR.MINOR.PATCH)
+- [ ] Synchronized changes update all agents + infrastructure files
+- [ ] Independent changes update only affected agent
+- [ ] Version history updated with clear, concise change description
+- [ ] Frontmatter `version` field matches version history
+- [ ] CHANGELOG.md created if version > 1.0.0 (optional for 1.1.0, required for 1.2.0+)
+
+---
+
 ## References
 
 - **GitHub Copilot Best Practices**: [Official Documentation](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/coding-agent/get-the-best-results)
