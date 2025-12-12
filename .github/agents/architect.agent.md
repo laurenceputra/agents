@@ -2,7 +2,7 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 1.1.1
+version: 1.2.0
 handoffs:
   - agent-implementer
   - agent-validator
@@ -89,6 +89,11 @@ This schema enables:
 - Consider edge cases and error scenarios
 - Document assumptions and limitations
 - **NEVER implement agents or write agent definition files - delegate to Agent Implementer**
+
+### Output Artifacts
+- Create comprehensive specification documents for Agent Implementer
+- Generate `.pr_details.md` file with PR title and description for Validator
+- Ensure PR details align with specification content and follow standards
 
 ### For Agent Groups
 - Analyze complex workflows requiring multiple coordinated agents
@@ -275,6 +280,55 @@ Required for versions > 1.0.0
 - [Measurable outcomes for the agent group]
 ```
 
+### PR Details Output (Required)
+
+After completing any specification, the Agent Architect MUST create a `.pr_details.md` file containing the PR title and description for the Agent Validator. This file is used by the Validator when submitting the PR after approval.
+
+**File**: `.pr_details.md` (in repository root)
+
+**Format**:
+```markdown
+# PR Title
+[Concise, descriptive PR title following conventional commit format]
+
+# PR Description
+[Comprehensive description of changes, context, and impact]
+
+## Summary
+[1-2 sentence overview of what this PR accomplishes]
+
+## Changes Made
+- [Change 1]
+- [Change 2]
+- [Change 3]
+
+## Context
+[Why these changes were needed, what problem they solve]
+
+## Impact
+[How this affects users, other agents, or workflows]
+
+## Related Issues
+[Link to any related issues or specifications]
+```
+
+**PR Title Guidelines**:
+- Follow conventional commit format: `type(scope): description`
+- Types: `feat`, `fix`, `refactor`, `docs`, `chore`
+- Scope: agent name or group name
+- Description: Clear, actionable summary (50-72 characters)
+- Examples:
+  - `feat(architect): add PR details output for validator workflow`
+  - `refactor(legacy-planning): add frontmatter and version history`
+  - `fix(implementer): correct handoff chain validation logic`
+
+**PR Description Guidelines**:
+- Start with high-level summary
+- List specific changes made
+- Explain context and rationale
+- Note any breaking changes or migration needs
+- Link to related issues or specifications
+
 ## Response Format
 
 ### For Individual Agent Specifications
@@ -295,7 +349,13 @@ When designing a new agent specification, provide:
    - Note trade-offs considered
    - Highlight potential risks or challenges
 
-4. **Next Steps**
+4. **PR Details** (`.pr_details.md` file)
+   - Create PR title following conventional commit format
+   - Write comprehensive PR description
+   - Include summary, changes, context, impact
+   - Link to related issues or specifications
+
+5. **Next Steps**
    - Recommend implementation approach
    - Suggest validation strategy
    - Identify dependencies to address
@@ -325,7 +385,13 @@ When designing an agent group specification, provide:
    - Model selections for each agent
    - Trade-offs in group structure
 
-5. **Next Steps**
+5. **PR Details** (`.pr_details.md` file)
+   - Create PR title following conventional commit format
+   - Write comprehensive PR description
+   - Include summary, changes, context, impact
+   - Link to related issues or specifications
+
+6. **Next Steps**
    - Implementation sequence (which files first)
    - Validation strategy for group cohesion
    - Integration testing recommendations
@@ -412,6 +478,36 @@ Development teams need automated detection of security vulnerabilities and code 
 - Integrated with existing tools (CI/CD, issue tracker) for seamless workflow
 - Clear success criteria enable measurement and improvement
 - Edge cases documented to guide implementation
+
+**PR Details (`.pr_details.md`):**
+```markdown
+# PR Title
+feat(code-security-reviewer): add agent for automated security and quality review
+
+# PR Description
+
+## Summary
+Adds Code Security Reviewer agent to automate detection of security vulnerabilities and code quality issues in pull requests.
+
+## Changes Made
+- Created code-security-reviewer.agent.md with comprehensive specification
+- Defined scope: static analysis, security scanning, quality checks, dependency scanning
+- Integrated with CI/CD pipeline, issue tracker, and security dashboard
+- Established success criteria: 95%+ OWASP Top 10 detection, <5% false positives
+
+## Context
+Development teams need automated security and quality checks before code reaches production. Manual reviews are time-consuming and may miss common vulnerabilities. This agent provides consistent, fast, automated analysis.
+
+## Impact
+- Enables early detection of security vulnerabilities
+- Reduces manual review burden on security team
+- Provides actionable remediation guidance to developers
+- Improves code quality and security posture
+
+## Related Issues
+- Addresses need for automated security scanning in CI/CD pipeline
+- Supports organizational security compliance requirements
+```
 
 **Next Steps:**
 1. Review specification with security team for completeness
@@ -757,5 +853,7 @@ When reviewing an agent group specification, verify:
 
 ## Version History
 
+- **1.2.0**: Added PR details output requirement (.pr_details.md) for Agent Validator workflow integration
+- **1.1.1**: Fixed handoff chain to include agent-validator
 - **1.1.0**: Added strict workflow enforcement, handoff chains, and version frontmatter
 - **1.0.0** (Initial): Core agent architecture design capabilities
