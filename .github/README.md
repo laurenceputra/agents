@@ -1,6 +1,6 @@
 # Agent Builder Meta-System
 
-![Version](https://img.shields.io/badge/version-1.2.0-blue)
+![Version](https://img.shields.io/badge/version-1.3.0-blue)
 
 This directory contains the meta-agent system for designing, implementing, and validating agents for any purpose.
 

@@ -247,6 +247,40 @@ The meta-agent system supports two parallel workflows:
 
 ---
 
+### Specification Storage Convention
+
+**All specifications created by Agent Architect are stored in `./.specifications/` directory at the repository root.**
+
+**Rationale:**
+- Consistent location for all specification documents
+- Excluded from version control (specifications are working documents, not final artifacts)
+- Easy to find and reference during implementation
+- Separates specifications from final agent implementations
+- Keeps repository clean (only committed code, not working documents)
+
+**Directory Structure:**
+```
+/
+├── .specifications/           # Agent Architect creates specs here (gitignored)
+│   ├── agent-name-specification.md
+│   ├── group-name-group-specification.md
+│   └── refactoring-specification.md
+├── .pr_details.md            # Created in root (gitignored, used by Validator)
+├── .github/                   # Final agent implementations (committed)
+│   ├── agents/
+│   └── copilot-instructions.md
+└── .gitignore                 # Excludes .specifications/ and .pr_details.md
+```
+
+**Workflow:**
+1. Agent Architect creates specification in `./.specifications/{name}-specification.md`
+2. Agent Implementer reads specification from `./.specifications/`
+3. Agent Implementer creates implementation on feature branch
+4. Agent Validator reviews implementation (may reference specification)
+5. After PR merge, specification remains in `.specifications/` as historical reference (local only)
+
+---
+
 ## Workflow: Building Individual Agents
 
 ### Phase 1: Specification Design (Architect)
@@ -255,7 +289,8 @@ The meta-agent system supports two parallel workflows:
 
 **Architect Responsibilities**:
 1. Ask clarifying questions if requirements are unclear
-2. Design comprehensive specification including:
+2. Create `.specifications/` directory at repository root if it doesn't exist
+3. Design comprehensive specification including:
    - Problem statement and scope boundaries
    - Key responsibilities and required inputs/outputs
    - Success criteria and quality metrics
@@ -266,12 +301,13 @@ The meta-agent system supports two parallel workflows:
 
 **Exit Criteria**:
 - [ ] Specification is complete and actionable
+- [ ] Specification saved in `./.specifications/` directory
 - [ ] All required sections present
 - [ ] Model recommendation provided with rationale
 - [ ] Success criteria are measurable
 - [ ] Edge cases documented
 
-**Handoff**: Specification document → Agent Implementer
+**Handoff**: Specification document (from `./.specifications/` directory) → Agent Implementer
 
 ---
 
@@ -513,7 +549,8 @@ Agent groups are collections of coordinated agents with infrastructure files (co
 
 **Architect Responsibilities**:
 1. Ask clarifying questions about scope, coordination, and handoff patterns
-2. Design group specification including:
+2. Create `.specifications/` directory at repository root if it doesn't exist
+3. Design group specification including:
    - Group purpose and scope boundaries
    - List of agents in group with individual responsibilities
    - Handoff chain design (which agents coordinate)
@@ -525,6 +562,7 @@ Agent groups are collections of coordinated agents with infrastructure files (co
 
 **Exit Criteria**:
 - [ ] Group purpose clear and actionable
+- [ ] Specification saved in `./.specifications/` directory
 - [ ] All agents defined with responsibilities
 - [ ] Handoff chains documented (which agent hands to which)
 - [ ] Model recommendations for each agent
@@ -532,7 +570,7 @@ Agent groups are collections of coordinated agents with infrastructure files (co
 - [ ] Group-level quality criteria established
 - [ ] Portable structure requirements specified
 
-**Handoff**: Group specification document → Agent Implementer
+**Handoff**: Group specification document (from `./.specifications/` directory) → Agent Implementer
 
 ---
 
@@ -1292,5 +1330,7 @@ When updating versions, verify:
 
 ## Version History
 
+- **1.3.0** - Required all specifications be created in `./.specifications/` directory at repository root, added specification storage convention section, updated workflows
+- **1.2.0** - Added mandatory CHANGELOG.md and README.md update requirements with format guidelines
 - **1.1.0** - Added strict workflow enforcement, quality gates, decision trees, and PR gatekeeper pattern
 - **1.0.0** - Initial meta-agent system with Architect, Implementer, Validator

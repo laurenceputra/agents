@@ -5,6 +5,32 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.3.0 - 2025-12-12
+
+### Changed
+- **Agent Architect**: All specification documents now created in `./.specifications/` directory at repository root (previously ad-hoc locations)
+  - **Before**: Specifications created without defined location, leading to inconsistent storage
+  - **After**: All specifications must be created in `./.specifications/` directory with consistent naming
+  - **Migration**: Existing specifications in `.github/specifications/` can remain as historical artifacts; new specifications go to `./.specifications/`
+- **Workflow**: Added specification storage convention requiring `.specifications/` directory for all Architect outputs
+  - Phase 1 workflows updated for both individual agents and agent groups
+  - Architect must create `.specifications/` directory if it doesn't exist before writing specs
+- **Version Control**: Added `.specifications/` to `.gitignore` to exclude specifications from repository commits
+
+### Added
+- **Documentation**: New "Specification Storage Convention" section in copilot-instructions.md explaining specification directory structure and rationale
+  - Documents why specifications are working documents (not final artifacts)
+  - Provides clear workflow showing specification lifecycle
+  - Includes directory structure diagram for clarity
+- **Agent Architect**: Added "Specification Storage Location" subsection documenting directory requirements and naming conventions
+  - Path requirement: `./.specifications/` (relative to repository root)
+  - Naming convention: `{agent-name}-specification.md` or `{group-name}-group-specification.md`
+  - Examples for individual agents, agent groups, and refactorings
+  - Exception documented for `.pr_details.md` (remains in root)
+
+### Context
+Specifications are working documents created during agent design phase. Storing them in a consistent, gitignored location keeps the repository clean while maintaining local access for reference during implementation and review. This addresses specification storage inconsistency and prevents accidental commits of intermediate artifacts.
+
 ## 1.2.0 - 2025-12-12
 
 ### Added

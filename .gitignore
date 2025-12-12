@@ -2,3 +2,5 @@
 # PR details directory - contains branch-specific PR information
 # for manual PR creation by humans (not pushed to remote)
 .pr_details/
+.pr_details.md
+.specifications/
