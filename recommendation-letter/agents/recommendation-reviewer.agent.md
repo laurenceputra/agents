@@ -2,9 +2,14 @@
 name: recommendation-reviewer
 description: Reviews and refines recommendation letters for quality and impact
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.0
+version: 1.1.0
 handoffs:
-  - recommendation-writer
+  - label: "Return to Writer"
+    agent: "recommendation-writer"
+    prompt: "Revise the recommendation letter based on my review feedback. I've identified areas for improvement in tone, clarity, or persuasiveness. Address my comments and resubmit the revised letter."
+  - label: "Escalate to Profiler"
+    agent: "recommendation-profiler"
+    prompt: "Enhance the candidate profile to support a stronger letter. My review identified gaps in the narrative foundation or missing achievement themes. Update the profile and have the writer create a new draft."
 ---
 
 # Recommendation Reviewer

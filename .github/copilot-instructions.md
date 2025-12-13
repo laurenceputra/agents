@@ -1007,11 +1007,19 @@ name: agent-identifier              # Required: kebab-case, matches filename
 description: One-line agent purpose # Required: 50-100 characters
 model: Claude Sonnet 4.5 (copilot) # Required: From Architect recommendations
 version: 1.0.0                      # Optional: Semantic versioning (default 1.0.0)
-handoffs:                           # Optional: Agents this one hands off to
-  - agent-name-1
-  - agent-name-2
+handoffs:                           # Optional: Handoff objects for agent coordination
+  - label: "Action description"     # Required: User-facing handoff action
+    agent: "agent-name"             # Required: Target agent name (kebab-case)
+    prompt: "Context for handoff"   # Required: Instructions for receiving agent
+    send: false                     # Optional: Auto-send (default: false)
 ---
 ```
+
+**Handoff Field Requirements**:
+- **label**: Short, action-oriented phrase (3-6 words, starts with verb)
+- **agent**: Target agent's `name` field value (kebab-case)
+- **prompt**: Context-specific instruction for receiving agent (1-2 sentences)
+- **send**: Optional boolean for automatic handoffs (use sparingly)
 
 ### Portability Features
 - **No hardcoded paths**: Agents use relative references
@@ -1330,6 +1338,7 @@ When updating versions, verify:
 
 ## Version History
 
+- **1.4.0** - Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) across all meta-agents and updated Agent Frontmatter Schema documentation
 - **1.3.0** - Required all specifications be created in `./.specifications/` directory at repository root, added specification storage convention section, updated workflows
 - **1.2.0** - Added mandatory CHANGELOG.md and README.md update requirements with format guidelines
 - **1.1.0** - Added strict workflow enforcement, quality gates, decision trees, and PR gatekeeper pattern

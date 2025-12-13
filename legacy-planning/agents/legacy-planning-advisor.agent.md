@@ -2,11 +2,17 @@
 name: legacy-planning-advisor
 description: Guides users through legacy planning with structured questions about trust setup, beneficiaries, and wishes
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.0
+version: 1.1.0
 handoffs:
-  - beneficiary-planning-agent
-  - trust-structure-designer
-  - letter-of-wishes-composer
+  - label: "Hand to Beneficiary Planner"
+    agent: "beneficiary-planning-agent"
+    prompt: "Analyze beneficiary relationships and needs based on the family situation I've assessed. Create a structured beneficiary framework considering tax implications, protection needs, and inheritance priorities."
+  - label: "Hand to Trust Designer"
+    agent: "trust-structure-designer"
+    prompt: "Design appropriate trust structures for the legacy planning scenario I've analyzed. Consider the family situation, assets, and planning goals to recommend suitable trust options."
+  - label: "Hand to Letter Composer"
+    agent: "letter-of-wishes-composer"
+    prompt: "Draft a Letter of Wishes based on the legacy planning assessment I've completed. Use the family context, values, and planning priorities to create a personal, heartfelt letter."
 ---
 
 # Legacy Planning Advisor

@@ -2,9 +2,11 @@
 name: product-manager
 description: Defines product requirements, user stories, and acceptance criteria
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.0
+version: 1.1.0
 handoffs:
-  - staff-engineer
+  - label: "Hand to Staff Engineer"
+    agent: "staff-engineer"
+    prompt: "Design the technical architecture for the product requirements I've defined. Review the PRD, user stories, and acceptance criteria, then create a comprehensive technical design."
 ---
 
 # Product Manager

@@ -2,9 +2,14 @@
 name: recommendation-writer
 description: Creates compelling recommendation letter drafts from candidate profiles
 model: Claude Haiku 4.5 (copilot)
-version: 1.0.0
+version: 1.1.0
 handoffs:
-  - recommendation-reviewer
+  - label: "Submit to Reviewer"
+    agent: "recommendation-reviewer"
+    prompt: "Review the recommendation letter I've drafted. Check for tone, clarity, persuasiveness, and alignment with the candidate's profile. Provide feedback or approve the letter."
+  - label: "Return to Profiler"
+    agent: "recommendation-profiler"
+    prompt: "Re-evaluate the candidate profile based on feedback from the reviewer. The current profile may need additional themes, different emphasis, or more context to support a stronger letter."
 ---
 
 # Recommendation Writer

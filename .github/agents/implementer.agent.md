@@ -2,9 +2,11 @@
 name: agent-implementer
 description: Implements agent definitions from specifications following best practices
 model: Claude Haiku 4.5 (copilot)
-version: 1.2.0
+version: 1.4.0
 handoffs:
-  - agent-validator
+  - label: "Submit to Validator"
+    agent: "agent-validator"
+    prompt: "Review the agent implementation I've completed on the feature branch. Check for quality, completeness, and alignment with the specification. Provide feedback or approve for PR submission."
 ---
 
 # Agent Implementer
@@ -1288,6 +1290,7 @@ Before submitting to Validator:
 
 ## Version History
 
+- **1.4.0**: Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) for VSCode validation compliance
 - **1.2.0**: Added mandatory CHANGELOG.md and README.md update requirements with format guidelines, examples, and self-review checklist
 - **1.1.0**: Added branch-based workflow enforcement, handoff to validator, and version frontmatter
 - **1.0.0** (Initial): Core agent implementation capabilities
