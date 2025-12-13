@@ -2,10 +2,14 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 1.3.0
+version: 1.4.0
 handoffs:
-  - agent-implementer
-  - agent-validator
+  - label: "Hand to Implementer"
+    agent: "agent-implementer"
+    prompt: "Implement the agent specification I've created. The specification document is in .specifications/ directory. Follow the specification exactly and create the agent definition file(s) on a feature branch."
+  - label: "Escalate to Validator"
+    agent: "agent-validator"
+    prompt: "Review the specification I've created for completeness before implementation begins. Check for gaps, ambiguities, or missing requirements."
 ---
 
 # Agent Architect
@@ -41,9 +45,11 @@ name: agent-identifier                    # Required: kebab-case unique identifi
 description: Brief one-line agent purpose # Required: 50-100 characters
 model: Claude Sonnet 4.5 (copilot)       # Required: Explicit model name from architect recommendations
 version: 1.0.0                            # Optional: Semantic versioning (default: 1.0.0)
-handoffs:                                 # Optional: List of agent names this agent can hand off to
-  - agent-name-1
-  - agent-name-2
+handoffs:                                 # Optional: List of handoff objects (GitHub Copilot format)
+  - label: "Action description"           # Required: User-facing handoff action (e.g., "Submit to Reviewer")
+    agent: "agent-name"                   # Required: Target agent name (kebab-case)
+    prompt: "Context for handoff..."      # Required: Instructions for receiving agent
+    send: false                           # Optional: Auto-send without confirmation (default: false)
 ---
 ```
 
@@ -875,6 +881,7 @@ When reviewing an agent group specification, verify:
 
 ## Version History
 
+- **1.4.0**: Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) and updated Portable Agent Group Schema documentation
 - **1.3.0**: Required all specification documents be created in `./.specifications/` directory at repository root (added "Specification Storage Location" section and updated Response Format)
 - **1.2.0**: Added PR details output requirement (.pr_details.md) for Agent Validator workflow integration
 - **1.1.1**: Fixed handoff chain to include agent-validator

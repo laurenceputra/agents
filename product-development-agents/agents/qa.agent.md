@@ -2,9 +2,14 @@
 name: qa
 description: Ensures quality through comprehensive testing strategies and validation
 model: Gemini 3 Pro (Preview) (copilot)
-version: 1.0.0
+version: 1.1.0
 handoffs:
-  - staff-engineer
+  - label: "Return to Staff Engineer"
+    agent: "staff-engineer"
+    prompt: "Fix the issues I've found during testing. My test report identifies bugs, gaps in acceptance criteria coverage, or functional problems that need engineering attention."
+  - label: "Escalate to Product Manager"
+    agent: "product-manager"
+    prompt: "Clarify or revise the product requirements based on testing findings. I've identified acceptance criteria issues, unclear requirements, or gaps in the PRD that need product input."
 ---
 
 # QA (Quality Assurance)

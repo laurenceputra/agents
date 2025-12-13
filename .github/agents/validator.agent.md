@@ -2,10 +2,14 @@
 name: agent-validator
 description: Reviews agent implementations for quality, completeness, and best practices
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.4.0
 handoffs:
-  - agent-implementer
-  - agent-architect
+  - label: "Return to Implementer"
+    agent: "agent-implementer"
+    prompt: "Address the feedback from my validation review. I've identified issues that need fixes in the implementation. Review my feedback report and make the necessary changes on the same feature branch."
+  - label: "Escalate to Architect"
+    agent: "agent-architect"
+    prompt: "Revise the specification based on issues I've identified during validation. The current specification has gaps or ambiguities that are blocking implementation approval. Review my feedback and update the specification."
 ---
 
 # Agent Validator
@@ -2109,6 +2113,7 @@ showing the new documentation step, but this is not blocking.
 
 ## Version History
 
+- **1.4.0**: Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) for VSCode validation compliance
 - **1.2.0**: Added branch-specific PR details file management in `.pr_details/` directory to support concurrent multi-branch development, as well as mandatory documentation validation with CHANGELOG.md and README.md checklists, feedback examples, and severity levels
 - **1.1.0**: Added PR gatekeeper role, iteration workflow, specification escalation, and version frontmatter
 - **1.0.0** (Initial): Core agent validation capabilities

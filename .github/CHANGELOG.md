@@ -5,6 +5,43 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.4.0 - 2025-12-13
+
+### Changed
+- **Agent Frontmatter**: Updated handoff format to GitHub Copilot object schema across all three meta-agents
+  - **Before**: Handoffs were simple string arrays (`handoffs: [agent-implementer, agent-validator]`)
+  - **After**: Handoffs are structured objects with `label`, `agent`, `prompt`, and optional `send` fields
+  - **Context**: VSCode validation was failing because GitHub Copilot extension expects handoff objects, not strings. This change ensures compliance with the official schema and improves handoff UX with clear labels and context prompts.
+  - **Migration**: All meta-agents (Architect, Implementer, Validator) now use object format. No breaking changes to workflow semantics—handoff relationships remain unchanged, only format updated.
+
+- **Agent Architect (Schema Documentation)**: Updated Portable Agent Group Schema section to document new handoff object format
+  - **Before**: Schema showed handoffs as simple string array
+  - **After**: Schema documents handoff object structure with field requirements (label, agent, prompt, send)
+  - **Context**: Ensures future agent specifications follow the correct format from the start
+  - **Migration**: New agents designed after v1.4.0 will automatically use object format. Existing agents require manual update.
+
+- **copilot-instructions.md (Schema Documentation)**: Updated Agent Frontmatter Schema section with handoff object format and field requirements
+  - **Before**: Example showed string array for handoffs
+  - **After**: Example shows object format with inline documentation of field requirements
+  - **Context**: Provides clear reference for handoff format across all documentation
+  - **Migration**: Documentation change only; no action required for existing agents unless updating them.
+
+### Added
+- **Handoff Field Requirements**: Added documentation for all handoff object fields
+  - `label`: Short, action-oriented phrase (3-6 words, starts with verb) for user-facing actions
+  - `agent`: Target agent name in kebab-case matching target's `name` frontmatter field
+  - `prompt`: Context-specific instruction for receiving agent (1-2 sentences describing handoff context and expected action)
+  - `send`: Optional boolean for automatic handoffs (default: false, use sparingly)
+
+### Fixed
+- **VSCode Validation**: Resolved handoff format validation errors in VSCode GitHub Copilot extension
+  - **Issue**: All agent files showed validation warnings about handoff format
+  - **Resolution**: Updated all 14 agent files across 4 agent groups to use GitHub Copilot-compliant object format
+  - **Impact**: VSCode validation now passes without errors; handoff UI displays clear labels and prompts
+
+### Context
+This refactoring addresses VSCode validation failures while maintaining all existing workflow semantics. No handoff relationships were added or removed—only the format changed from simple strings to structured objects. The new format provides better UX (clear labels in handoff menu) and passes GitHub Copilot extension validation.
+
 ## 1.3.0 - 2025-12-12
 
 ### Changed

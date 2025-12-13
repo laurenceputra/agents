@@ -2,9 +2,11 @@
 name: recommendation-profiler
 description: Gathers candidate information and analyzes relationship context for recommendations
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.0
+version: 1.1.0
 handoffs:
-  - recommendation-writer
+  - label: "Hand to Writer"
+    agent: "recommendation-writer"
+    prompt: "Write a recommendation letter based on the profile and key themes I've identified. Use the structured profile, achievement highlights, and suggested narrative themes to craft a compelling letter."
 ---
 
 # Recommendation Profiler

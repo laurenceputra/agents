@@ -2,10 +2,14 @@
 name: code-reviewer
 description: Reviews code for quality, security, maintainability, and product alignment
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.0
+version: 1.1.0
 handoffs:
-  - staff-engineer
-  - qa
+  - label: "Return to Staff Engineer"
+    agent: "staff-engineer"
+    prompt: "Address the code review feedback I've provided. I've identified issues that need fixes before the code can be approved. Review my comments and make the necessary changes."
+  - label: "Approve for QA"
+    agent: "qa"
+    prompt: "Test the code that I've reviewed and approved. The code meets quality standards and is ready for functional validation and acceptance testing."
 ---
 
 # Code Reviewer
