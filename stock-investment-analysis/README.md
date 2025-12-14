@@ -1,6 +1,6 @@
 # Stock Investment Analysis Agent Group
 
-**Version**: 1.0.0  
+**Version**: 1.1.0  
 **Status**: Production Ready  
 **License**: MIT  
 **Requires**: GitHub Copilot CLI
@@ -13,7 +13,26 @@ A comprehensive, AI-powered stock investment analysis system that guides investo
 
 ## Quick Start
 
-### 1. Analyze a Stock
+### Option 1: Automated Analysis (Recommended) ⭐
+
+Use the **Stock Analysis Orchestrator** for fully automated end-to-end analysis:
+
+```bash
+@stock-analysis-orchestrator "Analyze AAPL for my portfolio"
+```
+
+**What happens**:
+1. Orchestrator asks you questions (ticker, risk tolerance, time horizon, goals, portfolio)
+2. Orchestrator automatically coordinates all five agents
+3. You receive a single comprehensive investment report (5-7 minutes)
+
+**Best for**: Most users who want complete analysis without manual handoffs
+
+---
+
+### Option 2: Manual Agent-by-Agent (Advanced)
+
+Call each agent individually for granular control:
 
 ```bash
 # Start with stock research
@@ -32,10 +51,7 @@ A comprehensive, AI-powered stock investment analysis system that guides investo
 @investment-advisor "Provide personalized AAPL investment recommendation for moderate risk tolerance, long-term horizon"
 ```
 
-### 2. Complete Workflow (Recommended)
-
-Follow the sequential workflow for best results:
-1. **Research** → 2. **Fundamental** → 3. **Technical** → 4. **Risk** → 5. **Advisor**
+**Best for**: Advanced users who want to customize inputs at each stage or need partial analysis
 
 See [Usage Examples](#usage-examples) below for detailed walkthroughs.
 
@@ -57,23 +73,79 @@ See [Usage Examples](#usage-examples) below for detailed walkthroughs.
 
 ---
 
-## The Five Agents
+## The Six Agents
 
 | Agent | Role | Model | When to Use |
 |-------|------|-------|-------------|
-| **stock-researcher** | Gather company data and context | Claude Sonnet 4.5 | Always start here |
-| **fundamental-analyst** | Evaluate financial health and valuation | Claude Sonnet 4.5 | After research |
-| **technical-analyst** | Analyze price trends and timing | Claude Haiku 4.5 | After research (parallel) |
-| **risk-assessor** | Assess risks and portfolio fit | Claude Sonnet 4.5 | After fundamental + technical |
-| **investment-advisor** | Provide personalized recommendation | Claude Sonnet 4.5 | Final step |
+| **stock-analysis-orchestrator** ⭐ | Automate complete workflow | Claude Sonnet 4.5 | **Recommended entry point** |
+| **stock-researcher** | Gather company data and context | Claude Sonnet 4.5 | Manual mode: Always start here |
+| **fundamental-analyst** | Evaluate financial health and valuation | Claude Sonnet 4.5 | Manual mode: After research |
+| **technical-analyst** | Analyze price trends and timing | Claude Haiku 4.5 | Manual mode: After research (parallel) |
+| **risk-assessor** | Assess risks and portfolio fit | Claude Sonnet 4.5 | Manual mode: After fundamental + technical |
+| **investment-advisor** | Provide personalized recommendation | Claude Sonnet 4.5 | Manual mode: Final step |
 
 ---
 
 ## Usage Examples
 
-### Example 1: Analyzing a Large-Cap Stock (Apple Inc.)
+### Example 0: Automated Analysis with Orchestrator ⭐ (Recommended)
 
-**Scenario**: You're a moderate-risk investor with a long-term horizon (5+ years) seeking quality growth stocks for a $150K portfolio.
+**Scenario**: You want complete NVIDIA analysis without managing agent handoffs.
+
+```bash
+@stock-analysis-orchestrator "I want to analyze NVIDIA for my portfolio"
+```
+
+**Orchestrator Workflow**:
+
+1. **Questionnaire** (you answer once):
+   ```
+   Stock Ticker: NVDA
+   Risk Tolerance: Aggressive
+   Time Horizon: Medium-term (1-5 years)
+   Investment Goals: Growth
+   Portfolio Size: $200,000
+   Existing Holdings: AAPL $30K, MSFT $40K, TSLA $25K
+   Focus Areas: Is AI growth sustainable? Is valuation justified?
+   Analysis Depth: Standard
+   ```
+
+2. **Automated Execution** (5-7 minutes):
+   ```
+   [Stage 1/5] 🔍 Gathering Stock Data (stock-researcher)
+   ✓ Complete
+   
+   [Stage 2/5] 📊 Running Fundamental & Technical Analysis (parallel)
+   ✓ Complete
+   
+   [Stage 3/5] ⚠️  Assessing Investment Risks (risk-assessor)
+   ✓ Complete
+   
+   [Stage 4/5] 💡 Generating Final Recommendation (investment-advisor)
+   ✓ Complete
+   
+   [Stage 5/5] 📝 Compiling Comprehensive Report
+   ✓ Complete
+   ```
+
+3. **Comprehensive Report Delivered**:
+   - Executive Summary with final recommendation (Buy/Hold/Sell)
+   - Stock Research highlights
+   - Fundamental Analysis (financial health, valuation, fair value)
+   - Technical Analysis (trends, price levels, entry points)
+   - Risk Assessment (volatility, risks, position sizing)
+   - Investment Recommendation (action plan, monitoring triggers)
+   - Action Checklist with specific next steps
+
+**Result**: Single comprehensive report with Buy recommendation, $10K position (5% of portfolio), entry at $480-490, stop-loss $420, target $650.
+
+**Time**: ~5-7 minutes for complete analysis
+
+---
+
+### Example 1: Manual Analysis - Large-Cap Stock (Apple Inc.)
+
+**Scenario**: You're a moderate-risk investor with a long-term horizon (5+ years) seeking quality growth stocks for a $150K portfolio. You want granular control over each analysis stage.
 
 #### Step 1: Research
 ```bash

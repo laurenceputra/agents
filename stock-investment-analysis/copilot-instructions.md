@@ -1,6 +1,6 @@
 # Stock Investment Analysis Agent Group
 
-**Version**: 1.0.0  
+**Version**: 1.1.0  
 **Date**: 2024-12-14  
 **Status**: Production Ready
 
@@ -35,7 +35,49 @@ Investors need systematic, multi-dimensional analysis to make informed stock inv
 - Guarantee of returns
 - Licensed financial advisory services
 
-## The Five Agents
+## Workflow Options
+
+This agent group supports **two workflow modes**:
+
+### Option 1: Automated Orchestration (Recommended for Most Users)
+Use the **Stock Analysis Orchestrator** for a fully automated, end-to-end analysis:
+- Answer questions once upfront
+- Orchestrator coordinates all five agents automatically
+- Receive single comprehensive report
+- **Best for**: Users who want complete analysis without managing handoffs
+
+**Start with**: `@stock-analysis-orchestrator`
+
+### Option 2: Manual Agent-by-Agent (Advanced Users)
+Call each agent individually for maximum control:
+- Step through each analysis stage manually
+- Customize inputs at each stage
+- Review outputs before proceeding to next agent
+- **Best for**: Users who want granular control or partial analysis
+
+**Start with**: `@stock-researcher` → then proceed through agents sequentially
+
+---
+
+## The Six Agents
+
+### 0. Stock Analysis Orchestrator (`stock-analysis-orchestrator`) ⭐ NEW
+**Model**: Claude Sonnet 4.5 (copilot)  
+**Role**: Automate complete stock analysis workflow from input collection to final report
+
+**When to Use**: When you want fully automated end-to-end analysis (recommended entry point)
+
+**What It Does**:
+- Collects all user inputs upfront via structured questionnaire
+- Automatically coordinates all five specialized agents in sequence
+- Handles parallel execution (fundamental + technical simultaneously)
+- Aggregates outputs into single comprehensive report
+- Provides progress updates during analysis
+- Handles errors gracefully
+
+**Hands Off To**: All five specialized agents (automatically), then delivers final report
+
+---
 
 ### 1. Stock Research Agent (`stock-researcher`)
 **Model**: Claude Sonnet 4.5 (copilot)  
@@ -124,7 +166,37 @@ Investors need systematic, multi-dimensional analysis to make informed stock inv
 
 ---
 
-## Workflow
+## Workflows
+
+### Automated Workflow (Using Orchestrator)
+
+```
+User
+  ↓
+[Stock Analysis Orchestrator]
+  ├─ Collects inputs via questionnaire
+  ├─ Validates inputs
+  ├─ Confirms with user
+  └─ Automatically executes:
+      ↓
+  [1. stock-researcher]
+      ↓
+  [2. fundamental-analyst] ←─┐
+      ↓                      │ (parallel)
+  [3. technical-analyst] ────┘
+      ↓
+  [4. risk-assessor]
+      ↓
+  [5. investment-advisor]
+      ↓
+[Orchestrator compiles comprehensive report]
+      ↓
+User receives final report
+```
+
+**Estimated Time**: 5-7 minutes for standard single-stock analysis
+
+### Manual Workflow (Agent-by-Agent)
 
 ```
 User Request
@@ -140,7 +212,7 @@ User Request
                                 Final Recommendation
 ```
 
-### Workflow Steps
+### Manual Workflow Steps
 
 1. **User Provides**:
    - Stock ticker symbol (e.g., AAPL, MSFT, TSLA)
@@ -183,15 +255,33 @@ User Request
 
 ## Decision Trees
 
-### Tree 1: Which Agent Should I Start With?
+### Tree 1: Which Workflow Should I Use?
+
+```
+START: What type of analysis do you need?
+  │
+  ├─ I want COMPLETE automated analysis
+  │  └─> Use @stock-analysis-orchestrator
+  │      - Answer questionnaire once
+  │      - Receive comprehensive report automatically
+  │      - Recommended for most users
+  │
+  └─ I want GRANULAR control over each stage
+     └─> Use manual agent-by-agent workflow
+         - Start with @stock-researcher
+         - Proceed through agents sequentially
+         - Customize inputs at each stage
+```
+
+### Tree 2: Which Agent Should I Start With (Manual Mode)?
 
 **Always start with `stock-researcher`.**
 
-The Stock Research Agent is the entry point for all stock analyses. It gathers the foundational data that all other agents need.
+The Stock Research Agent is the entry point for manual workflow. It gathers the foundational data that all other agents need.
 
 ---
 
-### Tree 2: When Should I Use This Agent Group vs. Manual Research?
+### Tree 3: When Should I Use This Agent Group vs. Manual Research?
 
 **Use this agent group when**:
 - You want systematic, multi-dimensional analysis
