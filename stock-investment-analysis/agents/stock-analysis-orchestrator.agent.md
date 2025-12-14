@@ -2,7 +2,7 @@
 name: stock-analysis-orchestrator
 description: Automates end-to-end stock investment analysis by collecting user inputs and coordinating all five specialized agents to deliver a comprehensive report
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.0
+version: 1.1.0
 handoffs:
   - label: "Gather stock data"
     agent: "stock-researcher"
