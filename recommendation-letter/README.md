@@ -1,6 +1,6 @@
 # Recommendation Letter Writing Agents
 
-A comprehensive recommendation letter writing system for GitHub Copilot with three specialized agents that help letter writers create compelling, professional recommendation letters for software engineers seeking new roles.
+A comprehensive recommendation letter writing system for GitHub Copilot with four specialized agents that help letter writers create compelling, professional recommendation letters for software engineers seeking new roles.
 
 ## Overview
 
@@ -459,7 +459,7 @@ A: Check your company's policy. Some organizations allow this, others don't. Whe
 
 ## Version History
 
-- **1.0.0** - Initial recommendation letter writing system with sequential workflow and three specialized agents
+- **1.0.0** - Initial recommendation letter writing system with sequential workflow and four specialized agents
 
 ## Support and Feedback
 
