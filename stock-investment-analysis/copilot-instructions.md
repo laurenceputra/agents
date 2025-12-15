@@ -42,7 +42,7 @@ This agent group supports **two workflow modes**:
 ### Option 1: Automated Orchestration (Recommended for Most Users)
 Use the **Stock Analysis Orchestrator** for a fully automated, end-to-end analysis:
 - Answer questions once upfront
-- Orchestrator coordinates all five agents automatically
+- Orchestrator coordinates all six specialist agents automatically
 - Receive single comprehensive report
 - **Best for**: Users who want complete analysis without managing handoffs
 
