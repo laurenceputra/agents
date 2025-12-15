@@ -2,11 +2,15 @@
 name: fundamental-analyst
 description: Analyzes financial health, valuation, and long-term investment merit of stocks
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.0
+version: 1.2.0
 handoffs:
   - label: "Assess investment risks"
     agent: "risk-assessor"
     prompt: "Evaluate risks based on fundamental analysis, including financial stability, valuation risk, and company-specific concerns."
+    send: false
+  - label: "Submit to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review this fundamental analysis for optimistic bias and valuation assumptions."
     send: false
 ---
 

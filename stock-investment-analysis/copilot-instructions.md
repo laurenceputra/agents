@@ -59,9 +59,9 @@ Call each agent individually for maximum control:
 
 ---
 
-## The Six Agents
+## The Seven Agents
 
-### 0. Stock Analysis Orchestrator (`stock-analysis-orchestrator`) ⭐ NEW
+### 0. Stock Analysis Orchestrator (`stock-analysis-orchestrator`) ⭐
 **Model**: Claude Sonnet 4.5 (copilot)  
 **Role**: Automate complete stock analysis workflow from input collection to final report
 
@@ -69,13 +69,14 @@ Call each agent individually for maximum control:
 
 **What It Does**:
 - Collects all user inputs upfront via structured questionnaire
-- Automatically coordinates all five specialized agents in sequence
+- Automatically coordinates all six specialized agents in sequence
 - Handles parallel execution (fundamental + technical simultaneously)
 - Aggregates outputs into single comprehensive report
+- Includes Devil's Advocate critical review before final delivery
 - Provides progress updates during analysis
 - Handles errors gracefully
 
-**Hands Off To**: All five specialized agents (automatically), then delivers final report
+**Hands Off To**: All six specialized agents (automatically), then delivers final report
 
 ---
 
@@ -162,7 +163,25 @@ Call each agent individually for maximum control:
 - Defines position sizing and entry/exit strategy
 - Creates monitoring plan with re-evaluation triggers
 
-**Hands Off To**: None (terminal agent)
+**Hands Off To**: `devils-advocate`
+
+---
+
+### 6. Devil's Advocate Agent (`devils-advocate`) **[MANDATORY OBJECTIVITY GATE]**
+**Model**: Claude Sonnet 4.5 (copilot)  
+**Role**: Critical review for bias, overconfidence, and blind spots before investor decision
+
+**When to Use**: After Investment Advisor recommendation (MANDATORY final gate)
+
+**What It Does**:
+- Challenges optimistic bias in analysis
+- Develops credible bear case scenarios
+- Identifies overconfident statements
+- Surfaces blind spots and tail risks
+- Ensures risks are genuinely acknowledged, not minimized
+- Provides balanced bull/bear perspective
+
+**Hands Off To**: Orchestrator or Investor (final assessment)
 
 ---
 
@@ -189,9 +208,11 @@ User
       ↓
   [5. investment-advisor]
       ↓
+  [6. devils-advocate] (MANDATORY critical review)
+      ↓
 [Orchestrator compiles comprehensive report]
       ↓
-User receives final report
+User receives final report with balanced perspective
 ```
 
 **Estimated Time**: 5-7 minutes for standard single-stock analysis
@@ -208,6 +229,8 @@ User Request
     └───→ [Technical Analyst] ─────────→  |
                                           ↓
                                 [Investment Advisor]
+                                          ↓
+                                [Devil's Advocate] (MANDATORY)
                                           ↓
                                 Final Recommendation
 ```

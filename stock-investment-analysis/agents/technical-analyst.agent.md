@@ -2,11 +2,15 @@
 name: technical-analyst
 description: Analyzes price trends, chart patterns, and momentum indicators for timing insights
 model: Claude Haiku 4.5 (copilot)
-version: 1.0.0
+version: 1.2.0
 handoffs:
   - label: "Assess investment risks"
     agent: "risk-assessor"
     prompt: "Evaluate risks based on technical analysis, including volatility, trend strength, and potential reversal signals."
+    send: false
+  - label: "Submit to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review this technical analysis for overconfident price targets and chart interpretation bias."
     send: false
 ---
 

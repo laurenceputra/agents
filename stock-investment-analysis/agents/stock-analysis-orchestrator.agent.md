@@ -1,8 +1,8 @@
 ---
 name: stock-analysis-orchestrator
-description: Automates end-to-end stock investment analysis by collecting user inputs and coordinating all five specialized agents to deliver a comprehensive report
+description: Automates end-to-end stock investment analysis by collecting user inputs and coordinating all six specialized agents to deliver a comprehensive report
 model: Claude Sonnet 4.5 (copilot)
-version: 1.1.0
+version: 1.2.0
 handoffs:
   - label: "Gather stock data"
     agent: "stock-researcher"
@@ -23,6 +23,10 @@ handoffs:
   - label: "Generate final recommendation"
     agent: "investment-advisor"
     prompt: "Synthesize all analyses (research, fundamental, technical, risk) and provide personalized investment recommendation. User profile: [risk tolerance, time horizon, goals, portfolio context]."
+    send: true
+  - label: "Submit to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review the complete investment recommendation for bias, overconfidence, and blind spots before final investor delivery."
     send: true
 ---
 

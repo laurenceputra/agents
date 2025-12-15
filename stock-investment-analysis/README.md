@@ -1,6 +1,6 @@
 # Stock Investment Analysis Agent Group
 
-**Version**: 1.1.0  
+**Version**: 1.2.0  
 **Status**: Production Ready  
 **License**: MIT  
 **Requires**: GitHub Copilot CLI
@@ -9,7 +9,7 @@
 
 ## Overview
 
-A comprehensive, AI-powered stock investment analysis system that guides investors from initial research through personalized recommendations. Five specialized agents work together to analyze stocks across fundamental, technical, and risk dimensions, providing institutional-grade analysis accessible to individual investors.
+A comprehensive, AI-powered stock investment analysis system that guides investors from initial research through personalized recommendations with critical review for objectivity. Six specialized agents work together to analyze stocks across fundamental, technical, and risk dimensions, with Devil's Advocate ensuring balanced perspective before final recommendation.
 
 ## Quick Start
 
@@ -23,10 +23,11 @@ Use the **Stock Analysis Orchestrator** for fully automated end-to-end analysis:
 
 **What happens**:
 1. Orchestrator asks you questions (ticker, risk tolerance, time horizon, goals, portfolio)
-2. Orchestrator automatically coordinates all five agents
-3. You receive a single comprehensive investment report (5-7 minutes)
+2. Orchestrator automatically coordinates all six agents
+3. Devil's Advocate reviews for bias and blind spots
+4. You receive a single comprehensive investment report (5-7 minutes)
 
-**Best for**: Most users who want complete analysis without manual handoffs
+**Best for**: Most users who want complete analysis with objectivity review
 
 ---
 
@@ -49,6 +50,9 @@ Call each agent individually for granular control:
 
 # Get final recommendation
 @investment-advisor "Provide personalized AAPL investment recommendation for moderate risk tolerance, long-term horizon"
+
+# Critical review (MANDATORY)
+@devils-advocate "Review AAPL recommendation for bias and blind spots"
 ```
 
 **Best for**: Advanced users who want to customize inputs at each stage or need partial analysis

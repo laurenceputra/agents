@@ -5,6 +5,53 @@ All notable changes to the Stock Investment Analysis Agent Group will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-12-15
+
+### Added
+- **Devil's Advocate Agent (devils-advocate.agent.md)**: New seventh agent for objectivity and bias detection
+  - **Purpose**: Critically reviews investment recommendations for optimistic bias, overconfidence, and blind spots before investor decision
+  - **Position in Workflow**: Final objectivity gate after Investment Advisor recommendation, before investor commits capital
+  - **Key Capabilities**:
+    - Challenges optimistic bias in fundamental and technical analysis
+    - Develops credible bear case scenarios where investment thesis fails
+    - Identifies overconfident price targets and return projections
+    - Surfaces tail risks and black swan scenarios not addressed
+    - Ensures risks are genuinely acknowledged, not minimized
+    - Provides balanced bull/bear comparison
+  - **Model**: Claude Sonnet 4.5 (copilot) - requires strong reasoning for skeptical evaluation
+  - **Context**: Prevents overconfident investment decisions by ensuring investors see complete risk picture including bearish scenarios
+
+### Changed
+- **All Agents**: Added handoff to Devil's Advocate for critical review (version 1.0.0 → 1.2.0)
+  - **Affected Agents**: Stock Researcher, Fundamental Analyst, Technical Analyst, Risk Assessor, Investment Advisor
+  - **Before**: Investment Advisor recommendation went directly to investor
+  - **After**: All recommendations go through Devil's Advocate objectivity gate before finalization
+  - **Added Handoff**: "Submit to Devil's Advocate" for bias detection and bear case development
+  - **Context**: Ensures objectivity and prevents confirmation bias in investment analysis
+  - **Migration**: No breaking changes—workflow extended with quality gate, existing process preserved
+
+- **Stock Analysis Orchestrator**: Updated to coordinate seven agents including Devil's Advocate (version 1.1.0 → 1.2.0)
+  - **Before**: Orchestrated five specialists (researcher, fundamental, technical, risk, advisor)
+  - **After**: Orchestrates six specialists plus Devil's Advocate review before final report
+  - **Added Step 6**: Devil's Advocate critical review with bear case development
+  - **Context**: Automated workflow now includes mandatory objectivity check
+
+- **Workflow (copilot-instructions.md)**: Updated from six-agent to seven-agent workflow with objectivity gate
+  - **Before**: Orchestrator → Researcher → Fundamental/Technical → Risk → Advisor → Report
+  - **After**: Orchestrator → Researcher → Fundamental/Technical → Risk → Advisor → Devil's Advocate → Report
+  - **Added Step 6**: Devil's Advocate reviews for bias, overconfidence, blind spots
+  - **Context**: Visualizes mandatory critical review phase before investor decision
+
+- **README.md**: Updated agent count and workflow description
+  - **Before**: Six agents (including orchestrator)
+  - **After**: Seven agents including Devil's Advocate as objectivity gate
+  - **Context**: Clarifies complete workflow including critical review for balanced perspective
+
+### Migration Guide
+- **Existing Workflows**: Add Devil's Advocate review step after Investment Advisor, before final investor decision
+- **No Breaking Changes**: Existing agents and workflow remain valid; workflow extended with objectivity gate, not replaced
+- **Objectivity Focus**: Devil's Advocate specializes in bearish scenario development and overconfidence detection—different from Risk Assessor's risk enumeration
+
 ## [1.1.0] - 2024-12-14
 
 ### Added

@@ -2,8 +2,12 @@
 name: investment-advisor
 description: Synthesizes all analyses to provide personalized stock investment recommendations
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.0
-handoffs: []
+version: 1.2.0
+handoffs:
+  - label: "Submit to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review this investment recommendation for bias, overconfidence, and blind spots before investor decision."
+    send: false
 ---
 
 # Investment Advisor Agent
