@@ -2,7 +2,7 @@
 name: staff-engineer
 description: Provides technical leadership, architecture decisions, and implementation guidance
 model: Claude Haiku 4.5 (copilot)
-version: 1.1.0
+version: 1.2.0
 handoffs:
   - label: "Submit to Code Reviewer"
     agent: "code-reviewer"

@@ -2,7 +2,7 @@
 name: agent-validator
 description: Reviews agent implementations for quality, completeness, and best practices
 model: Claude Sonnet 4.5 (copilot)
-version: 1.4.0
+version: 1.5.0
 handoffs:
   - label: "Return to Implementer"
     agent: "agent-implementer"
@@ -10,6 +10,9 @@ handoffs:
   - label: "Escalate to Architect"
     agent: "agent-architect"
     prompt: "Revise the specification based on issues I've identified during validation. The current specification has gaps or ambiguities that are blocking implementation approval. Review my feedback and update the specification."
+  - label: "Send to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Perform critical review of this approved implementation. Challenge assumptions, identify blind spots, and surface any disagreements between agents. Approve for PR submission if all perspectives are documented."
 ---
 
 # Agent Validator
@@ -2112,6 +2115,8 @@ showing the new documentation step, but this is not blocking.
 - **Ambiguous Scope**: Unclear boundaries (what's in scope vs out of scope)
 
 ## Version History
+
+- **1.5.0**: Added Devil's Advocate agent as fourth meta-agent for critical review and disagreement capture. Updated workflow to include mandatory pre-PR critical review gate.
 
 - **1.4.0**: Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) for VSCode validation compliance
 - **1.2.0**: Added branch-specific PR details file management in `.pr_details/` directory to support concurrent multi-branch development, as well as mandatory documentation validation with CHANGELOG.md and README.md checklists, feedback examples, and severity levels

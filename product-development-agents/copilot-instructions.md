@@ -2,13 +2,13 @@
 
 ## Overview
 
-This is a structured product development workflow system with four specialized agents that work together to deliver high-quality software. The system ensures quality through clear processes, iterative feedback loops, and mandatory quality gates.
+This is a structured product development workflow system with five specialized agents that work together to deliver high-quality software. The system ensures quality through clear processes, iterative feedback loops, and mandatory quality gates.
 
 ## Core Principle
 
 **Quality is built through collaboration and iteration.** Each agent has specialized expertise, and features progress through defined stages with clear approval criteria. Code must pass review before testing, and fixes must be reviewed before retesting.
 
-## The Four Agents
+## The Five Agents
 
 ### Product Manager (`agents/product-manager.md`)
 **Role**: Define what to build and why it matters
@@ -36,7 +36,15 @@ This is a structured product development workflow system with four specialized a
 - Designs test strategies
 - Executes testing against acceptance criteria
 - Reports bugs with detailed reproduction steps
-- **Final gate before deployment**
+- **Quality gate before critical review**
+
+### Devil's Advocate (`agents/devils-advocate.md`)
+**Role**: Critical review and disagreement facilitation
+- Critically reviews work from all agents
+- Challenges assumptions and identifies blind spots
+- Surfaces disagreements between agents with full perspectives
+- Prepares PR writeup with all disagreements marked
+- **Final gate before PR submission**
 
 ## Development Workflow
 
@@ -65,9 +73,20 @@ This is a structured product development workflow system with four specialized a
    │                   ↑___________↓___________↑__________↓
    │                   (Fix → Review → Retest until pass)
    │
-   └─ If ALL TESTS PASS → Approved for Deployment
+   └─ If ALL TESTS PASS → Proceed to Devil's Advocate
    
-5. Deployment
+5. Devil's Advocate
+   ↓ (Critical review, challenge assumptions, surface disagreements)
+   │
+   ├─ If REVISION NEEDED → Back to Staff Engineer → Code Reviewer → QA → Devil's Advocate
+   │                        ↑____________↓____________↑_________↓__________↓
+   │                        (Fix → Review → Retest → Re-review until approved)
+   │
+   ├─ If PRODUCT ISSUE → Escalate to Product Manager (clarify requirements)
+   │
+   └─ If APPROVED → Ready for PR Submission and Deployment
+   
+6. Deployment
 ```
 
 ### Critical Rules
@@ -75,8 +94,9 @@ This is a structured product development workflow system with four specialized a
 1. **Code Review is Mandatory**: All code must pass Code Review before reaching QA
 2. **Fixes Go Through Review**: When QA finds bugs, fixes must be code-reviewed before retesting
 3. **No Skipping Stages**: Cannot skip from Engineer directly to QA without Code Review
-4. **Iterative Loops**: Expect multiple iterations in Code Review and QA cycles
-5. **Clear Exit Criteria**: Each stage has specific approval criteria to proceed
+4. **Devil's Advocate is Mandatory**: All features require critical review after QA before PR submission
+5. **Iterative Loops**: Expect multiple iterations in Code Review, QA, and Devil's Advocate cycles
+6. **Clear Exit Criteria**: Each stage has specific approval criteria to proceed
 
 ## Workflow Details
 
@@ -602,6 +622,10 @@ Some activities can happen in parallel:
 → Consult **QA**
 - QA will test against acceptance criteria and report bugs
 
+#### "I have QA-approved code ready for PR"
+→ Consult **Devil's Advocate**
+- Devil's Advocate will critically review, challenge assumptions, surface disagreements
+
 #### "I received code review feedback"
 → Work with **Staff Engineer**
 - Engineer will fix issues and resubmit for review
@@ -609,6 +633,14 @@ Some activities can happen in parallel:
 #### "I received a bug report from QA"
 → Work with **Staff Engineer**
 - Engineer will fix bugs, then submit to **Code Reviewer**, then back to **QA**
+
+#### "I received critical concerns from Devil's Advocate"
+→ Work with **Staff Engineer**
+- Engineer will address concerns, then submit to **Code Reviewer**, then **QA**, then back to **Devil's Advocate**
+
+#### "Devil's Advocate found a product issue"
+→ Work with **Product Manager**
+- PM will clarify requirements or revise acceptance criteria
 
 #### "I need to know if requirements are clear"
 → Ask **Staff Engineer** and **QA**
@@ -619,6 +651,11 @@ Some activities can happen in parallel:
 → **Not allowed** ❌
 - All code must pass Code Review before QA testing
 - This ensures consistent quality standards
+
+#### "I want to skip Devil's Advocate and submit PR directly"
+→ **Not allowed** ❌
+- All features require critical review before PR submission
+- This ensures assumptions are challenged and disagreements are documented
 
 ---
 

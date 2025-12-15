@@ -1,17 +1,18 @@
 # Product Development Agents
 
-A structured, high-quality product development workflow system for GitHub Copilot with four specialized agents that collaborate to deliver software from requirements to deployment.
+A structured, high-quality product development workflow system for GitHub Copilot with five specialized agents that collaborate to deliver software from requirements to deployment.
 
 ## Overview
 
 This system provides a complete product development workflow with built-in quality gates, iterative feedback loops, and clear processes. It's designed to work out-of-the-box while being customizable for your project's specific needs.
 
-### The Four Agents
+### The Five Agents
 
 1. **Product Manager** - Define requirements, user stories, and acceptance criteria
 2. **Staff Engineer** - Design technical solutions and implement features
 3. **Code Reviewer** - Quality gate ensuring code standards and security
-4. **QA** - Comprehensive testing and validation before deployment
+4. **QA** - Comprehensive testing and validation before critical review
+5. **Devil's Advocate** - Critical review, assumption challenging, and disagreement capture before PR submission
 
 ### Key Features
 
@@ -40,6 +41,7 @@ This system provides a complete product development workflow with built-in quali
    - `.github/agents/staff-engineer.md`
    - `.github/agents/code-reviewer.md`
    - `.github/agents/qa.md`
+   - `.github/agents/devils-advocate.md` (uses defaults, customization optional)
    
    Add your:
    - Tech stack (languages, frameworks)

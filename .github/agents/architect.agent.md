@@ -2,7 +2,7 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 1.4.0
+version: 1.5.0
 handoffs:
   - label: "Hand to Implementer"
     agent: "agent-implementer"
@@ -880,6 +880,8 @@ When reviewing an agent group specification, verify:
 **Critical Workflow Rule**: Architect produces specifications → Agent Implementer implements → Agent Validator reviews. Architect NEVER implements.
 
 ## Version History
+
+- **1.5.0**: Added Devil's Advocate agent as fourth meta-agent for critical review and disagreement capture. Updated workflow to include mandatory pre-PR critical review gate.
 
 - **1.4.0**: Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) and updated Portable Agent Group Schema documentation
 - **1.3.0**: Required all specification documents be created in `./.specifications/` directory at repository root (added "Specification Storage Location" section and updated Response Format)

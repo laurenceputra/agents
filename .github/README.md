@@ -1,6 +1,6 @@
 # Agent Builder Meta-System
 
-![Version](https://img.shields.io/badge/version-1.3.0-blue)
+![Version](https://img.shields.io/badge/version-1.5.0-blue)
 
 This directory contains the meta-agent system for designing, implementing, and validating agents for any purpose.
 
@@ -14,7 +14,7 @@ The Agent Builder is a **meta-level system** that helps you create high-quality,
 
 ## How It Works
 
-The system follows a three-phase workflow:
+The system follows a four-phase workflow:
 
 ### Phase 1: Architecture (Design)
 **Agent**: `agent-architect.md`
@@ -47,16 +47,32 @@ Once you have a specification, the Agent Implementer:
 ### Phase 3: Validation (Quality Assurance)
 **Agent**: `agent-validator.md`
 
-Before deploying, the Agent Validator:
+Before critical review, the Agent Validator:
 - Reviews implementations for completeness
 - Validates best practices adherence
 - Checks examples and quality criteria
 - Provides structured feedback
 - Approves or requests revisions
+- Hands off to Devil's Advocate for critical review
 
-**When to use**: You have a draft agent definition and need quality assurance before using it.
+**When to use**: You have a draft agent definition and need quality assurance before critical review.
 
-**Example**: Reviews the API Design Reviewer implementation → Provides approval or detailed feedback for improvements.
+**Example**: Reviews the API Design Reviewer implementation → Provides approval and hands to Devil's Advocate for critical review.
+
+### Phase 4: Critical Review (Pre-PR Gate)
+**Agent**: `devils-advocate.md`
+
+Before PR submission, the Devil's Advocate:
+- Critically reviews work from all agents
+- Challenges assumptions and identifies blind spots
+- Surfaces disagreements between agents
+- Documents all perspectives for human decision-making
+- Prepares PR writeup with critical concerns marked
+- Final quality gate before PR submission
+
+**When to use**: You have a Validator-approved implementation and need critical review before PR submission.
+
+**Example**: Reviews the API Design Reviewer implementation → Challenges assumptions, surfaces any disagreements, approves for PR with documentation of all perspectives.
 
 ## Quick Start
 
@@ -81,6 +97,12 @@ Before deploying, the Agent Validator:
    - Provide the implementation
    - Receive validation report
    - Address any issues found
+
+5. **Consult Devil's Advocate**
+   - After Validator approval
+   - Receive critical review
+   - Review documented disagreements and assumptions
+   - Ready for PR submission
 
 5. **Deploy and Iterate**
    - Use your new agent
@@ -290,6 +312,7 @@ When improving the meta-system itself:
 
 ## Version History
 
+- **1.5.0** - Added Devil's Advocate agent as fourth meta-agent for critical review, disagreement capture, and pre-PR quality gate. Updated workflow to four phases.
 - **1.2.0** - Added mandatory CHANGELOG.md and README.md update enforcement with validation checklists, format guidelines, and quality criteria
 - **1.1.0** - Added strict workflow enforcement, quality gates, decision trees, PR gatekeeper pattern, and version frontmatter support
 - **1.0.0** - Initial meta-agent system with Architect, Implementer, Validator

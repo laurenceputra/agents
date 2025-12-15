@@ -2,7 +2,7 @@
 name: qa
 description: Ensures quality through comprehensive testing strategies and validation
 model: Gemini 3 Pro (Preview) (copilot)
-version: 1.1.0
+version: 1.2.0
 handoffs:
   - label: "Return to Staff Engineer"
     agent: "staff-engineer"
@@ -10,6 +10,9 @@ handoffs:
   - label: "Escalate to Product Manager"
     agent: "product-manager"
     prompt: "Clarify or revise the product requirements based on testing findings. I've identified acceptance criteria issues, unclear requirements, or gaps in the PRD that need product input."
+  - label: "Send to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Perform critical review of this feature before PR submission. Challenge assumptions made by all agents, identify blind spots, and surface any disagreements. Approve for PR submission if all perspectives are documented."
 ---
 
 # QA (Quality Assurance)
