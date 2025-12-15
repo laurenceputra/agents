@@ -2,7 +2,7 @@
 name: recommendation-reviewer
 description: Reviews and refines recommendation letters for quality and impact
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Return to Writer"
     agent: "recommendation-writer"
@@ -502,4 +502,5 @@ No further agent involvement needed unless writer wants additional changes.
 
 ## Version History
 
+- **1.2.1** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
 - **1.0.0** - Initial Recommendation Reviewer agent for quality assurance and refinement of recommendation letters

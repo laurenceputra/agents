@@ -2,7 +2,7 @@
 name: devils-advocate
 description: Critically reviews recommendation letters for authenticity, credibility concerns, and weak claims
 model: Claude Sonnet 4.5 (copilot)
-version: 1.1.0
+version: 1.2.1
 handoffs:
   - label: "Request reviewer perspective"
     agent: "recommendation-reviewer"
@@ -331,4 +331,5 @@ When performing credibility review of recommendation letters, verify:
 
 ## Version History
 
+- **1.2.1** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
 - **1.1.0**: Initial implementation - Credibility review agent for recommendation letter authenticity and believability assurance

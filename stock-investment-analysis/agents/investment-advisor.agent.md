@@ -2,7 +2,7 @@
 name: investment-advisor
 description: Synthesizes all analyses to provide personalized stock investment recommendations
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
@@ -1137,4 +1137,5 @@ The key insight: Chevron is a good company but not at an ideal entry point right
 
 ## Version History
 
+- **1.2.1** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
 - **1.0.0** (Initial): Core investment advisory capabilities for synthesizing analyses and providing personalized buy/hold/sell recommendations

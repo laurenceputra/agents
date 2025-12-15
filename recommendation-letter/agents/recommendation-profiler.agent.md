@@ -2,7 +2,7 @@
 name: recommendation-profiler
 description: Gathers candidate information and analyzes relationship context for recommendations
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Hand to Writer"
     agent: "recommendation-writer"
@@ -437,4 +437,5 @@ Which approach feels most comfortable to you?
 
 ## Version History
 
+- **1.2.1** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
 - **1.0.0** - Initial Recommendation Profiler agent for gathering candidate information and creating comprehensive profiles
