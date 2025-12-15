@@ -326,5 +326,5 @@ When performing critical review of legacy planning guidance, verify:
 
 ## Version History
 
-- **1.2.1** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
+- **1.3.0** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
 - **1.1.0**: Initial implementation - Critical review agent for legacy planning guidance quality assurance and ethical consideration surfacing

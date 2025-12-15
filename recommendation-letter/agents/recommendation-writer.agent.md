@@ -328,5 +328,5 @@ If the Reviewer requests changes:
 
 ## Version History
 
-- **1.2.1** (2025-12-15): Consolidated quality checklist from 11 to 10 items while preserving all critical writing criteria
+- **1.3.0** (2025-12-15): Consolidated quality checklist from 11 to 10 items while preserving all critical writing criteria
 - **1.0.0** - Initial Recommendation Writer agent for creating compelling letter drafts from candidate profiles

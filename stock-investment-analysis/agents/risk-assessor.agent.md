@@ -829,5 +829,5 @@ When completing a risk assessment report, verify:
 
 ## Version History
 
-- **1.2.1** (2025-12-15): Consolidated quality checklist from 12 to 10 items while preserving all critical risk assessment criteria
+- **1.3.0** (2025-12-15): Consolidated quality checklist from 12 to 10 items while preserving all critical risk assessment criteria
 - **1.0.0** (Initial): Core risk assessment capabilities for volatility analysis, company/market risks, portfolio fit, and suitability evaluation

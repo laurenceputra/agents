@@ -502,5 +502,5 @@ No further agent involvement needed unless writer wants additional changes.
 
 ## Version History
 
-- **1.2.1** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
+- **1.3.0** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
 - **1.0.0** - Initial Recommendation Reviewer agent for quality assurance and refinement of recommendation letters

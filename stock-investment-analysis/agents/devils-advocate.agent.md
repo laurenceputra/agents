@@ -402,5 +402,5 @@ When performing critical review of investment recommendations, verify:
 
 ## Version History
 
-- **1.2.1** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
+- **1.3.0** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
 - **1.2.0**: Initial implementation - Critical review agent for investment recommendation objectivity and risk disclosure assurance

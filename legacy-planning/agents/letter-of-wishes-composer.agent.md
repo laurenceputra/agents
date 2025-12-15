@@ -255,7 +255,7 @@ Financially, the trust will provide for their care, education, and needs. But wh
 
 ## Version History
 
-**Version 1.3.0** (2025-12-15) - Consolidated quality checklist from 15 to 10 items while preserving all critical composition criteria
+- **1.3.0** (2025-12-15): Consolidated quality checklist from 15 to 10 items while preserving all critical composition criteria
 
 **Version 1.0.0** - Initial agent definition
 - Complete letter of wishes framework

@@ -331,5 +331,5 @@ When performing credibility review of recommendation letters, verify:
 
 ## Version History
 
-- **1.2.1** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
+- **1.3.0** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
 - **1.1.0**: Initial implementation - Credibility review agent for recommendation letter authenticity and believability assurance
