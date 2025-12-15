@@ -1,6 +1,6 @@
 # Legacy Planning Agents
 
-A comprehensive legacy planning guidance system for GitHub Copilot with four specialized agents that help individuals and families navigate trust setup, beneficiary planning, and documenting their wishes.
+A comprehensive legacy planning guidance system for GitHub Copilot with five specialized agents that help individuals and families navigate trust setup, beneficiary planning, and documenting their wishes.
 
 ## Overview
 

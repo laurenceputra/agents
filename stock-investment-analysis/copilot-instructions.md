@@ -6,7 +6,7 @@
 
 ## Overview
 
-A comprehensive stock investment analysis system that guides investors from initial research through final recommendation. This agent group coordinates five specialized agents to analyze stocks across fundamental, technical, and risk dimensions, culminating in personalized investment advice tailored to individual risk tolerance and goals.
+A comprehensive stock investment analysis system that guides investors from initial research through final recommendation. This agent group coordinates seven specialized agents to analyze stocks across fundamental, technical, and risk dimensions, culminating in personalized investment advice tailored to individual risk tolerance and goals.
 
 ## Purpose
 
@@ -586,4 +586,4 @@ Goals: Growth
 
 ## Version History
 
-- **1.0.0** (2024-12-14): Initial release with five coordinated agents (stock-researcher, fundamental-analyst, technical-analyst, risk-assessor, investment-advisor) providing end-to-end stock investment analysis and personalized recommendations
+- **1.0.0** (2024-12-14): Initial release with seven coordinated agents (stock-analysis-orchestrator, stock-researcher, fundamental-analyst, technical-analyst, risk-assessor, investment-advisor, devils-advocate) providing end-to-end stock investment analysis and personalized recommendations

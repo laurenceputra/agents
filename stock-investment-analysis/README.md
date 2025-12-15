@@ -429,7 +429,7 @@ You are solely responsible for your investment decisions. Consult licensed finan
 
 ## Version History
 
-- **1.0.0** (2024-12-14): Initial release with five coordinated agents providing end-to-end stock investment analysis
+- **1.0.0** (2024-12-14): Initial release with seven coordinated agents providing end-to-end stock investment analysis
 
 ---
 

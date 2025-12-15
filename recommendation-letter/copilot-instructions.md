@@ -487,7 +487,7 @@ Must have:
 
 ## Version History
 
-- **1.0.0** - Initial recommendation letter writing system with Profiler, Writer, and Reviewer agents
+- **1.0.0** - Initial recommendation letter writing system with Profiler, Writer, Reviewer, and Devil's Advocate agents
 
 ---
 

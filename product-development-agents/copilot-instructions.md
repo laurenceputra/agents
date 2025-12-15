@@ -983,4 +983,4 @@ A: Escalate to tech lead or senior engineer. Document decision for future refere
 
 ## Version History
 
-- **1.0.0** - Initial product development workflow with PM, Engineer, Code Reviewer, QA agents
+- **1.0.0** - Initial product development workflow with PM, Engineer, Code Reviewer, QA, and Devil's Advocate agents
