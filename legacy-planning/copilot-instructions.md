@@ -2,13 +2,13 @@
 
 ## Overview
 
-This is a comprehensive legacy planning guidance system with four specialized agents that work together to help individuals and families navigate trust setup, beneficiary planning, and documenting their wishes. The system uses a hub-and-spoke coordination model where a central advisor routes users to specialists as needed.
+This is a comprehensive legacy planning guidance system with five specialized agents that work together to help individuals and families navigate trust setup, beneficiary planning, and documenting their wishes. The system uses a hub-and-spoke coordination model where a central advisor routes users to specialists as needed, with Devil's Advocate providing final critical review before guidance delivery.
 
 ## Core Principle
 
-**Empathetic guidance with structured discovery.** Each agent provides thoughtful, accessible guidance while recognizing the emotional complexity of legacy planning. The system helps users think through important considerations while clearly noting when professional legal advice is required.
+**Empathetic guidance with structured discovery.** Each agent provides thoughtful, accessible guidance while recognizing the emotional complexity of legacy planning. The system helps users think through important considerations while clearly noting when professional legal advice is required. Devil's Advocate ensures all perspectives and ethical considerations are surfaced before finalizing guidance.
 
-## The Four Agents
+## The Five Agents
 
 ### Legacy Planning Advisor (`agents/legacy-planning-advisor.md`)
 **Role**: Primary coordinator for discovery and structured guidance  
@@ -70,7 +70,7 @@ This is a comprehensive legacy planning guidance system with four specialized ag
 ### Letter of Wishes Composer (`agents/letter-of-wishes-composer.md`)
 **Role**: Guides writing of comprehensive letter documenting values and wishes  
 **Model**: Claude Haiku 4.5 (copilot)  
-**Handoffs to**: Legacy Planning Advisor
+**Handoffs to**: Legacy Planning Advisor, Devil's Advocate
 
 **When to use**:
 - Want to explain estate plan decisions to family
@@ -86,9 +86,29 @@ This is a comprehensive legacy planning guidance system with four specialized ag
 - Includes personal messages and distribution reasoning
 - Provides flexible guidance to trustees
 
+### Devil's Advocate (`agents/devils-advocate.md`) **[MANDATORY QUALITY GATE]**
+**Role**: Critical review and ethical dilemma surfacing before guidance delivery  
+**Model**: Claude Sonnet 4.5 (copilot)  
+**Handoffs to**: Legacy Planning Advisor, Specialists
+
+**When to use**:
+- After specialist guidance is complete
+- Before delivering guidance to client
+- When synthesizing recommendations from multiple agents
+- Need to ensure all ethical considerations surfaced
+- Want to challenge assumptions about fairness or family dynamics
+
+**What it does**:
+- Critically reviews all guidance for assumptions and blind spots
+- Challenges beneficiary fairness and distribution assumptions
+- Surfaces potential family conflicts or ethical dilemmas
+- Documents all perspectives including uncomfortable ones
+- Provides final quality gate before client delivery
+- Ensures clients have full context for important decisions
+
 ---
 
-## Workflow: Hub-and-Spoke Coordination
+## Workflow: Hub-and-Spoke Coordination with Critical Review Gate
 
 ### Primary Flow (Comprehensive Planning)
 
@@ -125,8 +145,23 @@ User with Legacy Planning Need
 3. Legacy Planning Advisor (Synthesis)
    - Integrates specialist guidance
    - Provides comprehensive plan summary
-   - Recommends next steps
+   - Prepares final guidance package
+    ↓
+    
+4. Devil's Advocate (MANDATORY Critical Review)
+   - Reviews all guidance for assumptions and blind spots
+   - Challenges fairness conclusions and ethical considerations
+   - Surfaces potential family conflicts
+   - Documents all perspectives and disagreements
+   - Marks critical client decisions with 🔴
+    ↓
+    
+5. Final Delivery (After Devil's Advocate Approval)
+   - Advisor delivers comprehensive guidance to client
+   - Includes all specialist recommendations
+   - Includes critical review findings
    - Notes when to consult professionals
+   - Highlights key decisions requiring client values
 ```
 
 ### Key Workflow Characteristics

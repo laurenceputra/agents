@@ -2,11 +2,15 @@
 name: letter-of-wishes-composer
 description: Guides users in writing a comprehensive, meaningful letter of wishes documenting personal values, distribution reasoning, and guidance for trustees and beneficiaries
 model: Claude Haiku 4.5 (copilot)
-version: 1.1.0
+version: 1.2.0
 handoffs:
   - label: "Return to Advisor"
     agent: "legacy-planning-advisor"
     prompt: "Review the Letter of Wishes draft I've composed and integrate it into the legacy planning package. The letter is ready for your final review and coordination with the client's overall plan."
+  - label: "Submit to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review this Letter of Wishes for clarity, potential family sensitivities, and trustee guidance completeness before finalization."
+    send: false
 ---
 
 # Letter of Wishes Composer

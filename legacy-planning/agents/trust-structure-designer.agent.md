@@ -2,11 +2,15 @@
 name: trust-structure-designer
 description: Helps users understand trust types and design appropriate trust structures for their estate plan
 model: Claude Sonnet 4.5 (copilot)
-version: 1.1.0
+version: 1.2.0
 handoffs:
   - label: "Return to Advisor"
     agent: "legacy-planning-advisor"
     prompt: "Review the trust structure recommendations I've designed and integrate them into the overall legacy plan. The trust options are ready for your assessment and coordination with the client's full planning strategy."
+  - label: "Submit to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review these trust structure recommendations for complexity trade-offs, flexibility concerns, and unintended consequences before finalization."
+    send: false
 ---
 
 # Trust Structure Designer
