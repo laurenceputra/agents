@@ -5,6 +5,134 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.6.0 - 2025-12-15
+
+### Changed
+- **Agent Architect (architect.agent.md)**: Made Devil's Advocate MANDATORY for all agent group specifications
+  - **Before**: Devil's Advocate was optional in agent groups (added in v1.5.0 but not enforced)
+  - **After**: Agent Architect MUST include Devil's Advocate agent in every agent group specification without exception
+  - **Context**: Ensures critical review and disagreement capture is consistently applied across all agent groups, preventing oversight and ensuring quality
+  - **Updated Sections**:
+    - **Responsibilities**: Added "For Agent Groups" section explicitly requiring Devil's Advocate inclusion
+    - **Domain Context**: Added CRITICAL REQUIREMENT emphasizing Devil's Advocate is non-negotiable for all groups
+    - **Output Format (Agent Group Specification)**: Added MANDATORY REQUIREMENT header and devils-advocate agent template
+    - **Handoff Chain Design**: Updated to show Devil's Advocate as final quality gate in all examples
+    - **Quality Gates**: Added requirement for Devil's Advocate critical review gate
+    - **Testing Agent Group Example**: Expanded from 3 agents to 4 agents including devils-advocate
+    - **Handoff Chain Example**: Updated workflow to include devils-advocate after test-validator
+    - **Frontmatter Schema**: Added devils-advocate to agent list and handoff examples
+    - **Quality Checklist**: Added "Devil's Advocate Included" as mandatory criterion for agent group specs
+    - **Design Rationale**: Updated from "three agents" to "four agents" with Devil's Advocate explanation
+    - **Implementation Sequence**: Added devils-advocate as fourth agent in step-by-step implementation order
+  - **Migration**: All future agent group specifications created by Architect will automatically include Devil's Advocate. Existing specifications created before v1.6.0 should be updated to include devils-advocate agent for consistency.
+
+- **copilot-instructions.md**: Enforced Devil's Advocate as mandatory requirement for agent groups throughout workflow documentation
+  - **Before**: Devil's Advocate mentioned but not explicitly required in all contexts
+  - **After**: Devil's Advocate is explicitly MANDATORY in all agent group workflows with enforcement language
+  - **Updated Sections**:
+    - **Workflow: Building Agent Groups**: Added CRITICAL REQUIREMENT header at section start
+    - **Phase 1 (Architect)**: Added explicit requirement to include devils-advocate in group specification
+    - **Exit Criteria (Phase 1)**: Added checklist items for devils-advocate inclusion and handoff definition
+    - **Portable Agent Group Pattern**: Added devils-advocate.agent.md to required structure example with CRITICAL note
+    - **Quality Gates (Gate 1)**: Added "Devil's Advocate agent included" and "handoffs to devils-advocate defined" to Architect checklist
+    - **Common Agent Categories**: Added "Universal Agent (MANDATORY)" section documenting devils-advocate as required for all groups
+  - **Context**: Reinforces at every workflow stage that Devil's Advocate is not optional, preventing accidental omission during specification or implementation
+
+- **Version Numbers**: Synchronized version bump for Architect and infrastructure
+  - **Architect Agent**: 1.5.0 → 1.6.0 (breaking change to specification requirements)
+  - **Infrastructure**: copilot-instructions.md updated with v1.6.0 requirements
+  - **Context**: Minor version bump because this changes specification requirements (all future agent groups must include devils-advocate)
+
+### Migration Guide
+
+#### For Agent Architect
+If designing agent group specifications after v1.6.0:
+1. **Always include Devil's Advocate agent** in group specification:
+   - Define devils-advocate with standard responsibilities (critical review, challenge assumptions, surface disagreements)
+   - Recommend model: Claude Sonnet 4.5 (copilot) for analytical reasoning
+   - Document handoffs: devils-advocate receives from all agents, hands back to agents or orchestrator
+2. **Document handoff to devils-advocate** for all agents in group:
+   - Every agent should have handoff to devils-advocate for critical review
+   - Devils-advocate positioned as final quality gate before completion
+3. **Update handoff chain diagram** to show devils-advocate as final gate
+4. **Include devils-advocate in implementation sequence** (typically after validator role)
+
+#### For Existing Agent Groups (Before v1.6.0)
+Existing agent groups without Devil's Advocate remain valid but should be updated for consistency:
+1. Add devils-advocate.agent.md to agents/ folder
+2. Update all agents' handoffs to include devils-advocate
+3. Update copilot-instructions.md workflow to show devils-advocate gate
+4. Update README.md to document devils-advocate role
+
+No breaking changes to existing implementations; this is an enhancement for future consistency.
+
+## 1.5.0 - 2025-12-15
+
+### Added
+- **Devil's Advocate Agent (devils-advocate.agent.md)**: New fourth meta-agent for critical review and disagreement capture
+  - **Purpose**: Critically reviews agent work, challenges assumptions, surfaces disagreements between agents
+  - **Position in Workflow**: Pre-PR quality gate between Agent Validator approval and PR submission
+  - **Key Capabilities**: 
+    - Critical review of work from Architect, Implementer, and Validator
+    - Assumption challenge and blind spot identification
+    - Disagreement facilitation between agents with full perspective capture
+    - PR writeup preparation with all disagreements marked for human decision
+  - **Model**: Claude Sonnet 4.5 (copilot) - requires strong reasoning for multi-perspective synthesis
+  - **Context**: Addresses need to surface and document disagreements between agents (e.g., Staff Engineer vs Code Reviewer) before PR submission, ensuring human decision-makers see full context and trade-offs
+
+- **Quality Gate 4 (Critical Review Complete)**: Added mandatory pre-PR gate after Validator approval
+  - **Owner**: Devil's Advocate
+  - **Requirements**: Assumptions challenged, blind spots identified, disagreements documented, all perspectives captured
+  - **Context**: Ensures all viewpoints are surfaced before PR submission, enabling informed human decisions
+
+### Changed
+- **Meta-Agent Count**: System now has four meta-agents (was three)
+  - **Before**: Architect, Implementer, Validator
+  - **After**: Architect, Implementer, Validator, Devil's Advocate
+  - **Migration**: All workflows now include Devil's Advocate review after Validator approval
+
+- **Agent Validator Workflow**: Updated to handoff to Devil's Advocate after approval
+  - **Before**: Validator approval → PR submission
+  - **After**: Validator approval → Devil's Advocate review → PR submission
+  - **Added Handoff**: "Send to Devil's Advocate" for critical review after approval
+  - **Context**: Validator still gates PR submission but now works with Devil's Advocate for comprehensive quality assurance
+  - **Migration**: No breaking changes—Validator still submits PRs, just with additional review step
+
+- **Workflow Diagram (copilot-instructions.md)**: Updated to show four-agent workflow with Devil's Advocate gate
+  - **Before**: Three-agent linear workflow (Architect → Implementer → Validator → PR)
+  - **After**: Four-agent workflow with decision points (Architect → Implementer → Validator → Devil's Advocate → [Revision/Escalation/Approval] → PR)
+  - **Context**: Visualizes new critical review phase and feedback loops
+
+- **Decision Trees (copilot-instructions.md)**: Added section [D] for Devil's Advocate critical review
+  - **Before**: [C] Have implementation to review → Validator → PR submission
+  - **After**: [C] Validator review → [D] Devil's Advocate critical review → [E] PR submission
+  - **Added Decision Points**: Revision needed (to Implementer), Specification issue (to Architect), Approved for PR (to Validator)
+  - **Context**: Clarifies when and how to use Devil's Advocate in workflow
+
+- **Workflow Rules (copilot-instructions.md)**: Updated PR submission rule to require Devil's Advocate approval
+  - **Before**: Rule 3 - "Only Validator submits PRs" (after Validator approval)
+  - **After**: Rule 3 - "Only Validator submits PRs" (after Devil's Advocate approval); Rule 5 - "Devil's Advocate is mandatory"
+  - **Context**: Reinforces that critical review is not optional
+
+- **Quick Reference Table (copilot-instructions.md)**: Added Devil's Advocate entry
+  - **New Row**: [D] Have approved implementation → @devils-advocate → Critical review, challenge assumptions
+  - **Updated Row**: [E] Want to merge → @agent-validator only → Validator submits PR after Devil's Advocate approval
+
+- **README.md Workflow**: Updated from three-phase to four-phase workflow
+  - **Added Phase 4**: Critical Review (Pre-PR Gate) with Devil's Advocate
+  - **Updated Quick Start**: Added step 5 for Devil's Advocate consultation
+  - **Context**: Ensures users understand new workflow step
+
+- **Version Numbers**: Synchronized minor version bump across all meta-agents
+  - **All Agents**: 1.4.0 → 1.5.0 (Architect, Implementer, Validator, Devil's Advocate)
+  - **Infrastructure**: copilot-instructions.md, README.md version badges updated to 1.5.0
+  - **Context**: Synchronized minor bump per meta-agent versioning strategy (workflow change affects all agents)
+
+### Migration Guide
+- **Existing Workflows**: Add Devil's Advocate review step after Validator approval, before PR submission
+- **No Breaking Changes**: Existing agents and specifications remain valid; workflow extended, not replaced
+- **New Agent Groups**: Include Devil's Advocate in agent list with appropriate handoffs from final quality gate agent
+
 ## 1.4.0 - 2025-12-13
 
 ### Changed

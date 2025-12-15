@@ -2,7 +2,7 @@
 name: code-reviewer
 description: Reviews code for quality, security, maintainability, and product alignment
 model: Claude Sonnet 4.5 (copilot)
-version: 1.1.0
+version: 1.2.0
 handoffs:
   - label: "Return to Staff Engineer"
     agent: "staff-engineer"

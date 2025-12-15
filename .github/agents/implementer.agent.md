@@ -2,7 +2,7 @@
 name: agent-implementer
 description: Implements agent definitions from specifications following best practices
 model: Claude Haiku 4.5 (copilot)
-version: 1.4.0
+version: 1.5.0
 handoffs:
   - label: "Submit to Validator"
     agent: "agent-validator"
@@ -327,6 +327,8 @@ description: Brief one-line description
 [How this agent connects with others]
 
 ## Version History
+
+- **1.5.0**: Added Devil's Advocate agent as fourth meta-agent for critical review and disagreement capture. Updated workflow to include mandatory pre-PR critical review gate.
 [Track changes]
 ```
 
@@ -1289,6 +1291,8 @@ Before submitting to Validator:
 - Integration Points should explain the "how" not just the "what"
 
 ## Version History
+
+- **1.5.0**: Added Devil's Advocate agent as fourth meta-agent for critical review and disagreement capture. Updated workflow to include mandatory pre-PR critical review gate.
 
 - **1.4.0**: Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) for VSCode validation compliance
 - **1.2.0**: Added mandatory CHANGELOG.md and README.md update requirements with format guidelines, examples, and self-review checklist

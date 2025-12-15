@@ -2,7 +2,7 @@
 
 ## Overview
 
-This is a meta-agent system designed to help you build high-quality, reusable agents for any purpose. The system enforces strict separation of concerns through three specialized agents working in a defined workflow with quality gates.
+This is a meta-agent system designed to help you build high-quality, reusable agents for any purpose. The system enforces strict separation of concerns through four specialized agents working in a defined workflow with quality gates.
 
 **This meta-agent group follows the same portable agent structure it enforces for other agent groups.**
 
@@ -14,8 +14,9 @@ Each meta-agent has a single, well-defined responsibility:
 - **Agent Architect**: Designs specifications (planning only, no implementation)
 - **Agent Implementer**: Implements specifications on feature branches (implementation only, no design decisions)
 - **Agent Validator**: Reviews and gates PR submission (quality control only, controls merge process)
+- **Devil's Advocate**: Critically reviews agent work, surfaces disagreements, challenges assumptions (pre-PR quality gate)
 
-## The Three Meta-Agents
+## The Four Meta-Agents
 
 ### Agent Architect (`agents/agent-architect.md`)
 **Role**: Design specifications for new agents  
@@ -64,7 +65,7 @@ Each meta-agent has a single, well-defined responsibility:
 ### Agent Validator (`agents/agent-validator.md`)
 **Role**: Review implementations and control PR submission  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**Handoffs to**: Agent Implementer (feedback), Agent Architect (spec issues)
+**Handoffs to**: Devil's Advocate (for critical review), Agent Implementer (feedback), Agent Architect (spec issues)
 
 **When to use**:
 - Agent Implementer has completed an implementation on a feature branch
@@ -75,13 +76,41 @@ Each meta-agent has a single, well-defined responsibility:
 - Reviews agent implementations against specifications and best practices
 - Provides structured feedback with severity levels (Critical/Recommendation/Enhancement)
 - Iterates with Implementer until approval criteria met
-- **Submits PRs when approved** (gatekeeper role)
+- Hands off to Devil's Advocate for critical review after approval
+- **Submits PRs when Devil's Advocate approves** (gatekeeper role)
 - Escalates specification issues back to Architect
 
 **What it NEVER does**:
 - Implement agents (that's Implementer's role)
 - Approve agents with critical issues
+- Submit PRs without Devil's Advocate review
 - Allow others to submit PRs for agent implementations
+
+### Devil's Advocate (`agents/devils-advocate.md`)
+**Role**: Critical review and disagreement facilitation  
+**Model**: Claude Sonnet 4.5 (copilot)  
+**Handoffs to**: Agent Validator (for PR submission), Agent Implementer (for revisions), Agent Architect (for perspective)
+
+**When to use**:
+- Agent Validator has approved an implementation
+- You need critical review before PR submission
+- You want to surface disagreements between agents
+- You need to challenge assumptions and identify blind spots
+
+**What it does**:
+- Critically reviews work from all agents (Architect, Implementer, Validator)
+- Challenges assumptions and identifies blind spots
+- Surfaces and documents disagreements between agents
+- Captures all perspectives with full reasoning and trade-offs
+- Requests orchestrator perspective (Agent Architect) when needed
+- Prepares PR writeup with all disagreements marked for human decision
+- **Final quality gate before PR submission**
+
+**What it NEVER does**:
+- Override agent decisions (documents and surfaces issues, doesn't block)
+- Resolve disagreements (humans make final decisions)
+- Submit PRs directly (hands back to Validator with approval)
+- Skip critical review even when agents agree
 
 ---
 
@@ -129,7 +158,7 @@ Each meta-agent has a single, well-defined responsibility:
                          │   • Review implementation    │
                          │   • Check quality standards  │
                          │   • Validate handoffs        │
-                         │   • Gate PR submission       │
+                         │   • Handoff to Devil's Adv.  │
                          └──┬───────┬───────────────┬───┘
                             │       │               │
               ┌─────────────┘       │               └─────────────┐
@@ -140,21 +169,33 @@ Each meta-agent has a single, well-defined responsibility:
     │  (Minor/Major)  │   │  (Gaps/Unclear) │         │                 │
     └────────┬────────┘   └────────┬────────┘         └────────┬────────┘
              │                     │                            │
-             │ Feedback            │ Escalate                   │ PR Created
-             │ Report              │ to Architect               │ by Validator
+             │ Feedback            │ Escalate                   │ To Devil's
+             │ Report              │ to Architect               │ Advocate
              ▼                     ▼                            ▼
     ┌─────────────────┐   ┌─────────────────┐         ┌─────────────────┐
-    │  IMPLEMENTER    │   │   ARCHITECT     │         │   MAIN BRANCH   │
-    │  (Fix & Push)   │   │  (Revise Spec)  │         │  (Agent Live)   │
-    └────────┬────────┘   └────────┬────────┘         └─────────────────┘
-             │                     │
-             │ Re-submit           │ Updated Spec
-             │ to Validator        │ to Implementer
-             │                     │
-             └─────────┐     ┌─────┘
-                       │     │
-                       ▼     ▼
-                  [Iteration Loop]
+    │  IMPLEMENTER    │   │   ARCHITECT     │         │ DEVIL'S ADVOCATE│
+    │  (Fix & Push)   │   │  (Revise Spec)  │         │ Claude Sonnet   │
+    └────────┬────────┘   └────────┬────────┘         │ • Critical Rev. │
+             │                     │                   │ • Challenge     │
+             │ Re-submit           │ Updated Spec      │ • Surface Disag.│
+             │ to Validator        │ to Implementer    └──┬──────┬───┬───┘
+             │                     │                      │      │   │
+             └─────────┐     ┌─────┘            ┌─────────┘      │   └────────┐
+                       │     │                  │                │            │
+                       ▼     ▼                  ▼                ▼            ▼
+                  [Iteration Loop]    ┌─────────────┐  ┌─────────────┐  ┌─────────┐
+                                      │  Revision   │  │  Request    │  │APPROVED │
+                                      │  Needed     │  │ Architect   │  │ for PR  │
+                                      │ (to Impl.)  │  │ Perspective │  │         │
+                                      └──────┬──────┘  └──────┬──────┘  └────┬────┘
+                                             │                │              │
+                                             │                │              │ PR Created
+                                             │                │              │ by Validator
+                                             ▼                ▼              ▼
+                                      [Return Loop]    [Architect]  ┌───────────────┐
+                                                       [Reviews]     │  MAIN BRANCH  │
+                                                                     │  (Agent Live) │
+                                                                     └───────────────┘
 
 ═════════════════════════════════════════════════════════════════════════════
 
@@ -179,13 +220,22 @@ QUALITY GATES (Checkpoints):
 └─────────────────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────────────────┐
-│ GATE 3: QUALITY VERIFIED (MANDATORY PR GATE)                            │
+│ GATE 3: QUALITY VERIFIED                                                │
 │ ───────────────────────────────────────────────────────────────────     │
 │ ✓ All quality standards met                  Owner: Validator           │
-│ ✓ No critical issues remaining               Pass: PR Submitted         │
+│ ✓ No critical issues remaining               Pass: To Devil's Advocate  │
 │ ✓ Aligns with specification                                             │
-│ ✓ Best practices followed                    ⚠️  Only Validator         │
-│                                                  submits PRs!            │
+│ ✓ Best practices followed                                               │
+└─────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────┐
+│ GATE 4: CRITICAL REVIEW COMPLETE (MANDATORY PR GATE)                    │
+│ ───────────────────────────────────────────────────────────────────     │
+│ ✓ Assumptions challenged                     Owner: Devil's Advocate    │
+│ ✓ Blind spots identified                     Pass: PR Submitted         │
+│ ✓ Disagreements documented                                              │
+│ ✓ All perspectives captured                  ⚠️  Only Validator         │
+│ ✓ Ready for human decision                      submits PRs!            │
 └─────────────────────────────────────────────────────────────────────────┘
 
 ═════════════════════════════════════════════════════════════════════════════
@@ -543,6 +593,8 @@ PR merged to main (agent goes live)
 
 Agent groups are collections of coordinated agents with infrastructure files (copilot-instructions.md, README.md). They are portable and can be dropped into any repository.
 
+**CRITICAL REQUIREMENT**: Every agent group MUST include Devil's Advocate agent for critical review and disagreement capture. This is non-negotiable and applies to all agent groups without exception.
+
 ### Phase 1: Group Specification Design (Architect)
 
 **Entry Point**: User describes need for multiple coordinated agents
@@ -553,22 +605,25 @@ Agent groups are collections of coordinated agents with infrastructure files (co
 3. Design group specification including:
    - Group purpose and scope boundaries
    - List of agents in group with individual responsibilities
-   - Handoff chain design (which agents coordinate)
+   - **MANDATORY: Include Devil's Advocate agent for critical review (REQUIRED for all groups)**
+   - Handoff chain design (which agents coordinate, including handoffs to devils-advocate)
    - Model recommendations for each agent
-   - Frontmatter schema for all agents
+   - Frontmatter schema for all agents (all must have handoff to devils-advocate)
    - Infrastructure file requirements (copilot-instructions.md, README.md)
    - Integration points and workflow diagrams
-   - Quality gates for group cohesion
+   - Quality gates for group cohesion (including critical review gate)
 
 **Exit Criteria**:
 - [ ] Group purpose clear and actionable
 - [ ] Specification saved in `./.specifications/` directory
 - [ ] All agents defined with responsibilities
-- [ ] Handoff chains documented (which agent hands to which)
+- [ ] **Devil's Advocate agent included in specification (MANDATORY)**
+- [ ] Handoff chains documented (which agent hands to which, including devils-advocate as final gate)
 - [ ] Model recommendations for each agent
 - [ ] Infrastructure file structure defined
 - [ ] Group-level quality criteria established
 - [ ] Portable structure requirements specified
+- [ ] All agents have handoff to devils-advocate defined
 
 **Handoff**: Group specification document (from `./.specifications/` directory) → Agent Implementer
 
@@ -790,7 +845,8 @@ Check against group specification and best practices:
 | **[A] Need agent, no spec** | @agent-architect | Design specification |
 | **[B] Have spec to implement** | @agent-implementer | Create agent on branch |
 | **[C] Have implementation to review** | @agent-validator | Review and provide feedback or approve |
-| **[D] Want to merge** | @agent-validator only | Validator submits PR after approval |
+| **[D] Have approved implementation** | @devils-advocate | Critical review, challenge assumptions |
+| **[E] Want to merge** | @agent-validator only | Validator submits PR after Devil's Advocate approval |
 
 ---
 
@@ -879,25 +935,66 @@ START: Where are you in the agent lifecycle?
   │         │       Return to [C] (re-review)
   │         │
   │         └─ APPROVED ✓
-  │             └─> Validator submits PR
+         └─ APPROVED ✓
+             └─> Hand off to @devils-advocate
+                 ↓
+                 Devil's Advocate reviews
+                 ↓
+                 Proceed to [D]
+  │
+  │
+  ├─ [D] APPROVED IMPLEMENTATION UNDER CRITICAL REVIEW
+  │   │
+  │   Submit to @devils-advocate (after Validator approval)
+  │     │
+  │     Devil's Advocate performs critical review
+  │       │
+       Decision point:  
+  │         │
+  │         ├─ REVISION NEEDED
+  │         │   └─> Critical issues found
+  │         │       ↓
+  │         │       Devil's Advocate sends back to @agent-implementer
+  │         │       ↓
+  │         │       Implementer fixes on same branch
+  │         │       ↓
+  │         │       Return to [C] (re-review by Validator)
+  │         │
+  │         ├─ SPECIFICATION ISSUE
+  │         │   └─> Requests @agent-architect perspective
+  │         │       ↓
+  │         │       Architect reviews and weighs in
+  │         │       ↓
+  │         │       If spec revision needed: Return to [B]
+  │         │       If just perspective: Continue to approval
+  │         │
+  │         └─ APPROVED FOR PR ✓
+  │             └─> Hand back to @agent-validator
+  │                 ↓
+  │                 Validator submits PR with Devil's Advocate writeup
   │                 ↓
   │                 PR merged to main
   │                 ↓
   │                 DONE! Agent goes live
   │
   │
-  └─ [D] I WANT TO MERGE MY IMPLEMENTATION
+  └─ [E] I WANT TO MERGE MY IMPLEMENTATION
+  │
+  └─ [E] I WANT TO MERGE MY IMPLEMENTATION
       │
-      ⚠️  STOP - Only @agent-validator submits PRs
+      ⚠️  STOP - Only @agent-validator submits PRs (after Devil's Advocate approval)
       │
-      Has Agent Validator approved it?
+      Has Agent Validator AND Devil's Advocate approved it?
         │
-        ├─ NO → Return to [C]
-        │       Submit to Validator for review
+        ├─ NO VALIDATOR APPROVAL → Return to [C]
+        │                          Submit to Validator for review
         │
-        └─ YES → Wait for Validator to submit PR
-                 (Validator handles merge process)
-                 You do NOT create the PR yourself
+        ├─ NO DEVIL'S ADVOCATE APPROVAL → Return to [D]
+        │                                  Wait for critical review
+        │
+        └─ BOTH APPROVED → Wait for Validator to submit PR
+                           (Validator handles merge process)
+                           You do NOT create the PR yourself
 ```
 
 ---
@@ -909,9 +1006,10 @@ START: Where are you in the agent lifecycle?
    - Individual agent: `feature/agent-{name}`
    - Agent group: `feature/group-{name}`
    - Refactoring: `feature/refactor-{description}`
-3. **Only Validator submits PRs** - Implementer and Architect never merge
+3. **Only Validator submits PRs** - Implementer, Architect, and Devil's Advocate never merge
 4. **Iterate until approved** - Expect feedback loops; quality takes time
-5. **Feature branch workflow**: Create branch → Implement → Submit to Validator → Iterate → Validator approves and submits PR
+5. **Devil's Advocate is mandatory** - All implementations require critical review before PR
+6. **Feature branch workflow**: Create branch → Implement → Submit to Validator → Submit to Devil's Advocate → Iterate → Validator submits PR
 
 ---
 
@@ -920,7 +1018,8 @@ START: Where are you in the agent lifecycle?
 - **Need specification?** → Start at [A], consult @agent-architect
 - **Have specification?** → Start at [B], consult @agent-implementer  
 - **Have implementation?** → Start at [C], consult @agent-validator
-- **Want to merge?** → Start at [D], but remember: only Validator submits PRs
+- **Have approved implementation?** → Start at [D], consult @devils-advocate
+- **Want to merge?** → Start at [E], but remember: only Validator submits PRs after Devil's Advocate approval
 - **Not sure which agent to use?** → See Quick Reference table above
 
 ## Quality Gates
@@ -939,6 +1038,8 @@ Must have:
 - [ ] Edge cases and constraints documented
 - [ ] Integration points designed
 - [ ] Implementation sequence provided
+- [ ] **For Agent Groups: Devil's Advocate agent included in specification (MANDATORY)**
+- [ ] **For Agent Groups: All agents have handoff to devils-advocate defined**
 
 **Pass criteria**: Specification is actionable and complete enough for Implementer to proceed without guessing.
 
@@ -994,11 +1095,14 @@ agent-group-name/
 ├── agents/
 │   ├── agent-1.agent.md          # Individual agent definition
 │   ├── agent-2.agent.md
-│   └── agent-3.agent.md
+│   ├── agent-3.agent.md
+│   └── devils-advocate.agent.md  # MANDATORY: Critical review agent (REQUIRED for all groups)
 ├── copilot-instructions.md       # Group-level workflow and setup (THIS FILE)
 ├── README.md                      # Usage guide and agent overview
 └── CHANGELOG.md                   # Version history (optional, for v1.1.0+)
 ```
+
+**CRITICAL**: Every agent group MUST include `devils-advocate.agent.md` for critical review and disagreement capture. This is non-negotiable.
 
 ### Agent Frontmatter Schema (Required)
 ```yaml
@@ -1178,6 +1282,9 @@ The meta-system can help you build agents for:
 - **Migration Planners**: Plans and executes system migrations
 - **Documentation Generators**: Automates documentation creation
 
+### Universal Agent (MANDATORY for all Agent Groups)
+- **Devil's Advocate**: Critical review and disagreement facilitation - MUST be included in every agent group for quality assurance and assumption challenging
+
 ---
 
 ## Tips for Effective Agents
@@ -1338,6 +1445,7 @@ When updating versions, verify:
 
 ## Version History
 
+- **1.5.0** - Added Devil's Advocate agent for critical review and disagreement capture before PR submission. Updated workflow to include mandatory critical review gate, updated decision trees, and added fourth quality gate.
 - **1.4.0** - Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) across all meta-agents and updated Agent Frontmatter Schema documentation
 - **1.3.0** - Required all specifications be created in `./.specifications/` directory at repository root, added specification storage convention section, updated workflows
 - **1.2.0** - Added mandatory CHANGELOG.md and README.md update requirements with format guidelines

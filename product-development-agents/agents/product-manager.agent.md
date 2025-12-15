@@ -2,11 +2,15 @@
 name: product-manager
 description: Defines product requirements, user stories, and acceptance criteria
 model: Claude Sonnet 4.5 (copilot)
-version: 1.1.0
+version: 1.2.0
 handoffs:
   - label: "Hand to Staff Engineer"
     agent: "staff-engineer"
     prompt: "Design the technical architecture for the product requirements I've defined. Review the PRD, user stories, and acceptance criteria, then create a comprehensive technical design."
+  - label: "Weigh in on disagreement"
+    agent: "devils-advocate"
+    prompt: "I've reviewed the disagreement on {topic} and here's my perspective as product owner: {perspective}. Include this in the PR writeup for human decision-making."
+    send: false
 ---
 
 # Product Manager
@@ -30,6 +34,7 @@ The Product Manager agent translates business needs and user problems into clear
 - Prioritize features and technical debt
 - Validate requirements with stakeholders and engineering
 - Ensure testability of all requirements
+- **Provide product/business perspective on technical disagreements** when requested by Devil's Advocate (helps inform human decision-making on technical trade-offs)
 
 ## Domain Context
 
