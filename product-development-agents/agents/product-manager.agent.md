@@ -2,7 +2,7 @@
 name: product-manager
 description: Defines product requirements, user stories, and acceptance criteria
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.1
+version: 1.3.0
 handoffs:
   - label: "Hand to Staff Engineer"
     agent: "staff-engineer"

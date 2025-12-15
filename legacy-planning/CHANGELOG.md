@@ -5,17 +5,21 @@ All notable changes to the Legacy Planning Agents group will be documented in th
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.2.1] - 2025-12-15
+## [1.3.0] - 2025-12-15
+
+### Added
+- **Feature Enhancement**: Improved quality checklist usability across all agents
 
 ### Changed
-- Consolidated quality checklist items from 12-15 to 10 items while preserving all critical quality criteria across 3 agents:
-  - beneficiary-planning-agent: 12 → 10 items
-  - letter-of-wishes-composer: 15 → 10 items
-  - trust-structure-designer: 12 → 10 items
-- Combined related checklist items using grouped criteria with sub-bullets for improved usability
+- **beneficiary-planning-agent**: Consolidated quality checklist from 12 to 10 items for improved focus and clarity
+- **devils-advocate**: Consolidated quality checklist from 16 to 10 items for improved focus and clarity
+- **legacy-planning-advisor**: Consolidated quality checklist from 14 to 10 items for improved focus and clarity
+- **letter-of-wishes-composer**: Version synchronized to 1.3.0 for group consistency (no changes to agent)
+- **trust-structure-designer**: Version synchronized to 1.3.0 for group consistency (no changes to agent)
+- Standardized agent file references in copilot-instructions.md to use `.agent.md` extension consistently
 
 ### Fixed
-- Standardized agent file references in copilot-instructions.md to use `.agent.md` extension consistently (affects all 5 agent references)
+- Quality checklist item count inconsistencies across agent groups
 
 ## [1.2.0] - 2025-12-15
 

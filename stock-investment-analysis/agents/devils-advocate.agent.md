@@ -2,7 +2,7 @@
 name: devils-advocate
 description: Critically reviews investment recommendations for bias, overconfidence, and blind spots
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.1
+version: 1.3.0
 handoffs:
   - label: "Request orchestrator perspective"
     agent: "stock-analysis-orchestrator"

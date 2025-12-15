@@ -2,7 +2,7 @@
 name: stock-researcher
 description: Gathers comprehensive company data, financials, and market context for investment analysis
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.1
+version: 1.3.0
 handoffs:
   - label: "Analyze financial health"
     agent: "fundamental-analyst"

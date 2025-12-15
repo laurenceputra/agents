@@ -2,7 +2,7 @@
 name: legacy-planning-advisor
 description: Guides users through legacy planning with structured questions about trust setup, beneficiaries, and wishes
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.1
+version: 1.3.0
 handoffs:
   - label: "Hand to Beneficiary Planner"
     agent: "beneficiary-planning-agent"

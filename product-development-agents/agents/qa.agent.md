@@ -2,7 +2,7 @@
 name: qa
 description: Ensures quality through comprehensive testing strategies and validation
 model: Gemini 3 Pro (Preview) (copilot)
-version: 1.2.1
+version: 1.3.0
 handoffs:
   - label: "Return to Staff Engineer"
     agent: "staff-engineer"

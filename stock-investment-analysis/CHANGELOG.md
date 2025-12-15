@@ -5,20 +5,25 @@ All notable changes to the Stock Investment Analysis Agent Group will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.2.1] - 2025-12-15
+## [1.3.0] - 2025-12-15
+
+### Added
+- **Feature Enhancement**: Improved quality checklist usability across all agents
 
 ### Changed
-- Consolidated quality checklist items from 11-50 to 10 items while preserving all critical quality criteria across 5 agents:
-  - fundamental-analyst: 11 → 10 items
-  - risk-assessor: 12 → 10 items
-  - stock-analysis-orchestrator: 50 → 10 items (aggressive consolidation of orchestration workflow checks)
-  - stock-researcher: 12 → 10 items
-  - technical-analyst: 12 → 10 items
-- Combined related checklist items using grouped criteria with sub-bullets for improved usability
-- Special focus on stock-analysis-orchestrator: consolidated 50 checks into 10 comprehensive quality areas
+- **fundamental-analyst**: Consolidated quality checklist from 11 to 10 items for improved focus and clarity
+- **risk-assessor**: Consolidated quality checklist from 12 to 10 items for improved focus and clarity
+- **stock-analysis-orchestrator**: Expanded quality checklist from 10 to 15 items (complexity-appropriate standard for orchestrator agents)
+- **stock-researcher**: Consolidated quality checklist from 12 to 10 items for improved focus and clarity
+- **technical-analyst**: Consolidated quality checklist from 12 to 10 items for improved focus and clarity
+- **devils-advocate**: Version synchronized to 1.3.0 for group consistency (no changes to agent)
+- **investment-advisor**: Version synchronized to 1.3.0 for group consistency (no changes to agent)
+
+### Fixed
+- Quality checklist item count inconsistencies across agent groups
 
 ### Note
-- copilot-instructions.md uses agent name format without file paths (no extension changes needed)
+**stock-analysis-orchestrator** uses a 15-item checklist (not 10) due to higher complexity of coordinating 6 specialist agents. This follows the revised complexity-appropriate standard: simple agents 6-10 items, complex agents (orchestrators) 12-18 items.
 
 ## [1.2.0] - 2025-12-15
 

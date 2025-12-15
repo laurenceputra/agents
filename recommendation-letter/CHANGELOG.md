@@ -5,14 +5,19 @@ All notable changes to the Recommendation Letter Agents group will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.2.1] - 2025-12-15
+## [1.3.0] - 2025-12-15
+
+### Added
+- **Feature Enhancement**: Improved quality checklist usability across all agents
 
 ### Changed
-- Consolidated quality checklist items from 11 to 10 items while preserving all critical quality criteria in recommendation-writer agent
-- Combined related checklist items using grouped criteria with sub-bullets for improved usability
+- **recommendation-writer**: Consolidated quality checklist from 11 to 10 items for improved focus and clarity
+- **devils-advocate**: Version synchronized to 1.3.0 for group consistency (no changes to agent)
+- **recommendation-profiler**: Version synchronized to 1.3.0 for group consistency (no changes to agent)
+- **recommendation-reviewer**: Version synchronized to 1.3.0 for group consistency (no changes to agent)
 
-### Note
-- copilot-instructions.md file references already correct (no changes needed)
+### Fixed
+- Quality checklist item count inconsistencies across agent groups
 
 ## [1.2.0] - 2025-12-15
 

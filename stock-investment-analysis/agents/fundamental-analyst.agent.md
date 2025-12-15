@@ -2,7 +2,7 @@
 name: fundamental-analyst
 description: Analyzes financial health, valuation, and long-term investment merit of stocks
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.1
+version: 1.3.0
 handoffs:
   - label: "Assess investment risks"
     agent: "risk-assessor"

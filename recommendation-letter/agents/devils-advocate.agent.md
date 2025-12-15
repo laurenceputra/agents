@@ -2,7 +2,7 @@
 name: devils-advocate
 description: Critically reviews recommendation letters for authenticity, credibility concerns, and weak claims
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.1
+version: 1.3.0
 handoffs:
   - label: "Request reviewer perspective"
     agent: "recommendation-reviewer"

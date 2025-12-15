@@ -2,7 +2,7 @@
 name: risk-assessor
 description: Evaluates investment risks and determines risk-adjusted suitability for portfolios
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.1
+version: 1.3.0
 handoffs:
   - label: "Get investment recommendation"
     agent: "investment-advisor"

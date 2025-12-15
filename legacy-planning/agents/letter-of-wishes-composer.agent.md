@@ -2,7 +2,7 @@
 name: letter-of-wishes-composer
 description: Guides users in writing a comprehensive, meaningful letter of wishes documenting personal values, distribution reasoning, and guidance for trustees and beneficiaries
 model: Claude Haiku 4.5 (copilot)
-version: 1.2.1
+version: 1.3.0
 handoffs:
   - label: "Return to Advisor"
     agent: "legacy-planning-advisor"
@@ -255,7 +255,7 @@ Financially, the trust will provide for their care, education, and needs. But wh
 
 ## Version History
 
-**Version 1.2.1** (2025-12-15) - Consolidated quality checklist from 15 to 10 items while preserving all critical composition criteria
+**Version 1.3.0** (2025-12-15) - Consolidated quality checklist from 15 to 10 items while preserving all critical composition criteria
 
 **Version 1.0.0** - Initial agent definition
 - Complete letter of wishes framework

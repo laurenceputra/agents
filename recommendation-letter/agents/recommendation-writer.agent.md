@@ -2,7 +2,7 @@
 name: recommendation-writer
 description: Creates compelling recommendation letter drafts from candidate profiles
 model: Claude Haiku 4.5 (copilot)
-version: 1.2.1
+version: 1.3.0
 handoffs:
   - label: "Submit to Reviewer"
     agent: "recommendation-reviewer"
