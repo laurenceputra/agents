@@ -2,11 +2,15 @@
 name: beneficiary-planning-agent
 description: Analyzes beneficiary circumstances and helps users design fair, equitable distributions aligned with their values
 model: Claude Sonnet 4.5 (copilot)
-version: 1.1.0
+version: 1.2.0
 handoffs:
   - label: "Return to Advisor"
     agent: "legacy-planning-advisor"
     prompt: "Review the beneficiary analysis I've completed and integrate it into the overall legacy plan. The beneficiary framework is ready for your assessment and coordination with other planning elements."
+  - label: "Submit to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review this beneficiary distribution plan for fairness assumptions, family dynamics, and ethical considerations before finalization."
+    send: false
 ---
 
 # Beneficiary Planning Agent

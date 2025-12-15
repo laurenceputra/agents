@@ -6,12 +6,13 @@ A comprehensive legacy planning guidance system for GitHub Copilot with four spe
 
 This system provides empathetic, structured guidance through complex legacy planning decisions. It's designed to help users think through estate planning considerations while recognizing when professional legal advice is needed.
 
-### The Four Agents
+### The Five Agents
 
 1. **Legacy Planning Advisor** - Primary coordinator for discovery and structured guidance
 2. **Beneficiary Planning Agent** - Analyzes beneficiary circumstances and distribution design
 3. **Trust Structure Designer** - Explains trust types and recommends appropriate structures
 4. **Letter of Wishes Composer** - Guides writing of personal letters documenting values and guidance
+5. **Devil's Advocate** - Critical review for assumptions, ethical dilemmas, and family dynamics (MANDATORY quality gate)
 
 ### Key Features
 
