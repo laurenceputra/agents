@@ -2,7 +2,7 @@
 name: stock-analysis-orchestrator
 description: Automates end-to-end stock investment analysis by collecting user inputs and coordinating all six specialized agents to deliver a comprehensive report
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.3.0
 handoffs:
   - label: "Gather stock data"
     agent: "stock-researcher"
@@ -664,69 +664,21 @@ Would you like to:
 
 Use this checklist to validate orchestrator implementation:
 
-### Input Collection Quality
-- [ ] Questionnaire is clear, unambiguous, and user-friendly
-- [ ] Each input has definition/explanation (e.g., what "Conservative" means)
-- [ ] Input validation prevents invalid data before analysis starts
-- [ ] User can review all inputs before confirming start
-- [ ] Examples provided for optional inputs (portfolio format, focus areas)
-- [ ] Optional vs. required inputs clearly marked in questionnaire
-- [ ] Comparison mode (two stocks) properly detected and handled
-- [ ] Error messages for invalid inputs are specific and actionable
-
-### Orchestration Quality
-- [ ] Agents execute in correct sequence: research → (fundamental + technical parallel) → risk → advisor
-- [ ] Parallel execution works correctly (fundamental and technical run simultaneously)
-- [ ] Context passed correctly to each agent (prior outputs included)
-- [ ] Agent outputs captured completely (no data loss)
-- [ ] Workflow completes without user intervention after initial inputs
-- [ ] Orchestrator tracks state throughout multi-agent execution
-- [ ] Handoff prompts include appropriate context for each agent
-
-### Error Handling Quality
-- [ ] Invalid ticker caught and reported before multi-stage analysis begins
-- [ ] Agent failures don't crash entire workflow (graceful degradation)
-- [ ] Partial results provided if some agents succeed but others fail
-- [ ] Error messages are specific and actionable (not generic "Error occurred")
-- [ ] User notified of which agent failed and why (with context)
-- [ ] Retry options provided for recoverable errors
-- [ ] Non-recoverable errors clearly distinguished from transient issues
-
-### Output Quality
-- [ ] Report is well-structured with clear section headers
-- [ ] Executive summary at top (users scan this first before diving into details)
-- [ ] All agent outputs preserved in report (no information lost)
-- [ ] Action checklist is specific, actionable, and time-bounded
-- [ ] Disclaimers and risks prominently displayed (not buried)
-- [ ] Citations and data sources included in appendix
-- [ ] Report length is comprehensive but scannable (use of bullets, tables, highlights)
-- [ ] Formatting consistent throughout (markdown headers, spacing)
-
-### Progress Communication Quality
-- [ ] User knows which stage is running (clear stage indicators 1/5, 2/5, etc.)
-- [ ] Agent names displayed for transparency (user sees which agent is working)
-- [ ] Estimated time remaining is accurate and realistic
-- [ ] Progress updates don't overwhelm user (not too verbose)
-- [ ] Completion percentage or stage indicator always visible
-- [ ] Brief summaries provided as each stage completes
-- [ ] Success checkmarks (✓) and warnings (⚠️) visually clear
-
-### Comparison Mode Quality (if two stocks)
-- [ ] Side-by-side comparison table is clear and scannable
-- [ ] Comparative recommendation provided (which stock preferred and why)
-- [ ] Individual full analyses for each stock included after comparison
-- [ ] Allocation split recommended if both stocks suitable
-- [ ] Key differentiators highlighted in comparison summary
-- [ ] Time estimate doubled for comparison mode (2x standard analysis)
-
-### Report Synthesis Quality
-- [ ] Executive summary synthesizes all five agent analyses (not just final advisor)
-- [ ] Key strengths identified from multiple agents (research, fundamental, technical)
-- [ ] Key risks aggregated from risk assessment and other agents
-- [ ] Final recommendation aligns with user profile (risk tolerance, horizon, goals)
-- [ ] Position sizing respects portfolio context (existing holdings, diversification)
-- [ ] Action checklist draws from all agents (not just advisor)
-- [ ] No contradictions between sections (e.g., summary says "Buy" but report says "Sell")
+- [ ] **Input Collection Completeness**: All user inputs collected (ticker, investment goals, time horizon, risk tolerance, portfolio context) with clear definitions, validation, and examples
+- [ ] **Orchestration Workflow Design**: Complete workflow with correct agent sequence (research → parallel fundamental+technical → risk → advisor → devil's advocate), handoffs, decision trees, and coordination patterns
+- [ ] **Stock Researcher Integration**: Successful data gathering with company fundamentals, financial metrics, and market context passed to downstream agents
+- [ ] **Fundamental Analysis Integration**: Financial health evaluation with valuation metrics, growth prospects, and profitability analysis completed
+- [ ] **Technical Analysis Integration**: Price trend analysis with momentum indicators, support/resistance levels, and trading signals provided
+- [ ] **Risk Assessment Integration**: Volatility analysis, portfolio fit evaluation, and risk-adjusted metrics calculated
+- [ ] **Investment Advisor Integration**: Synthesized recommendation with position sizing, entry/exit guidance, and monitoring plan
+- [ ] **Devil's Advocate Integration**: Critical review for bias detection, assumption challenges, and blind spot identification
+- [ ] **Parallel Execution Handling**: Fundamental and technical analysis run concurrently without conflicts, race conditions, or data corruption
+- [ ] **Timeout and Error Recovery**: Graceful handling of agent timeouts or failures with partial results, specific error messages, and retry options
+- [ ] **Output Aggregation Quality**: All specialist outputs compiled into cohesive report with executive summary, analysis sections, and action items
+- [ ] **Progress Updates**: User informed of workflow progress at each stage with clear indicators, agent names, and realistic time estimates
+- [ ] **Conflict Resolution**: Disagreements between specialists (e.g., fundamental vs technical signals) documented and explained with reasoning
+- [ ] **Report Completeness**: Final report includes research data, fundamental analysis, technical analysis, risk assessment, investment recommendation, and critical review
+- [ ] **User Action Clarity**: Clear next steps provided (buy/hold/sell with rationale, position sizing, entry timing, monitoring plan, risk management)
 
 ## Integration Points
 
@@ -767,6 +719,7 @@ The orchestrator is a **terminal agent** — it delivers the final comprehensive
 
 ## Version History
 
+- **1.3.0** (2025-12-15): Quality checklist enhancement - expanded from 10 to 15 items (complexity-appropriate standard for orchestrator agents), improved usability by consolidating from original 50 items while preserving critical orchestration quality checks
 - **1.0.0** (2024-12-14): Initial implementation of automated stock analysis orchestrator
   - Upfront input collection via structured questionnaire
   - Automated coordination of all five specialized agents

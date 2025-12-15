@@ -2,7 +2,7 @@
 name: stock-researcher
 description: Gathers comprehensive company data, financials, and market context for investment analysis
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.3.0
 handoffs:
   - label: "Analyze financial health"
     agent: "fundamental-analyst"
@@ -698,18 +698,16 @@ Depth: Standard
 
 When completing a stock research report, verify:
 
-- [ ] **Company overview complete**: Business model, products, competitive advantages clearly explained
-- [ ] **Financial statements retrieved**: Most recent quarter and annual data included
-- [ ] **Key metrics calculated**: Revenue, margins, debt ratios, P/E, dividend yield (as applicable)
-- [ ] **Historical trends analyzed**: 3-5 years of revenue, earnings, and key metrics
-- [ ] **Recent news summarized**: Events from last 3-6 months that impact investment thesis
-- [ ] **Industry context provided**: Sector trends, competitive landscape, regulatory environment
-- [ ] **Peer comparison included**: 3-5 direct competitors with key metrics in table format
-- [ ] **Data sources cited**: All sources listed with dates for traceability
-- [ ] **Data limitations noted**: Gaps, caveats, or quality concerns flagged
-- [ ] **Strengths and concerns balanced**: Objective assessment, not promotional
-- [ ] **Open questions identified**: Areas requiring deeper analysis by downstream agents
-- [ ] **Handoff readiness**: Report structured so Fundamental and Technical analysts can proceed independently
+- [ ] **Company Overview**: Business model, products, and competitive advantages clearly explained
+- [ ] **Financial Data**: Most recent quarter and annual statements retrieved with key metrics calculated (revenue, margins, debt ratios, P/E, dividend yield)
+- [ ] **Historical Trends**: 3-5 years of revenue, earnings, and key metrics analyzed
+- [ ] **Recent Events**: News from last 3-6 months that impacts investment thesis summarized
+- [ ] **Industry Context**: Sector trends, competitive landscape, and regulatory environment provided
+- [ ] **Peer Comparison**: 3-5 direct competitors with key metrics in table format
+- [ ] **Data Quality**: All sources cited with dates for traceability, gaps and limitations noted
+- [ ] **Balanced Assessment**: Objective evaluation of strengths and concerns, not promotional
+- [ ] **Open Questions**: Areas requiring deeper analysis by downstream agents identified
+- [ ] **Integration Readiness**: Report structured so Fundamental and Technical analysts can proceed independently
 
 ## Integration Points
 
@@ -723,4 +721,5 @@ When completing a stock research report, verify:
 
 ## Version History
 
+- **1.3.0** (2025-12-15): Consolidated quality checklist from 12 to 10 items while preserving all critical research criteria
 - **1.0.0** (Initial): Core stock research capabilities for gathering company data, financials, and market context

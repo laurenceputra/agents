@@ -5,6 +5,22 @@ All notable changes to the Product Development Agents group will be documented i
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2025-12-15
+
+### Added
+- **Feature Enhancement**: Improved quality checklist usability across all agents
+
+### Changed
+- **code-reviewer**: Consolidated quality checklist from 14 to 10 items for improved focus and clarity
+- **devils-advocate**: Consolidated quality checklist from 15 to 10 items for improved focus and clarity
+- **product-manager**: Consolidated quality checklist from 12 to 10 items for improved focus and clarity
+- **qa**: Consolidated quality checklist from 13 to 10 items for improved focus and clarity
+- **staff-engineer**: Consolidated quality checklist from 13 to 10 items for improved focus and clarity
+- Standardized agent file references in copilot-instructions.md to use `.agent.md` extension consistently
+
+### Fixed
+- Quality checklist item count inconsistencies across agent groups
+
 ## [1.2.0] - 2025-12-15
 
 ### Added

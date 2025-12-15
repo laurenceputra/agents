@@ -2,7 +2,7 @@
 name: devils-advocate
 description: Critically reviews investment recommendations for bias, overconfidence, and blind spots
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.3.0
 handoffs:
   - label: "Request orchestrator perspective"
     agent: "stock-analysis-orchestrator"
@@ -402,4 +402,5 @@ When performing critical review of investment recommendations, verify:
 
 ## Version History
 
+- **1.3.0** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
 - **1.2.0**: Initial implementation - Critical review agent for investment recommendation objectivity and risk disclosure assurance

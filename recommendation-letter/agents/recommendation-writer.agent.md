@@ -2,7 +2,7 @@
 name: recommendation-writer
 description: Creates compelling recommendation letter drafts from candidate profiles
 model: Claude Haiku 4.5 (copilot)
-version: 1.2.0
+version: 1.3.0
 handoffs:
   - label: "Submit to Reviewer"
     agent: "recommendation-reviewer"
@@ -247,17 +247,16 @@ pwong@cloudsystems.com
 
 Before handing off to the Reviewer, verify:
 
-- [ ] Opening paragraph clearly establishes relationship and provides overview
-- [ ] Letter includes 2-3 specific examples with concrete details (not vague praise)
-- [ ] Technical accomplishments include quantifiable impacts when possible
-- [ ] Professional qualities are demonstrated through specific anecdotes
-- [ ] Tone matches writer's relationship (manager/peer/mentor)
-- [ ] Letter flows naturally and maintains consistent voice
-- [ ] Closing provides strong, clear endorsement
-- [ ] Length is appropriate (300-600 words, 1-2 pages)
-- [ ] Contact information is included for follow-up
-- [ ] Letter avoids clichés and generic statements
-- [ ] All claims are supported by evidence from the profile
+- [ ] **Opening and Relationship**: Opening paragraph clearly establishes relationship and provides overview
+- [ ] **Specific Examples**: Letter includes 2-3 specific examples with concrete details, not vague praise
+- [ ] **Technical Accomplishments**: Quantifiable impacts included when possible with demonstrated achievements
+- [ ] **Professional Qualities**: Demonstrated through specific anecdotes with evidence from profile
+- [ ] **Tone and Voice**: Matches writer's relationship (manager/peer/mentor) with natural flow and consistent voice
+- [ ] **Strong Endorsement**: Closing provides clear, compelling endorsement
+- [ ] **Appropriate Length**: 300-600 words (1-2 pages) with proper formatting
+- [ ] **Contact Information**: Included for follow-up questions
+- [ ] **Quality of Writing**: Avoids clichés and generic statements throughout
+- [ ] **Evidence-Based**: All claims supported by evidence from the candidate profile
 
 ## Integration Points
 
@@ -329,4 +328,5 @@ If the Reviewer requests changes:
 
 ## Version History
 
+- **1.3.0** (2025-12-15): Consolidated quality checklist from 11 to 10 items while preserving all critical writing criteria
 - **1.0.0** - Initial Recommendation Writer agent for creating compelling letter drafts from candidate profiles

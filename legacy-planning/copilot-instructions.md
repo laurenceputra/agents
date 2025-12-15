@@ -10,7 +10,7 @@ This is a comprehensive legacy planning guidance system with five specialized ag
 
 ## The Five Agents
 
-### Legacy Planning Advisor (`agents/legacy-planning-advisor.md`)
+### Legacy Planning Advisor (`agents/legacy-planning-advisor.agent.md`)
 **Role**: Primary coordinator for discovery and structured guidance  
 **Model**: Claude Sonnet 4.5 (copilot)  
 **Handoffs to**: Beneficiary Planning Agent, Trust Structure Designer, Letter of Wishes Composer
@@ -29,7 +29,7 @@ This is a comprehensive legacy planning guidance system with five specialized ag
 - Recommends which specialists to consult
 - Synthesizes specialist outputs into cohesive guidance
 
-### Beneficiary Planning Agent (`agents/beneficiary-planning-agent.md`)
+### Beneficiary Planning Agent (`agents/beneficiary-planning-agent.agent.md`)
 **Role**: Analyzes beneficiary circumstances and designs fair distributions  
 **Model**: Claude Sonnet 4.5 (copilot)  
 **Handoffs to**: Legacy Planning Advisor
@@ -48,7 +48,7 @@ This is a comprehensive legacy planning guidance system with five specialized ag
 - Designs distribution strategies aligned with values
 - Surfaces potential conflict areas
 
-### Trust Structure Designer (`agents/trust-structure-designer.md`)
+### Trust Structure Designer (`agents/trust-structure-designer.agent.md`)
 **Role**: Explains trust types and recommends appropriate structures  
 **Model**: Claude Sonnet 4.5 (copilot)  
 **Handoffs to**: Legacy Planning Advisor
@@ -67,7 +67,7 @@ This is a comprehensive legacy planning guidance system with five specialized ag
 - Explains trade-offs between options
 - Identifies when professional legal counsel is required
 
-### Letter of Wishes Composer (`agents/letter-of-wishes-composer.md`)
+### Letter of Wishes Composer (`agents/letter-of-wishes-composer.agent.md`)
 **Role**: Guides writing of comprehensive letter documenting values and wishes  
 **Model**: Claude Haiku 4.5 (copilot)  
 **Handoffs to**: Legacy Planning Advisor, Devil's Advocate
@@ -86,7 +86,7 @@ This is a comprehensive legacy planning guidance system with five specialized ag
 - Includes personal messages and distribution reasoning
 - Provides flexible guidance to trustees
 
-### Devil's Advocate (`agents/devils-advocate.md`) **[MANDATORY QUALITY GATE]**
+### Devil's Advocate (`agents/devils-advocate.agent.md`) **[MANDATORY QUALITY GATE]**
 **Role**: Critical review and ethical dilemma surfacing before guidance delivery  
 **Model**: Claude Sonnet 4.5 (copilot)  
 **Handoffs to**: Legacy Planning Advisor, Specialists

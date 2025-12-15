@@ -10,35 +10,35 @@ This is a structured product development workflow system with five specialized a
 
 ## The Five Agents
 
-### Product Manager (`agents/product-manager.md`)
+### Product Manager (`agents/product-manager.agent.md`)
 **Role**: Define what to build and why it matters
 - Creates PRDs with user stories and acceptance criteria
 - Defines success metrics
 - Prioritizes features
 - **Kickstarts every development cycle**
 
-### Staff Engineer (`agents/staff-engineer.md`)
+### Staff Engineer (`agents/staff-engineer.agent.md`)
 **Role**: Design and implement technical solutions
 - Creates technical designs
 - Writes code and tests
 - Fixes issues from Code Review and QA
 - **Iterates based on feedback**
 
-### Code Reviewer (`agents/code-reviewer.md`)
+### Code Reviewer (`agents/code-reviewer.agent.md`)
 **Role**: Quality gate ensuring code standards
 - Reviews all code for quality, security, and product alignment
 - Provides detailed feedback
 - **Mandatory gate before QA testing**
 - Reviews both initial code and bug fixes
 
-### QA (`agents/qa.md`)
+### QA (`agents/qa.agent.md`)
 **Role**: Validate quality through comprehensive testing
 - Designs test strategies
 - Executes testing against acceptance criteria
 - Reports bugs with detailed reproduction steps
 - **Quality gate before critical review**
 
-### Devil's Advocate (`agents/devils-advocate.md`)
+### Devil's Advocate (`agents/devils-advocate.agent.md`)
 **Role**: Critical review and disagreement facilitation
 - Critically reviews work from all agents
 - Challenges assumptions and identifies blind spots
