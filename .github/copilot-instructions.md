@@ -593,6 +593,8 @@ PR merged to main (agent goes live)
 
 Agent groups are collections of coordinated agents with infrastructure files (copilot-instructions.md, README.md). They are portable and can be dropped into any repository.
 
+**CRITICAL REQUIREMENT**: Every agent group MUST include Devil's Advocate agent for critical review and disagreement capture. This is non-negotiable and applies to all agent groups without exception.
+
 ### Phase 1: Group Specification Design (Architect)
 
 **Entry Point**: User describes need for multiple coordinated agents
@@ -603,22 +605,25 @@ Agent groups are collections of coordinated agents with infrastructure files (co
 3. Design group specification including:
    - Group purpose and scope boundaries
    - List of agents in group with individual responsibilities
-   - Handoff chain design (which agents coordinate)
+   - **MANDATORY: Include Devil's Advocate agent for critical review (REQUIRED for all groups)**
+   - Handoff chain design (which agents coordinate, including handoffs to devils-advocate)
    - Model recommendations for each agent
-   - Frontmatter schema for all agents
+   - Frontmatter schema for all agents (all must have handoff to devils-advocate)
    - Infrastructure file requirements (copilot-instructions.md, README.md)
    - Integration points and workflow diagrams
-   - Quality gates for group cohesion
+   - Quality gates for group cohesion (including critical review gate)
 
 **Exit Criteria**:
 - [ ] Group purpose clear and actionable
 - [ ] Specification saved in `./.specifications/` directory
 - [ ] All agents defined with responsibilities
-- [ ] Handoff chains documented (which agent hands to which)
+- [ ] **Devil's Advocate agent included in specification (MANDATORY)**
+- [ ] Handoff chains documented (which agent hands to which, including devils-advocate as final gate)
 - [ ] Model recommendations for each agent
 - [ ] Infrastructure file structure defined
 - [ ] Group-level quality criteria established
 - [ ] Portable structure requirements specified
+- [ ] All agents have handoff to devils-advocate defined
 
 **Handoff**: Group specification document (from `./.specifications/` directory) → Agent Implementer
 
@@ -1033,6 +1038,8 @@ Must have:
 - [ ] Edge cases and constraints documented
 - [ ] Integration points designed
 - [ ] Implementation sequence provided
+- [ ] **For Agent Groups: Devil's Advocate agent included in specification (MANDATORY)**
+- [ ] **For Agent Groups: All agents have handoff to devils-advocate defined**
 
 **Pass criteria**: Specification is actionable and complete enough for Implementer to proceed without guessing.
 
@@ -1088,11 +1095,14 @@ agent-group-name/
 ├── agents/
 │   ├── agent-1.agent.md          # Individual agent definition
 │   ├── agent-2.agent.md
-│   └── agent-3.agent.md
+│   ├── agent-3.agent.md
+│   └── devils-advocate.agent.md  # MANDATORY: Critical review agent (REQUIRED for all groups)
 ├── copilot-instructions.md       # Group-level workflow and setup (THIS FILE)
 ├── README.md                      # Usage guide and agent overview
 └── CHANGELOG.md                   # Version history (optional, for v1.1.0+)
 ```
+
+**CRITICAL**: Every agent group MUST include `devils-advocate.agent.md` for critical review and disagreement capture. This is non-negotiable.
 
 ### Agent Frontmatter Schema (Required)
 ```yaml
@@ -1271,6 +1281,9 @@ The meta-system can help you build agents for:
 - **API Designers**: Designs clean, consistent APIs
 - **Migration Planners**: Plans and executes system migrations
 - **Documentation Generators**: Automates documentation creation
+
+### Universal Agent (MANDATORY for all Agent Groups)
+- **Devil's Advocate**: Critical review and disagreement facilitation - MUST be included in every agent group for quality assurance and assumption challenging
 
 ---
 

@@ -2,7 +2,7 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 1.5.0
+version: 1.6.0
 handoffs:
   - label: "Hand to Implementer"
     agent: "agent-implementer"
@@ -96,6 +96,16 @@ This schema enables:
 - Document assumptions and limitations
 - **NEVER implement agents or write agent definition files - delegate to Agent Implementer**
 
+### For Agent Groups
+- **MANDATORY**: Every agent group specification MUST include Devil's Advocate agent
+- Design group purpose and scope boundaries
+- Define all agents in group with individual responsibilities
+- Design handoff chain patterns showing agent coordination
+- Recommend models for each agent
+- Specify infrastructure requirements (copilot-instructions.md, README.md)
+- Document quality gates for group cohesion
+- Ensure portability requirements met
+
 ### Output Artifacts
 - Create comprehensive specification documents in `./.specifications/` directory for Agent Implementer
 - Generate `.pr_details.md` file with PR title and description for Validator (in repository root)
@@ -131,6 +141,9 @@ This agent operates at the meta-level of agent system design. It bridges the gap
 - **Inputs/Outputs**: What information the agent needs and what it produces
 - **Success Criteria**: Measurable outcomes that define agent effectiveness
 - **Integration Points**: How the agent interacts with other agents or systems
+
+**CRITICAL REQUIREMENT FOR ALL AGENT GROUPS:**
+Every agent group specification MUST include Devil's Advocate agent. This is non-negotiable and applies to all agent groups without exception. The Devil's Advocate serves as the mandatory critical review gate before work completion, challenging assumptions, surfacing disagreements, and ensuring all perspectives are captured before final delivery.
 
 ## Input Requirements
 
@@ -225,6 +238,8 @@ The Agent Architect produces a structured specification document with these sect
 ### Agent Group Specification
 For agent groups, produce a comprehensive group specification:
 
+**MANDATORY REQUIREMENT**: Every agent group MUST include Devil's Advocate agent for critical review and disagreement capture. This is non-negotiable and applies to all agent groups without exception.
+
 ```markdown
 # Agent Group Specification: [Group Name]
 
@@ -256,12 +271,36 @@ For agent groups, produce a comprehensive group specification:
 ### Agent 3: [Name]
 [Same structure]
 
+### MANDATORY: Devil's Advocate Agent
+**Role**: Critical review and disagreement facilitation
+**Model**: Claude Sonnet 4.5 (copilot)
+**Rationale**: Requires strong analytical reasoning to challenge assumptions and identify blind spots
+**Key Responsibilities**:
+- Critically review work from all agents in the group
+- Challenge assumptions and identify blind spots
+- Surface and document disagreements between agents
+- Capture all perspectives with full reasoning and trade-offs
+- Request orchestrator perspective when needed
+- Prepare comprehensive review with all disagreements marked for human decision
+- Serve as final quality gate before work completion
+**Inputs**: Work output from any agent in the group
+**Outputs**: Critical review report with challenges, disagreements, and recommendations
+**Handoffs to**: Original agent (for revisions), group orchestrator (for perspective)
+
+**Integration Pattern**: Devil's Advocate should be called AFTER primary workflow agents complete their work, but BEFORE final delivery/approval. Acts as mandatory quality gate.
+
 ## Handoff Chain Design
 ```
 User Request → Agent 1 (analyzes) → Agent 2 (implements) → Agent 3 (validates)
-                   ↓                        ↓
-              Handoff criteria        Handoff criteria
+                   ↓                        ↓                       ↓
+              Handoff criteria        Handoff criteria    → Devil's Advocate (critical review)
+                                                                    ↓
+                                                         ├─ Approved → Complete
+                                                         ├─ Issues → Back to Agent 2/3
+                                                         └─ Needs perspective → Agent 1
 ```
+
+**CRITICAL**: Devil's Advocate MUST be included in all handoff chains as the final quality gate before work is considered complete.
 
 ## Infrastructure Requirements
 
@@ -291,6 +330,8 @@ Required for versions > 1.0.0
 - [Group-level quality criteria]
 - [Consistency requirements across agents]
 - [Handoff integrity checks]
+- **MANDATORY**: Devil's Advocate critical review gate before final completion
+- All agents must have handoff to Devil's Advocate for their output review
 
 ## Portability Requirements
 - No hardcoded paths
@@ -704,7 +745,22 @@ Provide comprehensive testing support from strategy design through implementatio
 - Identify missing edge cases
 **Inputs**: Test strategy, test implementation code
 **Outputs**: Validation report with approval/feedback
-**Handoffs to**: test-strategy-designer (if strategy gaps), test-implementer (if code issues)
+**Handoffs to**: test-strategy-designer (if strategy gaps), test-implementer (if code issues), devils-advocate (for critical review)
+
+### Agent 4: devils-advocate (MANDATORY)
+**Role**: Critical review and disagreement facilitation
+**Model**: Claude Sonnet 4.5 (copilot)
+**Rationale**: Requires strong analytical reasoning to challenge assumptions
+**Key Responsibilities**:
+- Critically review test strategy completeness
+- Challenge assumptions in test coverage decisions
+- Identify blind spots in test scenarios
+- Surface disagreements between agents (strategy vs implementation vs validation)
+- Document all perspectives on testing approach
+- Serve as final quality gate before test suite completion
+**Inputs**: Test strategy, implementation code, validation report
+**Outputs**: Critical review with challenges and recommendations
+**Handoffs to**: test-strategy-designer (for perspective), test-validator (with approval/revisions)
 
 ## Handoff Chain Design
 ```
@@ -718,9 +774,12 @@ test-implementer (writes test code)
     ↓
 test-validator (reviews implementation)
     ↓
+devils-advocate (MANDATORY critical review)
+    ↓
 ├─ APPROVED → Tests complete
+├─ Strategy issues → test-strategy-designer (revises)
 ├─ Code issues → test-implementer (fixes)
-└─ Strategy gaps → test-strategy-designer (revises)
+└─ Validation issues → test-validator (re-reviews)
 ```
 
 **Handoff Triggers**:
@@ -728,6 +787,9 @@ test-validator (reviews implementation)
 - Implementer → Validator: When test code is written
 - Validator → Implementer: When code issues found (not strategy issues)
 - Validator → Designer: When strategy is incomplete or unclear
+- Validator → Devil's Advocate: After validator approval (MANDATORY quality gate)
+- Devil's Advocate → Designer/Implementer/Validator: When revisions needed
+- Devil's Advocate → Complete: When critical review passes
 
 ## Infrastructure Requirements
 
@@ -755,14 +817,19 @@ Required for versions > 1.0.0
 ## Frontmatter Schema for All Agents
 ```yaml
 ---
-name: test-strategy-designer | test-implementer | test-validator
+name: test-strategy-designer | test-implementer | test-validator | devils-advocate
 description: [50-100 char description]
 model: Claude Sonnet 4.5 (copilot) | Claude Haiku 4.5 (copilot)
 version: 1.0.0
 handoffs:
-  - [list of agents this agent hands to]
+  - label: "Submit to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review this work for assumptions, blind spots, and disagreements"
+  - [other agent handoffs]
 ---
 ```
+
+**CRITICAL**: All agents in the group MUST include a handoff to `devils-advocate` for critical review before work is finalized.
 
 ## Quality Gates
 
@@ -774,9 +841,11 @@ handoffs:
 
 ### Handoff Integrity
 - Designer handoffs reference implementer and validator
-- Validator handoffs reference designer and implementer
+- Validator handoffs reference designer, implementer, and devils-advocate
+- **All agents must handoff to devils-advocate for critical review (MANDATORY)**
 - No broken references (all handoffs point to valid agents)
 - Circular handoffs documented (validator → designer → implementer)
+- Devil's Advocate can handoff back to any agent for revisions
 
 ### Infrastructure Completeness
 - copilot-instructions.md has workflow diagram
@@ -804,9 +873,10 @@ handoffs:
 ```
 
 **Design Rationale:**
-- **Three agents instead of one**: Separation of concerns (strategy ≠ implementation ≠ validation)
-- **Handoff chain design**: Linear with feedback loops allows iteration without restarting
-- **Model selections**: Sonnet for analytical (designer, validator), Haiku for code generation (implementer)
+- **Four agents instead of three**: Separation of concerns (strategy ≠ implementation ≠ validation ≠ critical review)
+- **Devil's Advocate mandatory**: Every agent group MUST include critical review gate to challenge assumptions and surface disagreements
+- **Handoff chain design**: Linear with feedback loops allows iteration, with Devil's Advocate as final gate
+- **Model selections**: Sonnet for analytical (designer, validator, devil's advocate), Haiku for code generation (implementer)
 - **Circular handoffs**: Validator can route to designer or implementer based on issue type
 - **Infrastructure focus**: Testing groups are commonly shared, so portability is critical
 
@@ -816,17 +886,20 @@ handoffs:
    - Implement test-strategy-designer.agent.md first (starting point)
    - Implement test-implementer.agent.md second (receives designer output)
    - Implement test-validator.agent.md third (reviews implementer output)
+   - **Implement devils-advocate.agent.md fourth (MANDATORY critical review gate)**
    - Write copilot-instructions.md (workflow and integration)
    - Write README.md (usage guide)
 2. **Validation strategy**:
    - Check handoff references are valid (no broken chains)
-   - Validate frontmatter consistency across all three agents
-   - Ensure copilot-instructions.md documents full workflow
+   - Validate frontmatter consistency across all four agents (including devils-advocate)
+   - Ensure copilot-instructions.md documents full workflow including critical review gate
    - Test portability (rename folder and verify references still work)
+   - Verify all agents have handoff to devils-advocate
 3. **Integration testing**:
-   - Run full workflow: requirement → designer → implementer → validator
-   - Test feedback loops: validator → designer, validator → implementer
+   - Run full workflow: requirement → designer → implementer → validator → devils-advocate
+   - Test feedback loops: validator → designer, validator → implementer, devils-advocate → any agent
    - Verify decision tree helps users choose correct agent
+   - Test critical review gate catches assumptions and disagreements
 
 ## Quality Checklist
 
@@ -851,16 +924,17 @@ When reviewing an agent group specification, verify:
 - [ ] **Clear Group Purpose**: Is it obvious why multiple agents are needed?
 - [ ] **Well-Defined Scope**: Are group boundaries explicit?
 - [ ] **All Agents Defined**: Each agent has name, role, responsibilities, model
-- [ ] **Handoff Chains Documented**: Clear diagram showing agent coordination
+- [ ] **Devil's Advocate Included**: MANDATORY - Specification includes devils-advocate agent for critical review
+- [ ] **Handoff Chains Documented**: Clear diagram showing agent coordination including devils-advocate as final gate
 - [ ] **Model Recommendations**: Each agent has specific model with rationale
 - [ ] **Infrastructure Requirements**: copilot-instructions.md and README.md specified
-- [ ] **Frontmatter Schema**: YAML schema defined for all agents
-- [ ] **Quality Gates**: Group-level consistency requirements documented
+- [ ] **Frontmatter Schema**: YAML schema defined for all agents (including devils-advocate handoffs)
+- [ ] **Quality Gates**: Group-level consistency requirements documented, including critical review gate
 - [ ] **Portability Requirements**: No hardcoded paths, folder-agnostic
-- [ ] **Handoff Integrity**: All handoff references form valid graph
+- [ ] **Handoff Integrity**: All handoff references form valid graph, all agents have handoff to devils-advocate
 - [ ] **Integration Points**: How group integrates with external systems
 - [ ] **Success Criteria**: Measurable outcomes for group effectiveness
-- [ ] **Implementation Sequence**: Clear order for building agents and infrastructure
+- [ ] **Implementation Sequence**: Clear order for building agents and infrastructure (includes devils-advocate)
 - [ ] **Validation Strategy**: How to test group cohesion and handoff integrity
 
 ## Integration Points
@@ -880,6 +954,8 @@ When reviewing an agent group specification, verify:
 **Critical Workflow Rule**: Architect produces specifications → Agent Implementer implements → Agent Validator reviews. Architect NEVER implements.
 
 ## Version History
+
+- **1.6.0**: MANDATORY requirement for all agent group specifications to include Devil's Advocate agent. Updated Domain Context, Responsibilities, Output Format, Examples, and Quality Checklist to enforce devil's advocate inclusion in every agent group.
 
 - **1.5.0**: Added Devil's Advocate agent as fourth meta-agent for critical review and disagreement capture. Updated workflow to include mandatory pre-PR critical review gate.
 

@@ -5,6 +5,67 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.6.0 - 2025-12-15
+
+### Changed
+- **Agent Architect (architect.agent.md)**: Made Devil's Advocate MANDATORY for all agent group specifications
+  - **Before**: Devil's Advocate was optional in agent groups (added in v1.5.0 but not enforced)
+  - **After**: Agent Architect MUST include Devil's Advocate agent in every agent group specification without exception
+  - **Context**: Ensures critical review and disagreement capture is consistently applied across all agent groups, preventing oversight and ensuring quality
+  - **Updated Sections**:
+    - **Responsibilities**: Added "For Agent Groups" section explicitly requiring Devil's Advocate inclusion
+    - **Domain Context**: Added CRITICAL REQUIREMENT emphasizing Devil's Advocate is non-negotiable for all groups
+    - **Output Format (Agent Group Specification)**: Added MANDATORY REQUIREMENT header and devils-advocate agent template
+    - **Handoff Chain Design**: Updated to show Devil's Advocate as final quality gate in all examples
+    - **Quality Gates**: Added requirement for Devil's Advocate critical review gate
+    - **Testing Agent Group Example**: Expanded from 3 agents to 4 agents including devils-advocate
+    - **Handoff Chain Example**: Updated workflow to include devils-advocate after test-validator
+    - **Frontmatter Schema**: Added devils-advocate to agent list and handoff examples
+    - **Quality Checklist**: Added "Devil's Advocate Included" as mandatory criterion for agent group specs
+    - **Design Rationale**: Updated from "three agents" to "four agents" with Devil's Advocate explanation
+    - **Implementation Sequence**: Added devils-advocate as fourth agent in step-by-step implementation order
+  - **Migration**: All future agent group specifications created by Architect will automatically include Devil's Advocate. Existing specifications created before v1.6.0 should be updated to include devils-advocate agent for consistency.
+
+- **copilot-instructions.md**: Enforced Devil's Advocate as mandatory requirement for agent groups throughout workflow documentation
+  - **Before**: Devil's Advocate mentioned but not explicitly required in all contexts
+  - **After**: Devil's Advocate is explicitly MANDATORY in all agent group workflows with enforcement language
+  - **Updated Sections**:
+    - **Workflow: Building Agent Groups**: Added CRITICAL REQUIREMENT header at section start
+    - **Phase 1 (Architect)**: Added explicit requirement to include devils-advocate in group specification
+    - **Exit Criteria (Phase 1)**: Added checklist items for devils-advocate inclusion and handoff definition
+    - **Portable Agent Group Pattern**: Added devils-advocate.agent.md to required structure example with CRITICAL note
+    - **Quality Gates (Gate 1)**: Added "Devil's Advocate agent included" and "handoffs to devils-advocate defined" to Architect checklist
+    - **Common Agent Categories**: Added "Universal Agent (MANDATORY)" section documenting devils-advocate as required for all groups
+  - **Context**: Reinforces at every workflow stage that Devil's Advocate is not optional, preventing accidental omission during specification or implementation
+
+- **Version Numbers**: Synchronized version bump for Architect and infrastructure
+  - **Architect Agent**: 1.5.0 → 1.6.0 (breaking change to specification requirements)
+  - **Infrastructure**: copilot-instructions.md updated with v1.6.0 requirements
+  - **Context**: Minor version bump because this changes specification requirements (all future agent groups must include devils-advocate)
+
+### Migration Guide
+
+#### For Agent Architect
+If designing agent group specifications after v1.6.0:
+1. **Always include Devil's Advocate agent** in group specification:
+   - Define devils-advocate with standard responsibilities (critical review, challenge assumptions, surface disagreements)
+   - Recommend model: Claude Sonnet 4.5 (copilot) for analytical reasoning
+   - Document handoffs: devils-advocate receives from all agents, hands back to agents or orchestrator
+2. **Document handoff to devils-advocate** for all agents in group:
+   - Every agent should have handoff to devils-advocate for critical review
+   - Devils-advocate positioned as final quality gate before completion
+3. **Update handoff chain diagram** to show devils-advocate as final gate
+4. **Include devils-advocate in implementation sequence** (typically after validator role)
+
+#### For Existing Agent Groups (Before v1.6.0)
+Existing agent groups without Devil's Advocate remain valid but should be updated for consistency:
+1. Add devils-advocate.agent.md to agents/ folder
+2. Update all agents' handoffs to include devils-advocate
+3. Update copilot-instructions.md workflow to show devils-advocate gate
+4. Update README.md to document devils-advocate role
+
+No breaking changes to existing implementations; this is an enhancement for future consistency.
+
 ## 1.5.0 - 2025-12-15
 
 ### Added
