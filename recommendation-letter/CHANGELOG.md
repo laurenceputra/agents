@@ -5,6 +5,50 @@ All notable changes to the Recommendation Letter Agents group will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-12-15
+
+### Added
+- **Devil's Advocate Agent (devils-advocate.agent.md)**: New fourth agent for credibility and authenticity review
+  - **Purpose**: Critically reviews recommendation letters for exaggerations, vague praise, and credibility concerns before signature
+  - **Position in Workflow**: Final credibility gate after Reviewer approval, before letter signature
+  - **Key Capabilities**:
+    - Challenges exaggerated or unsubstantiated claims
+    - Identifies vague praise lacking specific support
+    - Surfaces red flags that might trigger hiring manager skepticism
+    - Assesses letter authenticity and believability
+    - Reviews from skeptical hiring manager perspective
+  - **Model**: Claude Sonnet 4.5 (copilot) - requires strong reasoning for credibility evaluation
+  - **Context**: Ensures recommendation letters are believable and won't backfire due to exaggeration or generic praise
+
+### Changed
+- **All Agents**: Added handoff to Devil's Advocate for credibility review (Profiler, Writer, Reviewer)
+  - **Before**: Letters went from Reviewer approval to signature without credibility check
+  - **After**: All letters go through Devil's Advocate credibility gate before finalization
+  - **Added Handoff**: "Submit to Devil's Advocate" for credibility and authenticity review
+  - **Context**: Prevents credibility issues that might undermine letter effectiveness
+  - **Migration**: No breaking changes—workflow extended with credibility gate, existing process preserved
+
+- **Agent Versions**: Synchronized minor version bump for all existing agents
+  - **All Agents**: 1.1.0 → 1.2.0 (Profiler, Writer, Reviewer)
+  - **Context**: Workflow change affects all agents (handoff to devils-advocate added)
+
+- **Workflow (copilot-instructions.md)**: Updated from three-agent to four-agent workflow with credibility gate
+  - **Before**: Profiler → Writer → Reviewer → Signature
+  - **After**: Profiler → Writer → Reviewer → Devil's Advocate (credibility review) → Signature
+  - **Added Step 4**: Devil's Advocate reviews for exaggerations, vague praise, red flags before signature
+  - **Context**: Visualizes mandatory credibility check before letter submission
+
+- **README.md**: Updated agent count and feature list
+  - **Before**: Three agents with quality assurance
+  - **After**: Four agents including Devil's Advocate credibility review
+  - **Added Feature**: Credibility review for authenticity and believability
+  - **Context**: Clarifies complete workflow including credibility gate
+
+### Migration Guide
+- **Existing Workflows**: Add Devil's Advocate review step after Reviewer approval, before signature
+- **No Breaking Changes**: Existing agents and sequential workflow remain valid; workflow extended, not replaced
+- **Credibility Focus**: Devil's Advocate specializes in hiring manager skepticism perspective—different from Reviewer's quality focus
+
 ## [1.1.0] - 2025-12-13
 
 ### Changed

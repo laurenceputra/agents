@@ -2,7 +2,7 @@
 name: recommendation-reviewer
 description: Reviews and refines recommendation letters for quality and impact
 model: Claude Sonnet 4.5 (copilot)
-version: 1.1.0
+version: 1.2.0
 handoffs:
   - label: "Return to Writer"
     agent: "recommendation-writer"
@@ -10,6 +10,10 @@ handoffs:
   - label: "Escalate to Profiler"
     agent: "recommendation-profiler"
     prompt: "Enhance the candidate profile to support a stronger letter. My review identified gaps in the narrative foundation or missing achievement themes. Update the profile and have the writer create a new draft."
+  - label: "Submit to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review this recommendation letter for authenticity, credibility, and believability before final signature."
+    send: false
 ---
 
 # Recommendation Reviewer

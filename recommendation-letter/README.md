@@ -6,18 +6,20 @@ A comprehensive recommendation letter writing system for GitHub Copilot with thr
 
 This system guides letter writers (managers, colleagues, mentors) through creating high-quality recommendation letters by combining structured information gathering, professional writing assistance, and quality assurance. The result is letters with specific examples, quantifiable impacts, and authentic voice that genuinely help candidates stand out.
 
-### The Three Agents
+### The Four Agents
 
 1. **Recommendation Profiler** - Conducts structured discovery to gather comprehensive candidate information
 2. **Recommendation Writer** - Creates compelling letter drafts incorporating specific examples and appropriate tone
 3. **Recommendation Reviewer** - Ensures quality through critical evaluation and actionable feedback
+4. **Devil's Advocate** - Credibility review for authenticity and believability (MANDATORY gate before signature)
 
 ### Key Features
 
-- ✅ **Sequential Workflow**: Guided process from information gathering through final approval
+- ✅ **Sequential Workflow**: Guided process from information gathering through final approval with credibility gate
 - ✅ **Specific Examples**: Ensures every claim is supported by concrete evidence
 - ✅ **Tone Adaptation**: Adjusts voice for manager, peer, or mentor relationships
 - ✅ **Quality Assurance**: Built-in review process catches generic or weak content
+- ✅ **Credibility Review**: Devil's Advocate challenges exaggerations and ensures authenticity
 - ✅ **Iterative Refinement**: Supports revision cycles for continuous improvement
 - ✅ **Software Engineering Focus**: Tailored for technical roles and accomplishments
 

@@ -2,13 +2,13 @@
 
 ## Overview
 
-This is a structured recommendation letter writing system with three specialized agents that help letter writers (managers, colleagues, mentors) create compelling, professional recommendation letters for software engineers seeking new roles. The system guides writers from initial information gathering through final letter creation with quality assurance.
+This is a structured recommendation letter writing system with four specialized agents that help letter writers (managers, colleagues, mentors) create compelling, professional recommendation letters for software engineers seeking new roles. The system guides writers from initial information gathering through final letter creation with quality assurance and credibility review.
 
 ## Core Principle
 
-**Specific examples and authentic voice make recommendation letters effective.** Generic praise is forgettable, but concrete stories with quantifiable impacts help candidates stand out. The system ensures every letter includes specific evidence, maintains appropriate tone for the writer's relationship, and genuinely helps candidates succeed.
+**Specific examples and authentic voice make recommendation letters effective.** Generic praise is forgettable, but concrete stories with quantifiable impacts help candidates stand out. The system ensures every letter includes specific evidence, maintains appropriate tone for the writer's relationship, and passes credibility review before signature. Devil's Advocate ensures authenticity and believability.
 
-## The Three Agents
+## The Four Agents
 
 ### Recommendation Profiler (`agents/recommendation-profiler.agent.md`)
 **Role**: Information gathering and candidate analysis  
@@ -47,7 +47,7 @@ This is a structured recommendation letter writing system with three specialized
 ### Recommendation Reviewer (`agents/recommendation-reviewer.agent.md`)
 **Role**: Quality assurance and refinement  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**Handoffs to**: recommendation-writer (for revisions)
+**Handoffs to**: recommendation-writer (for revisions), devils-advocate
 
 **When to use**:
 - Have draft letter from Writer
@@ -61,9 +61,27 @@ This is a structured recommendation letter writing system with three specialized
 - Provides actionable improvement suggestions
 - Approves when quality standards met
 
+### Devil's Advocate (`agents/devils-advocate.agent.md`) **[MANDATORY CREDIBILITY GATE]**
+**Role**: Credibility and authenticity review before signature  
+**Model**: Claude Sonnet 4.5 (copilot)  
+**Handoffs to**: recommendation-writer (for revisions)
+
+**When to use**:
+- After Reviewer approval
+- Before letter signature and submission
+- Need to ensure credibility and authenticity
+- Want skeptical hiring manager perspective
+
+**What it does**:
+- Challenges exaggerated or unsubstantiated claims
+- Identifies vague praise lacking specific support
+- Surfaces red flags that might trigger skepticism
+- Assesses authenticity and believability
+- Provides final credibility gate before signature
+
 ## Workflow
 
-### Primary Flow (Linear with Optional Iteration)
+### Primary Flow (Linear with Optional Iteration and Credibility Gate)
 
 ```
 1. Recommendation Profiler
@@ -79,7 +97,14 @@ This is a structured recommendation letter writing system with three specialized
    │                       ↑____________↓
    │                       (Iterate until approved)
    │
-   └─ If APPROVED → Final letter ready for signature
+   └─ If APPROVED → 4. Devil's Advocate (MANDATORY credibility review)
+                      ↓ (Authenticity check)
+                      │
+                      ├─ If CREDIBILITY CONCERNS → Back to Writer
+                      │                             ↑____________↓
+                      │                             (Fix and resubmit)
+                      │
+                      └─ If CREDIBLE → Final letter ready for signature
 ```
 
 ### Critical Rules
@@ -89,6 +114,7 @@ This is a structured recommendation letter writing system with three specialized
 3. **Authentic Voice**: Letter should sound natural for the writer's relationship
 4. **Iterative Refinement**: Expect 1-2 revision cycles for best results
 5. **Target Role Awareness**: Tailor content to position requirements when known
+6. **Devil's Advocate Review Mandatory**: All letters must pass credibility review before signature
 
 ## Complete Usage Examples
 
