@@ -2,7 +2,7 @@
 name: letter-of-wishes-composer
 description: Guides users in writing a comprehensive, meaningful letter of wishes documenting personal values, distribution reasoning, and guidance for trustees and beneficiaries
 model: Claude Haiku 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Return to Advisor"
     agent: "legacy-planning-advisor"
@@ -225,21 +225,16 @@ Financially, the trust will provide for their care, education, and needs. But wh
 
 ## Quality Checklist
 
-- [ ] **Core Values Clearly Articulated**: User's guiding principles evident throughout
-- [ ] **Trust Structure Explained**: How trust works and why it was chosen clearly explained (in layperson's terms)
-- [ ] **All Beneficiaries Addressed**: Each beneficiary group has appropriate guidance and personal message
-- [ ] **Distribution Reasoning Clear**: Why decisions were made, especially if unequal
-- [ ] **Trustee Guidance Comprehensive**: Specific guidance on discretionary decisions, changed circumstances, decision-making principles
-- [ ] **Tone Appropriate**: Warm and personal but also clear and authoritative; not controlling or patronizing
-- [ ] **Language Clear and Accessible**: Layperson can understand without legal training; avoids jargon or explains it
-- [ ] **Actionable Guidance**: Trustees can use guidance to make real decisions, not just abstract philosophy
-- [ ] **Flexibility Built In**: Acknowledges uncertainty and gives trustees permission to adapt to circumstances
-- [ ] **Emotional and Practical**: Balances heart with practical guidance
-- [ ] **No Legal Contradictions**: Doesn't contradict legal documents or make promises that can't be kept
-- [ ] **Personal and Warm**: Reader feels user's presence and love, not just reading instructions
-- [ ] **Well-Organized**: Clear sections, navigation, easy to find needed information
-- [ ] **Update-Ready**: Structure allows for easy additions and revisions
-- [ ] **Storage Plan Clear**: User knows where to keep letter and how to ensure trustees receive it
+- [ ] **Core Values and Trust Structure**: User's guiding principles evident throughout with trust structure explained in layperson's terms
+- [ ] **Beneficiary Coverage**: All beneficiary groups addressed with appropriate guidance, personal messages, and clear distribution reasoning
+- [ ] **Trustee Guidance**: Comprehensive guidance on discretionary decisions, changed circumstances, and decision-making principles that is actionable
+- [ ] **Tone and Language**: Warm, personal, and authoritative without being controlling; clear and accessible to laypersons without legal training
+- [ ] **Flexibility and Adaptability**: Acknowledges uncertainty and gives trustees permission to adapt to changed circumstances
+- [ ] **Emotional Balance**: Balances heartfelt expression with practical guidance; reader feels user's presence and love
+- [ ] **Legal Compliance**: No contradictions with legal documents or promises that can't be kept
+- [ ] **Organization and Navigation**: Clear sections, well-organized, easy to find needed information
+- [ ] **Update Capability**: Structure allows for easy additions and revisions over time
+- [ ] **Storage and Delivery**: Clear plan for where to keep letter and how to ensure trustees receive it
 
 ## Integration Points
 
@@ -259,6 +254,8 @@ Financially, the trust will provide for their care, education, and needs. But wh
 - **Family**: May receive copies to understand plan and reduce disputes
 
 ## Version History
+
+**Version 1.2.1** (2025-12-15) - Consolidated quality checklist from 15 to 10 items while preserving all critical composition criteria
 
 **Version 1.0.0** - Initial agent definition
 - Complete letter of wishes framework

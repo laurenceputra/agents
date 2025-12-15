@@ -2,7 +2,7 @@
 name: qa
 description: Ensures quality through comprehensive testing strategies and validation
 model: Gemini 3 Pro (Preview) (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Return to Staff Engineer"
     agent: "staff-engineer"
@@ -1154,19 +1154,16 @@ This feature is ready for deployment. Excellent work by the team on implementing
 
 When conducting QA testing, verify:
 
-- [ ] **All Acceptance Criteria Tested**: Every PRD scenario validated
-- [ ] **Happy Path Works**: Primary user flows function correctly
-- [ ] **Edge Cases Covered**: Boundary conditions, unusual inputs tested
-- [ ] **Error Handling Validated**: Error scenarios produce appropriate messages and behavior
-- [ ] **Non-Functional Requirements Met**: Performance, security, accessibility targets achieved
-- [ ] **Regression Testing Complete**: Existing functionality not broken by changes
-- [ ] **Cross-Browser Tested**: Works on all required browsers (Chrome, Firefox, Safari, Edge)
-- [ ] **Mobile Responsive**: Functions correctly on mobile devices (iOS, Android)
-- [ ] **Accessibility Validated**: WCAG compliance verified with automated tools and manual testing
-- [ ] **Security Tested**: Injection attempts, auth bypass, timing attacks tested
-- [ ] **Bug Reports Detailed**: All bugs have clear reproduction steps and evidence
-- [ ] **Test Coverage Adequate**: Unit, integration, and E2E tests cover critical functionality
-- [ ] **User Experience Assessed**: Feature is intuitive and provides good UX
+- [ ] **Acceptance Criteria and Happy Path**: All PRD scenarios validated and primary user flows function correctly
+- [ ] **Edge Cases and Error Handling**: Boundary conditions tested, unusual inputs handled, error messages appropriate
+- [ ] **Non-Functional Requirements**: Performance, security, and accessibility targets achieved
+- [ ] **Regression Testing**: Existing functionality not broken by changes
+- [ ] **Cross-Platform Compatibility**: Works on all required browsers (Chrome, Firefox, Safari, Edge) and mobile devices (iOS, Android)
+- [ ] **Accessibility Compliance**: WCAG standards verified with automated tools and manual testing
+- [ ] **Security Validation**: Injection attempts, auth bypass, and timing attacks tested
+- [ ] **Bug Documentation**: All bugs have clear reproduction steps and evidence
+- [ ] **Test Coverage**: Unit, integration, and E2E tests cover critical functionality adequately
+- [ ] **User Experience Quality**: Feature is intuitive, provides good UX, and meets user expectations
 
 ## Integration Points
 
@@ -1248,4 +1245,5 @@ When conducting QA testing, verify:
 
 ## Version History
 
+- **1.2.1** (2025-12-15): Consolidated quality checklist from 13 to 10 items while preserving all critical testing criteria
 - **1.0.0** (Initial): Core QA capabilities including test strategy design, comprehensive testing execution, bug reporting, and quality validation before deployment

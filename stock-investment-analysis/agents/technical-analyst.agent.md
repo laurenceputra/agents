@@ -2,7 +2,7 @@
 name: technical-analyst
 description: Analyzes price trends, chart patterns, and momentum indicators for timing insights
 model: Claude Haiku 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Assess investment risks"
     agent: "risk-assessor"
@@ -728,18 +728,16 @@ Stock Research Report for Boeing (BA):
 
 When completing a technical analysis report, verify:
 
-- [ ] **Trend analysis complete**: Long, intermediate, and short-term trends identified with alignment assessment
-- [ ] **Chart patterns identified**: Primary pattern described with formation period, status, and target
-- [ ] **Support/resistance documented**: Key levels identified with test history and significance
-- [ ] **Moving averages analyzed**: 20, 50, 200-day MAs with price position and slope
-- [ ] **RSI interpretation**: Current reading with overbought/oversold assessment and divergences noted
-- [ ] **MACD analysis**: MACD/signal line crossovers and histogram direction interpreted
-- [ ] **Volume analysis**: Average volume, trend, and confirmation/divergence with price action
-- [ ] **Entry/exit recommendations**: Optimal entry points, stop-loss levels, and target prices with rationale
-- [ ] **Risk-reward ratio calculated**: Entry, stop, target defined with ratio (ideally >1:2)
-- [ ] **Technical outlook clear**: Bullish/neutral/bearish recommendation with confidence level
-- [ ] **Warnings documented**: Red flags, cautions, and timing considerations noted
-- [ ] **Handoff readiness**: Report structured for Risk Assessor to evaluate volatility and technical risks
+- [ ] **Trend Analysis**: Long, intermediate, and short-term trends identified with alignment assessment
+- [ ] **Chart Patterns**: Primary pattern described with formation period, status, and target price
+- [ ] **Support and Resistance**: Key levels identified with test history and significance
+- [ ] **Moving Averages**: 20, 50, 200-day MAs analyzed with price position and slope direction
+- [ ] **Momentum Indicators**: RSI and MACD interpreted with overbought/oversold assessment, crossovers, and divergences
+- [ ] **Volume Analysis**: Average volume, trend, and confirmation/divergence with price action evaluated
+- [ ] **Entry and Exit Strategy**: Optimal entry points, stop-loss levels, and target prices with detailed rationale
+- [ ] **Risk-Reward Assessment**: Entry, stop, and target defined with favorable ratio (ideally >1:2)
+- [ ] **Technical Outlook**: Clear bullish/neutral/bearish recommendation with confidence level and warnings documented
+- [ ] **Integration Readiness**: Report structured for Risk Assessor to evaluate volatility and technical risks
 
 ## Integration Points
 
@@ -755,4 +753,5 @@ When completing a technical analysis report, verify:
 
 ## Version History
 
+- **1.2.1** (2025-12-15): Consolidated quality checklist from 12 to 10 items while preserving all critical technical analysis criteria
 - **1.0.0** (Initial): Core technical analysis capabilities for price trends, chart patterns, and timing recommendations

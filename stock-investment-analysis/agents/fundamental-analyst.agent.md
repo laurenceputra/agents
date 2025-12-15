@@ -2,7 +2,7 @@
 name: fundamental-analyst
 description: Analyzes financial health, valuation, and long-term investment merit of stocks
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Assess investment risks"
     agent: "risk-assessor"
@@ -679,17 +679,16 @@ Given financial distress, traditional valuation methods inappropriate. Analyze l
 
 When completing a fundamental analysis report, verify:
 
-- [ ] **Financial health assessment complete**: Liquidity, profitability, and leverage ratios calculated and interpreted
-- [ ] **Growth analysis comprehensive**: Historical trends, drivers, headwinds, and projections with assumptions
-- [ ] **Moat assessment rigorous**: Competitive advantages identified and rated (wide/narrow/none)
-- [ ] **Valuation multifaceted**: At least 2 methods used (DCF, P/E-based, or relative valuation)
-- [ ] **Fair value range provided**: Conservative, base case, and optimistic estimates
-- [ ] **Strengths and concerns balanced**: Objective assessment with severity ratings
-- [ ] **Recommendation clear**: Strong Buy / Buy / Hold / Sell / Strong Sell with rationale
-- [ ] **Key assumptions documented**: Critical assumptions and limitations stated
-- [ ] **Calculations accurate**: Ratios, growth rates, and DCF inputs verified
-- [ ] **Comparison to peers**: Valuation and fundamentals benchmarked against competitors
-- [ ] **Handoff readiness**: Report structured for Risk Assessor to evaluate risks
+- [ ] **Financial Health**: Liquidity, profitability, and leverage ratios calculated, interpreted, and accurate
+- [ ] **Growth Analysis**: Historical trends, drivers, headwinds, and projections with documented assumptions
+- [ ] **Competitive Moat**: Competitive advantages identified and rated (wide/narrow/none) with rigorous assessment
+- [ ] **Valuation Methods**: At least 2 methods used (DCF, P/E-based, or relative valuation) with fair value range (conservative, base, optimistic)
+- [ ] **Balanced Assessment**: Strengths and concerns objectively evaluated with severity ratings
+- [ ] **Clear Recommendation**: Strong Buy / Buy / Hold / Sell / Strong Sell with comprehensive rationale
+- [ ] **Assumptions and Limitations**: Critical assumptions and limitations clearly stated and documented
+- [ ] **Calculation Accuracy**: All ratios, growth rates, and DCF inputs verified for correctness
+- [ ] **Peer Comparison**: Valuation and fundamentals benchmarked against competitors
+- [ ] **Integration Readiness**: Report structured for downstream handoff to Risk Assessor
 
 ## Integration Points
 
@@ -705,4 +704,5 @@ When completing a fundamental analysis report, verify:
 
 ## Version History
 
+- **1.2.1** (2025-12-15): Consolidated quality checklist from 11 to 10 items while preserving all critical analysis criteria
 - **1.0.0** (Initial): Core fundamental analysis capabilities for financial health, valuation, and investment merit assessment

@@ -5,6 +5,21 @@ All notable changes to the Stock Investment Analysis Agent Group will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2025-12-15
+
+### Changed
+- Consolidated quality checklist items from 11-50 to 10 items while preserving all critical quality criteria across 5 agents:
+  - fundamental-analyst: 11 → 10 items
+  - risk-assessor: 12 → 10 items
+  - stock-analysis-orchestrator: 50 → 10 items (aggressive consolidation of orchestration workflow checks)
+  - stock-researcher: 12 → 10 items
+  - technical-analyst: 12 → 10 items
+- Combined related checklist items using grouped criteria with sub-bullets for improved usability
+- Special focus on stock-analysis-orchestrator: consolidated 50 checks into 10 comprehensive quality areas
+
+### Note
+- copilot-instructions.md uses agent name format without file paths (no extension changes needed)
+
 ## [1.2.0] - 2025-12-15
 
 ### Added

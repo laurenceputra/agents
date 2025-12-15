@@ -2,7 +2,7 @@
 name: trust-structure-designer
 description: Helps users understand trust types and design appropriate trust structures for their estate plan
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Return to Advisor"
     agent: "legacy-planning-advisor"
@@ -328,18 +328,16 @@ Parent of child with developmental disability, age 8. Concerned about child's lo
 
 When completing trust structure design, verify:
 
-- [ ] **Trust Type(s) Clearly Explained**: User understands how recommended trust(s) work in their situation
-- [ ] **Goals Addressed**: Each user goal matched to specific trust feature or provision
-- [ ] **Trade-Offs Discussed**: User understands benefits and limitations of recommendation
-- [ ] **Beneficiary Needs Met**: Trust structure appropriately protects or provides for each beneficiary group
-- [ ] **Trustee Considerations Clear**: User understands trustee selection, roles, and succession planning
-- [ ] **Distribution Schedule Appropriate**: Timing and amounts of distributions aligned with user's wishes
-- [ ] **Asset Protection Features**: Spendthrift or other protections addressed if relevant
-- [ ] **Professional Advice Flagged**: Areas requiring legal, tax, or specialist consultation identified
-- [ ] **Letter of Wishes Integration Clear**: User understands what belongs in legal document vs. letter
-- [ ] **Implementation Clear**: User knows next steps and what professionals to consult
-- [ ] **No Oversimplification**: Appropriate complexity addressed; user not misled about limitations
-- [ ] **Alternatives Considered**: If applicable, alternatives discussed and recommendation justified
+- [ ] **Trust Type Understanding**: User understands how recommended trust(s) work in their situation with clear explanations and trade-offs
+- [ ] **Goal Alignment**: Each user goal matched to specific trust feature or provision
+- [ ] **Beneficiary Protection**: Trust structure appropriately protects or provides for each beneficiary group's needs
+- [ ] **Trustee Planning**: User understands trustee selection, roles, succession planning, and responsibilities
+- [ ] **Distribution Strategy**: Timing and amounts of distributions aligned with user's wishes and beneficiary needs
+- [ ] **Asset Protection**: Spendthrift or other protective provisions addressed if relevant
+- [ ] **Professional Consultation**: Areas requiring legal, tax, or specialist advice clearly flagged
+- [ ] **Document Integration**: User understands what belongs in legal trust document vs. letter of wishes
+- [ ] **Implementation Guidance**: Clear next steps and professional resources identified
+- [ ] **Complexity and Alternatives**: Appropriate complexity addressed, limitations explained, alternatives considered and recommendation justified
 
 ## Integration Points
 
@@ -358,6 +356,8 @@ When completing trust structure design, verify:
 - **Special Needs Planner**: Referral for Special Needs Trust design if relevant
 
 ## Version History
+
+**Version 1.2.1** (2025-12-15) - Consolidated quality checklist from 12 to 10 items while preserving all critical trust design criteria
 
 **Version 1.0.0** - Initial agent definition
 - Core trust education and structure design

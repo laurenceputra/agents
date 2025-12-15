@@ -2,7 +2,7 @@
 name: beneficiary-planning-agent
 description: Analyzes beneficiary circumstances and helps users design fair, equitable distributions aligned with their values
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Return to Advisor"
     agent: "legacy-planning-advisor"
@@ -422,18 +422,16 @@ Parent with three children: Jamie (28, independent), Casey (26, healthy), and Ri
 
 When completing beneficiary planning, verify:
 
-- [ ] **All Beneficiary Groups Identified**: Primary, contingent, and charitable beneficiaries all documented
-- [ ] **Individual Circumstances Understood**: Each beneficiary's situation (age, financial, health, relationships) clearly analyzed
-- [ ] **Distribution Philosophy Clear**: User can articulate fairness approach in own words
-- [ ] **Special Needs Addressed**: Beneficiaries with disabilities, addiction, or vulnerability have appropriate planning
-- [ ] **Contingencies Planned**: All primary beneficiaries have contingent arrangements if they predecease
-- [ ] **Equity Justified**: If unequal distribution, rationale clearly explained and user accepts it
-- [ ] **Protective Provisions Identified**: Beneficiaries requiring special protections have them recommended
-- [ ] **Potential Conflicts Anticipated**: Likely sources of family dispute identified with mitigation strategies
-- [ ] **Communication Strategy Clear**: User knows how to explain decisions to reduce misunderstandings
-- [ ] **Letter of Wishes Topics Identified**: What needs to be documented to provide context and prevent conflict
-- [ ] **Fairness Validated**: User confident distribution plan reflects their values (>90% alignment)
-- [ ] **Implementable**: Distribution approach can be executed through available legal structures (trusts, etc.)
+- [ ] **Beneficiary Identification**: All beneficiary groups documented (primary, contingent, charitable) with individual circumstances analyzed (age, financial, health, relationships)
+- [ ] **Distribution Philosophy**: User can articulate fairness approach clearly, with unequal distributions justified and accepted
+- [ ] **Special Needs and Protections**: Beneficiaries with disabilities, addiction, or vulnerability have appropriate planning and protective provisions
+- [ ] **Contingency Planning**: All primary beneficiaries have contingent arrangements if they predecease
+- [ ] **Conflict Mitigation**: Potential family disputes identified with mitigation strategies and clear communication plan
+- [ ] **Letter of Wishes Integration**: Topics requiring additional context documented to prevent future conflicts
+- [ ] **Fairness Validation**: User confident distribution plan reflects their values (>90% alignment)
+- [ ] **Legal Implementation**: Distribution approach can be executed through available legal structures (trusts, etc.)
+- [ ] **Communication Strategy**: User knows how to explain decisions to beneficiaries to reduce misunderstandings
+- [ ] **Completeness**: All aspects of beneficiary planning addressed from identification through implementation
 
 ## Integration Points
 
@@ -451,6 +449,8 @@ When completing beneficiary planning, verify:
 - **Financial Advisor**: Coordination on beneficiary financial education
 
 ## Version History
+
+**Version 1.2.1** (2025-12-15) - Consolidated quality checklist from 12 to 10 items while preserving all critical beneficiary planning criteria
 
 **Version 1.0.0** - Initial agent definition
 - Beneficiary analysis and profiling

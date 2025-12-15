@@ -2,7 +2,7 @@
 name: code-reviewer
 description: Reviews code for quality, security, maintainability, and product alignment
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Return to Staff Engineer"
     agent: "staff-engineer"
@@ -936,20 +936,16 @@ This is a high-quality implementation ready for QA validation. The recommendatio
 
 When reviewing code, verify:
 
-- [ ] **Code Quality**: Clean, readable, maintainable code following project conventions
-- [ ] **Security**: No vulnerabilities (injection, XSS, auth bypass, sensitive data exposure)
-- [ ] **Correctness**: Logic is sound, edge cases handled, no obvious bugs
-- [ ] **Performance**: No performance anti-patterns (N+1 queries, memory leaks, inefficient algorithms)
-- [ ] **Product Alignment**: Code implements PRD requirements and acceptance criteria
-- [ ] **User Experience**: Considers user perspective, helpful errors, good UX decisions
-- [ ] **Test Coverage**: Adequate tests (unit, integration, E2E) with good coverage
-- [ ] **Error Handling**: Graceful error handling, helpful error messages, proper logging
-- [ ] **Documentation**: Code comments for complex logic, updated docs (README, API specs)
-- [ ] **Best Practices**: Follows project patterns, SOLID principles, DRY principle
-- [ ] **Accessibility**: WCAG compliance (if UI changes)
-- [ ] **Breaking Changes**: Backward compatibility or migration path provided
-- [ ] **Dependencies**: New dependencies justified, security-vetted, properly versioned
-- [ ] **Actionable Feedback**: All feedback includes clear recommendations, not just criticism
+- [ ] **Code Quality and Best Practices**: Clean, readable, maintainable code following project conventions, SOLID principles, and DRY principle
+- [ ] **Security**: No vulnerabilities (injection, XSS, auth bypass, sensitive data exposure, properly vetted dependencies)
+- [ ] **Correctness and Logic**: Sound logic with edge cases handled, no obvious bugs, performance anti-patterns avoided
+- [ ] **Product and UX Alignment**: Implements PRD requirements and acceptance criteria with good user experience (helpful errors, accessibility compliance)
+- [ ] **Test Coverage**: Adequate tests (unit, integration, E2E) covering critical paths and edge cases
+- [ ] **Error Handling**: Graceful error handling with helpful messages and proper logging throughout
+- [ ] **Documentation**: Code comments for complex logic, updated documentation (README, API specs, migration guides)
+- [ ] **Breaking Changes**: Backward compatibility maintained or clear migration path provided
+- [ ] **Dependencies**: New dependencies justified, security-vetted, and properly versioned
+- [ ] **Actionable Feedback**: All feedback includes clear recommendations and specific improvement suggestions, not just criticism
 
 ## Integration Points
 
@@ -1021,4 +1017,5 @@ When reviewing code, verify:
 
 ## Version History
 
+- **1.2.1** (2025-12-15): Consolidated quality checklist from 14 to 10 items while preserving all critical review criteria
 - **1.0.0** (Initial): Core code review capabilities including quality assessment, security vulnerability detection, product alignment validation, and constructive feedback delivery

@@ -2,7 +2,7 @@
 name: stock-analysis-orchestrator
 description: Automates end-to-end stock investment analysis by collecting user inputs and coordinating all six specialized agents to deliver a comprehensive report
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Gather stock data"
     agent: "stock-researcher"
@@ -664,69 +664,16 @@ Would you like to:
 
 Use this checklist to validate orchestrator implementation:
 
-### Input Collection Quality
-- [ ] Questionnaire is clear, unambiguous, and user-friendly
-- [ ] Each input has definition/explanation (e.g., what "Conservative" means)
-- [ ] Input validation prevents invalid data before analysis starts
-- [ ] User can review all inputs before confirming start
-- [ ] Examples provided for optional inputs (portfolio format, focus areas)
-- [ ] Optional vs. required inputs clearly marked in questionnaire
-- [ ] Comparison mode (two stocks) properly detected and handled
-- [ ] Error messages for invalid inputs are specific and actionable
-
-### Orchestration Quality
-- [ ] Agents execute in correct sequence: research → (fundamental + technical parallel) → risk → advisor
-- [ ] Parallel execution works correctly (fundamental and technical run simultaneously)
-- [ ] Context passed correctly to each agent (prior outputs included)
-- [ ] Agent outputs captured completely (no data loss)
-- [ ] Workflow completes without user intervention after initial inputs
-- [ ] Orchestrator tracks state throughout multi-agent execution
-- [ ] Handoff prompts include appropriate context for each agent
-
-### Error Handling Quality
-- [ ] Invalid ticker caught and reported before multi-stage analysis begins
-- [ ] Agent failures don't crash entire workflow (graceful degradation)
-- [ ] Partial results provided if some agents succeed but others fail
-- [ ] Error messages are specific and actionable (not generic "Error occurred")
-- [ ] User notified of which agent failed and why (with context)
-- [ ] Retry options provided for recoverable errors
-- [ ] Non-recoverable errors clearly distinguished from transient issues
-
-### Output Quality
-- [ ] Report is well-structured with clear section headers
-- [ ] Executive summary at top (users scan this first before diving into details)
-- [ ] All agent outputs preserved in report (no information lost)
-- [ ] Action checklist is specific, actionable, and time-bounded
-- [ ] Disclaimers and risks prominently displayed (not buried)
-- [ ] Citations and data sources included in appendix
-- [ ] Report length is comprehensive but scannable (use of bullets, tables, highlights)
-- [ ] Formatting consistent throughout (markdown headers, spacing)
-
-### Progress Communication Quality
-- [ ] User knows which stage is running (clear stage indicators 1/5, 2/5, etc.)
-- [ ] Agent names displayed for transparency (user sees which agent is working)
-- [ ] Estimated time remaining is accurate and realistic
-- [ ] Progress updates don't overwhelm user (not too verbose)
-- [ ] Completion percentage or stage indicator always visible
-- [ ] Brief summaries provided as each stage completes
-- [ ] Success checkmarks (✓) and warnings (⚠️) visually clear
-
-### Comparison Mode Quality (if two stocks)
-- [ ] Side-by-side comparison table is clear and scannable
-- [ ] Comparative recommendation provided (which stock preferred and why)
-- [ ] Individual full analyses for each stock included after comparison
-- [ ] Allocation split recommended if both stocks suitable
-- [ ] Key differentiators highlighted in comparison summary
-- [ ] Time estimate doubled for comparison mode (2x standard analysis)
-
-### Report Synthesis Quality
-- [ ] Executive summary synthesizes all five agent analyses (not just final advisor)
-- [ ] Key strengths identified from multiple agents (research, fundamental, technical)
-- [ ] Key risks aggregated from risk assessment and other agents
-- [ ] Final recommendation aligns with user profile (risk tolerance, horizon, goals)
-- [ ] Position sizing respects portfolio context (existing holdings, diversification)
-- [ ] Action checklist draws from all agents (not just advisor)
-- [ ] No contradictions between sections (e.g., summary says "Buy" but report says "Sell")
+- [ ] **Input Collection**: Questionnaire is clear with definitions, validation, examples, and proper handling of optional/required inputs and comparison mode (8 quality aspects covered)
+- [ ] **Orchestration Workflow**: Agents execute in correct sequence (research → parallel fundamental+technical → risk → advisor), context passed correctly, state tracked, no data loss (7 aspects)
+- [ ] **Error Handling**: Invalid inputs caught early, agent failures handled gracefully with partial results, error messages specific and actionable, retry options provided (7 aspects)
+- [ ] **Report Structure**: Well-organized with executive summary at top, all agent outputs preserved, action checklist, disclaimers, citations, scannable formatting (8 aspects)
+- [ ] **Progress Communication**: Clear stage indicators, agent names displayed, realistic time estimates, appropriate verbosity, visual clarity with checkmarks/warnings (7 aspects)
+- [ ] **Comparison Mode**: Side-by-side table, comparative recommendation, individual analyses, allocation splits, key differentiators, doubled time estimate (6 aspects)
+- [ ] **Report Synthesis**: Executive summary synthesizes all agent analyses, strengths and risks aggregated, recommendation aligns with user profile, no contradictions (7 aspects)
+- [ ] **Agent Coordination**: Handoff prompts include appropriate context, parallel execution works correctly, workflow completes without intervention
+- [ ] **Quality Gates**: Validation checkpoints at each workflow stage ensure data quality and consistency throughout orchestration
+- [ ] **Integration Points**: Clear documentation of all agent handoffs, context passing patterns, and terminal agent behavior
 
 ## Integration Points
 
@@ -767,6 +714,7 @@ The orchestrator is a **terminal agent** — it delivers the final comprehensive
 
 ## Version History
 
+- **1.2.1** (2025-12-15): Consolidated quality checklist from 50 to 10 items while preserving all critical quality criteria through grouped validation areas
 - **1.0.0** (2024-12-14): Initial implementation of automated stock analysis orchestrator
   - Upfront input collection via structured questionnaire
   - Automated coordination of all five specialized agents

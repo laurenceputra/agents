@@ -2,7 +2,7 @@
 name: staff-engineer
 description: Provides technical leadership, architecture decisions, and implementation guidance
 model: Claude Haiku 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Submit to Code Reviewer"
     agent: "code-reviewer"
@@ -971,19 +971,16 @@ Ready for code review before resubmitting to QA for validation.
 
 When providing technical leadership, verify:
 
-- [ ] **Requirements Understood**: All PRD requirements and acceptance criteria are clear
-- [ ] **Architecture Sound**: Design is scalable, maintainable, and appropriate for the problem
-- [ ] **Security Considered**: Authentication, authorization, data protection, and attack prevention addressed
-- [ ] **Performance Adequate**: Design meets performance requirements from non-functional requirements
-- [ ] **Error Handling Complete**: All error scenarios have graceful handling and logging
-- [ ] **Testing Strategy Clear**: Unit, integration, and E2E tests planned with coverage targets
-- [ ] **Code Quality High**: Clean, readable, well-documented code following project conventions
-- [ ] **Tests Comprehensive**: All acceptance criteria covered by tests; edge cases tested
-- [ ] **Documentation Updated**: README, API docs, architecture docs reflect changes
-- [ ] **Review Feedback Addressed**: All code review comments resolved with explanations
-- [ ] **Bugs Fixed Properly**: Root cause identified; fix is targeted; tests prevent regression
-- [ ] **Trade-offs Documented**: Key decisions explained with rationale and alternatives considered
-- [ ] **Dependencies Identified**: External dependencies and risks documented with mitigation
+- [ ] **Requirements and Architecture**: All PRD requirements clear, design is scalable, maintainable, and appropriate for the problem
+- [ ] **Security and Performance**: Authentication, authorization, data protection, attack prevention, and performance requirements addressed
+- [ ] **Error Handling**: All error scenarios have graceful handling and comprehensive logging
+- [ ] **Testing Strategy**: Unit, integration, and E2E tests planned with clear coverage targets and edge cases
+- [ ] **Code Quality**: Clean, readable, well-documented code following project conventions
+- [ ] **Documentation**: README, API docs, and architecture docs updated to reflect all changes
+- [ ] **Review Process**: All code review feedback addressed with clear explanations
+- [ ] **Bug Resolution**: Root cause identified, fix is targeted, tests prevent regression
+- [ ] **Technical Decisions**: Trade-offs documented with rationale and alternatives considered
+- [ ] **Dependencies and Risks**: External dependencies identified with documented mitigation strategies
 
 ## Integration Points
 
@@ -1057,4 +1054,5 @@ When providing technical leadership, verify:
 
 ## Version History
 
+- **1.2.1** (2025-12-15): Consolidated quality checklist from 13 to 10 items while preserving all critical technical leadership criteria
 - **1.0.0** (Initial): Core technical leadership capabilities including architecture design, implementation guidance, code quality standards, and iterative feedback incorporation

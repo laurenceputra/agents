@@ -2,7 +2,7 @@
 name: product-manager
 description: Defines product requirements, user stories, and acceptance criteria
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Hand to Staff Engineer"
     agent: "staff-engineer"
@@ -564,18 +564,16 @@ The current authentication system uses a deprecated library with known security 
 
 When creating product requirements, verify:
 
-- [ ] **User Value Clear**: Requirements explain why this matters to users, not just what to build
-- [ ] **Problem Well-Defined**: Problem statement is specific and backed by data/evidence
-- [ ] **User Stories Complete**: All stories include user type, goal, and benefit (As a...I want...So that...)
-- [ ] **Acceptance Criteria Specific**: All criteria use Given-When-Then format and are testable
-- [ ] **Success Metrics Measurable**: Metrics have specific target values and measurement methods
-- [ ] **Requirements Prioritized**: Each requirement marked as Must/Should/Nice to Have
-- [ ] **Edge Cases Covered**: Acceptance criteria include error conditions and edge cases
-- [ ] **Scope Bounded**: Out of scope section prevents scope creep
-- [ ] **Dependencies Identified**: All technical and team dependencies documented
-- [ ] **Non-Functional Requirements**: Performance, security, accessibility specified
-- [ ] **Testable**: QA can create test plan directly from acceptance criteria
-- [ ] **Engineering Feasibility**: Requirements reviewed with engineering team for feasibility
+- [ ] **User Value and Problem**: Requirements explain why this matters to users with specific problem statement backed by data/evidence
+- [ ] **User Stories**: All stories complete with user type, goal, and benefit (As a...I want...So that...)
+- [ ] **Acceptance Criteria**: All criteria use Given-When-Then format, are testable, and include edge cases and error conditions
+- [ ] **Success Metrics**: Metrics have specific target values and clear measurement methods
+- [ ] **Prioritization and Scope**: Requirements prioritized (Must/Should/Nice to Have) with clear scope boundaries to prevent creep
+- [ ] **Dependencies**: All technical and team dependencies identified and documented
+- [ ] **Non-Functional Requirements**: Performance, security, and accessibility requirements specified
+- [ ] **Testability**: QA can create comprehensive test plan directly from acceptance criteria
+- [ ] **Engineering Feasibility**: Requirements reviewed with engineering team for technical feasibility
+- [ ] **Completeness**: All sections present (problem, user stories, acceptance criteria, success metrics, dependencies, NFRs)
 
 ## Integration Points
 
@@ -619,4 +617,5 @@ When creating product requirements, verify:
 
 ## Version History
 
+- **1.2.1** (2025-12-15): Consolidated quality checklist from 12 to 10 items while preserving all critical product management criteria
 - **1.0.0** (Initial): Core product management capabilities including PRD creation, user story writing, acceptance criteria definition, and success metrics establishment

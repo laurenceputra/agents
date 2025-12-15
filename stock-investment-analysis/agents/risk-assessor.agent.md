@@ -2,7 +2,7 @@
 name: risk-assessor
 description: Evaluates investment risks and determines risk-adjusted suitability for portfolios
 model: Claude Sonnet 4.5 (copilot)
-version: 1.2.0
+version: 1.2.1
 handoffs:
   - label: "Get investment recommendation"
     agent: "investment-advisor"
@@ -803,18 +803,16 @@ Research: Failed merger, competition intensifying, cash burn
 
 When completing a risk assessment report, verify:
 
-- [ ] **Volatility analysis complete**: Standard deviation, beta, ATR calculated and interpreted
-- [ ] **Drawdown analysis thorough**: Maximum drawdown, recovery time, current drawdown documented
-- [ ] **Company-specific risks identified**: Critical, moderate, and minor risks categorized with probability/impact
-- [ ] **Market/sector risks evaluated**: Cyclicality, economic sensitivity, geopolitical/regulatory risks assessed
-- [ ] **Portfolio fit analyzed**: Correlation, sector concentration, position sizing recommendations provided
-- [ ] **Risk-adjusted returns calculated**: Sharpe ratio, upside/downside asymmetry evaluated
-- [ ] **Suitability by profile**: Conservative, moderate, aggressive suitability with clear rationale
-- [ ] **Risk mitigation strategies**: Position sizing, entry strategy, stop-loss, monitoring triggers documented
-- [ ] **Overall risk rating assigned**: Conservative/Moderate/Aggressive/Speculative with confidence level
-- [ ] **Primary risks prioritized**: Top 3 risks highlighted with severity
-- [ ] **Caveats documented**: Key assumptions and limitations stated
-- [ ] **Handoff readiness**: Report structured for Investment Advisor to synthesize final recommendation
+- [ ] **Volatility and Drawdown Analysis**: Standard deviation, beta, ATR calculated; maximum drawdown, recovery time, current drawdown documented
+- [ ] **Company-Specific Risks**: Critical, moderate, and minor risks categorized with probability/impact assessment
+- [ ] **Market and Sector Risks**: Cyclicality, economic sensitivity, geopolitical/regulatory risks comprehensively evaluated
+- [ ] **Portfolio Fit**: Correlation, sector concentration, and position sizing recommendations analyzed and provided
+- [ ] **Risk-Adjusted Returns**: Sharpe ratio and upside/downside asymmetry calculated and interpreted
+- [ ] **Suitability Assessment**: Conservative, moderate, and aggressive investor suitability determined with clear rationale
+- [ ] **Risk Mitigation**: Position sizing, entry strategy, stop-loss levels, and monitoring triggers documented
+- [ ] **Overall Risk Rating**: Conservative/Moderate/Aggressive/Speculative rating assigned with confidence level and top 3 risks prioritized
+- [ ] **Assumptions and Limitations**: Key assumptions and caveats clearly stated
+- [ ] **Integration Readiness**: Report structured for Investment Advisor to synthesize final recommendation
 
 ## Integration Points
 
@@ -831,4 +829,5 @@ When completing a risk assessment report, verify:
 
 ## Version History
 
+- **1.2.1** (2025-12-15): Consolidated quality checklist from 12 to 10 items while preserving all critical risk assessment criteria
 - **1.0.0** (Initial): Core risk assessment capabilities for volatility analysis, company/market risks, portfolio fit, and suitability evaluation
