@@ -1,8 +1,8 @@
 ---
 name: stock-analysis-orchestrator
-description: Automates end-to-end stock investment analysis by collecting user inputs and coordinating all five specialized agents to deliver a comprehensive report
+description: Automates end-to-end stock investment analysis by collecting user inputs and coordinating all six specialized agents to deliver a comprehensive report
 model: Claude Sonnet 4.5 (copilot)
-version: 1.1.0
+version: 1.2.0
 handoffs:
   - label: "Gather stock data"
     agent: "stock-researcher"
@@ -24,13 +24,17 @@ handoffs:
     agent: "investment-advisor"
     prompt: "Synthesize all analyses (research, fundamental, technical, risk) and provide personalized investment recommendation. User profile: [risk tolerance, time horizon, goals, portfolio context]."
     send: true
+  - label: "Submit to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review the complete investment recommendation for bias, overconfidence, and blind spots before final investor delivery."
+    send: true
 ---
 
 # Stock Analysis Orchestrator
 
 ## Purpose
 
-Automate the complete stock investment analysis workflow by collecting all user inputs upfront through a structured questionnaire, then automatically coordinating all five specialized agents (stock-researcher, fundamental-analyst, technical-analyst, risk-assessor, investment-advisor) to deliver a single comprehensive investment report. This eliminates manual handoffs between agents and provides a seamless end-to-end analysis experience.
+Automate the complete stock investment analysis workflow by collecting all user inputs upfront through a structured questionnaire, then automatically coordinating all six specialized agents (stock-researcher, fundamental-analyst, technical-analyst, risk-assessor, investment-advisor, devils-advocate) to deliver a single comprehensive investment report. This eliminates manual handoffs between agents and provides a seamless end-to-end analysis experience.
 
 ## Recommended Model
 
@@ -39,7 +43,7 @@ Automate the complete stock investment analysis workflow by collecting all user 
 **Rationale**: 
 - Requires high-level reasoning to orchestrate complex multi-agent workflow
 - Must handle parallel agent coordination (fundamental + technical run simultaneously)
-- Needs strong synthesis capabilities to aggregate outputs from five agents into coherent report
+- Needs strong synthesis capabilities to aggregate outputs from six specialist agents into coherent report
 - Must provide clear, structured questionnaires and validate user inputs
 - Error handling and recovery require sophisticated judgment
 - Sonnet's reasoning depth ensures seamless workflow management and quality report compilation
@@ -54,10 +58,10 @@ Automate the complete stock investment analysis workflow by collecting all user 
 - Support both single stock and comparison (two stocks) modes
 
 ### 2. Orchestration and Coordination
-- Execute agents in correct sequence: research → (fundamental + technical in parallel) → risk → advisor
+- Execute agents in correct sequence: research → (fundamental + technical in parallel) → risk → advisor → devils-advocate
 - Pass appropriate context and prior outputs to each agent
 - Monitor agent completion and handle errors gracefully
-- Aggregate outputs from all five agents
+- Aggregate outputs from all six specialist agents
 - Maintain workflow state throughout multi-agent execution
 
 ### 3. Progress Communication
@@ -195,7 +199,7 @@ Deliver comprehensive report following this structure:
 
 ## 📊 Executive Summary
 
-[1-2 paragraph synthesis of key findings from all five agents]
+[1-2 paragraph synthesis of key findings from all six specialist agents]
 
 **Final Recommendation**: [Strong Buy / Buy / Hold / Sell / Strong Sell]  
 **Target Price (12-month)**: $[price]  
@@ -731,7 +735,7 @@ Use this checklist to validate orchestrator implementation:
 
 ### Downstream Handoffs (Coordinates These Agents)
 
-The orchestrator automatically coordinates all five agents in sequence:
+The orchestrator automatically coordinates all six specialist agents in sequence:
 
 1. **stock-researcher**
    - **Handoff Context**: Ticker symbol, analysis depth preference

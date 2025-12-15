@@ -2,7 +2,7 @@
 name: stock-researcher
 description: Gathers comprehensive company data, financials, and market context for investment analysis
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.0
+version: 1.2.0
 handoffs:
   - label: "Analyze financial health"
     agent: "fundamental-analyst"
@@ -11,6 +11,10 @@ handoffs:
   - label: "Analyze price trends"
     agent: "technical-analyst"
     prompt: "Review price action, chart patterns, and technical indicators to assess momentum and timing."
+    send: false
+  - label: "Submit to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review this research for balance and potential bias before analysis proceeds."
     send: false
 ---
 

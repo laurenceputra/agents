@@ -2,11 +2,15 @@
 name: risk-assessor
 description: Evaluates investment risks and determines risk-adjusted suitability for portfolios
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.0
+version: 1.2.0
 handoffs:
   - label: "Get investment recommendation"
     agent: "investment-advisor"
     prompt: "Synthesize all analyses (research, fundamental, technical, risk) to provide a personalized investment recommendation."
+    send: false
+  - label: "Submit to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review this risk assessment for minimization of risks or blind spots in risk identification."
     send: false
 ---
 

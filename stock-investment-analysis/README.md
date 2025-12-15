@@ -1,6 +1,6 @@
 # Stock Investment Analysis Agent Group
 
-**Version**: 1.1.0  
+**Version**: 1.2.0  
 **Status**: Production Ready  
 **License**: MIT  
 **Requires**: GitHub Copilot CLI
@@ -9,7 +9,7 @@
 
 ## Overview
 
-A comprehensive, AI-powered stock investment analysis system that guides investors from initial research through personalized recommendations. Five specialized agents work together to analyze stocks across fundamental, technical, and risk dimensions, providing institutional-grade analysis accessible to individual investors.
+A comprehensive, AI-powered stock investment analysis system that guides investors from initial research through personalized recommendations with critical review for objectivity. Seven specialized agents work together to analyze stocks across fundamental, technical, and risk dimensions, with Devil's Advocate ensuring balanced perspective before final recommendation.
 
 ## Quick Start
 
@@ -23,10 +23,11 @@ Use the **Stock Analysis Orchestrator** for fully automated end-to-end analysis:
 
 **What happens**:
 1. Orchestrator asks you questions (ticker, risk tolerance, time horizon, goals, portfolio)
-2. Orchestrator automatically coordinates all five agents
-3. You receive a single comprehensive investment report (5-7 minutes)
+2. Orchestrator automatically coordinates all seven agents
+3. Devil's Advocate reviews for bias and blind spots
+4. You receive a single comprehensive investment report (5-7 minutes)
 
-**Best for**: Most users who want complete analysis without manual handoffs
+**Best for**: Most users who want complete analysis with objectivity review
 
 ---
 
@@ -49,6 +50,9 @@ Call each agent individually for granular control:
 
 # Get final recommendation
 @investment-advisor "Provide personalized AAPL investment recommendation for moderate risk tolerance, long-term horizon"
+
+# Critical review (MANDATORY)
+@devils-advocate "Review AAPL recommendation for bias and blind spots"
 ```
 
 **Best for**: Advanced users who want to customize inputs at each stage or need partial analysis
@@ -73,7 +77,7 @@ See [Usage Examples](#usage-examples) below for detailed walkthroughs.
 
 ---
 
-## The Six Agents
+## The Seven Agents
 
 | Agent | Role | Model | When to Use |
 |-------|------|-------|-------------|
@@ -83,6 +87,7 @@ See [Usage Examples](#usage-examples) below for detailed walkthroughs.
 | **technical-analyst** | Analyze price trends and timing | Claude Haiku 4.5 | Manual mode: After research (parallel) |
 | **risk-assessor** | Assess risks and portfolio fit | Claude Sonnet 4.5 | Manual mode: After fundamental + technical |
 | **investment-advisor** | Provide personalized recommendation | Claude Sonnet 4.5 | Manual mode: Final step |
+| **devils-advocate** | Critical review for bias and blind spots | Claude Sonnet 4.5 | Manual mode: MANDATORY after advisor |
 
 ---
 
@@ -278,11 +283,12 @@ See [Usage Examples](#usage-examples) below for detailed walkthroughs.
 
 2. **Verify Agent Files**:
    ```bash
-   # Check that all 5 agents are present
+   # Check that all 7 agents are present
    ls stock-investment-analysis/agents/
    # Should show: stock-researcher.agent.md, fundamental-analyst.agent.md, 
    #              technical-analyst.agent.md, risk-assessor.agent.md, 
-   #              investment-advisor.agent.md
+   #              investment-advisor.agent.md, stock-analysis-orchestrator.agent.md,
+   #              devils-advocate.agent.md
    ```
 
 3. **Test with Simple Query**:
