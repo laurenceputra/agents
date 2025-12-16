@@ -5,6 +5,23 @@ All notable changes to the Social Media Team agent group will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2025-12-16
+
+### Changed
+- **LinkedIn Specialist**: Refactored for personal brand straight-shooter voice (addressing user feedback: "reduce number of points, align to straight-shooter brand")
+  - **Before**: 10-15 tactics per section with multi-layer guidance (WHY/HOW/WHAT/WHEN), corporate strategist tone, examples focused on B2B corporate campaigns
+  - **After**: 3-5 focused recommendations per section with single-layer lists, direct personal tone, examples focused on individual thought leaders
+  - **Context**: User clarified intent to reduce POINT COUNT (not just length) and align to personal brand voice (not corporate playbooks). Devil's Advocate raised concern about v1.1.0 removing strategic depth—v2 addresses this by refocusing depth for personal brands rather than corporate strategists.
+  - **Impact**: Reduced file from 706 lines to ~480 lines through focused guidance approach (32% reduction)
+  - **Key Changes**:
+    - Reduced tactics per section from 10-15 to 3-5 (60-70% reduction in point count)
+    - Removed multi-layer guidance structure (WHY/HOW/WHAT/WHEN labels collapsed into single-layer lists)
+    - Shifted tone to straight-shooter voice: "Keep it simple" / "That's it" / "Don't overthink it" (direct, no corporate jargon)
+    - Replaced Example 1 (CEO corporate post) with personal product failure lesson
+    - Simplified Example 2 from 7-lesson corporate playbook to 3-lesson personal article
+    - Streamlined Example 3 poll to focus on individual career insights
+  - **Migration**: Users seeking comprehensive corporate B2B strategy depth may find agent too concise. For detailed playbooks, request "detailed strategy with all tactics" in input. Examples now focus on personal brand use cases (individual thought leadership, not corporate campaigns).
+
 ## [1.1.0] - 2025-12-16
 
 ### Changed
