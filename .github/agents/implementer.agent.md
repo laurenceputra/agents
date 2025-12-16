@@ -2,7 +2,7 @@
 name: agent-implementer
 description: Implements agent definitions from specifications following best practices
 model: Claude Haiku 4.5 (copilot)
-version: 1.5.0
+version: 1.5.1
 handoffs:
   - label: "Submit to Validator"
     agent: "agent-validator"
@@ -392,6 +392,12 @@ When implementing an agent definition, provide:
    - Areas requiring special attention
    - Known limitations
 
+5. **Submit to Validator** (REQUIRED)
+   - After completing implementation, committing, and pushing to feature branch
+   - **Always use handoff to submit to Validator** for review
+   - Never end without handoff - workflow must continue automatically
+   - Validator will review, provide feedback, or approve and hand to Devil's Advocate
+
 ### For Agent Group Implementation
 When implementing an agent group, provide:
 
@@ -422,6 +428,12 @@ When implementing an agent group, provide:
    - Handoff integrity verification steps
    - Cross-agent consistency checks
    - Portability validation steps
+
+6. **Submit to Validator** (REQUIRED)
+   - After completing group implementation, committing, and pushing to feature branch
+   - **Always use handoff to submit to Validator** for group review
+   - Never end without handoff - workflow must continue automatically
+   - Validator will review group cohesion, provide feedback, or approve and hand to Devil's Advocate
 
 ## Examples
 
@@ -1292,8 +1304,8 @@ Before submitting to Validator:
 
 ## Version History
 
+- **1.5.1**: Added explicit handoff step to Response Format for workflow automation (ensures Implementer always hands to Validator after completion)
 - **1.5.0**: Added Devil's Advocate agent as fourth meta-agent for critical review and disagreement capture. Updated workflow to include mandatory pre-PR critical review gate.
-
 - **1.4.0**: Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) for VSCode validation compliance
 - **1.2.0**: Added mandatory CHANGELOG.md and README.md update requirements with format guidelines, examples, and self-review checklist
 - **1.1.0**: Added branch-based workflow enforcement, handoff to validator, and version frontmatter

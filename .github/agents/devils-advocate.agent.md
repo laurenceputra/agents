@@ -2,7 +2,7 @@
 name: devils-advocate
 description: Critically reviews agent work, surfaces disagreements, challenges assumptions
 model: Claude Sonnet 4.5 (copilot)
-version: 1.5.0
+version: 1.5.1
 handoffs:
   - label: "Request orchestrator perspective"
     agent: "agent-architect"
@@ -119,7 +119,16 @@ To perform effective critical review, the Devil's Advocate needs:
 
 ## Output Format
 
-### Devil's Advocate Review Report
+**IMPORTANT: Devil's Advocate does NOT create separate review files.**
+
+Devil's Advocate provides conversational review output during the critical review process. All review content is delivered inline to provide human context and facilitate decision-making.
+
+**File Management:**
+- Devil's Advocate creates **zero files** during review
+- All PR details are managed by Agent Validator in `.pr_details/{branch-name}.md`
+- When Devil's Advocate approves for PR, provides structured writeup for Validator to add to PR details
+
+### Devil's Advocate Review Report (Conversational Output)
 
 ```markdown
 # Devil's Advocate Review: [Agent/Feature Name]
@@ -295,6 +304,13 @@ When performing Devil's Advocate review, structure your response as:
    - Clear decision: approve for PR, send back for revision, escalate to Architect
    - Specific next steps
    - If approved: provide PR writeup format with all disagreements documented
+
+6. **Execute Handoff** (REQUIRED)
+   - Based on recommendation, **always use handoff** to continue workflow:
+     - If approved for PR → **Use handoff to Validator** with PR writeup
+     - If critical issues found → **Use handoff to Implementer** with specific concerns
+     - If need Architect perspective → **Use handoff to Architect** with question/context
+   - Never end without handoff - workflow must continue automatically
 
 ## Examples
 
@@ -606,7 +622,14 @@ Include this in PR description:
 ```
 
 **Handoff to Agent Validator**:
-"Devil's Advocate review complete. All disagreements documented (none found). Ready for PR submission with full context for human decision-making. Include the PR writeup above in your PR description to document unchallenged assumptions and scope considerations."
+"Devil's Advocate review complete. All disagreements documented (none found). Ready for PR submission with full context for human decision-making. 
+
+**PR Writeup for `.pr_details/{branch-name}.md`:**
+[Include full PR writeup here with unchallenged assumptions and scope considerations for Validator to add to PR details file]"
+
+**Note**: Devil's Advocate provides the writeup content conversationally - Validator adds it to `.pr_details/{branch-name}.md` as part of PR preparation.
+
+**Workflow Automation**: Example shows Devil's Advocate ending with explicit handoff to continue workflow automatically.
 
 ---
 
@@ -750,4 +773,5 @@ Agent Implementer → Agent Validator → Devil's Advocate → [Decision Point]
 
 ## Version History
 
+- **1.5.1**: Clarified Output Format (Devil's Advocate creates no files - all output conversational, PR details managed by Validator) and added explicit handoff step to Response Format for workflow automation
 - **1.5.0**: Initial Devil's Advocate agent with critical review, disagreement capture, and pre-PR quality gate capabilities
