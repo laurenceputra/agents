@@ -2,87 +2,87 @@
 
 ## Overview
 
-The Social Media Team is a coordinated group of five specialized agents working together to manage and optimize content across Facebook, Instagram, and LinkedIn. Each agent brings platform-specific expertise while the Social Media Coordinator ensures brand consistency and strategic alignment across all channels. The Devil's Advocate provides critical quality assurance before strategy execution.
+The Social Media Team is a coordinated group of five specialized agents working together to build and maintain a strong personal brand for tech and social leaders across Facebook, Instagram, and LinkedIn. Each agent brings platform-specific expertise while the Social Media Coordinator ensures voice authenticity and strategic alignment across all channels. The Devil's Advocate provides critical quality assurance before strategy execution.
 
-**Purpose**: Deliver platform-optimized social media strategies that maximize reach, engagement, and business outcomes while maintaining consistent brand identity across all platforms.
+**Purpose**: Support tech and social leaders in building authentic personal brands through platform-optimized thought leadership, genuine engagement, and credible presence across social media.
 
-**Scope**: Platform-specific content strategy, algorithm optimization, campaign coordination, and performance analysis for Facebook, Instagram, and LinkedIn.
+**Scope**: Personal brand strategy, thought leadership content, authentic voice development, and community engagement for Facebook, Instagram, and LinkedIn.
 
 ---
 
 ## The Five Agents
 
 ### 1. Facebook Specialist (`facebook-specialist.agent.md`)
-**Role**: Facebook-specific content strategy and algorithm optimization  
+**Role**: Authentic Facebook presence and thought leadership for tech leaders  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**When to use**: You need Facebook content strategy, community building tactics, or video optimization
+**When to use**: You need Facebook content strategy, community engagement, or authentic storytelling
 
 **Key Capabilities**:
-- Facebook algorithm optimization (EdgeRank: affinity, weight, time decay)
-- Content format recommendations (posts, stories, reels, live, groups)
-- Engagement tactics to maximize reactions, comments, shares
-- Meta Business Suite best practices
-- Crisis communication on Facebook
+- Authentic community engagement strategies
+- Content format recommendations (personal posts, stories, reels, live discussions)
+- Genuine engagement tactics for meaningful conversations
+- Personal video content strategy
+- Authentic responses to industry developments
 
 **Example Requests**:
-- "Create a Facebook strategy for our product launch"
-- "How do I optimize this post for Facebook's algorithm?"
-- "Design a Facebook Groups community building strategy"
+- "Create a Facebook strategy for sharing my tech leadership insights"
+- "How do I engage authentically with my Facebook community?"
+- "Design a strategy for building meaningful discussions on Facebook"
 
 ### 2. Instagram Specialist (`instagram-specialist.agent.md`)
-**Role**: Instagram-specific content strategy and visual optimization  
+**Role**: Authentic Instagram presence and behind-the-scenes insights for tech leaders  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**When to use**: You need Instagram content strategy, Reels trends, hashtag research, or visual guidance
+**When to use**: You need Instagram content strategy, Reels for thought leadership, or authentic visual storytelling
 
 **Key Capabilities**:
-- Instagram algorithm optimization (engagement, saves, shares)
-- Reels trends and viral content patterns
-- Hashtag strategy (30-tag mix: high/mid/low volume)
-- Story engagement tactics (polls, questions, stickers)
-- Instagram aesthetic and grid planning
-- Influencer collaboration strategies
+- Authentic Instagram content strategy (genuine, not promotional)
+- Reels for sharing tech insights and leadership perspectives
+- Hashtag strategy for reaching tech community (15-tag focused approach)
+- Story engagement tactics for authentic connection
+- Behind-the-scenes content showing real work and thinking
+- Professional aesthetic maintaining authenticity
 
 **Example Requests**:
-- "Create an Instagram Reel strategy for this campaign"
-- "Design a hashtag strategy for my product launch"
-- "How do I optimize Instagram Stories for engagement?"
+- "Create an Instagram Reel strategy for sharing my AI ethics perspective"
+- "Design a hashtag strategy for reaching tech professionals"
+- "How do I use Instagram Stories to share authentic behind-the-scenes content?"
 
 ### 3. LinkedIn Specialist (`linkedin-specialist.agent.md`)
-**Role**: LinkedIn-specific content strategy and professional networking  
+**Role**: Professional thought leadership and credibility building for tech leaders  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**When to use**: You need LinkedIn content strategy, thought leadership development, or B2B tactics
+**When to use**: You need LinkedIn content strategy, thought leadership development, or professional presence building
 
 **Key Capabilities**:
-- LinkedIn algorithm optimization (dwell time, professional relevance)
-- Thought leadership and positioning strategies
-- B2B content and lead generation tactics
-- LinkedIn article writing (long-form)
-- Employee advocacy programs
-- Company page vs. personal profile strategies
+- Thought leadership positioning for tech and social leaders
+- Professional content strategy balancing expertise with authenticity
+- LinkedIn article writing (long-form, 2,000+ words) on industry topics
+- Professional networking and community building
+- Personal profile optimization for credibility
+- Authentic leadership voice development
 
 **Example Requests**:
-- "Write a LinkedIn thought leadership post on [topic]"
-- "Design a B2B lead generation campaign for LinkedIn"
-- "How do I optimize LinkedIn articles for engagement and SEO?"
+- "Write a LinkedIn thought leadership post on AI and society"
+- "Design a strategy for building my professional presence on LinkedIn"
+- "How do I write LinkedIn articles that establish credibility without being promotional?"
 
 ### 4. Social Media Coordinator (`social-media-coordinator.agent.md`)
-**Role**: Cross-platform strategy coordination and brand consistency  
+**Role**: Cross-platform personal brand coordination and voice consistency  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**When to use**: You need multi-platform campaigns, content calendars, or brand consistency across platforms
+**When to use**: You need multi-platform personal brand strategy, content calendars, or voice consistency
 
 **Key Capabilities**:
-- Multi-platform campaign coordination
-- Content calendar creation across all platforms
-- Brand voice consistency management
-- Content repurposing strategies
-- Performance reporting and analytics synthesis
-- Workflow and approval process management
-- Crisis communication coordination
+- Multi-platform personal brand coordination
+- Content calendar creation balancing professional and personal insights
+- Authentic voice consistency management (not corporate branding)
+- Content repurposing strategies for different audiences
+- Performance analysis focused on meaningful engagement
+- Sustainable posting schedules (quality over quantity)
+- Authentic voice guidance across platforms
 
 **Example Requests**:
-- "Coordinate a product launch across Facebook, Instagram, and LinkedIn"
-- "Create a 2-week content calendar for all platforms"
-- "How do I repurpose this LinkedIn article for Instagram and Facebook?"
+- "Coordinate my personal brand presence across Facebook, Instagram, and LinkedIn"
+- "Create a weekly content calendar for my thought leadership"
+- "How do I repurpose this LinkedIn article for Instagram while maintaining my authentic voice?"
 
 ### 5. Devil's Advocate (`devils-advocate.agent.md`) - MANDATORY QUALITY GATE
 **Role**: Critical review and disagreement capture  
@@ -115,24 +115,24 @@ The Social Media Team is a coordinated group of five specialized agents working 
 User → [Platform Specialist] → Devil's Advocate → User
 ```
 
-**Example**: "Create an Instagram Reel strategy for our new product"
+**Example**: "Create an Instagram Reel strategy for sharing my tech leadership insights"
 
 **Steps**:
 1. User consults the appropriate Platform Specialist (Facebook, Instagram, or LinkedIn)
-2. Specialist provides platform-optimized strategy with examples
+2. Specialist provides platform-optimized strategy with authentic voice guidance
 3. Specialist hands to Devil's Advocate for critical review
 4. Devil's Advocate challenges assumptions, surfaces concerns
 5. Approved strategy returned to User
 
 **Example Interaction**:
 ```
-User: @instagram-specialist "Create a Reel strategy for our eco-friendly water bottle launch"
+User: @instagram-specialist "Create a Reel strategy for sharing my perspective on AI ethics as a tech leader"
 
-Instagram Specialist: [Provides complete strategy with trending audio, hashtags, caption examples]
+Instagram Specialist: [Provides authentic strategy with personal voice, hashtags for tech community, engagement approach]
 
-Instagram Specialist → @devils-advocate "Review this Reel strategy for blind spots"
+Instagram Specialist → @devils-advocate "Review this Reel strategy for authenticity and blind spots"
 
-Devil's Advocate: [Challenges assumptions, identifies risks, approves with concerns]
+Devil's Advocate: [Challenges assumptions about vulnerability vs. expertise balance, identifies risks, approves with concerns]
 
 User receives: Strategy + critical review for informed decision-making
 ```
@@ -147,38 +147,38 @@ User receives: Strategy + critical review for informed decision-making
 User → Social Media Coordinator → [Platform Specialists] → Devil's Advocate → Coordinator → User
 ```
 
-**Example**: "Launch our new product across Facebook, Instagram, and LinkedIn"
+**Example**: "Build my personal brand as a tech leader across all platforms"
 
 **Steps**:
-1. User consults Social Media Coordinator with campaign brief
-2. Coordinator designs overall campaign strategy
-3. Coordinator hands to each Platform Specialist for platform-specific plans
-4. Each Specialist provides platform-optimized recommendations
+1. User consults Social Media Coordinator with personal brand goals
+2. Coordinator designs overall personal brand strategy
+3. Coordinator hands to each Platform Specialist for platform-specific approaches
+4. Each Specialist provides platform-optimized recommendations maintaining authentic voice
 5. Specialists hand back to Coordinator for synthesis
 6. Coordinator hands complete strategy to Devil's Advocate for critical review
-7. Devil's Advocate reviews all plans for consistency and blind spots
+7. Devil's Advocate reviews all plans for authenticity, consistency, and blind spots
 8. Coordinator synthesizes approved recommendations
-9. Final coordinated strategy to User
+9. Final coordinated personal brand strategy to User
 
 **Example Interaction**:
 ```
-User: @social-media-coordinator "Launch our sustainable activewear line across all platforms, 2-week campaign, $5K budget"
+User: @social-media-coordinator "Build my personal brand as a tech and social leader across all platforms, focusing on authentic insights and thought leadership"
 
-Coordinator: [Designs campaign framework, briefs specialists]
+Coordinator: [Designs personal brand framework with voice guidelines, briefs specialists]
 
-Coordinator → @facebook-specialist "Provide Facebook strategy for this campaign"
-Coordinator → @instagram-specialist "Provide Instagram strategy for this campaign"
-Coordinator → @linkedin-specialist "Provide LinkedIn strategy for this campaign"
+Coordinator → @facebook-specialist "Provide Facebook strategy for authentic community engagement"
+Coordinator → @instagram-specialist "Provide Instagram strategy for behind-the-scenes tech leadership"
+Coordinator → @linkedin-specialist "Provide LinkedIn strategy for professional thought leadership"
 
 [Specialists provide platform-specific strategies]
 
-Coordinator: [Synthesizes into unified campaign with content calendar]
+Coordinator: [Synthesizes into unified personal brand presence with realistic content calendar]
 
-Coordinator → @devils-advocate "Review this coordinated strategy for risks and inconsistencies"
+Coordinator → @devils-advocate "Review this personal brand strategy for authenticity and sustainability"
 
-Devil's Advocate: [Critical review, challenges assumptions, approves with documented concerns]
+Devil's Advocate: [Critical review, challenges assumptions about posting frequency and vulnerability balance, approves with concerns]
 
-User receives: Complete multi-platform campaign with platform-specific tactics, content calendar, and critical review insights
+User receives: Complete personal brand strategy with platform-specific approaches, content calendar, and critical review insights
 ```
 
 ---
@@ -191,32 +191,32 @@ User receives: Complete multi-platform campaign with platform-specific tactics, 
 User → [Source Platform Specialist] → [Target Platform Specialist] → Devil's Advocate → User
 ```
 
-**Example**: "Adapt my LinkedIn article for Instagram"
+**Example**: "Adapt my LinkedIn article for Instagram while maintaining my authentic voice"
 
 **Steps**:
 1. User consults Source Platform Specialist (where content originates)
-2. Source Specialist extracts key messages and provides adaptation guidance
+2. Source Specialist extracts key personal insights and provides adaptation guidance
 3. Source Specialist hands to Target Platform Specialist
-4. Target Specialist adapts content for target platform's format and audience
+4. Target Specialist adapts content for target platform's format while preserving authentic voice
 5. Target Specialist hands to Devil's Advocate for critical review
-6. Devil's Advocate reviews adaptation for brand consistency and platform optimization
+6. Devil's Advocate reviews adaptation for voice authenticity and platform appropriateness
 7. Approved adapted content to User
 
 **Example Interaction**:
 ```
-User: @linkedin-specialist "I have a 2,000-word LinkedIn article on remote work. How do I adapt this for Instagram?"
+User: @linkedin-specialist "I have a 2,000-word LinkedIn article on remote work with my personal leadership insights. How do I adapt this for Instagram?"
 
-LinkedIn Specialist: [Extracts key insights, identifies visual moments]
+LinkedIn Specialist: [Extracts key personal insights, identifies authentic moments]
 
-LinkedIn Specialist → @instagram-specialist "Adapt this LinkedIn article for Instagram visual format"
+LinkedIn Specialist → @instagram-specialist "Adapt this LinkedIn article for Instagram while maintaining authentic leadership voice"
 
-Instagram Specialist: [Creates Instagram carousel strategy with 8 slides, visual design, caption, hashtags]
+Instagram Specialist: [Creates Instagram carousel strategy with 8 slides, authentic voice in captions, hashtags for tech community]
 
-Instagram Specialist → @devils-advocate "Review this cross-platform adaptation"
+Instagram Specialist → @devils-advocate "Review this cross-platform adaptation for voice authenticity"
 
-Devil's Advocate: [Ensures brand consistency, checks if Instagram format suits content, approves]
+Devil's Advocate: [Ensures authentic voice maintained, checks if Instagram format suits personal insights, approves]
 
-User receives: Instagram carousel strategy adapted from LinkedIn article
+User receives: Instagram carousel strategy adapted from LinkedIn article with authentic voice preserved
 ```
 
 ---

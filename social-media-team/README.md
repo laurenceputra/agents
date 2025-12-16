@@ -4,7 +4,7 @@
 ![Agents](https://img.shields.io/badge/agents-5-green.svg)
 ![Platforms](https://img.shields.io/badge/platforms-Facebook%20%7C%20Instagram%20%7C%20LinkedIn-orange.svg)
 
-**Coordinated social media strategy across Facebook, Instagram, and LinkedIn with platform-specific optimization and brand consistency.**
+**Personal brand building for tech and social leaders across Facebook, Instagram, and LinkedIn with platform-specific thought leadership and authentic voice.**
 
 ---
 
@@ -25,24 +25,24 @@
 
 ### 2. Example Requests
 
-**Instagram Product Launch**:
+**Instagram Thought Leadership**:
 ```
-@instagram-specialist "Create an Instagram Reel strategy for our eco-friendly water bottle launch. Target audience: 25-35, sustainability-focused. Goal: 50K reach, 500 link clicks."
+@instagram-specialist "Create an Instagram Reel strategy sharing my insights on AI ethics as a tech leader. Target: Tech professionals and followers. Goal: Build credibility and engagement."
 ```
 
-**Multi-Platform Campaign**:
+**Multi-Platform Personal Brand**:
 ```
-@social-media-coordinator "Launch our fitness app across Instagram and Facebook. 2-week campaign, $3K budget. Goal: 100K app downloads."
+@social-media-coordinator "Build my personal brand across Instagram, Facebook, and LinkedIn as a tech and social leader. Focus on authentic insights, not promotional content."
 ```
 
 **Content Repurposing**:
 ```
-@linkedin-specialist "I have a LinkedIn article on remote work (2,000 words). How do I adapt this for Instagram?"
+@linkedin-specialist "I have a LinkedIn article on remote work (2,000 words). How do I adapt this for Instagram to reach a broader audience?"
 ```
 
 **Critical Review**:
 ```
-@devils-advocate "Review this social media strategy for blind spots, risks, and assumptions that may not hold."
+@devils-advocate "Review this personal brand strategy for authenticity concerns, blind spots, and assumptions that may not hold."
 ```
 
 ### 3. Follow Quality Gates
@@ -59,84 +59,83 @@ Every strategy passes through three checkpoints:
 ## 📋 What This Agent Group Does
 
 ### Platform Coverage
-✅ **Facebook**: Algorithm optimization, community building, video content, Meta Business Suite  
-✅ **Instagram**: Reels trends, hashtag strategy, Stories engagement, visual aesthetics, influencer collabs  
-✅ **LinkedIn**: Thought leadership, B2B tactics, professional networking, long-form articles
+✅ **Facebook**: Authentic community engagement, thought leadership content, video storytelling  
+✅ **Instagram**: Behind-the-scenes insights, Reels for tech commentary, authentic personal stories  
+✅ **LinkedIn**: Professional thought leadership, tech industry insights, social impact content
 
 ### Capabilities
-- Platform-specific content strategy and recommendations
-- Algorithm optimization for each platform
-- Multi-platform campaign coordination
-- Content calendar creation (daily/weekly/monthly)
-- Content repurposing across platforms
-- Hashtag research and strategy
-- Posting timing and frequency recommendations
+- Personal brand positioning and voice development
+- Thought leadership content strategy
+- Authentic storytelling across platforms
+- Content calendar creation for consistent presence
+- Content repurposing (adapt long-form to short-form)
+- Platform-appropriate tone and format recommendations
+- Credibility building and audience engagement
 - Performance analysis and optimization
-- Crisis communication coordination
-- Brand consistency management
+- Voice consistency management (authentic, not corporate)
 - Critical review and assumption challenging
 
 ### What It Does NOT Do
 ❌ Create actual content (images, videos, graphics)  
 ❌ Post directly to social media platforms  
 ❌ Manage social media accounts (logins, settings)  
-❌ Execute paid advertising campaigns (provides strategy only)  
+❌ Provide influencer marketing or paid promotion strategies  
 ❌ Handle customer service or community management  
-❌ Legal compliance review (provides general guidelines only)
+❌ Replace authentic personal voice with corporate messaging
 
 ---
 
 ## 🤖 The Five Agents
 
 ### Facebook Specialist
-**Focus**: Facebook-specific strategy, algorithm optimization (EdgeRank), community building  
+**Focus**: Authentic Facebook presence, thought leadership, community engagement  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**Best for**: Facebook posts, Stories, Reels, Live video, Groups, engagement tactics
+**Best for**: Personal insights, Stories, Reels, Live discussions, community thought leadership
 
 **Example Use Cases**:
-- Product launch on Facebook with video content
-- Facebook Groups community building strategy
-- Algorithm-optimized posts for maximum reach
-- Crisis communication on Facebook
+- Share tech industry insights with authentic voice
+- Build meaningful community discussions
+- Personal video content sharing leadership perspectives
+- Authentic responses to industry news
 
 ---
 
 ### Instagram Specialist
-**Focus**: Instagram-specific strategy, Reels trends, visual content, hashtags  
+**Focus**: Authentic Instagram presence, behind-the-scenes insights, visual storytelling  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**Best for**: Instagram Reels, feed posts, Stories, carousels, hashtag strategy, influencer collabs
+**Best for**: Instagram Reels with personal insights, feed posts, Stories, carousels, authentic content
 
 **Example Use Cases**:
-- Instagram Reel strategy with trending audio
-- 30-hashtag mix for maximum discoverability
-- Visual aesthetic and grid planning
-- Instagram Stories engagement (polls, questions, stickers)
+- Instagram Reel sharing tech leadership perspectives
+- Hashtag strategy for reaching tech community
+- Behind-the-scenes content showing your work
+- Instagram Stories for authentic engagement (questions, polls)
 
 ---
 
 ### LinkedIn Specialist
-**Focus**: LinkedIn-specific strategy, thought leadership, B2B tactics, professional content  
+**Focus**: Professional thought leadership, tech industry insights, social impact content  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**Best for**: LinkedIn posts, articles, thought leadership, B2B lead generation, professional networking
+**Best for**: LinkedIn posts, articles, thought leadership, professional networking, credibility building
 
 **Example Use Cases**:
-- Thought leadership posts for CEO/executives
-- LinkedIn articles (long-form, 2,000+ words)
-- B2B lead generation campaigns
-- Employee advocacy programs
+- Thought leadership posts on tech trends and social impact
+- LinkedIn articles (long-form, 2,000+ words) on industry topics
+- Professional networking and community building
+- Authentic leadership voice development
 
 ---
 
 ### Social Media Coordinator
-**Focus**: Cross-platform strategy, campaign coordination, brand consistency, content calendars  
+**Focus**: Cross-platform personal brand strategy, voice consistency, content calendars  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**Best for**: Multi-platform campaigns, content calendars, content repurposing, performance analysis
+**Best for**: Multi-platform presence, content calendars, content repurposing, authentic voice
 
 **Example Use Cases**:
-- Product launch across Facebook, Instagram, LinkedIn
-- 2-week content calendar with daily posts
-- Repurpose LinkedIn article for Instagram and Facebook
-- Coordinate crisis communication across all platforms
+- Coordinate personal brand presence across all platforms
+- Weekly content calendar balancing professional and personal insights
+- Repurpose LinkedIn article for Instagram and Facebook audiences
+- Maintain authentic voice consistency across platforms
 
 ---
 
@@ -253,74 +252,73 @@ I need to CHALLENGE or REVIEW a strategy
 
 ## 💡 Usage Examples
 
-### Example 1: Instagram Product Launch (Complete Workflow)
+### Example 1: Instagram Thought Leadership (Complete Workflow)
 
 **Step 1: Request Strategy**
 ```
-@instagram-specialist "Create Instagram strategy for our sustainable skincare serum launch. Target: Women 25-40, skincare enthusiasts. Goal: 100K reach, 800 link clicks, $1K ad budget."
+@instagram-specialist "Create Instagram strategy for sharing my perspective on AI ethics as a tech leader. Target: Tech professionals and forward-thinking followers. Goal: Build credibility and meaningful engagement."
 ```
 
 **Instagram Specialist Provides**:
-- Launch Reel strategy (30 sec, trending audio, before/after hook)
-- Feed carousel (5 slides: benefits, ingredients, how-to-use, testimonials, CTA)
-- Story series (12 slides: BTS, polls, countdown, shopping links)
-- Hashtag strategy (30-tag mix: #skincare #vitaminc #cleanbeauty...)
-- Example captions with character counts
-- Posting schedule (Wed 7 PM EST, Fri 7 PM EST, Sun 10 AM EST)
-- Expected performance (100K-120K reach, 6-8% engagement rate, 800-1,000 clicks)
+- Reel strategy (60 sec, authentic voice-to-camera sharing key insights)
+- Feed carousel (8 slides: Hook → Key principles → Real-world examples → Call for discussion)
+- Story series (6 slides: Behind-the-scenes thinking, polls on ethical dilemmas, Q&A)
+- Hashtag strategy (15-tag mix: #AIethics #TechLeadership #ResponsibleAI...)
+- Example captions with authentic, conversational tone
+- Posting schedule (Tues 6 PM EST for tech audience engagement)
+- Expected performance (Authentic engagement, meaningful comments, saves from professionals)
 
 **Step 2: Critical Review**
 ```
-@devils-advocate "Review this Instagram launch strategy for blind spots and risks."
+@devils-advocate "Review this Instagram thought leadership strategy for authenticity concerns and blind spots."
 ```
 
 **Devil's Advocate Identifies**:
-- **Critical Issue**: Sustainability claims vague—need specific certifications
-- **Moderate Concern**: Trending audio may be stale by launch date (7 days)
-- **Blind Spot**: No accessibility considerations (alt text, video captions)
-- **Approval**: Proceed after addressing sustainability claims
+- **Critical Issue**: Ensure vulnerability balanced with expertise—don't oversell
+- **Moderate Concern**: AI ethics is polarizing—expect disagreement in comments
+- **Blind Spot**: No plan for engaging with critical comments constructively
+- **Approval**: Proceed with comment engagement strategy
 
 **Step 3: Implement**
-User implements strategy with Devil's Advocate insights, monitoring identified risks.
+User implements strategy with Devil's Advocate insights, prepared for authentic dialogue.
 
 ---
 
-### Example 2: Multi-Platform Campaign (Complete Workflow)
+### Example 2: Multi-Platform Personal Brand (Complete Workflow)
 
 **Step 1: Brief Coordinator**
 ```
-@social-media-coordinator "Launch our eco-friendly yoga mat across Facebook, Instagram, LinkedIn. 2-week campaign, $4K budget. Target: 300K reach, 200 sales ($10K revenue)."
+@social-media-coordinator "Build my personal brand across Facebook, Instagram, LinkedIn as a tech and social leader. Focus: Authentic insights on technology, leadership, and social impact. Weekly cadence."
 ```
 
 **Coordinator Provides**:
-- Platform roles (Instagram primary 60%, Facebook secondary 30%, LinkedIn tertiary 10%)
-- 2-week content calendar (daily posts across all platforms)
-- Content repurposing strategy (LinkedIn article → Instagram carousel → Facebook video)
-- Budget allocation ($2.5K Instagram, $1K Facebook, $500 LinkedIn)
-- Workflow and approval process
-- Crisis communication plan
+- Platform roles (LinkedIn primary 50% for thought leadership, Instagram secondary 30% for reach, Facebook tertiary 20% for community)
+- Weekly content calendar (3-4 posts distributed across platforms)
+- Content repurposing strategy (LinkedIn article → Instagram carousel → Facebook discussion)
+- Voice consistency guidelines (authentic, thoughtful, not promotional)
+- Engagement approach (meaningful dialogue, not metrics chasing)
 
 **Coordinator Briefs Specialists** (automatically):
-- @facebook-specialist: "Provide Facebook strategy for yoga mat launch"
-- @instagram-specialist: "Provide Instagram strategy for yoga mat launch"
-- @linkedin-specialist: "Provide LinkedIn strategy for yoga mat launch"
+- @facebook-specialist: "Provide Facebook strategy for authentic community engagement"
+- @instagram-specialist: "Provide Instagram strategy for behind-the-scenes tech leadership"
+- @linkedin-specialist: "Provide LinkedIn strategy for professional thought leadership"
 
 **Specialists Provide Platform-Specific Strategies**
 
 **Step 2: Critical Review**
 ```
-@devils-advocate "Review this coordinated campaign for risks, inconsistencies, and blind spots."
+@devils-advocate "Review this personal brand strategy for authenticity concerns, blind spots, and sustainability."
 ```
 
 **Devil's Advocate Identifies**:
-- **Critical Issue**: LinkedIn lacks B2B lead gen tactics (add corporate wellness angle)
-- **Moderate Concern**: 300K reach aggressive for 2-week timeline (define success as 80% = 240K)
-- **Disagreement**: Instagram Specialist recommends Saturday launch, LinkedIn Specialist prefers Tuesday—suggest staggering
-- **Blind Spot**: No post-campaign maintenance plan (momentum will fade)
-- **Approval**: Proceed after LinkedIn adds B2B tactics
+- **Critical Issue**: Weekly cadence may be ambitious—ensure quality over quantity
+- **Moderate Concern**: Balancing vulnerability with professional credibility requires care
+- **Disagreement**: LinkedIn Specialist recommends formal tone, Instagram Specialist prefers casual—coordinator must bridge
+- **Blind Spot**: No plan for handling negative or controversial comments
+- **Approval**: Proceed with realistic posting expectations
 
 **Step 3: Implement**
-User implements coordinated campaign with insights from critical review.
+User implements personal brand strategy with emphasis on authentic, sustainable presence.
 
 ---
 
@@ -328,45 +326,45 @@ User implements coordinated campaign with insights from critical review.
 
 **Step 1: Source Content**
 ```
-@linkedin-specialist "I have a 2,500-word LinkedIn article on 'The Future of Remote Work.' How do I repurpose this for Instagram and Facebook?"
+@linkedin-specialist "I have a 2,500-word LinkedIn article on 'The Future of Remote Work' with my personal insights as a tech leader. How do I repurpose this for Instagram and Facebook to reach different audiences?"
 ```
 
 **LinkedIn Specialist Provides**:
 - Core message extraction ("Remote work requires intentional culture, not organic hope")
-- Key insights (communication over skills, async-first culture, onboarding = retention)
-- Adaptation recommendations (Instagram carousel, Facebook video)
+- Key personal insights (lessons from your leadership experience, real examples)
+- Adaptation recommendations (Instagram carousel with authentic voice, Facebook discussion post)
 
 **Step 2: Adapt for Instagram**
 ```
-@instagram-specialist "Adapt this LinkedIn article into Instagram carousel strategy."
+@instagram-specialist "Adapt this LinkedIn article into Instagram carousel with my authentic voice."
 ```
 
 **Instagram Specialist Provides**:
-- 8-slide carousel structure (Hook → 5 insights → Summary → CTA)
-- Visual design guide (navy/white, icons, minimal text)
-- Caption example with hashtags (#RemoteWork #Leadership #TeamManagement...)
-- Expected performance (1,000+ saves, 50K reach)
+- 8-slide carousel structure (Personal hook → 5 key lessons → Your conclusion → Discussion prompt)
+- Visual design guide (Professional but approachable, consistent with your brand)
+- Caption example maintaining authentic voice with hashtags (#RemoteWork #Leadership #TechLeadership...)
+- Expected outcome (Saves from professionals, thoughtful engagement)
 
 **Step 3: Adapt for Facebook**
 ```
-@facebook-specialist "Adapt this LinkedIn article into Facebook video strategy."
+@facebook-specialist "Adapt this LinkedIn article into Facebook discussion post with authentic voice."
 ```
 
 **Facebook Specialist Provides**:
-- 90-second video script (talking head + B-roll)
-- Engagement tactics (question in caption to drive comments)
-- Posting timing (Wed 11 AM EST)
-- Expected performance (40K reach, 3% engagement rate)
+- Personal narrative post (share experience, ask community for theirs)
+- Engagement tactics (genuine question to drive meaningful discussion)
+- Posting timing (Wed 10 AM EST for professional audience)
+- Expected outcome (Meaningful comments, community discussion)
 
 **Step 4: Critical Review**
 ```
-@devils-advocate "Review these cross-platform adaptations for brand consistency."
+@devils-advocate "Review these cross-platform adaptations for voice authenticity and consistency."
 ```
 
 **Devil's Advocate Confirms**:
-- Core message consistent across all formats
-- Platform adaptations appropriate (LinkedIn depth → Instagram visual → Facebook video)
-- Approval: Proceed as planned
+- Authentic voice maintained across all formats
+- Platform adaptations respect different audience expectations
+- Approval: Proceed with authentic engagement plan
 
 ---
 
