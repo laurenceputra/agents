@@ -1,0 +1,77 @@
+# Changelog
+
+All notable changes to the Philanthropic Advisory agent group will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [1.0.0] - 2024-12-16
+
+### Added
+- **Impact Evaluator Agent**: Quantitative impact evaluation using SROI, CEA, and trajectory uplift frameworks for Singapore philanthropic programs
+  - SROI calculation with deadweight, attribution, and drop-off adjustments
+  - CEA analysis with benchmarking against comparable programs
+  - Trajectory uplift assessment (baseline vs intervention)
+  - Systemic impact scoring (upstream/midstream/downstream)
+  - Data quality rating and measurement gap identification
+  
+- **Portfolio Strategist Agent**: Strategic fit and portfolio composition analysis
+  - Mission alignment scoring (1-10 scale) with detailed rationale
+  - Portfolio diversification analysis (intervention types, demographics, geographies)
+  - Strategic gap identification and prioritization
+  - Synergy mapping across funded programs
+  - Concentration risk assessment and mitigation recommendations
+  
+- **Risk-Opportunity Analyst Agent**: Comprehensive risk assessment and opportunity identification
+  - Five risk categories: implementation, financial, impact, external, organizational
+  - Risk matrix with likelihood × impact ratings
+  - Mitigation strategies with specific actions and owners
+  - Upside opportunity identification (scaling, partnerships, policy influence)
+  - Scenario analysis (pessimistic/realistic/optimistic) with confidence intervals
+  - Exit and pivot strategy planning
+  
+- **Recommendation Synthesizer Agent**: Integrated funding recommendations
+  - Synthesis of impact + portfolio + risk analyses
+  - Clear recommendation (fund/decline/modify/pilot) with confidence level
+  - Decision rationale with quantitative, strategic, and risk-adjusted cases
+  - Trade-off transparency (what you gain vs what you accept)
+  - Funding terms specification (amount, duration, conditions)
+  - Monitoring framework with KPIs and early warning indicators
+  - Implementation roadmap and exit strategy
+  
+- **Devil's Advocate Agent (MANDATORY)**: Critical review and assumption challenging
+  - SROI/CEA methodology challenges with alternative interpretations
+  - Strategic fit assumption questioning (mission alignment, gap analysis)
+  - Risk assessment testing (optimism/pessimism balance)
+  - Disagreement facilitation between agents
+  - Blind spot identification (unconsidered perspectives)
+  - Cultural and contextual challenge (Singapore-specific assumptions)
+  - Questions for decision-maker preparation
+  - Approval status (approved/needs revision/needs more data)
+  
+- **Infrastructure Files**:
+  - `copilot-instructions.md`: Comprehensive workflow documentation with decision trees, quality gates, ROI frameworks, examples
+  - `README.md`: Quick start guide, agent descriptions, usage patterns, troubleshooting
+  - `CHANGELOG.md`: Version history and change tracking
+
+### Features
+- **Five-Agent Coordinated Workflow**: Sequential handoffs (impact → portfolio → risk → synthesis → devils-advocate) with feedback loops
+- **Quantitative Rigor**: SROI and CEA frameworks standardized across agents, trajectory uplift methodology, data quality standards
+- **Strategic Portfolio Management**: Mission alignment, gap analysis, synergy mapping, concentration risk assessment
+- **Comprehensive Risk Management**: Multi-category risk matrix, mitigation strategies, scenario planning, exit strategies
+- **Mandatory Critical Review**: Devils-advocate as final quality gate ensures assumptions challenged, disagreements surfaced, blind spots identified
+- **Singapore Context Integration**: Demographics, policies, existing initiatives referenced throughout analyses
+- **Handoff Object Format**: All agents use GitHub Copilot handoff schema (label, agent, prompt, send: false) for VSCode validation compliance
+- **Quality Gates**: Five gates (impact complete, portfolio assessed, risk evaluated, recommendation synthesized, critical review complete) ensure thoroughness
+- **Portable Structure**: Folder-agnostic, self-contained, consistent naming (all agents use Claude Sonnet 4.5 for high-stakes decisions)
+
+### Context
+Initial release focuses on Singapore philanthropic giving for at-risk communities (families in crisis, children from lower-income families) with measurable impact potential. All agents emphasize data-driven decision-making, transparency in assumptions, and balanced assessment of quantitative metrics vs strategic fit vs risk tolerance.
+
+### Design Rationale
+- **Five agents (not fewer)**: Separation of concerns (impact ≠ portfolio ≠ risk ≠ synthesis ≠ critical review) enables expertise depth in each domain
+- **Claude Sonnet 4.5 for all agents**: High-stakes philanthropic decisions require highest-quality reasoning across all analytical domains
+- **Mandatory Devil's Advocate**: Assumption challenging and disagreement surfacing essential for informed decision-making (philanthropists benefit from full picture, not just consensus)
+- **Linear workflow with feedback loops**: Natural progression (impact → strategy → risk → synthesis → critical review) mirrors decision-making process, while devils-advocate can route back to any agent for revision
+
+[1.0.0]: https://github.com/your-repo/philanthropic-advisory-agents/releases/tag/v1.0.0
