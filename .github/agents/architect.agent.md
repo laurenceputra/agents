@@ -2,7 +2,7 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 1.6.1
+version: 1.6.2
 handoffs:
   - label: "Hand to Implementer"
     agent: "agent-implementer"
@@ -873,6 +873,7 @@ When reviewing an agent group specification, verify:
 
 ## Version History
 
+- **1.6.2**: Version bump for consistency with meta-agent workflow automation refactor (v1.5.1 changes to Implementer, Validator, and Devil's Advocate to enable automatic workflow continuation via explicit handoff steps)
 - **1.6.1**: Removed legacy PR details output requirement - PR details management is now exclusively handled by Agent Validator in `.pr_details/` directory (not by Architect)
 - **1.6.0**: MANDATORY requirement for all agent group specifications to include Devil's Advocate agent. Updated Domain Context, Responsibilities, Output Format, Examples, and Quality Checklist to enforce devil's advocate inclusion in every agent group.
 - **1.5.0**: Added Devil's Advocate agent as fourth meta-agent for critical review and disagreement capture. Updated workflow to include mandatory pre-PR critical review gate.

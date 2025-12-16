@@ -2,7 +2,7 @@
 name: agent-validator
 description: Reviews agent implementations for quality, completeness, and best practices
 model: Claude Sonnet 4.5 (copilot)
-version: 1.5.0
+version: 1.5.1
 handoffs:
   - label: "Return to Implementer"
     agent: "agent-implementer"
@@ -353,8 +353,16 @@ To validate an agent group implementation, the Agent Validator needs:
 
 ## Output Format
 
+**IMPORTANT: Agent Validator manages `.pr_details/{branch-name}.md` file throughout the review process.**
+
+**File Management:**
+- Validator creates `.pr_details/{branch-name}.md` when review begins (if not exists)
+- Validator updates `.pr_details/{branch-name}.md` with each review iteration
+- File contains PR-ready description: title, summary, changes, feedback history, Devil's Advocate writeup
+- After Devil's Advocate approval, Validator uses content from `.pr_details/{branch-name}.md` for PR submission
+
 ### Individual Agent Validation Report
-The Agent Validator produces a structured review report with explicit approval decision and PR submission step:
+The Agent Validator produces a structured review report with explicit approval decision and next steps:
 
 ```markdown
 # Validation Report: [Agent Name]
@@ -606,6 +614,14 @@ When validating an agent implementation, structure your review as:
    - Clear approval decision
    - Specific actions required
    - Priority order for addressing issues
+   - Update `.pr_details/{branch-name}.md` with review results
+
+7. **Execute Handoff** (REQUIRED)
+   - Based on decision, **always use handoff** to continue workflow:
+     - If critical issues → **Use handoff to Implementer** with feedback
+     - If specification issues → **Use handoff to Architect** with concerns
+     - If approved → **Use handoff to Devil's Advocate** for critical review
+   - Never end without handoff - workflow must continue automatically
 
 ### For Agent Group Validation
 When validating an agent group implementation, structure your review as:
@@ -651,6 +667,14 @@ When validating an agent group implementation, structure your review as:
    - Specific actions for Implementer
    - Priority order for addressing issues
    - Identify which files need changes
+   - Update `.pr_details/{branch-name}.md` with review results
+
+9. **Execute Handoff** (REQUIRED)
+   - Based on decision, **always use handoff** to continue workflow:
+     - If critical issues → **Use handoff to Implementer** with feedback
+     - If specification issues → **Use handoff to Architect** with concerns
+     - If approved → **Use handoff to Devil's Advocate** for critical review
+   - Never end without handoff - workflow must continue automatically
 
 ## Examples
 
@@ -2116,8 +2140,8 @@ showing the new documentation step, but this is not blocking.
 
 ## Version History
 
+- **1.5.1**: Clarified Output Format (Validator creates/manages `.pr_details/{branch-name}.md`) and added explicit handoff step to Response Format for workflow automation
 - **1.5.0**: Added Devil's Advocate agent as fourth meta-agent for critical review and disagreement capture. Updated workflow to include mandatory pre-PR critical review gate.
-
 - **1.4.0**: Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) for VSCode validation compliance
 - **1.2.0**: Added branch-specific PR details file management in `.pr_details/` directory to support concurrent multi-branch development, as well as mandatory documentation validation with CHANGELOG.md and README.md checklists, feedback examples, and severity levels
 - **1.1.0**: Added PR gatekeeper role, iteration workflow, specification escalation, and version frontmatter

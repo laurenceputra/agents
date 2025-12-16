@@ -5,6 +5,75 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.5.1 - 2025-12-16
+
+### Fixed
+- **Workflow Automation**: Added explicit handoff steps to Response Format sections to enable automatic workflow continuation
+  - **Issue 1**: Devil's Advocate was creating separate review files instead of only providing conversational output (PR details managed by Validator)
+  - **Issue 2**: Users had to manually invoke Validator and Devil's Advocate instead of automatic handoffs completing the workflow
+  - **Root Cause**: Response Format sections did not explicitly instruct agents to use handoffs as final step, leading to manual workflow triggers
+  - **Fixed Agents**:
+    - `devils-advocate.agent.md` (v1.5.0 → v1.5.1): Clarified Output Format (creates no files, all output conversational) and added Step 6 "Execute Handoff" to Response Format
+    - `validator.agent.md` (v1.5.0 → v1.5.1): Clarified Output Format (creates/manages `.pr_details/{branch-name}.md`) and added Step 7/9 "Execute Handoff" to Response Format (individual/group)
+    - `implementer.agent.md` (v1.5.0 → v1.5.1): Added Step 5/6 "Submit to Validator" to Response Format (individual/group) with explicit handoff instruction
+    - `architect.agent.md` (v1.6.1 → v1.6.2): Version bump for consistency (no functional changes)
+  - **Migration**: Agents will now automatically hand off work to next agent in workflow without manual user invocation
+
+### Changed
+- **Devil's Advocate (devils-advocate.agent.md)**: Clarified file management responsibilities
+  - **Before**: Output Format implied separate review files might be created
+  - **After**: Explicitly states Devil's Advocate creates zero files - all output is conversational until PR approval, then provides writeup for Validator to add to `.pr_details/`
+  - **Context**: PR details are exclusively managed by Agent Validator throughout review process
+  - **Updated Sections**:
+    - **Output Format**: Added "IMPORTANT" note clarifying no files created, file management by Validator
+    - **Response Format**: Added Step 6 "Execute Handoff" with conditional logic (to Validator/Implementer/Architect)
+    - **Example 3**: Added note showing handoff workflow automation
+    - **Version History**: Added v1.5.1 entry
+
+- **Agent Validator (validator.agent.md)**: Clarified PR details file management
+  - **Before**: Output Format didn't explicitly state Validator creates/manages `.pr_details/` files
+  - **After**: Explicitly states Validator creates `.pr_details/{branch-name}.md` at review start and updates throughout process
+  - **Context**: Ensures clear ownership of PR details file management (not Devil's Advocate or Architect)
+  - **Updated Sections**:
+    - **Output Format**: Added "IMPORTANT" note clarifying Validator manages `.pr_details/{branch-name}.md`
+    - **Response Format**: Added Step 7/9 "Execute Handoff" with conditional logic (to Implementer/Architect/Devil's Advocate)
+    - **Version History**: Added v1.5.1 entry
+
+- **Agent Implementer (implementer.agent.md)**: Added explicit handoff instruction
+  - **Before**: Response Format ended at "Validation Notes" without explicit handoff instruction
+  - **After**: Added Step 5/6 "Submit to Validator" requiring handoff after implementation complete
+  - **Context**: Enables workflow automation - Validator automatically invoked after implementation
+  - **Updated Sections**:
+    - **Response Format**: Added Step 5 (individual) and Step 6 (group) "Submit to Validator" with handoff requirement
+    - **Version History**: Added v1.5.1 entry
+
+- **Agent Architect (architect.agent.md)**: Version bump for consistency
+  - **Before**: v1.6.1
+  - **After**: v1.6.2 (patch bump for consistency with meta-agent group refactor)
+  - **Context**: No functional changes - version bump to align with other meta-agents' workflow automation changes
+  - **Updated Sections**:
+    - **Version History**: Added v1.6.2 entry documenting the version bump
+
+### Migration Guide
+
+#### For All Meta-Agent Users
+Workflow will now automatically continue through handoffs without manual agent invocation:
+1. **Implementer** completes work → automatically hands to **Validator** (no manual `@agent-validator` needed)
+2. **Validator** reviews → automatically hands to **Implementer** (feedback) or **Devil's Advocate** (approved)
+3. **Devil's Advocate** reviews → automatically hands to **Validator** (PR ready) or **Implementer** (revisions)
+4. **No action required** - handoffs are automatic if agents follow their Response Format sections
+
+#### For Devil's Advocate Users
+If you were expecting separate Devil's Advocate review files:
+1. **Stop expecting separate files** - Devil's Advocate output is conversational only
+2. **PR details in `.pr_details/{branch}.md`** - managed by Validator, includes Devil's Advocate writeup when approved
+3. **No action required** - this clarifies existing behavior (Devil's Advocate never should have created separate files)
+
+#### For Agent Validator Users
+No changes required - Validator already managed `.pr_details/` files since v1.2.0. This update clarifies ownership in documentation.
+
+---
+
 ## 1.6.1 - 2025-12-16
 
 ### Fixed
