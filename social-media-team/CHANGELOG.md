@@ -8,14 +8,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [1.1.0] - 2025-12-16
 
 ### Changed
-- **LinkedIn Specialist**: Refactored for conciseness optimization
-  - **Before**: Examples averaged 200+ lines with extensive subsections and redundant explanations
-  - **After**: Examples reduced to 100-120 lines while maintaining strategic depth and actionable guidance
-  - **Context**: Aligned LinkedIn example length with Facebook and Instagram specialists for consistent user experience across platform agents
-  - **Impact**: Reduced overall agent file from 924 lines to ~450 lines (51% reduction in examples section)
-  - Streamlined Response Format from 8 sections to 6 sections (consolidated Algorithm Optimization + Engagement Strategy; merged Performance Guidance + Thought Leadership Development)
-  - Eliminated redundant explanations and over-detailed subsections across all three examples
-  - Maintained professional tone, thought leadership focus, and all strategic insights
+- **LinkedIn Specialist**: Refactored for improved organization and clarity while maintaining strategic depth
+  - **Before**: Examples averaged 200+ lines with some redundant subsections
+  - **After**: Examples reorganized with layered guidance (WHY/HOW/WHAT/WHEN dimensions) and expanded critical sections
+  - **Context**: LinkedIn's professional B2B platform requires more strategic depth than casual social platforms. Refactoring focused on better organization (not arbitrary length reduction) while maintaining all strategic value for thought leadership positioning.
+  - **Impact**: Reduced overall agent file from 924 lines to 700-750 lines (~24% reduction through improved organization)
+  - **Key Improvements**:
+    - Expanded Example 2 Article lessons from 1-line summaries to 8-12 line problem/story/solution/actionable structures (7 lessons now provide execution-ready guidance)
+    - Added layered guidance labels across all examples showing strategic progression (Strategic Rationale, Execution Tactics, Algorithm Optimization, Engagement Strategy)
+    - Restored engagement timeline specifics ("30 mins before posting" proactive tactics, "first 2 hours critical" post-launch strategy)
+    - Added performance benchmark context (50K impressions = 8-12x multiplier explanation, 4-6% engagement vs. 2-3% LinkedIn average)
+    - Maintained professional tone, thought leadership focus, and all strategic insights
   - **Migration**: No breaking changes - all agent responsibilities, quality criteria, and handoffs unchanged
 
 ## [1.0.0] - 2025-11-15
