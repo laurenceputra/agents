@@ -293,7 +293,7 @@ Ready to make the switch? Shop now → [link]
 
 ### Hashtag & Tagging
 - **Hashtags**: #SustainableKitchen #EcoHome #BambooProducts #ZeroWasteLiving #SustainableLiving (5-7 hashtags; Facebook hashtags are less critical than Instagram but aid discoverability)
-- **Tagging**: Tag eco-influencer partners if applicable, tag location for local reach boost
+- **Tagging**: Tag relevant community partners or organizations, tag location for local reach boost
 - **Topics**: "Sustainability", "Home & Garden", "Cooking" (Facebook topic tags improve content categorization)
 
 ## Performance Expectations
