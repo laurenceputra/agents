@@ -2,7 +2,7 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 1.6.0
+version: 1.6.1
 handoffs:
   - label: "Hand to Implementer"
     agent: "agent-implementer"
@@ -108,8 +108,6 @@ This schema enables:
 
 ### Output Artifacts
 - Create comprehensive specification documents in `./.specifications/` directory for Agent Implementer
-- Generate `.pr_details.md` file with PR title and description for Validator (in repository root)
-- Ensure PR details align with specification content and follow standards
 - Create `.specifications/` directory if it doesn't exist before writing specifications
 
 ### For Agent Groups
@@ -183,7 +181,7 @@ To design an agent group specification, the Agent Architect needs:
 - Agent group spec: `./.specifications/testing-group-specification.md`
 - Refactoring spec: `./.specifications/workflow-enhancement-specification.md`
 
-**Exception**: `.pr_details.md` is created in repository root (not `.specifications/` directory) because it's consumed by Agent Validator during PR submission.
+**Note**: PR details files are managed by Agent Validator in `.pr_details/` directory (not by Architect).
 
 ### Individual Agent Specification
 The Agent Architect produces a structured specification document with these sections:
@@ -345,54 +343,16 @@ Required for versions > 1.0.0
 - [Measurable outcomes for the agent group]
 ```
 
-### PR Details Output (Required)
+### Note on PR Details Management
 
-After completing any specification, the Agent Architect MUST create a `.pr_details.md` file containing the PR title and description for the Agent Validator. This file is used by the Validator when submitting the PR after approval.
+**PR details files are created and managed by Agent Validator, not Agent Architect.**
 
-**File**: `.pr_details.md` (in repository root)
+The Validator creates branch-specific PR details files in `.pr_details/{branch-name}.md` during the review process. These files contain:
+- PR title and description (copy-paste ready)
+- Validation history and feedback
+- Approval status and human action required
 
-**Format**:
-```markdown
-# PR Title
-[Concise, descriptive PR title following conventional commit format]
-
-# PR Description
-[Comprehensive description of changes, context, and impact]
-
-## Summary
-[1-2 sentence overview of what this PR accomplishes]
-
-## Changes Made
-- [Change 1]
-- [Change 2]
-- [Change 3]
-
-## Context
-[Why these changes were needed, what problem they solve]
-
-## Impact
-[How this affects users, other agents, or workflows]
-
-## Related Issues
-[Link to any related issues or specifications]
-```
-
-**PR Title Guidelines**:
-- Follow conventional commit format: `type(scope): description`
-- Types: `feat`, `fix`, `refactor`, `docs`, `chore`
-- Scope: agent name or group name
-- Description: Clear, actionable summary (50-72 characters)
-- Examples:
-  - `feat(architect): add PR details output for validator workflow`
-  - `refactor(legacy-planning): add frontmatter and version history`
-  - `fix(implementer): correct handoff chain validation logic`
-
-**PR Description Guidelines**:
-- Start with high-level summary
-- List specific changes made
-- Explain context and rationale
-- Note any breaking changes or migration needs
-- Link to related issues or specifications
+**Agent Architect does NOT create PR details files.** The Architect focuses solely on creating specifications in `./.specifications/` directory.
 
 ## Response Format
 
@@ -416,13 +376,7 @@ When designing a new agent specification, provide:
    - Note trade-offs considered
    - Highlight potential risks or challenges
 
-4. **PR Details** (`.pr_details.md` file)
-   - Create PR title following conventional commit format
-   - Write comprehensive PR description
-   - Include summary, changes, context, impact
-   - Link to related issues or specifications
-
-5. **Next Steps**
+4. **Next Steps**
    - Recommend implementation approach
    - Suggest validation strategy
    - Identify dependencies to address
@@ -454,13 +408,7 @@ When designing an agent group specification, provide:
    - Model selections for each agent
    - Trade-offs in group structure
 
-5. **PR Details** (`.pr_details.md` file)
-   - Create PR title following conventional commit format
-   - Write comprehensive PR description
-   - Include summary, changes, context, impact
-   - Link to related issues or specifications
-
-6. **Next Steps**
+5. **Next Steps**
    - Implementation sequence (which files first)
    - Validation strategy for group cohesion
    - Integration testing recommendations
@@ -547,36 +495,6 @@ Development teams need automated detection of security vulnerabilities and code 
 - Integrated with existing tools (CI/CD, issue tracker) for seamless workflow
 - Clear success criteria enable measurement and improvement
 - Edge cases documented to guide implementation
-
-**PR Details (`.pr_details.md`):**
-```markdown
-# PR Title
-feat(code-security-reviewer): add agent for automated security and quality review
-
-# PR Description
-
-## Summary
-Adds Code Security Reviewer agent to automate detection of security vulnerabilities and code quality issues in pull requests.
-
-## Changes Made
-- Created code-security-reviewer.agent.md with comprehensive specification
-- Defined scope: static analysis, security scanning, quality checks, dependency scanning
-- Integrated with CI/CD pipeline, issue tracker, and security dashboard
-- Established success criteria: 95%+ OWASP Top 10 detection, <5% false positives
-
-## Context
-Development teams need automated security and quality checks before code reaches production. Manual reviews are time-consuming and may miss common vulnerabilities. This agent provides consistent, fast, automated analysis.
-
-## Impact
-- Enables early detection of security vulnerabilities
-- Reduces manual review burden on security team
-- Provides actionable remediation guidance to developers
-- Improves code quality and security posture
-
-## Related Issues
-- Addresses need for automated security scanning in CI/CD pipeline
-- Supports organizational security compliance requirements
-```
 
 **Next Steps:**
 1. Review specification with security team for completeness
@@ -955,13 +873,12 @@ When reviewing an agent group specification, verify:
 
 ## Version History
 
+- **1.6.1**: Removed legacy PR details output requirement - PR details management is now exclusively handled by Agent Validator in `.pr_details/` directory (not by Architect)
 - **1.6.0**: MANDATORY requirement for all agent group specifications to include Devil's Advocate agent. Updated Domain Context, Responsibilities, Output Format, Examples, and Quality Checklist to enforce devil's advocate inclusion in every agent group.
-
 - **1.5.0**: Added Devil's Advocate agent as fourth meta-agent for critical review and disagreement capture. Updated workflow to include mandatory pre-PR critical review gate.
-
 - **1.4.0**: Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) and updated Portable Agent Group Schema documentation
 - **1.3.0**: Required all specification documents be created in `./.specifications/` directory at repository root (added "Specification Storage Location" section and updated Response Format)
-- **1.2.0**: Added PR details output requirement (.pr_details.md) for Agent Validator workflow integration
+- **1.2.0**: Added PR details output requirement (.pr_details.md) for Agent Validator workflow integration (later deprecated in v1.6.1 in favor of Validator-managed approach)
 - **1.1.1**: Fixed handoff chain to include agent-validator
 - **1.1.0**: Added strict workflow enforcement, handoff chains, and version frontmatter
 - **1.0.0** (Initial): Core agent architecture design capabilities

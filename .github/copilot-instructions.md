@@ -315,11 +315,13 @@ The meta-agent system supports two parallel workflows:
 │   ├── agent-name-specification.md
 │   ├── group-name-group-specification.md
 │   └── refactoring-specification.md
-├── .pr_details.md            # Created in root (gitignored, used by Validator)
+├── .pr_details/              # Branch-specific PR details created by Validator (gitignored)
+│   ├── feature-agent-name.md
+│   └── feature-group-name.md
 ├── .github/                   # Final agent implementations (committed)
 │   ├── agents/
 │   └── copilot-instructions.md
-└── .gitignore                 # Excludes .specifications/ and .pr_details.md
+└── .gitignore                 # Excludes .specifications/ and .pr_details/
 ```
 
 **Workflow:**
@@ -327,7 +329,8 @@ The meta-agent system supports two parallel workflows:
 2. Agent Implementer reads specification from `./.specifications/`
 3. Agent Implementer creates implementation on feature branch
 4. Agent Validator reviews implementation (may reference specification)
-5. After PR merge, specification remains in `.specifications/` as historical reference (local only)
+5. Agent Validator creates/updates PR details file in `.pr_details/{branch-name}.md`
+6. After PR merge, specification and PR details remain locally as historical reference (gitignored)
 
 ---
 

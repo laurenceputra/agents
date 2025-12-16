@@ -5,6 +5,54 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.6.1 - 2025-12-16
+
+### Fixed
+- **PR Details Storage Location**: Corrected documentation inconsistency where copilot-instructions.md referenced legacy `.pr_details.md` (singular file) while Agent Validator uses `.pr_details/` directory with branch-specific files
+  - **Issue**: When following copilot-instructions.md, PR details were not stored in the expected `.pr_details/` directory structure
+  - **Root Cause**: Agent Validator was updated in v1.2.0 to use `.pr_details/{branch}.md` format, but copilot-instructions.md and Agent Architect still referenced the old single-file approach
+  - **Fixed Files**:
+    - `copilot-instructions.md`: Updated "Specification Storage Convention" section to show `.pr_details/` directory with branch-specific files
+    - `architect.agent.md`: Removed PR details output requirement (now exclusively managed by Validator)
+  - **Migration**: PR details management is handled by Agent Validator during review process. Agent Architect no longer creates `.pr_details.md` file.
+
+### Changed
+- **Agent Architect (architect.agent.md)**: Removed PR details creation responsibility (v1.6.0 → v1.6.1 patch bump)
+  - **Before**: Architect created `.pr_details.md` file in repository root after completing specification
+  - **After**: Architect only creates specification files in `.specifications/` directory. PR details are managed exclusively by Validator in `.pr_details/` directory
+  - **Context**: Aligns Architect responsibilities with Validator's v1.2.0 implementation of branch-specific PR details files
+  - **Updated Sections**:
+    - **Output Artifacts**: Removed "Generate `.pr_details.md` file" requirement
+    - **Specification Storage Location**: Changed "Exception" note to clarify Validator manages PR details
+    - **PR Details Output (Required)**: Replaced entire section with "Note on PR Details Management" clarifying Validator ownership
+    - **Response Format**: Removed "PR Details" steps from both individual and group specification response formats
+    - **Example 1**: Removed PR details example output
+    - **Version History**: Added v1.6.1 entry and updated v1.2.0 entry to note deprecation
+  - **Migration**: If using Agent Architect, do not expect `.pr_details.md` file creation. Rely on Agent Validator to create `.pr_details/{branch}.md` during review.
+
+- **copilot-instructions.md**: Updated documentation to reflect current PR details management approach
+  - **Before**: Directory structure showed `.pr_details.md` (singular file in root)
+  - **After**: Directory structure shows `.pr_details/` directory with branch-specific files
+  - **Updated Sections**:
+    - **Specification Storage Convention**: Updated directory structure diagram
+    - **Workflow steps**: Added step showing Validator creates/updates PR details files
+  - **Context**: Ensures documentation matches Validator's v1.2.0 implementation
+
+### Migration Guide
+
+#### For Agent Architect Users
+If you were previously expecting `.pr_details.md` file from Architect:
+1. **Stop expecting Architect to create PR details** - this is no longer Architect's responsibility
+2. **Rely on Agent Validator** to create `.pr_details/{branch}.md` during review process
+3. **No action required** - this is a documentation fix, not a behavior change (Validator was already managing PR details since v1.2.0)
+
+#### For Agent Validator Users
+No changes required - Validator behavior unchanged since v1.2.0.
+
+#### For Documentation Readers
+- When reading copilot-instructions.md, note that `.pr_details/` is a directory (not `.pr_details.md` file)
+- PR details are created by Validator during review, not by Architect after specification
+
 ## 1.6.0 - 2025-12-15
 
 ### Changed
