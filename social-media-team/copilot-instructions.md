@@ -2,11 +2,11 @@
 
 ## Overview
 
-The Social Media Team is a coordinated group of five specialized agents working together to manage and optimize content across Facebook, Instagram, and LinkedIn. Each agent brings platform-specific expertise while the Social Media Coordinator ensures brand consistency and strategic alignment across all channels. The Devil's Advocate provides critical quality assurance before strategy execution.
+The Social Media Team is a coordinated group of five specialized agents working together to build and optimize personal brand presence for tech and social leaders across Facebook, Instagram, and LinkedIn. Each agent brings platform-specific expertise while the Social Media Coordinator ensures professional consistency and strategic alignment across all channels. The Devil's Advocate provides critical quality assurance before strategy execution.
 
-**Purpose**: Deliver platform-optimized social media strategies that maximize reach, engagement, and business outcomes while maintaining consistent brand identity across all platforms.
+**Purpose**: Deliver platform-optimized personal branding strategies that maximize thought leadership visibility, professional engagement, and reputation building while maintaining consistent professional identity across all platforms.
 
-**Scope**: Platform-specific content strategy, algorithm optimization, campaign coordination, and performance analysis for Facebook, Instagram, and LinkedIn.
+**Scope**: Personal brand strategy, thought leadership content, algorithm optimization, conference and speaking promotion, and professional presence management for tech and social leaders across Facebook, Instagram, and LinkedIn.
 
 ---
 
@@ -20,14 +20,14 @@ The Social Media Team is a coordinated group of five specialized agents working 
 **Key Capabilities**:
 - Facebook algorithm optimization (EdgeRank: affinity, weight, time decay)
 - Content format recommendations (posts, stories, reels, live, groups)
-- Engagement tactics to maximize reactions, comments, shares
+- Engagement tactics for thought leadership and professional discussions
 - Meta Business Suite best practices
-- Crisis communication on Facebook
+- Professional reputation management on Facebook
 
 **Example Requests**:
-- "Create a Facebook strategy for our product launch"
-- "How do I optimize this post for Facebook's algorithm?"
-- "Design a Facebook Groups community building strategy"
+- "Create a Facebook strategy for sharing my conference talk insights"
+- "How do I optimize this post about my open source project for Facebook's algorithm?"
+- "Design a Facebook Groups strategy for tech community building"
 
 ### 2. Instagram Specialist (`instagram-specialist.agent.md`)
 **Role**: Instagram-specific content strategy and visual optimization  
@@ -36,16 +36,16 @@ The Social Media Team is a coordinated group of five specialized agents working 
 
 **Key Capabilities**:
 - Instagram algorithm optimization (engagement, saves, shares)
-- Reels trends and viral content patterns
-- Hashtag strategy (30-tag mix: high/mid/low volume)
+- Tech-focused Reels and behind-the-scenes content
+- Hashtag strategy (30-tag mix: high/mid/low volume) for developer and tech audiences
 - Story engagement tactics (polls, questions, stickers)
-- Instagram aesthetic and grid planning
-- Influencer collaboration strategies
+- Professional Instagram aesthetic and grid planning
+- Conference and speaking engagement coverage
 
 **Example Requests**:
-- "Create an Instagram Reel strategy for this campaign"
-- "Design a hashtag strategy for my product launch"
-- "How do I optimize Instagram Stories for engagement?"
+- "Create an Instagram Reel strategy for behind-the-scenes of my tech project"
+- "Design a hashtag strategy for reaching developers and tech leaders"
+- "How do I optimize Instagram Stories for conference coverage?"
 
 ### 3. LinkedIn Specialist (`linkedin-specialist.agent.md`)
 **Role**: LinkedIn-specific content strategy and professional networking  

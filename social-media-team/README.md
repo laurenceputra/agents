@@ -4,7 +4,7 @@
 ![Agents](https://img.shields.io/badge/agents-5-green.svg)
 ![Platforms](https://img.shields.io/badge/platforms-Facebook%20%7C%20Instagram%20%7C%20LinkedIn-orange.svg)
 
-**Coordinated social media strategy across Facebook, Instagram, and LinkedIn with platform-specific optimization and brand consistency.**
+**Coordinated personal brand strategy for tech and social leaders across Facebook, Instagram, and LinkedIn with platform-specific optimization and professional consistency.**
 
 ---
 
@@ -25,24 +25,29 @@
 
 ### 2. Example Requests
 
-**Instagram Product Launch**:
+**LinkedIn Thought Leadership**:
 ```
-@instagram-specialist "Create an Instagram Reel strategy for our eco-friendly water bottle launch. Target audience: 25-35, sustainability-focused. Goal: 50K reach, 500 link clicks."
+@linkedin-specialist "I'm speaking at TechConf 2024 on AI ethics. Create a LinkedIn strategy to build thought leadership before and after the event."
 ```
 
-**Multi-Platform Campaign**:
+**Instagram Tech Content**:
 ```
-@social-media-coordinator "Launch our fitness app across Instagram and Facebook. 2-week campaign, $3K budget. Goal: 100K app downloads."
+@instagram-specialist "Create an Instagram Reel strategy showing behind-the-scenes of my open source project. Target: developers and tech enthusiasts. Goal: 25K reach."
+```
+
+**Multi-Platform Conference Promotion**:
+```
+@social-media-coordinator "I'm keynoting at a major tech conference in 3 weeks. Create a multi-platform strategy to maximize visibility and engagement."
 ```
 
 **Content Repurposing**:
 ```
-@linkedin-specialist "I have a LinkedIn article on remote work (2,000 words). How do I adapt this for Instagram?"
+@facebook-specialist "I have a LinkedIn article on engineering leadership (2,000 words). How do I adapt this for Facebook to reach a broader tech community?"
 ```
 
 **Critical Review**:
 ```
-@devils-advocate "Review this social media strategy for blind spots, risks, and assumptions that may not hold."
+@devils-advocate "Review this personal branding strategy for blind spots, authenticity concerns, and assumptions that may not hold."
 ```
 
 ### 3. Follow Quality Gates
@@ -59,21 +64,22 @@ Every strategy passes through three checkpoints:
 ## 📋 What This Agent Group Does
 
 ### Platform Coverage
-✅ **Facebook**: Algorithm optimization, community building, video content, Meta Business Suite  
-✅ **Instagram**: Reels trends, hashtag strategy, Stories engagement, visual aesthetics, influencer collabs  
-✅ **LinkedIn**: Thought leadership, B2B tactics, professional networking, long-form articles
+✅ **Facebook**: Thought leadership distribution, community building, video content, tech discussions  
+✅ **Instagram**: Behind-the-scenes tech content, professional Reels, visual storytelling  
+✅ **LinkedIn**: Professional thought leadership, networking, long-form articles, conference promotion
 
 ### Capabilities
-- Platform-specific content strategy and recommendations
+- Personal brand strategy and positioning recommendations
+- Platform-specific content strategy for thought leadership
 - Algorithm optimization for each platform
-- Multi-platform campaign coordination
+- Multi-platform campaign coordination (conferences, publications, projects)
 - Content calendar creation (daily/weekly/monthly)
 - Content repurposing across platforms
 - Hashtag research and strategy
 - Posting timing and frequency recommendations
 - Performance analysis and optimization
-- Crisis communication coordination
-- Brand consistency management
+- Professional reputation management
+- Brand consistency management across all platforms
 - Critical review and assumption challenging
 
 ### What It Does NOT Do
@@ -82,6 +88,8 @@ Every strategy passes through three checkpoints:
 ❌ Manage social media accounts (logins, settings)  
 ❌ Execute paid advertising campaigns (provides strategy only)  
 ❌ Handle customer service or community management  
+❌ Provide influencer partnership strategies
+❌ Focus on consumer product marketing
 ❌ Legal compliance review (provides general guidelines only)
 
 ---
@@ -89,54 +97,54 @@ Every strategy passes through three checkpoints:
 ## 🤖 The Five Agents
 
 ### Facebook Specialist
-**Focus**: Facebook-specific strategy, algorithm optimization (EdgeRank), community building  
+**Focus**: Facebook thought leadership, algorithm optimization (EdgeRank), community building  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**Best for**: Facebook posts, Stories, Reels, Live video, Groups, engagement tactics
+**Best for**: Facebook posts, Stories, Reels, Live video, Groups, tech community engagement
 
 **Example Use Cases**:
-- Product launch on Facebook with video content
-- Facebook Groups community building strategy
-- Algorithm-optimized posts for maximum reach
-- Crisis communication on Facebook
+- Sharing tech insights and industry commentary
+- Facebook Groups for tech community building
+- Algorithm-optimized posts for thought leadership
+- Live video for Q&A sessions or tech discussions
 
 ---
 
 ### Instagram Specialist
-**Focus**: Instagram-specific strategy, Reels trends, visual content, hashtags  
+**Focus**: Professional Instagram content, tech Reels, visual storytelling, hashtags  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**Best for**: Instagram Reels, feed posts, Stories, carousels, hashtag strategy, influencer collabs
+**Best for**: Behind-the-scenes tech Reels, professional feed posts, Stories, carousels, hashtag strategy
 
 **Example Use Cases**:
-- Instagram Reel strategy with trending audio
-- 30-hashtag mix for maximum discoverability
-- Visual aesthetic and grid planning
-- Instagram Stories engagement (polls, questions, stickers)
+- Tech project behind-the-scenes Reels
+- 30-hashtag mix for developer and tech community reach
+- Professional visual aesthetic and grid planning
+- Instagram Stories for conference updates and tech insights
 
 ---
 
 ### LinkedIn Specialist
-**Focus**: LinkedIn-specific strategy, thought leadership, B2B tactics, professional content  
+**Focus**: LinkedIn thought leadership, professional networking, industry expertise, tech insights  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**Best for**: LinkedIn posts, articles, thought leadership, B2B lead generation, professional networking
+**Best for**: LinkedIn posts, articles, thought leadership, conference promotion, professional networking
 
 **Example Use Cases**:
-- Thought leadership posts for CEO/executives
-- LinkedIn articles (long-form, 2,000+ words)
-- B2B lead generation campaigns
-- Employee advocacy programs
+- Thought leadership posts on tech trends and innovations
+- LinkedIn articles on engineering leadership (long-form, 2,000+ words)
+- Conference speaking and event promotion
+- Professional community building and engagement
 
 ---
 
 ### Social Media Coordinator
-**Focus**: Cross-platform strategy, campaign coordination, brand consistency, content calendars  
+**Focus**: Multi-platform personal brand strategy, campaign coordination, professional consistency, content calendars  
 **Model**: Claude Sonnet 4.5 (copilot)  
-**Best for**: Multi-platform campaigns, content calendars, content repurposing, performance analysis
+**Best for**: Multi-platform thought leadership campaigns, content calendars, content repurposing, performance analysis
 
 **Example Use Cases**:
-- Product launch across Facebook, Instagram, LinkedIn
-- 2-week content calendar with daily posts
-- Repurpose LinkedIn article for Instagram and Facebook
-- Coordinate crisis communication across all platforms
+- Conference speaking promotion across Facebook, Instagram, LinkedIn
+- 2-week content calendar for personal branding campaign
+- Repurpose LinkedIn article on tech topics for Instagram and Facebook
+- Coordinate professional reputation management across all platforms
 
 ---
 
