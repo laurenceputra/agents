@@ -2,112 +2,122 @@
 
 ## Overview
 
-This agent group helps you write Python code for comprehensive portfolio analysis. The system includes seven specialized agents working together to generate production-ready code for data loading, financial calculations, risk assessment, visualization, and report generation.
+This agent group provides a **Python library + code-writing agent** system for comprehensive portfolio analysis. The `portfolio_toolkit` library contains tested functions for data loading, financial calculations, risk assessment, visualization, and reporting. The `portfolio-code-writer` agent generates complete scripts using this library.
+
+**Version**: 2.0.0 (Breaking change from v1.0.0 - see CHANGELOG.md)
 
 **This is a portable agent group following the standard structure and can be dropped into any repository.**
 
 ## Agent Group Purpose
 
-Generate high-quality Python code for analyzing investment portfolios across the complete workflow: data ingestion → financial calculations → risk analysis → visualization → reporting.
+Generate high-quality, executable Python scripts for analyzing investment portfolios. Users can either:
+- **Beginner**: Talk to `portfolio-code-writer` agent to get generated scripts
+- **Advanced**: Import `portfolio_toolkit` library directly and write their own code
 
-## The Seven Agents
+## Architecture: Library + Agent
 
-### 1. Portfolio Data Engineer (`portfolio-data-engineer.agent.md`)
+### portfolio_toolkit Library (NEW in v2.0.0)
+
+A comprehensive Python library providing five modules:
+
+**1. data module** - Data loading and cleaning
+- `load_portfolio_csv()`, `load_portfolio_excel()`
+- `fetch_price_history()` - Get prices from yfinance
+- `clean_portfolio_data()`, `validate_portfolio_data()`
+
+**2. metrics module** - Financial calculations
+- `calculate_returns()`, `calculate_cagr()`, `calculate_volatility()`
+- `calculate_sharpe_ratio()`, `calculate_sortino_ratio()`
+- `calculate_max_drawdown()`, `calculate_alpha_beta()`
+- `calculate_portfolio_statistics()` - Comprehensive metrics
+
+**3. risk module** - Risk assessment
+- `calculate_var()`, `calculate_cvar()` - Value at Risk
+- `monte_carlo_simulation()` - Future portfolio distribution
+- `stress_test()` - Historical scenario analysis
+- `calculate_risk_metrics()` - Comprehensive risk profile
+
+**4. viz module** - Visualizations
+- `plot_cumulative_returns()`, `plot_drawdown()`
+- `plot_return_distribution()`, `plot_correlation_heatmap()`
+- `plot_performance_dashboard()` - Multi-panel dashboard
+
+**5. reports module** - Report generation
+- `generate_html_report()`, `generate_markdown_report()`
+- `export_metrics_to_excel()`
+
+**Installation**:
+```bash
+cd portfolio-analysis
+pip install -e .
+```
+
+---
+
+## The Three Agents
+
+### 1. Portfolio Code Writer (`portfolio-code-writer.agent.md`) - NEW in v2.0.0
 **Model**: Claude Sonnet 4.5 (copilot)  
-**Role**: Data loading and validation
+**Role**: Unified code generation using portfolio_toolkit library
 
 **When to use**:
-- Loading portfolio data from CSV, Excel, JSON
-- Fetching historical prices from Yahoo Finance or Alpha Vantage
-- Validating and cleaning data
-- Handling missing values and data quality issues
+- Generating complete portfolio analysis scripts
+- Creating custom analysis workflows
+- Chaining data → metrics → risk → visualization → reports
+- Adapting library functions to specific requirements
+
+**What it does**:
+- Imports and uses `portfolio_toolkit` modules
+- Generates complete, executable Python scripts
+- Handles user-specific requirements (file paths, date ranges, metrics)
+- Includes error handling and validation
+- Provides usage instructions
 
 **Handoffs**:
-- To **Portfolio Analyst** after data is loaded and cleaned
-- To **Devil's Advocate** for critical review of data handling assumptions
+- To **Code Quality Reviewer** for code review
+- To **Devil's Advocate** for critical review of assumptions
+
+**Example output**: Complete Python script with:
+```python
+from portfolio_toolkit import data, metrics, risk, viz, reports
+
+def main():
+    # Load data
+    portfolio = data.load_portfolio_csv('portfolio.csv')
+    
+    # Calculate metrics
+    returns = metrics.calculate_returns(prices)
+    stats = metrics.calculate_portfolio_statistics(returns)
+    
+    # Risk assessment
+    var_95 = risk.calculate_var(returns, 0.95)
+    
+    # Visualizations
+    fig = viz.plot_cumulative_returns(returns)
+    
+    # Generate report
+    reports.generate_html_report(stats, {'cumulative': 'chart.png'})
+```
 
 ---
 
-### 2. Portfolio Analyst (`portfolio-analyst.agent.md`)
-**Model**: Claude Sonnet 4.5 (copilot)  
-**Role**: Financial calculations and performance metrics
-
-**When to use**:
-- Calculating returns, volatility, Sharpe ratio
-- Computing portfolio performance metrics
-- Benchmark comparisons (alpha, beta, tracking error)
-- Rolling window analysis
-
-**Handoffs**:
-- To **Portfolio Risk Assessor** for risk-specific analysis
-- To **Devil's Advocate** for critical review of calculation methodology
-
----
-
-### 3. Portfolio Risk Assessor (`portfolio-risk-assessor.agent.md`)
-**Model**: Claude Sonnet 4.5 (copilot)  
-**Role**: Risk assessment and scenario analysis
-
-**When to use**:
-- Calculating VaR and CVaR
-- Monte Carlo simulations
-- Stress testing (2008 crisis, COVID crash scenarios)
-- Risk decomposition and concentration analysis
-
-**Handoffs**:
-- To **Portfolio Visualizer** for risk visualizations
-- To **Devil's Advocate** for critical review of risk model assumptions
-
----
-
-### 4. Portfolio Visualizer (`portfolio-visualizer.agent.md`)
-**Model**: Claude Haiku 4.5 (copilot)  
-**Role**: Chart and graph generation
-
-**When to use**:
-- Creating performance dashboards
-- Allocation pie charts and treemaps
-- Correlation heatmaps
-- Drawdown charts and distribution plots
-
-**Handoffs**:
-- To **Portfolio Report Generator** for report assembly
-- To **Devil's Advocate** for critical review of visualization choices
-
----
-
-### 5. Portfolio Report Generator (`portfolio-report-generator.agent.md`)
-**Model**: Claude Haiku 4.5 (copilot)  
-**Role**: Report assembly and export
-
-**When to use**:
-- Generating PDF reports
-- Creating HTML reports with embedded charts
-- Assembling Jupyter notebooks
-- Formatting tables and summaries
-
-**Handoffs**:
-- To **Code Quality Reviewer** for final code review
-- To **Devil's Advocate** for critical review of report structure
-
----
-
-### 6. Code Quality Reviewer (`code-quality-reviewer.agent.md`)
+### 2. Code Quality Reviewer (`code-quality-reviewer.agent.md`)
 **Model**: Claude Sonnet 4.5 (copilot)  
 **Role**: Code quality and best practices review
 
 **When to use**:
-- Reviewing generated code for quality
-- Checking PEP 8 compliance
+- Reviewing scripts generated by portfolio-code-writer
+- Checking for PEP 8 compliance, type hints, docstrings
 - Validating error handling and edge cases
 - Suggesting performance optimizations
 
 **Handoffs**:
-- To **Devil's Advocate** for final critical review before delivery
+- To **Portfolio Code Writer** for revisions
+- To **Devil's Advocate** for critical review before delivery
 
 ---
 
-### 7. Devil's Advocate (`devils-advocate.agent.md`) - MANDATORY
+### 3. Devil's Advocate (`devils-advocate.agent.md`) - MANDATORY
 **Model**: Claude Sonnet 4.5 (copilot)  
 **Role**: Critical review and assumption challenging
 
@@ -127,18 +137,12 @@ Generate high-quality Python code for analyzing investment portfolios across the
 
 ## Workflow Diagram
 
+### v2.0.0 Workflow (Current)
+
 ```
 User Request
      ↓
-Portfolio Data Engineer (load & validate data)
-     ↓
-Portfolio Analyst (calculate metrics)
-     ↓
-Portfolio Risk Assessor (risk analysis)
-     ↓
-Portfolio Visualizer (create charts)
-     ↓
-Portfolio Report Generator (assemble report)
+Portfolio Code Writer (generates complete script using portfolio_toolkit)
      ↓
 Code Quality Reviewer (code review)
      ↓
@@ -146,8 +150,13 @@ Devil's Advocate (critical review - MANDATORY)
      ↓
 User (final code delivery)
 
-[Any agent can handoff to Devil's Advocate at any point for critical review]
+[Agents can hand back to Portfolio Code Writer for revisions]
 ```
+
+**Key Changes from v1.0.0**:
+- Single code generation step (portfolio-code-writer) instead of 5 sequential agents
+- Scripts use pre-built portfolio_toolkit library functions
+- Faster workflow (1 handoff vs 5)
 
 ---
 
@@ -158,54 +167,31 @@ User (final code delivery)
 ```
 START: What portfolio analysis task do you need?
   │
-  ├─ [A] LOAD PORTFOLIO DATA
-  │   → Use @portfolio-data-engineer
+  ├─ [A] GENERATE COMPLETE ANALYSIS SCRIPT (Beginner)
+  │   → Use @portfolio-code-writer
   │   Examples:
-  │   - "Load my portfolio from holdings.csv"
-  │   - "Fetch historical prices for my stocks"
-  │   - "Validate portfolio data quality"
+  │   - "Analyze my portfolio from portfolio.csv"
+  │   - "Generate risk assessment script with VaR and stress tests"
+  │   - "Create full report with all metrics and charts"
+  │   - "Compare my portfolio against S&P 500"
   │
-  ├─ [B] CALCULATE PERFORMANCE METRICS
-  │   → Use @portfolio-analyst
+  ├─ [B] USE LIBRARY DIRECTLY (Advanced)
+  │   → Import portfolio_toolkit modules in your own code
   │   Examples:
-  │   - "Calculate Sharpe ratio and max drawdown"
-  │   - "Compare my portfolio to S&P 500"
-  │   - "Compute rolling 30-day volatility"
+  │   ```python
+  │   from portfolio_toolkit import data, metrics, risk, viz
+  │   portfolio = data.load_portfolio_csv('portfolio.csv')
+  │   stats = metrics.calculate_portfolio_statistics(returns)
+  │   ```
   │
-  ├─ [C] ASSESS RISK
-  │   → Use @portfolio-risk-assessor
-  │   Examples:
-  │   - "Calculate 95% VaR for my portfolio"
-  │   - "Run Monte Carlo simulation for 1 year"
-  │   - "Stress test against 2008 financial crisis"
-  │
-  ├─ [D] CREATE VISUALIZATIONS
-  │   → Use @portfolio-visualizer
-  │   Examples:
-  │   - "Create performance dashboard"
-  │   - "Plot correlation heatmap"
-  │   - "Show allocation by sector"
-  │
-  ├─ [E] GENERATE REPORT
-  │   → Use @portfolio-report-generator
-  │   Examples:
-  │   - "Create PDF portfolio report"
-  │   - "Generate HTML report with charts"
-  │   - "Export to Jupyter notebook"
-  │
-  ├─ [F] REVIEW CODE QUALITY
+  ├─ [C] REVIEW CODE QUALITY
   │   → Use @code-quality-reviewer
   │   Examples:
   │   - "Review this portfolio analysis code"
   │   - "Check for best practices"
   │   - "Suggest optimizations"
   │
-  ├─ [G] COMPLETE END-TO-END ANALYSIS
-  │   → Start with @portfolio-data-engineer, flow through all agents
-  │   Example:
-  │   - "Analyze my portfolio from CSV to final report"
-  │
-  └─ [H] CHALLENGE ASSUMPTIONS / CRITICAL REVIEW
+  └─ [D] CHALLENGE ASSUMPTIONS / CRITICAL REVIEW
       → Use @devils-advocate (also runs automatically before delivery)
       Examples:
       - "Review this risk model for blind spots"
@@ -213,46 +199,67 @@ START: What portfolio analysis task do you need?
       - "What edge cases are missing?"
 ```
 
+### Detailed Workflow: Beginner (Agent-Assisted)
+
+```
+1. User describes analysis needs to @portfolio-code-writer
+   ↓
+2. Agent asks clarifying questions (data format, date range, goals)
+   ↓
+3. Agent generates complete Python script using portfolio_toolkit
+   ↓
+4. Agent hands off to @code-quality-reviewer
+   ↓
+5. Code Quality Reviewer checks quality, suggests improvements
+   ↓
+6. Agent revises if needed (iterative loop)
+   ↓
+7. Agent hands off to @devils-advocate
+   ↓
+8. Devil's Advocate challenges assumptions, identifies edge cases
+   ↓
+9. Agent addresses critical feedback (if needed)
+   ↓
+10. Final script delivered to user with usage instructions
+```
+
+### Detailed Workflow: Advanced (Direct Library)
+
+```
+1. User installs portfolio_toolkit: pip install -e portfolio-analysis/
+   ↓
+2. User writes Python code importing library modules
+   ↓
+3. (Optional) User consults @code-quality-reviewer for review
+   ↓
+4. (Optional) User consults @devils-advocate for critical review
+   ↓
+5. User runs their own code
+```
+
 ---
 
 ## Quality Gates
 
-### Gate 1: Data Quality (Portfolio Data Engineer)
-- [ ] Data loaded without errors
-- [ ] Missing values handled appropriately
-- [ ] Date ranges validated
-- [ ] Symbols recognized by API
-- [ ] Currency consistency checked
+### Gate 1: Script Completeness (Portfolio Code Writer)
+- [ ] Script is complete and executable (no placeholders)
+- [ ] All imports from portfolio_toolkit are correct
+- [ ] Configuration section provided for customization
+- [ ] Error handling includes try-except blocks
+- [ ] Validation checks for data quality included
+- [ ] Results displayed in readable format
+- [ ] Usage instructions comprehensive
+- [ ] Dependencies explicitly listed
 
-### Gate 2: Calculation Accuracy (Portfolio Analyst)
-- [ ] Formulas match industry standards
-- [ ] Annualization factors correct (252 for daily, 12 for monthly)
-- [ ] Edge cases handled (zero volatility, negative returns)
-- [ ] Benchmark alignment correct
+### Gate 2: Library Function Usage (Portfolio Code Writer)
+- [ ] Uses portfolio_toolkit modules (not inline implementations)
+- [ ] Function parameters match library API
+- [ ] Return types handled correctly
+- [ ] Edge cases considered (missing data, API failures)
+- [ ] Workflow chains logically (data → metrics → risk → viz → report)
 - [ ] Results make financial sense
 
-### Gate 3: Risk Model Validity (Portfolio Risk Assessor)
-- [ ] Confidence levels correctly implemented
-- [ ] Time horizons appropriate
-- [ ] Distributional assumptions documented
-- [ ] Stress scenarios realistic
-- [ ] Limitations clearly stated
-
-### Gate 4: Visualization Quality (Portfolio Visualizer)
-- [ ] Charts are publication-quality
-- [ ] Axes labeled with units
-- [ ] Color schemes accessible (colorblind-friendly)
-- [ ] Legends positioned appropriately
-- [ ] Titles descriptive
-
-### Gate 5: Report Completeness (Portfolio Report Generator)
-- [ ] All metrics included
-- [ ] Charts embedded properly
-- [ ] Professional formatting
-- [ ] Disclaimers present
-- [ ] Export successful
-
-### Gate 6: Code Quality (Code Quality Reviewer)
+### Gate 3: Code Quality (Code Quality Reviewer)
 - [ ] PEP 8 compliant
 - [ ] Type hints present
 - [ ] Docstrings comprehensive
@@ -260,7 +267,7 @@ START: What portfolio analysis task do you need?
 - [ ] Performance optimized
 - [ ] Testing recommendations provided
 
-### Gate 7: Critical Review (Devil's Advocate) - MANDATORY
+### Gate 4: Critical Review (Devil's Advocate) - MANDATORY
 - [ ] All assumptions challenged
 - [ ] Blind spots identified
 - [ ] Disagreements documented
@@ -279,40 +286,64 @@ START: What portfolio analysis task do you need?
 ```
 User: "Analyze my portfolio in portfolio.csv"
 
-Flow:
-1. @portfolio-data-engineer → Load and validate data
-2. @portfolio-analyst → Calculate basic metrics
-3. @portfolio-visualizer → Create performance chart
-4. @devils-advocate → Critical review
-5. Deliver code to user
+Flow (v2.0.0):
+1. @portfolio-code-writer → Generate complete analysis script
+2. @code-quality-reviewer → Review code quality
+3. @devils-advocate → Critical review
+4. Deliver script to user
+
+(v1.0.0 required 5+ agent handoffs)
 ```
 
 ### Pattern 2: Risk-Focused Analysis
 ```
 User: "What's my portfolio risk?"
 
-Flow:
-1. @portfolio-data-engineer → Load data
-2. @portfolio-analyst → Calculate returns and volatility
-3. @portfolio-risk-assessor → VaR, CVaR, stress tests
-4. @portfolio-visualizer → Risk distribution charts
-5. @devils-advocate → Critical review
-6. Deliver code to user
+Flow (v2.0.0):
+1. @portfolio-code-writer → Generate risk assessment script (VaR, stress tests, visualizations)
+2. @code-quality-reviewer → Review code
+3. @devils-advocate → Critical review
+4. Deliver script to user
+
+(v1.0.0 required 6+ agent handoffs)
 ```
 
 ### Pattern 3: Full Report Generation
 ```
 User: "Create complete portfolio report"
 
-Flow:
-1. @portfolio-data-engineer → Load data
-2. @portfolio-analyst → All performance metrics
-3. @portfolio-risk-assessor → Risk assessment
-4. @portfolio-visualizer → All charts
-5. @portfolio-report-generator → Assemble PDF
-6. @code-quality-reviewer → Review code
-7. @devils-advocate → Critical review
-8. Deliver code to user
+Flow (v2.0.0):
+1. @portfolio-code-writer → Generate comprehensive report script (all modules)
+2. @code-quality-reviewer → Review code
+3. @devils-advocate → Critical review
+4. Deliver script to user
+
+(v1.0.0 required 8 agent handoffs)
+```
+
+### Pattern 4: Advanced - Direct Library Usage
+```
+User writes Python code directly:
+
+from portfolio_toolkit import data, metrics, risk, viz, reports
+
+# Load data
+portfolio = data.load_portfolio_csv('portfolio.csv')
+prices = data.fetch_price_history(symbols, '2023-01-01', '2024-12-31')
+
+# Calculate metrics
+returns = metrics.calculate_returns(prices)
+stats = metrics.calculate_portfolio_statistics(returns)
+
+# Risk assessment
+var_95 = risk.calculate_var(returns, 0.95)
+
+# Visualization
+fig = viz.plot_cumulative_returns(returns)
+viz.save_figure(fig, 'performance.png')
+
+# Report
+reports.generate_html_report(stats, {'performance': 'performance.png'})
 ```
 
 ---
@@ -340,89 +371,129 @@ alpha-vantage>=2.3.0   # Alpha Vantage API
 ```
 
 ### Installation
+
+**Install portfolio_toolkit library**:
 ```bash
-pip install pandas numpy matplotlib seaborn yfinance scipy
-# Optional:
-pip install plotly reportlab jinja2 squarify
+cd portfolio-analysis
+pip install -e .  # Development mode (editable)
+```
+
+This installs core dependencies automatically:
+- pandas, numpy, matplotlib, seaborn, scipy
+
+**Optional extras**:
+```bash
+pip install -e ".[data]"      # yfinance for price data
+pip install -e ".[reports]"   # jinja2, reportlab for reports
+pip install -e ".[full]"      # All optional dependencies
 ```
 
 ---
 
 ## Examples
 
-### Example 1: Load and Analyze Portfolio
+### Example 1: Quick Analysis (v2.0.0)
 
 **User Request**:
 ```
-"I have a CSV file with my portfolio holdings. Load it, calculate Sharpe ratio, 
-and create a performance chart."
+"Analyze my portfolio in portfolio.csv for the last year. Show performance metrics and a chart."
 ```
 
 **Agent Sequence**:
 ```
-1. @portfolio-data-engineer
-   → Generates code to load CSV and validate data
+1. @portfolio-code-writer
+   → Generates complete script using portfolio_toolkit:
+      - Loads CSV with data.load_portfolio_csv()
+      - Fetches prices with data.fetch_price_history()
+      - Calculates metrics with metrics.calculate_portfolio_statistics()
+      - Creates chart with viz.plot_cumulative_returns()
+   → Includes error handling, validation, usage instructions
 
-2. @portfolio-analyst
-   → Generates code to calculate Sharpe ratio and other metrics
-
-3. @portfolio-visualizer
-   → Generates code to create performance dashboard
-
-4. @devils-advocate
-   → Reviews assumptions (forward-fill strategy, data quality, calculation methods)
-   → Flags any issues for human decision
-   → Approves for delivery
-
-5. User receives complete, executable Python code
-```
-
-### Example 2: Risk Assessment
-
-**User Request**:
-```
-"Calculate 95% VaR for my portfolio and run a Monte Carlo simulation 
-showing potential outcomes over 1 year."
-```
-
-**Agent Sequence**:
-```
-1. @portfolio-risk-assessor
-   → Generates VaR calculation code (historical and parametric)
-   → Generates Monte Carlo simulation code (10,000 paths)
-   → Documents assumptions (normal distribution, historical data relevance)
-
-2. @portfolio-visualizer
-   → Generates distribution histogram
-   → Generates simulation path plot
+2. @code-quality-reviewer
+   → Reviews code quality, PEP 8 compliance
+   → Suggests minor improvements
 
 3. @devils-advocate
-   → Challenges normal distribution assumption
-   → Identifies blind spot: correlation breakdown in crises
-   → Documents limitation: tail risk may be underestimated
-   → Approves with documented limitations
+   → Challenges equal-weight assumption (should be value-weighted?)
+   → Identifies edge case: missing price data handling
+   → Documents limitations
+   → Approves for delivery
 
-4. User receives code with clear documentation of assumptions and limitations
+4. User receives complete, executable script
 ```
 
-### Example 3: Complete Portfolio Report
+### Example 2: Risk Assessment (v2.0.0)
 
 **User Request**:
 ```
-"Generate a complete portfolio analysis report in PDF format."
+"Calculate 95% VaR and run Monte Carlo simulation for my portfolio"
 ```
 
 **Agent Sequence**:
 ```
-1. @portfolio-data-engineer → Load data, fetch prices
-2. @portfolio-analyst → All metrics (returns, Sharpe, CAGR)
-3. @portfolio-risk-assessor → VaR, CVaR, stress tests
-4. @portfolio-visualizer → Performance, allocation, correlation charts
-5. @portfolio-report-generator → Assemble PDF with all metrics and charts
-6. @code-quality-reviewer → Review code quality, suggest improvements
-7. @devils-advocate → Final critical review, challenge assumptions
-8. User receives production-ready report generation code
+1. @portfolio-code-writer
+   → Generates risk assessment script:
+      - Uses risk.calculate_var() for VaR
+      - Uses risk.monte_carlo_simulation() for simulations
+      - Uses viz module for distribution charts
+      - Includes stress test scenarios
+   → Documents assumptions clearly
+
+2. @devils-advocate
+   → Challenges normal distribution assumption
+   → Identifies limitation: tail risk may be underestimated
+   → Suggests stress test with historical scenarios
+   → Approves with documented limitations
+
+3. User receives script with clear assumptions and limitations
 ```
+
+### Example 3: Direct Library Usage (Advanced)
+
+**User Code**:
+```python
+"""User writes their own analysis code using portfolio_toolkit."""
+
+from portfolio_toolkit import data, metrics, risk, viz, reports
+import pandas as pd
+
+# Load portfolio
+portfolio = data.load_portfolio_csv('portfolio.csv')
+validation = data.validate_portfolio_data(portfolio)
+
+if validation['valid']:
+    # Fetch prices
+    symbols = portfolio['symbol'].unique()
+    prices = data.fetch_price_history(symbols, '2023-01-01', '2024-12-31')
+    
+    # Calculate metrics
+    returns = metrics.calculate_returns(prices)
+    portfolio_returns = returns.mean(axis=1)  # Equal-weighted
+    stats = metrics.calculate_portfolio_statistics(portfolio_returns)
+    
+    # Risk assessment
+    var_95 = risk.calculate_var(portfolio_returns, 0.95)
+    mc_results = risk.monte_carlo_simulation(portfolio_returns)
+    
+    # Visualizations
+    fig1 = viz.plot_cumulative_returns(portfolio_returns)
+    viz.save_figure(fig1, 'performance.png')
+    
+    fig2 = viz.plot_drawdown((1 + portfolio_returns).cumprod())
+    viz.save_figure(fig2, 'drawdown.png')
+    
+    # Generate report
+    all_metrics = {**stats, 'var_95': var_95}
+    chart_paths = {'performance': 'performance.png', 'drawdown': 'drawdown.png'}
+    reports.generate_html_report(all_metrics, chart_paths)
+    
+    print("Analysis complete! See portfolio_report.html")
+else:
+    print(f"Data validation failed: {validation['issues']}")
+```
+
+**Optional Review**:
+User can still consult @code-quality-reviewer or @devils-advocate for review of their code.
 
 ---
 
@@ -514,12 +585,31 @@ pip install weasyprint
 This agent group is portable and can be dropped into any repository. To use:
 
 1. Copy `portfolio-analysis/` folder to your repository
-2. Install Python dependencies: `pip install pandas numpy matplotlib seaborn yfinance scipy`
-3. Start with @portfolio-data-engineer or follow decision tree for your use case
-4. All deliverables automatically go through Devil's Advocate critical review
+2. Install portfolio_toolkit: `cd portfolio-analysis && pip install -e .`
+3. **Beginner**: Start with @portfolio-code-writer to generate scripts
+4. **Advanced**: Import portfolio_toolkit modules in your own Python code
+5. All agent-generated code automatically goes through Devil's Advocate critical review
+
+---
+
+## Migration from v1.0.0
+
+If you used v1.0.0 agents:
+- Old agents (@portfolio-data-engineer, @portfolio-analyst, etc.) are archived in `archive/v1/`
+- Use @portfolio-code-writer for new script generation
+- Existing v1.0.0 generated code still works (no forced migration)
+- To migrate: Refactor inline functions to import from portfolio_toolkit, or regenerate with @portfolio-code-writer
+- See CHANGELOG.md for complete migration guide
+
+---
+
+## Version History
+
+- **2.0.0** (2025-12-16): Architecture redesign - replaced 5 code-generation agents with 1 unified agent + portfolio_toolkit library. Breaking change with comprehensive migration guide.
+- **1.0.0** (2024-12-15): Initial release with 7 agents for multi-step portfolio analysis code generation.
 
 ---
 
 ## Disclaimer
 
-This agent group generates code for portfolio analysis. The generated code is for informational and educational purposes only and does not constitute financial advice. Always validate calculations independently and consult with qualified financial advisors before making investment decisions.
+This agent group generates code for portfolio analysis. The generated code and portfolio_toolkit library are for informational and educational purposes only and do not constitute financial advice. Always validate calculations independently and consult with qualified financial advisors before making investment decisions.

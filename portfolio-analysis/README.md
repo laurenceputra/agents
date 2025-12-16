@@ -1,188 +1,159 @@
 # Portfolio Analysis Agent Group
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/yourusername/agents)
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/yourusername/agents)
 [![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-A portable GitHub Copilot agent group for generating production-ready Python code to analyze investment portfolios. This agent group covers the complete workflow from data loading through report generation.
+A portable GitHub Copilot agent group providing a **Python library + code-writing agent** for comprehensive portfolio analysis. Use the `portfolio_toolkit` library directly in your code, or have the `portfolio-code-writer` agent generate complete scripts for you.
+
+**🎉 NEW in v2.0.0**: Complete architecture redesign! Replaced 5 code-generation agents with a unified agent + library approach. Faster, more consistent, and more maintainable.
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### Installation
 
 ```bash
-# Install required Python packages
-pip install pandas numpy matplotlib seaborn yfinance scipy
+# Install the portfolio_toolkit library
+cd portfolio-analysis
+pip install -e .
 
-# Optional: For PDF reports and advanced visualizations
-pip install plotly reportlab jinja2 squarify
+# This installs core dependencies: pandas, numpy, matplotlib, seaborn, scipy
+
+# Optional: Install extras
+pip install -e ".[data]"      # Add yfinance for price data
+pip install -e ".[reports]"   # Add jinja2, reportlab for reports
+pip install -e ".[full]"      # Install all optional dependencies
 ```
 
-### Basic Usage
+### Two Ways to Use
 
-**Load and analyze a portfolio:**
+#### Option A: Beginner (Agent-Assisted)
 
-```
-@portfolio-data-engineer Load my portfolio from portfolio.csv and validate the data
-```
-
-**Calculate performance metrics:**
+Talk to the `portfolio-code-writer` agent to generate complete scripts:
 
 ```
-@portfolio-analyst Calculate Sharpe ratio, max drawdown, and CAGR for my portfolio
+@portfolio-code-writer Analyze my portfolio in portfolio.csv. 
+Calculate performance metrics, assess risk, and create visualizations.
 ```
 
-**Assess risk:**
+You'll receive a complete, executable Python script with error handling and usage instructions.
 
-```
-@portfolio-risk-assessor Calculate 95% VaR and run Monte Carlo simulation
-```
+#### Option B: Advanced (Direct Library Usage)
 
-**Create visualizations:**
+Import `portfolio_toolkit` modules and write your own code:
 
-```
-@portfolio-visualizer Create a performance dashboard with returns, drawdown, and rolling Sharpe
-```
+```python
+from portfolio_toolkit import data, metrics, risk, viz, reports
 
-**Generate report:**
+# Load data
+portfolio = data.load_portfolio_csv('portfolio.csv')
+prices = data.fetch_price_history(symbols, '2023-01-01', '2024-12-31')
 
-```
-@portfolio-report-generator Create a PDF report with all metrics and charts
+# Calculate metrics
+returns = metrics.calculate_returns(prices)
+stats = metrics.calculate_portfolio_statistics(returns)
+
+# Risk assessment
+var_95 = risk.calculate_var(returns, 0.95)
+mc_results = risk.monte_carlo_simulation(returns)
+
+# Visualizations
+fig = viz.plot_cumulative_returns(returns)
+viz.save_figure(fig, 'performance.png')
+
+# Generate report
+reports.generate_html_report(stats, {'performance': 'performance.png'})
 ```
 
 ---
 
-## 📊 What This Agent Group Does
+---
 
-This agent group generates Python code for comprehensive portfolio analysis:
+## 📊 What This System Provides
 
-- **Data Loading**: Import portfolio data from CSV/Excel/JSON, fetch historical prices from APIs
-- **Performance Metrics**: Returns, volatility, Sharpe ratio, Sortino ratio, CAGR, max drawdown
-- **Risk Assessment**: VaR, CVaR, Monte Carlo simulation, stress testing
-- **Benchmark Comparison**: Alpha, beta, tracking error, correlation analysis
-- **Visualizations**: Performance charts, allocation breakdowns, risk heatmaps
-- **Report Generation**: Professional PDF/HTML reports with all metrics and charts
+### portfolio_toolkit Library (NEW in v2.0.0)
 
-All code is:
-- ✅ Production-ready with error handling
-- ✅ Well-documented with docstrings and type hints
-- ✅ PEP 8 compliant
-- ✅ Performance-optimized for large portfolios
-- ✅ Critically reviewed for assumptions and blind spots
+A comprehensive Python library with five modules:
+
+**1. data module** - Data loading and cleaning
+- `load_portfolio_csv()`, `load_portfolio_excel()`
+- `fetch_price_history()` - Historical prices from yfinance
+- `clean_portfolio_data()`, `validate_portfolio_data()`
+- `merge_portfolio_with_prices()`
+
+**2. metrics module** - Financial calculations
+- `calculate_returns()`, `calculate_cagr()`, `calculate_volatility()`
+- `calculate_sharpe_ratio()`, `calculate_sortino_ratio()`, `calculate_calmar_ratio()`
+- `calculate_max_drawdown()`, `calculate_alpha_beta()`
+- `calculate_portfolio_statistics()` - All metrics at once
+
+**3. risk module** - Risk assessment
+- `calculate_var()`, `calculate_cvar()` - Value at Risk
+- `monte_carlo_simulation()` - Future value distributions
+- `stress_test()` - Historical scenario analysis
+- `calculate_correlation_matrix()`, `calculate_risk_metrics()`
+
+**4. viz module** - Visualizations
+- `plot_cumulative_returns()`, `plot_drawdown()`, `plot_rolling_metric()`
+- `plot_return_distribution()`, `plot_correlation_heatmap()`
+- `plot_allocation_pie()`, `plot_performance_dashboard()`
+
+**5. reports module** - Report generation
+- `generate_html_report()`, `generate_markdown_report()`
+- `export_metrics_to_excel()`
+
+All library functions are:
+- ✅ Tested and documented with docstrings
+- ✅ Type-hinted for IDE autocomplete
+- ✅ Vectorized for performance
+- ✅ Error-handling built-in
+- ✅ Industry-standard formulas
 
 ---
 
-## 🤖 The Seven Agents
+## 🤖 The Three Agents
 
-### 1. Portfolio Data Engineer
+### 1. Portfolio Code Writer (NEW in v2.0.0)
 **Model**: Claude Sonnet 4.5  
-**Purpose**: Load and validate portfolio data
+**Purpose**: Generate complete portfolio analysis scripts using portfolio_toolkit library
 
 **Use for**:
-- Loading CSV, Excel, JSON files
-- Fetching historical prices (Yahoo Finance, Alpha Vantage)
-- Data validation and cleaning
-- Handling missing values
+- Generating complete, executable Python scripts
+- Customizing analysis workflows to your needs
+- Chaining data → metrics → risk → visualization → reports
 
 **Example**:
 ```
-@portfolio-data-engineer I have holdings.csv with columns: Date, Ticker, Shares. 
-Load it and fetch historical prices from Yahoo Finance.
+@portfolio-code-writer Generate a script to analyze portfolio.csv, 
+calculate all metrics, assess risk with VaR and Monte Carlo, 
+create visualizations, and generate an HTML report.
 ```
+
+**What you receive**: A complete Python script that:
+- Imports portfolio_toolkit modules
+- Handles errors gracefully
+- Includes usage instructions
+- Is immediately executable
 
 ---
 
-### 2. Portfolio Analyst
+### 2. Code Quality Reviewer
 **Model**: Claude Sonnet 4.5  
-**Purpose**: Calculate financial metrics
-
-**Use for**:
-- Returns and volatility calculations
-- Sharpe, Sortino, Calmar ratios
-- Benchmark comparisons (alpha, beta)
-- Rolling window analysis
-
-**Example**:
-```
-@portfolio-analyst Calculate comprehensive metrics for my portfolio 
-and compare to S&P 500 benchmark.
-```
-
----
-
-### 3. Portfolio Risk Assessor
-**Model**: Claude Sonnet 4.5  
-**Purpose**: Risk assessment and scenario analysis
-
-**Use for**:
-- Value at Risk (VaR) and CVaR
-- Monte Carlo simulations
-- Stress testing (2008 crisis, COVID crash)
-- Correlation and concentration risk
-
-**Example**:
-```
-@portfolio-risk-assessor Calculate 95% VaR, run 10,000-path Monte Carlo simulation, 
-and stress test against the 2008 financial crisis.
-```
-
----
-
-### 4. Portfolio Visualizer
-**Model**: Claude Haiku 4.5  
-**Purpose**: Create charts and visualizations
-
-**Use for**:
-- Performance dashboards
-- Allocation pie charts and treemaps
-- Correlation heatmaps
-- Distribution plots and drawdown charts
-
-**Example**:
-```
-@portfolio-visualizer Create a 3-panel dashboard showing cumulative returns, 
-drawdown, and rolling 60-day Sharpe ratio.
-```
-
----
-
-### 5. Portfolio Report Generator
-**Model**: Claude Haiku 4.5  
-**Purpose**: Assemble professional reports
-
-**Use for**:
-- PDF report generation
-- HTML reports with embedded charts
-- Jupyter notebook creation
-- Executive summaries
-
-**Example**:
-```
-@portfolio-report-generator Generate a PDF report with all metrics, 
-charts, and professional formatting.
-```
-
----
-
-### 6. Code Quality Reviewer
-**Model**: Claude Sonnet 4.5  
-**Purpose**: Review code quality
+**Purpose**: Review generated scripts for quality and best practices
 
 **Use for**:
 - PEP 8 compliance checking
+- Error handling validation
 - Performance optimization suggestions
-- Error handling review
-- Testing recommendations
 
 **Example**:
 ```
-@code-quality-reviewer Review this portfolio analysis code for quality 
-and best practices.
+@code-quality-reviewer Review this portfolio analysis script for best practices
 ```
 
 ---
 
-### 7. Devil's Advocate (MANDATORY)
+### 3. Devil's Advocate (MANDATORY)
 **Model**: Claude Sonnet 4.5  
 **Purpose**: Critical review and assumption challenging
 
@@ -203,39 +174,42 @@ and best practices.
 
 ## 📋 Complete Workflow Example
 
-**User Goal**: Analyze portfolio from CSV file to final PDF report
+### v2.0.0 Workflow (Agent-Assisted)
 
-**Step 1**: Load data
-```
-@portfolio-data-engineer Load my_portfolio.csv and fetch historical prices for all symbols
-```
+**User Goal**: Analyze portfolio from CSV file to final HTML report
 
-**Step 2**: Calculate metrics
+**Step 1**: Generate complete script
 ```
-@portfolio-analyst Calculate returns, Sharpe ratio, max drawdown, and compare to SPY benchmark
-```
-
-**Step 3**: Assess risk
-```
-@portfolio-risk-assessor Calculate VaR, CVaR, and run Monte Carlo simulation for 1 year
+@portfolio-code-writer I have my_portfolio.csv with columns: date, symbol, shares, price.
+Analyze performance, calculate risk metrics (VaR, Monte Carlo), create charts, 
+and generate an HTML report. Compare against S&P 500.
 ```
 
-**Step 4**: Create visualizations
+**Step 2**: Code review (automatic)
 ```
-@portfolio-visualizer Create performance dashboard, allocation chart, and correlation heatmap
-```
-
-**Step 5**: Generate report
-```
-@portfolio-report-generator Assemble all metrics and charts into a professional PDF report
+@code-quality-reviewer reviews generated script for best practices
 ```
 
-**Step 6**: Critical review (automatic)
+**Step 3**: Critical review (automatic)
 ```
-Devil's Advocate reviews all code, challenges assumptions, identifies blind spots
+@devils-advocate challenges assumptions, identifies edge cases, documents limitations
 ```
 
-**Result**: Complete, production-ready Python code with documented limitations
+**Result**: Complete, executable Python script with:
+- Data loading and validation
+- Performance metrics calculation
+- Risk assessment (VaR, CVaR, Monte Carlo)
+- Benchmark comparison
+- Visualizations (returns, drawdown, distributions)
+- HTML report generation
+- Error handling and usage instructions
+- Documented assumptions and limitations
+
+**Benefits over v1.0.0**:
+- ⚡ **3 steps instead of 8** (single code generation handoff)
+- 🎯 **Single script** instead of scattered code snippets
+- 📚 **Uses tested library** functions instead of generated formulas
+- 🐛 **Easier debugging** (library functions are tested)
 
 ---
 
@@ -269,56 +243,91 @@ date,symbol,shares,cost_basis
 ### Use Case 1: Personal Portfolio Tracking
 "I want to track my investment portfolio performance over time."
 
-**Agents**: Data Engineer → Analyst → Visualizer  
-**Output**: Performance charts and key metrics
+**v2.0.0 Approach**:
+```
+@portfolio-code-writer Generate a script to analyze portfolio.csv, 
+calculate returns and Sharpe ratio, and create a performance chart.
+```
+
+**Output**: Python script with data loading, metrics, and visualization
 
 ---
 
 ### Use Case 2: Risk Assessment
 "I need to understand my portfolio's risk exposure."
 
-**Agents**: Data Engineer → Analyst → Risk Assessor → Visualizer  
-**Output**: VaR, CVaR, stress test results, risk distributions
+**v2.0.0 Approach**:
+```
+@portfolio-code-writer Calculate 95% VaR, run Monte Carlo simulation, 
+perform stress testing, and create risk distribution charts.
+```
+
+**Output**: Python script with comprehensive risk assessment
 
 ---
 
 ### Use Case 3: Client Reporting
 "I need professional reports for my clients."
 
-**Agents**: Full workflow (all 7 agents)  
-**Output**: PDF report with metrics, charts, disclaimers
+**v2.0.0 Approach**:
+```
+@portfolio-code-writer Generate a complete analysis with all metrics, 
+risk assessment, visualizations, and HTML report.
+```
+
+**Output**: Python script that generates professional HTML report
 
 ---
 
-### Use Case 4: Investment Strategy Backtesting
-"I want to test how my strategy would have performed."
+### Use Case 4: Advanced Custom Analysis
+"I want full control over my analysis."
 
-**Agents**: Data Engineer → Analyst → Risk Assessor → Visualizer  
-**Output**: Historical performance analysis with risk metrics
+**v2.0.0 Approach** (Direct library usage):
+```python
+from portfolio_toolkit import data, metrics, risk, viz
+
+# Write your own custom analysis code
+# Full access to all library functions
+```
+
+**Output**: Your own Python code with portfolio_toolkit imported
 
 ---
 
 ## ⚙️ Installation
 
-### Option 1: Drop into Existing Repository
+### Option 1: Install as Library (Recommended)
 
 ```bash
-# Copy the portfolio-analysis folder to your repo
-cp -r portfolio-analysis /path/to/your/repo/
-
-# Install dependencies
-pip install -r requirements.txt
+cd portfolio-analysis
+pip install -e .  # Installs portfolio_toolkit in development mode
 ```
 
-### Option 2: Use as Standalone
+This automatically installs core dependencies:
+- pandas, numpy, matplotlib, seaborn, scipy
+
+### Option 2: Install with Optional Features
 
 ```bash
-# Clone repository
-git clone <repo-url>
-cd agents/portfolio-analysis
+# For data fetching (yfinance)
+pip install -e ".[data]"
 
-# Install dependencies
-pip install pandas numpy matplotlib seaborn yfinance scipy
+# For report generation (jinja2, reportlab)
+pip install -e ".[reports]"
+
+# All features
+pip install -e ".[full]"
+```
+
+### Option 3: Drop into Existing Repository
+
+```bash
+# Copy portfolio-analysis folder to your repo
+cp -r portfolio-analysis /path/to/your/repo/
+
+# Install the library
+cd /path/to/your/repo/portfolio-analysis
+pip install -e .
 ```
 
 ---
@@ -408,9 +417,51 @@ This is a portable agent group. To improve it:
 
 ---
 
+## 🔄 Migration from v1.0.0
+
+If you used v1.0.0 agents (@portfolio-data-engineer, @portfolio-analyst, etc.):
+
+### What Changed
+
+**v1.0.0**: 5 agents generated code snippets → sequential handoffs → scattered code  
+**v2.0.0**: 1 agent + library → single script → tested functions
+
+### Migration Options
+
+**Option A: Regenerate Scripts**
+- Use @portfolio-code-writer to generate new scripts using portfolio_toolkit
+- Fastest migration path
+
+**Option B: Refactor Existing Code**
+```python
+# Old (v1.0.0 - inline functions)
+def calculate_sharpe_ratio(returns, rf_rate=0.02):
+    excess_returns = returns - rf_rate/252
+    return np.sqrt(252) * excess_returns.mean() / returns.std()
+
+# New (v2.0.0 - import from library)
+from portfolio_toolkit.metrics import calculate_sharpe_ratio
+sharpe = calculate_sharpe_ratio(returns, risk_free_rate=0.02)
+```
+
+**Option C: Keep Using v1.0.0 Code**
+- Your existing v1.0.0 generated code still works (no forced migration)
+- v1.0.0 agent definitions archived in `archive/v1/` for reference
+
+**Migration Benefits**:
+- ✅ Tested library functions (no formula bugs)
+- ✅ Consistent code across all analyses
+- ✅ Faster development (1 handoff vs 5)
+- ✅ Easy updates (change library, not agents)
+
+See `CHANGELOG.md` for complete migration guide.
+
+---
+
 ## 📝 Version History
 
-- **1.0.0** (2025-12-15) - Initial release with 7 agents: Data Engineer, Analyst, Risk Assessor, Visualizer, Report Generator, Code Quality Reviewer, and Devil's Advocate
+- **2.0.0** (2025-12-16) - **BREAKING CHANGE**: Architecture redesign - replaced 5 code-generation agents with 1 unified agent + portfolio_toolkit library. Workflow simplified from 8 handoffs to 3. Library-first approach with agent assistance. See CHANGELOG.md for migration guide.
+- **1.0.0** (2024-12-15) - Initial release with 7 agents: Data Engineer, Analyst, Risk Assessor, Visualizer, Report Generator, Code Quality Reviewer, and Devil's Advocate
 
 ---
 
@@ -435,8 +486,15 @@ Built using GitHub Copilot agent best practices and the portable agent group pat
 
 ---
 
-**Ready to analyze your portfolio?** Start with:
+**Ready to analyze your portfolio?**
 
+**Beginner**: Start with the agent:
 ```
-@portfolio-data-engineer Load my portfolio data and let's begin!
+@portfolio-code-writer Analyze my portfolio in portfolio.csv and create a complete report!
+```
+
+**Advanced**: Use the library directly:
+```python
+from portfolio_toolkit import data, metrics, risk, viz, reports
+# Write your own analysis code
 ```
