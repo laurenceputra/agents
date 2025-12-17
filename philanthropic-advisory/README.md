@@ -2,26 +2,40 @@
 
 Comprehensive philanthropic advisory services for Singapore-focused giving with quantitative impact analysis, strategic portfolio alignment, and risk-opportunity assessment.
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](./CHANGELOG.md)
 [![Model](https://img.shields.io/badge/model-Claude%20Sonnet%204.5-purple.svg)](https://www.anthropic.com/claude)
 
 ## Overview
 
-This agent group helps philanthropists make data-driven funding decisions for initiatives targeting at-risk communities in Singapore (families in crisis, children from lower-income families). Five coordinated agents provide comprehensive analysis from impact evaluation through strategic recommendation with mandatory critical review.
+This agent group helps philanthropists make data-driven funding decisions for initiatives targeting at-risk communities in Singapore (families in crisis, children from lower-income families). Six coordinated agents provide comprehensive analysis from framework definition through impact evaluation to strategic recommendation with mandatory critical review.
 
 ## Quick Start
 
-**I have a program to evaluate:**
+**I need to define my giving principles first:**
+1. Start with `@principles-framework-definer`
+2. Answer 8 foundational questions about values, beneficiaries, theory of change, decision criteria
+3. Receive comprehensive framework document with explicit criteria
+4. Then evaluate specific programs against your framework
+
+**I have a program to evaluate (with existing framework):**
 1. Submit program details to `@impact-evaluator`
-2. Workflow runs automatically through all five agents
+2. Workflow runs automatically through evaluation agents
 3. Receive comprehensive recommendation with all perspectives
 
-**I need a funding decision:**
-1. Run full workflow (impact → portfolio → risk → synthesis → devils-advocate)
-2. Review integrated recommendation with critical challenges documented
-3. Make informed decision with complete picture
+**I have a program to evaluate (no framework yet):**
+1. Start with `@principles-framework-definer` to establish criteria first
+2. Then submit program to `@impact-evaluator` (uses your framework criteria)
+3. Receive recommendation aligned with your explicit values and thresholds
 
-## The Five Agents
+## The Six Agents
+
+### 0. Principles & Framework Definer (OPTIONAL - Run First)
+**Define giving principles and decision framework before evaluating programs**
+- Guides through 8 foundational question areas (values, beneficiaries, theory of change, criteria)
+- Produces framework document with quantitative thresholds (SROI, mission alignment)
+- Operates standalone or integrates with evaluation workflow
+- Ensures consistent, values-aligned decisions
+- Can operate independently or hand off to impact evaluation
 
 ### 1. Impact Evaluator
 **Quantitative impact analysis using SROI, CEA, and trajectory uplift**
