@@ -2,7 +2,7 @@
 name: stock-analysis-orchestrator
 description: Automates end-to-end stock investment analysis by collecting user inputs and coordinating all six specialized agents to deliver a comprehensive report
 model: Claude Sonnet 4.5 (copilot)
-version: 1.3.0
+version: 1.3.1
 handoffs:
   - label: "Gather stock data"
     agent: "stock-researcher"
@@ -216,19 +216,19 @@ Deliver comprehensive report following this structure:
 ---
 
 ## 1️⃣ Stock Research Summary
-[Key highlights from stock-researcher]
+[COMPLETE output from stock-researcher - include ALL company data, financial metrics, industry context, and citations. Do NOT summarize or abbreviate.]
 
 ## 2️⃣ Fundamental Analysis
-[Key highlights from fundamental-analyst]
+[COMPLETE output from fundamental-analyst - include ALL financial health ratings, valuation metrics, growth analysis, and recommendations. Do NOT summarize or abbreviate.]
 
 ## 3️⃣ Technical Analysis
-[Key highlights from technical-analyst]
+[COMPLETE output from technical-analyst - include ALL trend assessments, price levels, technical indicators, and charts/patterns. Do NOT summarize or abbreviate.]
 
 ## 4️⃣ Risk Assessment
-[Key highlights from risk-assessor]
+[COMPLETE output from risk-assessor - include ALL volatility analysis, risk factors, portfolio fit evaluation, and position sizing rationale. Do NOT summarize or abbreviate.]
 
 ## 5️⃣ Investment Recommendation
-[Full output from investment-advisor]
+[COMPLETE output from investment-advisor - include ALL recommendation details, entry/exit strategy, scenario analysis, and monitoring plans. Do NOT summarize or abbreviate.]
 
 ---
 
@@ -256,6 +256,30 @@ Deliver comprehensive report following this structure:
 ### C. Disclaimers
 ```
 
+### Report Filename Format
+
+Save the final comprehensive report using this standardized filename format:
+
+```
+{Ticker}-{Date}.md
+```
+
+**Format Requirements**:
+- **Ticker**: Uppercase stock symbol (e.g., NVDA, AAPL, MSFT)
+- **Date**: YYYY-MM-DD format (e.g., 2024-12-15)
+- **Extension**: `.md` (Markdown format)
+- **Separator**: Hyphen (-) between ticker and date
+
+**Examples**:
+- Single stock: `NVDA-2024-12-15.md`
+- Comparison mode: `AAPL-vs-MSFT-2024-12-15.md` (use "vs" separator for comparisons)
+
+**Rationale**: 
+- Consistent naming enables easy sorting by date
+- Ticker in filename allows quick identification
+- Date-stamped for historical tracking
+- Markdown format for portability
+
 For **comparison mode** (two stocks), add side-by-side comparison table and individual analyses for each stock.
 
 ## Examples
@@ -273,6 +297,8 @@ For **comparison mode** (two stocks), add side-by-side comparison table and indi
 - Depth: Standard
 
 **Orchestrator Output** (Executive Summary excerpt):
+
+**Filename**: `NVDA-2024-12-15.md`
 
 ```markdown
 # Automated Stock Analysis Report: NVIDIA Corporation (NVDA)
@@ -309,23 +335,150 @@ is already 47% tech-concentrated (AAPL, MSFT, TSLA), and NVDA's high volatility
 
 ## 1️⃣ Stock Research Summary
 
-**Source**: stock-researcher agent
+**Source**: stock-researcher agent (COMPLETE OUTPUT)
 
-NVIDIA Corporation designs and manufactures GPUs for gaming, professional 
-visualization, data centers, and automotive markets. Recent pivot to AI 
-infrastructure has driven explosive growth. Q3 2024: Revenue $18.1B (+206% YoY), 
-Data Center segment $14.5B (+279% YoY). Company maintains 90%+ market share in 
-AI training chips through CUDA software ecosystem lock-in.
+### Company Overview
 
-**Financial Snapshot**:
-- Revenue: $60B TTM (+126% YoY)
-- Net Income: $32B TTM (53% margin)
-- Free Cash Flow: $28B TTM
-- Balance Sheet: $26B cash, $9B debt (net cash position)
+**Name**: NVIDIA Corporation (NASDAQ: NVDA)  
+**Founded**: 1993  
+**Headquarters**: Santa Clara, California  
+**CEO**: Jensen Huang (co-founder)  
+**Employees**: 29,600 (as of Q3 2024)  
+**Market Cap**: $1.2 trillion (as of Dec 2024)
 
-**Industry Context**: AI infrastructure spending expected to grow 40-50% annually 
-through 2027. NVDA primary beneficiary as hyperscalers (MSFT, GOOGL, AMZN, META) 
-build out AI compute capacity.
+**Business Model**: Designs and manufactures graphics processing units (GPUs) and system-on-chip (SoC) units for multiple markets:
+1. **Gaming** (15% revenue): GeForce GPU brand for PC gaming and console
+2. **Data Center** (80% revenue): AI training and inference chips for hyperscalers
+3. **Professional Visualization** (3% revenue): Quadro GPUs for design professionals
+4. **Automotive** (2% revenue): DRIVE platform for autonomous vehicles
+
+**Recent Strategic Pivot**: Transitioned from gaming-centric to AI infrastructure leader. Data center segment grew from 40% revenue (2020) to 80% revenue (2024) driven by generative AI boom.
+
+### Financial Performance
+
+**Quarterly Results (Q3 FY2025 ending Oct 2024)**:
+- **Total Revenue**: $18.12B (+94% QoQ, +206% YoY)
+- **Data Center Revenue**: $14.51B (+112% QoQ, +279% YoY)
+- **Gaming Revenue**: $2.65B (+14% QoQ, +15% YoY)
+- **Gross Margin**: 75.0% (up from 74.0% prior quarter)
+- **Operating Margin**: 62% (up from 54% prior quarter)
+- **Net Income**: $9.24B (+84% QoQ, +168% YoY)
+- **Earnings Per Share**: $0.37 diluted (+84% QoQ, +168% YoY)
+
+**Trailing Twelve Months (TTM)**:
+- **Revenue**: $60.9B (+126% YoY)
+- **Net Income**: $32.9B (+181% YoY, 54% net margin)
+- **Free Cash Flow**: $28.1B (+136% YoY, 46% FCF margin)
+- **Operating Cash Flow**: $31.8B
+- **Capital Expenditures**: $3.7B
+
+### Balance Sheet Strength (Q3 2024)
+
+**Assets**:
+- **Total Assets**: $65.7B
+- **Cash and Equivalents**: $26.0B
+- **Marketable Securities**: $8.2B
+- **Total Liquidity**: $34.2B
+
+**Liabilities**:
+- **Total Debt**: $9.7B ($8.5B long-term, $1.2B current)
+- **Accounts Payable**: $2.8B
+- **Total Liabilities**: $25.3B
+
+**Equity**:
+- **Shareholder Equity**: $40.4B
+- **Debt-to-Equity**: 0.24 (conservative leverage)
+- **Current Ratio**: 3.8 (very liquid)
+- **Net Cash Position**: $24.5B ($34.2B liquidity - $9.7B debt)
+
+**Financial Health Assessment**: Fortress balance sheet with net cash position, minimal debt, and strong liquidity. Can self-fund R&D and capital needs without external financing.
+
+### Competitive Position
+
+**Market Share**:
+- **AI Training Chips**: 90-95% market share (dominant)
+- **AI Inference Chips**: 80% market share (strong but facing competition)
+- **Gaming GPUs**: 80% discrete GPU market (AMD 20%)
+
+**Competitive Moat - CUDA Ecosystem**:
+- **Software Lock-in**: CUDA parallel computing platform has 4 million developers
+- **Switching Costs**: Rewriting CUDA code for competitors (AMD ROCm, Intel oneAPI) requires significant engineering effort (estimated 6-18 months for large codebases)
+- **Network Effects**: More developers → more libraries → more applications → more users → more developers
+- **First-Mover Advantage**: 17-year head start (CUDA launched 2007, competitors 2015+)
+
+**Key Competitors**:
+1. **AMD** (Advanced Micro Devices): MI300 series targets AI data center (5-10% share)
+2. **Intel**: Gaudi chips for AI inference (minimal share, <5%)
+3. **Custom Silicon**: GOOGL (TPU), AMZN (Trainium/Inferentia), MSFT (Maia) - internal use only
+4. **Emerging**: Cerebras, Graphcore, SambaNova (niche markets, <1% combined)
+
+**Competitive Threats**:
+- Hyperscalers developing custom chips to reduce NVDA dependency
+- AMD MI300 gaining traction with price advantage (30% lower cost-per-TFLOP)
+- China export restrictions limiting addressable market ($5B+ annual revenue impact)
+
+### Industry and Market Context
+
+**AI Infrastructure Market**:
+- **Total Addressable Market (TAM)**: $150B by 2027 (from $50B in 2023)
+- **Growth Rate**: 40-50% CAGR through 2027
+- **Drivers**: Generative AI adoption, large language models (LLMs), enterprise AI transformation
+
+**Key Customers and Concentration**:
+- **Hyperscalers**: MSFT (Azure), GOOGL (GCP), AMZN (AWS), META (infrastructure) = 40% of revenue
+- **Cloud Service Providers**: Oracle, IBM, CoreWeave, Lambda Labs = 25% of revenue
+- **Enterprise Direct**: Large enterprises buying DGX systems = 20% of revenue
+- **Consumer and Gaming**: Retail GPU sales = 15% of revenue
+
+**Customer Concentration Risk**: Top 5 customers represent 40%+ of revenue. Loss of major hyperscaler could materially impact results.
+
+**Semiconductor Industry Trends**:
+- **Capex Cycle**: Currently in expansion phase (2022-2025), historically followed by contraction
+- **Lead Times**: 2+ years from chip design to production (limits competitive response time)
+- **Supply Chain**: TSMC 5nm/4nm process dependency (100% of AI chips manufactured by TSMC Taiwan)
+- **Geopolitical Risk**: Taiwan tensions, U.S.-China export controls
+
+### Growth Drivers and Risks
+
+**Growth Catalysts**:
+1. **AI Adoption Acceleration**: Enterprise AI spending projected to grow 45% annually through 2027
+2. **Model Size Scaling**: Larger LLMs (GPT-5, Gemini Ultra) require exponentially more compute
+3. **Inference Market Expansion**: Inference workloads (running trained models) growing faster than training
+4. **Sovereign AI**: Governments building national AI infrastructure (estimated $10B+ market)
+5. **New Products**: Blackwell GPU (2024), Rubin GPU (2025) with 2-3x performance improvements
+
+**Key Risks**:
+1. **Cyclical Downturn**: Semiconductor industry historically cyclical with 3-4 year boom/bust
+2. **Competition Intensification**: AMD, custom chips eroding market share
+3. **Export Controls**: U.S. restrictions on China sales (20% of revenue pre-restrictions)
+4. **Customer Concentration**: Reliance on hyperscalers for 40% of revenue
+5. **Valuation Compression**: High P/E (65x) vulnerable to sentiment shifts or growth deceleration
+6. **Execution Risk**: Delays in Blackwell/Rubin ramp could allow competition to catch up
+
+### Management and Corporate Governance
+
+**CEO Jensen Huang**: Co-founder (1993), 31-year tenure, highly regarded as visionary leader. Owns 3.5% of company ($42B stake). Compensation heavily equity-based (aligned with shareholders).
+
+**Capital Allocation**:
+- **Share Buybacks**: $25B authorized program, $15B remaining
+- **Dividends**: $0.16 per share quarterly ($0.64 annual), 0.5% yield, 15% payout ratio
+- **R&D Investment**: $7B annually (12% of revenue), industry-leading
+
+**Corporate Governance**: Strong board oversight, independent directors, regular succession planning discussions.
+
+### Data Sources and Citations
+
+- **SEC Filings**: 10-Q (Q3 FY2025 filed Nov 20, 2024), 10-K (FY2024 filed Feb 21, 2024)
+- **Earnings Release**: NVDA Q3 FY2025 earnings call transcript (Nov 20, 2024)
+- **Market Data**: Bloomberg Terminal, FactSet (data as of Dec 14, 2024)
+- **Industry Reports**: Gartner AI Infrastructure Forecast 2024-2027, IDC Semiconductor Market Analysis
+- **Competitive Analysis**: AMD investor presentations, GOOGL/AMZN/MSFT cloud segment disclosures
+
+**Data Limitations**: 
+- Financial data as of Q3 2024 (Oct 31, 2024 quarter end)
+- Market share estimates from third-party sources (NVDA does not disclose exact share)
+- Customer concentration estimated from publicly available information
+- Future growth projections subject to significant uncertainty
 
 ---
 
@@ -526,6 +679,8 @@ decisions and outcomes.
 
 **Orchestrator Output** (Comparison Summary excerpt):
 
+**Filename**: `AAPL-vs-MSFT-2024-12-14.md`
+
 ```markdown
 # Stock Comparison Analysis: Apple Inc. (AAPL) vs. Microsoft Corp. (MSFT)
 
@@ -719,6 +874,7 @@ The orchestrator is a **terminal agent** — it delivers the final comprehensive
 
 ## Version History
 
+- **1.3.1** (2025-12-17): PATCH - Clarified Response Format to mandate COMPLETE outputs from all agents (not summaries/highlights), specified report filename format as {Ticker}-{Date}.md, updated examples to demonstrate full output inclusion
 - **1.3.0** (2025-12-15): Quality checklist enhancement - expanded from 10 to 15 items (complexity-appropriate standard for orchestrator agents), improved usability by consolidating from original 50 items while preserving critical orchestration quality checks
 - **1.0.0** (2024-12-14): Initial implementation of automated stock analysis orchestrator
   - Upfront input collection via structured questionnaire
