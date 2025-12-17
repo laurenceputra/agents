@@ -48,3 +48,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Social Media Coordinator**: Cross-platform campaign coordination and consistency management
 - **Devil's Advocate**: Critical review and assumption challenging for all social media strategies
 - Group infrastructure: copilot-instructions.md with workflow diagrams, README.md with usage guide
+
+## 1.0.1 - 2025-12-17
+
+### Added
+- **Writing Style Guidelines**: All agents now include comprehensive writing style guidelines to ensure natural, human-like output
+  - Added 9 core principles for natural writing (varied sentence structures, direct language, active voice, natural transitions, etc.)
+  - Principle 9 specifically addresses AI-typical punctuation (avoid em-dashes, limit semicolons/colons)
+  - Guidelines positioned after Domain Context section in all agent files
+  - Ensures all agent outputs avoid robotic, AI-detectable patterns
+  - **Context**: Aligns all agent groups with meta-agent system v1.6.1/1.7.1 standards for human-like communication
+  - **Migration**: No breaking changes. Existing usage patterns remain valid. Agents will now produce more natural-sounding output.
+
+### Changed
+- **Version Numbers**: All agents bumped to next patch version
+  - social-media-coordinator: now v1.0.1
+  - facebook-specialist: now v1.0.1
+  - instagram-specialist: now v1.0.1
+  - linkedin-specialist: now v1.0.1
+  - devils-advocate: now v1.0.1
+  - **Context**: Patch version increment reflects non-breaking enhancement (documentation/quality improvement)
+

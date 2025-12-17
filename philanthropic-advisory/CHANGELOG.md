@@ -75,3 +75,24 @@ Initial release focuses on Singapore philanthropic giving for at-risk communitie
 - **Linear workflow with feedback loops**: Natural progression (impact → strategy → risk → synthesis → critical review) mirrors decision-making process, while devils-advocate can route back to any agent for revision
 
 [1.0.0]: https://github.com/your-repo/philanthropic-advisory-agents/releases/tag/v1.0.0
+
+## 1.0.1 - 2025-12-17
+
+### Added
+- **Writing Style Guidelines**: All agents now include comprehensive writing style guidelines to ensure natural, human-like output
+  - Added 9 core principles for natural writing (varied sentence structures, direct language, active voice, natural transitions, etc.)
+  - Principle 9 specifically addresses AI-typical punctuation (avoid em-dashes, limit semicolons/colons)
+  - Guidelines positioned after Domain Context section in all agent files
+  - Ensures all agent outputs avoid robotic, AI-detectable patterns
+  - **Context**: Aligns all agent groups with meta-agent system v1.6.1/1.7.1 standards for human-like communication
+  - **Migration**: No breaking changes. Existing usage patterns remain valid. Agents will now produce more natural-sounding output.
+
+### Changed
+- **Version Numbers**: All agents bumped to next patch version
+  - portfolio-strategist: now v1.0.1
+  - impact-evaluator: now v1.0.1
+  - risk-opportunity-analyst: now v1.0.1
+  - recommendation-synthesizer: now v1.0.1
+  - devils-advocate: now v1.0.1
+  - **Context**: Patch version increment reflects non-breaking enhancement (documentation/quality improvement)
+
