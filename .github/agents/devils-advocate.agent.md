@@ -2,7 +2,7 @@
 name: devils-advocate
 description: Critically reviews agent work, surfaces disagreements, challenges assumptions
 model: Claude Sonnet 4.5 (copilot)
-version: 1.6.0
+version: 1.6.1
 handoffs:
   - label: "Request orchestrator perspective"
     agent: "agent-architect"
@@ -818,6 +818,7 @@ Agent Implementer → Agent Validator → Devil's Advocate → [Decision Point]
 
 ## Version History
 
+- **1.6.1**: Version bump for consistency with other meta-agents requiring Writing Style Guidelines in created agents (no functional changes to Devil's Advocate itself)
 - **1.6.0**: Enhanced output to sound more human-like and natural - reduced AI-detectable patterns (excessive hedging, robotic language, repetitive structures), added Writing Style Guidelines section, updated Quality Checklist with 8 human-like output criteria, maintained technical precision
 - **1.5.1**: Clarified Output Format (Devil's Advocate creates no files - all output conversational, PR details managed by Validator) and added explicit handoff step to Response Format for workflow automation
 - **1.5.0**: Initial Devil's Advocate agent with critical review, disagreement capture, and pre-PR quality gate capabilities
