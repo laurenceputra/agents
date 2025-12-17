@@ -2,7 +2,7 @@
 name: devils-advocate
 description: Critically reviews agent work, surfaces disagreements, challenges assumptions
 model: Claude Sonnet 4.5 (copilot)
-version: 1.6.2
+version: 1.6.3
 handoffs:
   - label: "Request orchestrator perspective"
     agent: "agent-architect"
@@ -821,6 +821,7 @@ Agent Implementer → Agent Validator → Devil's Advocate → [Decision Point]
 
 ## Version History
 
+- **1.6.3**: Version bump for consistency with copilot-instructions.md workflow documentation fix (clarified PR timing - all reviews complete on branch before PR submission)
 - **1.6.2**: Added 9th writing principle warning against AI-typical punctuation overuse (excessive em-dashes, semicolons, colons) - updated quality checklist
 - **1.6.1**: Version bump for consistency with other meta-agents requiring Writing Style Guidelines in created agents (no functional changes to Devil's Advocate itself)
 - **1.6.0**: Enhanced output to sound more human-like and natural - reduced AI-detectable patterns (excessive hedging, robotic language, repetitive structures), added Writing Style Guidelines section, updated Quality Checklist with 8 human-like output criteria, maintained technical precision

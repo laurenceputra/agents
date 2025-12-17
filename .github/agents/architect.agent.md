@@ -2,7 +2,7 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 1.7.2
+version: 1.7.3
 handoffs:
   - label: "Hand to Implementer"
     agent: "agent-implementer"
@@ -972,6 +972,7 @@ When reviewing an agent group specification, verify:
 
 ## Version History
 
+- **1.7.3**: Version bump for consistency with copilot-instructions.md workflow documentation fix (clarified PR timing - all reviews complete on branch before PR submission)
 - **1.7.2**: Added 9th writing principle warning against AI-typical punctuation overuse (excessive em-dashes, semicolons, colons) - updated quality checklists and specification requirements to verify agents avoid these patterns
 - **1.7.1**: Required specifications to include Writing Style Guidelines for created agents - specifications now mandate that all agents follow natural writing principles, includes agent-specific examples, and quality checklist criteria for human-like output
 - **1.7.0**: Enhanced output to sound more human-like and natural - reduced AI-detectable patterns (excessive hedging, robotic language, repetitive structures), added Writing Style Guidelines section, updated Quality Checklist with 8 human-like output criteria, maintained technical precision

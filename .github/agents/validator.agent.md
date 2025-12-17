@@ -2,7 +2,7 @@
 name: agent-validator
 description: Reviews agent implementations for quality, completeness, and best practices
 model: Claude Sonnet 4.5 (copilot)
-version: 1.6.2
+version: 1.6.3
 handoffs:
   - label: "Return to Implementer"
     agent: "agent-implementer"
@@ -2204,6 +2204,7 @@ showing the new documentation step, but this is not blocking.
 
 ## Version History
 
+- **1.6.3**: Version bump for consistency with copilot-instructions.md workflow documentation fix (clarified PR timing - all reviews complete on branch before PR submission)
 - **1.6.2**: Added 9th writing principle warning against AI-typical punctuation overuse (excessive em-dashes, semicolons, colons) - updated quality checklists for individual agents and agent groups
 - **1.6.1**: Required validation of Writing Style Guidelines in created agents - quality checklist now verifies agents include Writing Style Guidelines section, agent-specific examples, and style criteria
 - **1.6.0**: Enhanced output to sound more human-like and natural - reduced AI-detectable patterns (excessive hedging, robotic language, repetitive structures), added Writing Style Guidelines section, updated Quality Checklist with 8 human-like output criteria, maintained technical precision
