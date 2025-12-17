@@ -2,18 +2,24 @@
 
 Comprehensive philanthropic advisory services for Singapore-focused giving with quantitative impact analysis, strategic portfolio alignment, and risk-opportunity assessment.
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](./CHANGELOG.md)
 [![Model](https://img.shields.io/badge/model-Claude%20Sonnet%204.5-purple.svg)](https://www.anthropic.com/claude)
 
 ## Overview
 
-This agent group helps philanthropists make data-driven funding decisions for initiatives targeting at-risk communities in Singapore (families in crisis, children from lower-income families). Five coordinated agents provide comprehensive analysis from impact evaluation through strategic recommendation with mandatory critical review.
+This agent group helps philanthropists make data-driven funding decisions for initiatives targeting at-risk communities in Singapore (families in crisis, children from lower-income families). Six coordinated agents provide comprehensive analysis from principles definition through impact evaluation to strategic recommendation with mandatory critical review.
 
 ## Quick Start
 
-**I have a program to evaluate:**
+**I'm new to philanthropy / need to define my principles:**
+1. Start with `@principles-framework-advisor` to define your values and framework
+2. Work through discovery questions to articulate priorities and constraints
+3. Receive Principles Framework Document as foundation for all future decisions
+4. Then proceed to evaluate specific programs
+
+**I have clear principles and a program to evaluate:**
 1. Submit program details to `@impact-evaluator`
-2. Workflow runs automatically through all five agents
+2. Workflow runs automatically through evaluation agents
 3. Receive comprehensive recommendation with all perspectives
 
 **I need a funding decision:**
@@ -21,7 +27,18 @@ This agent group helps philanthropists make data-driven funding decisions for in
 2. Review integrated recommendation with critical challenges documented
 3. Make informed decision with complete picture
 
-## The Five Agents
+## The Six Agents
+
+### 0. Principles Framework Advisor (OPTIONAL STARTING POINT)
+**Define your philanthropic principles before evaluating programs**
+- Facilitates structured discovery across 9 dimensions (motivation, beneficiaries, intervention strategy, impact measurement, portfolio strategy, risk tolerance, resources, decision-making, learning)
+- Asks 30 initial discovery questions to surface values and priorities
+- Creates comprehensive Principles Framework Document
+- Works with devils-advocate to refine and challenge stated principles
+- Provides foundation for all other agents (ROI expectations, decision criteria, risk tolerance)
+- **When to use**: Starting philanthropy, shifting strategy, or undefined principles
+
+### 1. Impact Evaluator
 
 ### 1. Impact Evaluator
 **Quantitative impact analysis using SROI, CEA, and trajectory uplift**
@@ -55,7 +72,7 @@ This agent group helps philanthropists make data-driven funding decisions for in
 - Proposes monitoring framework and exit strategy
 - Prepares executive summary for decision-makers
 
-### 5. Devil's Advocate (MANDATORY)
+### 6. Devil's Advocate (MANDATORY)
 **Critical review and assumption challenging**
 - Challenges SROI/CEA assumptions
 - Questions strategic fit claims
@@ -64,8 +81,17 @@ This agent group helps philanthropists make data-driven funding decisions for in
 - Identifies blind spots and alternative interpretations
 - **Final quality gate before decision**
 
-## Workflow
+## Workflows
 
+### Workflow 1: New Philanthropist (Principles First)
+```
+@principles-framework-advisor → Define Framework → @devils-advocate (review framework)
+  ↓
+Program → @impact-evaluator → @portfolio-strategist → @risk-opportunity-analyst 
+  → @recommendation-synthesizer → @devils-advocate (MANDATORY) → Decision
+```
+
+### Workflow 2: Experienced Philanthropist (Direct to Evaluation)
 ```
 Program → @impact-evaluator → @portfolio-strategist → @risk-opportunity-analyst 
   → @recommendation-synthesizer → @devils-advocate (MANDATORY) → Decision
@@ -207,6 +233,7 @@ These agents follow GitHub Copilot agent patterns and are provided as-is for phi
 
 ## Version History
 
+- **1.1.0** (2025-12-17): Added principles-framework-advisor agent for defining philanthropic principles before program evaluation. Supports two workflows: new philanthropists start with principles definition, experienced philanthropists proceed directly to evaluation.
 - **1.0.0** (2024-12-16): Initial release with five agents (impact-evaluator, portfolio-strategist, risk-opportunity-analyst, recommendation-synthesizer, devils-advocate)
 
 ---

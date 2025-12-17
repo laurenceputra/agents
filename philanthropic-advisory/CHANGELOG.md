@@ -96,3 +96,30 @@ Initial release focuses on Singapore philanthropic giving for at-risk communitie
   - devils-advocate: now v1.0.1
   - **Context**: Patch version increment reflects non-breaking enhancement (documentation/quality improvement)
 
+## [1.1.0] - 2025-12-17
+
+### Added
+- **Principles Framework Advisor Agent**: New foundational agent for defining philanthropic principles and strategic frameworks
+  - Structured discovery process with 30 initial questions across 9 thematic sections (motivation, beneficiaries, intervention strategy, impact measurement, portfolio strategy, risk tolerance, resources, decision-making, learning)
+  - Facilitates articulation of core values, target populations, ROI expectations, and decision criteria before evaluating specific programs
+  - Creates comprehensive Principles Framework Document that serves as reference for all other agents
+  - Integrates with devils-advocate for critical review and refinement of stated principles
+  - Provides foundation for impact-evaluator (ROI benchmarks), portfolio-strategist (strategic priorities), risk-opportunity-analyst (risk tolerance), and recommendation-synthesizer (decision criteria)
+  - **Context**: Fills critical gap for philanthropists who need to define their values and framework before evaluating programs. Previously, workflow assumed principles were already established.
+  - **Migration**: Existing workflow remains valid (can start with impact-evaluator). New optional workflow: start with principles-framework-advisor to establish foundation, then proceed to impact evaluation.
+
+### Changed
+- **Workflow**: Updated to support two entry points
+  - **New philanthropists / undefined principles**: Start with @principles-framework-advisor → establish framework → evaluate programs
+  - **Experienced philanthropists / clear principles**: Continue starting with @impact-evaluator as before
+- **Agent Count**: Expanded from 5 agents to 6 agents in the philanthropic-advisory group
+  - principles-framework-advisor: v1.0.0 (new)
+  - All other agents remain at v1.0.1 (no changes)
+
+### Features
+- **Foundational Discovery**: Structured conversation framework ensures comprehensive principle articulation
+- **Tension Surfacing**: Explicitly identifies conflicts between competing priorities (e.g., high SROI expectations vs innovative unproven models)
+- **Authenticity Focus**: Uses hypothetical scenarios to distinguish genuine values from aspirational platitudes
+- **Evolution Planning**: Documents review frequency and adjustment triggers for principles framework updates
+- **Devils-Advocate Integration**: Mandatory critical review ensures principles are internally consistent and actionable
+

@@ -6,9 +6,15 @@ Comprehensive philanthropic advisory services for Singapore-focused giving, with
 
 ## Version
 
-**Version 1.0.0** — Initial release with five coordinated agents for comprehensive philanthropic decision support
+**Version 1.1.0** — Expanded with principles-framework-advisor agent for defining philanthropic principles before program evaluation
 
-## The Five Agents
+## The Six Agents
+
+### principles-framework-advisor
+**Role**: Define core giving principles and strategic framework before evaluating programs  
+**Model**: Claude Sonnet 4.5 (copilot)  
+**When to use**: Starting philanthropy, shifting strategy, or need to articulate undefined principles  
+**Handoffs to**: devils-advocate (framework review), impact-evaluator (after framework complete)
 
 ### impact-evaluator
 **Role**: Quantitative impact evaluation using SROI, CEA, and trajectory uplift frameworks  
@@ -40,22 +46,51 @@ Comprehensive philanthropic advisory services for Singapore-focused giving, with
 **When to use**: ALWAYS — before any funding decision, devils-advocate must review all analyses  
 **Handoffs to**: Any agent (for revision) or decision-maker (if approved)
 
-## Workflow
+## Workflows
+
+### Workflow 1: New Philanthropist (Define Principles First)
+
+```
+New Philanthropist
+    ↓
+@principles-framework-advisor
+(Discovery: 30 questions across 9 dimensions)
+    ↓
+Draft Principles Framework Document
+    ↓
+@devils-advocate
+(Challenge assumptions, identify tensions, ensure authenticity)
+    ↓
+    ├─ Framework issues → @principles-framework-advisor (refine)
+    └─ APPROVED → Finalized Principles Framework
+         ↓
+    [Framework serves as reference for all subsequent analyses]
+         ↓
+Program Proposal Submitted
+    ↓
+[Proceed to Workflow 2 below]
+```
+
+### Workflow 2: Experienced Philanthropist (Direct to Program Evaluation)
 
 ```
 Program Proposal Submitted
     ↓
 @impact-evaluator
 (Quantitative analysis: SROI, CEA, trajectory uplift)
+[References principles framework if available]
     ↓
 @portfolio-strategist
 (Strategic fit and portfolio alignment)
+[References principles framework if available]
     ↓
 @risk-opportunity-analyst
 (Risk/opportunity assessment)
+[References principles framework if available]
     ↓
 @recommendation-synthesizer
 (Integrated funding recommendation)
+[References principles framework if available]
     ↓
 @devils-advocate (MANDATORY QUALITY GATE)
 (Challenge assumptions, surface disagreements, identify blind spots)
@@ -68,6 +103,24 @@ Program Proposal Submitted
 ```
 
 ## Quality Gates
+
+### Gate 0: Principles Framework Defined (OPTIONAL — FOR NEW PHILANTHROPISTS)
+**Owner**: principles-framework-advisor  
+**Criteria**:
+- [ ] Discovery questions completed across all 9 dimensions (motivation, beneficiaries, intervention strategy, impact measurement, portfolio strategy, risk tolerance, resources, decision-making, learning)
+- [ ] Target beneficiaries specified with demographics and rationale
+- [ ] Impact measurement expectations documented (success metrics, time horizon, ROI ranges)
+- [ ] Portfolio strategy defined (diversification, grant sizes, funding duration, strategic gaps)
+- [ ] Risk tolerance parameters established across 5 categories
+- [ ] Decision criteria weighted and prioritized
+- [ ] Deal-breakers identified
+- [ ] Framework submitted to devils-advocate for critical review
+- [ ] Tensions and trade-offs documented (not necessarily resolved)
+- [ ] Framework is authentic (not aspirational platitudes)
+
+**Pass**: Principles framework complete and devils-advocate approved → Ready to evaluate specific programs with clear foundation
+
+---
 
 ### Gate 1: Impact Evaluation Complete
 **Owner**: impact-evaluator  
@@ -143,10 +196,17 @@ Program Proposal Submitted
 
 ### Start Here: What Do You Need?
 
+**[0] I'm new to philanthropy / need to define my principles**  
+ Start with @principles-framework-advisor  
+ Provides: Structured discovery (30 questions), Principles Framework Document  
+ Next: Hands off to @devils-advocate (framework review), then ready to evaluate programs  
+ Duration: 2-4 hours over multiple conversations
+
 **[A] I have a program to evaluate (no analysis yet)**  
  Start with @impact-evaluator  
  Provides: SROI, CEA, trajectory uplift, data quality assessment  
- Next: Automatically hands off to @portfolio-strategist
+ Next: Automatically hands off to @portfolio-strategist  
+ Note: If you have principles framework, impact-evaluator will reference it
 
 **[B] I know the impact metrics, need to assess portfolio fit**  
  Consult @portfolio-strategist  
@@ -170,9 +230,10 @@ Program Proposal Submitted
  Next: Make informed decision with full picture
 
 **[F] I want to run full workflow from start to finish**  
- Submit program to @impact-evaluator  
+ **New philanthropists**: @principles-framework-advisor → framework → @devils-advocate → evaluate programs  
+ **Experienced philanthropists**: Submit program to @impact-evaluator  
  Workflow runs automatically: impact → portfolio → risk → synthesis → devils-advocate → decision  
- Duration: ~1-2 days for comprehensive analysis
+ Duration: Principles (2-4 hours) + Program evaluation (~1-2 days)
 
 ## Singapore Context
 
@@ -341,4 +402,5 @@ Program Proposal Submitted
 
 ## Version History
 
+- **1.1.0**: Added principles-framework-advisor agent for defining philanthropic principles and strategic framework before program evaluation. Supports two workflows: new philanthropists start with principles definition, experienced philanthropists proceed directly to evaluation. Expanded from 5 to 6 agents.
 - **1.0.0** (Initial): Comprehensive philanthropic advisory group with five agents (impact-evaluator, portfolio-strategist, risk-opportunity-analyst, recommendation-synthesizer, devils-advocate) for Singapore-focused philanthropic decision support
