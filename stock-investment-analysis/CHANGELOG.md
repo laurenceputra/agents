@@ -5,6 +5,40 @@ All notable changes to the Stock Investment Analysis Agent Group will be documen
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.1] - 2025-12-17
+
+### Changed
+- **stock-analysis-orchestrator**: Clarified Response Format section to mandate agent outputs are included (not omitted)
+  - **Before**: Response Format showed "Key highlights from [agent]" for sections 1-4, which could be interpreted as optional or that outputs could be omitted
+  - **After**: All five sections now explicitly state "Output from [agent] - include [key details]" to require presence of agent outputs
+  - **Context**: Fixes issue where agent outputs were not appearing in final reports. Outputs must exist but can be in complete or summarized form as appropriate for the analysis
+  - **Migration**: No breaking changes—existing reports remain valid. Future reports must include outputs from all specialist agents.
+
+### Added
+- **stock-analysis-orchestrator**: Report Filename Format specification in Response Format section
+  - **Format**: `{Ticker}-{Date}.md` for single stocks, `{Ticker1}-vs-{Ticker2}-{Date}.md` for comparisons
+  - **Requirements**: Uppercase ticker, YYYY-MM-DD date format, .md extension, hyphen separators
+  - **Examples**: `NVDA-2024-12-15.md` (single), `AAPL-vs-MSFT-2024-12-14.md` (comparison)
+  - **Rationale**: Consistent naming enables easy date sorting, quick ticker identification, and historical tracking
+  - **Context**: Standardizes report filenames across all orchestrator outputs for better organization
+
+- **stock-analysis-orchestrator**: Expanded Example 1 (NVDA) to demonstrate comprehensive output format
+  - **Before**: Stock Research Summary showed abbreviated content (~20 lines, "highlights" style)
+  - **After**: Stock Research Summary shows comprehensive agent output with all subsections (Company Overview, Financial Performance, Balance Sheet, Competitive Position, Industry Context, Growth Drivers, Management, Citations) spanning ~150 lines
+  - **Context**: Provides concrete example of comprehensive output for implementers to follow
+  - **Note**: Other example sections (Fundamental, Technical, Risk, Advisor) remain as representative excerpts for readability
+
+- **stock-analysis-orchestrator**: Added filenames to Examples 1 and 2
+  - Example 1 (NVDA): `NVDA-2024-12-15.md`
+  - Example 2 (AAPL vs MSFT): `AAPL-vs-MSFT-2024-12-14.md`
+  - **Context**: Demonstrates standardized filename format in practice
+
+### Fixed
+- **stock-analysis-orchestrator**: Ambiguous output inclusion language that led to missing agent outputs
+  - **Issue**: "Key highlights" phrasing was unclear and led to agent outputs not appearing in final reports
+  - **Resolution**: Explicit "Output from [agent]" language requiring presence of agent outputs in all sections
+  - **Impact**: Ensures reports include outputs from all specialist agents, which can be comprehensive or summarized as appropriate
+
 ## [1.3.0] - 2025-12-15
 
 ### Added
