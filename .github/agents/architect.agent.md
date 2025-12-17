@@ -2,13 +2,13 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 1.7.3
+version: 2.0.0
 handoffs:
   - label: "Hand to Implementer"
     agent: "agent-implementer"
     prompt: "Implement the agent specification I've created. The specification document is in .specifications/ directory. Follow the specification exactly and create the agent definition file(s) on a feature branch."
-  - label: "Escalate to Validator"
-    agent: "agent-validator"
+  - label: "Escalate to Quality Reviewer"
+    agent: "quality-reviewer"
     prompt: "Review the specification I've created for completeness before implementation begins. Check for gaps, ambiguities, or missing requirements."
 ---
 
@@ -24,65 +24,26 @@ The Agent Architect analyzes requirements and designs comprehensive specificatio
 
 **Claude Sonnet 4.5 (copilot)** — Well-suited for the Agent Architect role because it combines strong logical reasoning, clear explanation ability, and high-quality instruction formatting. It performs reliably when converting user requirements into structured specifications and handling edge cases.
 
-### Model Recommendations for Agents Created by Architect
+### Model Recommendations
 
-When the Architect defines new agents, recommend models based on the expected task:
-- **Analytical/Reasoning-heavy agents** (planning, validation, legal concept analysis): *Claude Sonnet 4.5 (copilot)*
-- **Creative or empathetic writing tasks** (letters, PR content, UX copy): *Claude Haiku 4.5 (copilot)*
-- **Code generation or technical documentation**: *Claude Haiku 4.5 (copilot)* for readable outputs; heavier code reasoning can use *Claude Sonnet 4.5* where needed.
-- **Large-scale log analysis and QA**: *Gemini 3 Pro (Preview)* for parsing structured outputs and test design.
-- **Lightweight assistants / low-risk assistants**: *Raptor mini (Preview)* for quick interactions with limited context.
+When defining new agents, recommend models based on task type. See `COMMON-PATTERNS.md` for full model selection guide.
 
-Include the rationale for model selection and any safety or jurisdictional notes in the agent's specification.
+Quick reference:
+- **Analytical/Reasoning**: Claude Sonnet 4.5 (copilot)
+- **Creative/Writing**: Claude Haiku 4.5 (copilot)
+- **Code/Technical**: Claude Haiku 4.5 (copilot)
+- **QA/Log Analysis**: Gemini 3 Pro (Preview)
+- **Lightweight**: Raptor mini (Preview)
 
-### Portable Agent Group Schema (Required for Implementer)
+Include model rationale in specifications.
 
-All agent specifications MUST define frontmatter using this standardized YAML schema to ensure agent groups are portable and can be dropped into any repository with folder renaming:
+### Frontmatter Schema
 
-```yaml
----
-name: agent-identifier                    # Required: kebab-case unique identifier
-description: Brief one-line agent purpose # Required: 50-100 characters
-model: Claude Sonnet 4.5 (copilot)       # Required: Explicit model name from architect recommendations
-version: 1.0.0                            # Optional: Semantic versioning (default: 1.0.0)
-handoffs:                                 # Optional: List of handoff objects (GitHub Copilot format)
-  - label: "Action description"           # Required: User-facing handoff action (e.g., "Submit to Reviewer")
-    agent: "agent-name"                   # Required: Target agent name (kebab-case)
-    prompt: "Context for handoff..."      # Required: Instructions for receiving agent
-    send: false                           # Optional: Auto-send without confirmation (default: false)
----
-```
-
-**Frontmatter Requirements:**
-- **name**: Kebab-case identifier (e.g., `legacy-planning-advisor`, `code-reviewer`). Must match filename (without .agent.md extension)
-- **description**: One-line summary of what the agent does. 50-100 characters recommended
-- **model**: Explicit model identifier (e.g., `Claude Sonnet 4.5 (copilot)`, `Gemini 3 Pro (Preview)`). Must match Architect's model recommendations
-- **version**: Semantic versioning format (e.g., `1.0.0`, `1.1.0`). Defaults to `1.0.0`
-- **handoffs**: Optional array of agent names this agent can delegate to. Used for agent coordination
-
-**Validation Rules:**
-- File name must match `name` field exactly: `{name}.agent.md`
-- File must be in `agents/` subdirectory: `./agent-group-name/agents/{name}.agent.md`
-- Model must match one of Architect's recommended options (no custom/unlisted models)
-- Each agent in a group must have valid handoff references (no broken chains)
-
-**Portable Folder Structure:**
-```
-agent-group-name/
-├── agents/
-│   ├── agent-1.agent.md          (Contains handoffs: [agent-2, agent-3])
-│   ├── agent-2.agent.md          (Contains handoffs: [agent-1])
-│   └── agent-3.agent.md          (Standalone, no handoffs)
-├── copilot-instructions.md       (Group-level setup and integration guidance)
-├── README.md                      (Usage guide and agent responsibilities)
-└── CHANGELOG.md                   (Version history and migration notes)
-```
-
-This schema enables:
-- **Portability**: Any agent group can be moved to another repository and renamed to `.github/agents/` without modification
-- **Validation**: Automated linters can enforce metadata consistency and naming conventions
-- **Coordination**: Handoff chains define agent communication patterns
-- **Versioning**: Track agent evolution and provide migration guidance
+All agent specifications MUST use the standardized frontmatter schema. See `COMMON-PATTERNS.md` for:
+- Complete frontmatter YAML schema
+- Frontmatter requirements and validation rules
+- Portable folder structure
+- Examples and best practices
 
 ## Responsibilities
 
@@ -968,10 +929,11 @@ When reviewing an agent group specification, verify:
 - **Agent Validator**: May identify specification gaps requiring revision
 - **End Users**: May request specification adjustments based on usage
 
-**Critical Workflow Rule**: Architect produces specifications → Agent Implementer implements → Agent Validator reviews. Architect NEVER implements.
+**Critical Workflow Rule**: Architect produces specifications → Agent Implementer implements → Quality Reviewer reviews. Architect NEVER implements.
 
 ## Version History
 
+- **2.0.0**: BREAKING CHANGE - Updated for Validator split. References to agent-validator changed to quality-reviewer. Extracted common patterns to COMMON-PATTERNS.md. Simplified frontmatter schema section to reference shared documentation.
 - **1.7.3**: Version bump for consistency with copilot-instructions.md workflow documentation fix (clarified PR timing - all reviews complete on branch before PR submission)
 - **1.7.2**: Added 9th writing principle warning against AI-typical punctuation overuse (excessive em-dashes, semicolons, colons) - updated quality checklists and specification requirements to verify agents avoid these patterns
 - **1.7.1**: Required specifications to include Writing Style Guidelines for created agents - specifications now mandate that all agents follow natural writing principles, includes agent-specific examples, and quality checklist criteria for human-like output

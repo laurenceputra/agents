@@ -5,6 +5,75 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.0.0 - 2025-12-17
+
+### Changed
+- **BREAKING: Validator Split into Two Specialized Agents**: Split validator.agent.md (2261 lines) into quality-reviewer.agent.md (618 lines) and pr-manager.agent.md (385 lines)
+  - **Before**: Single Validator agent handled both quality review and PR management (2261 lines, causing context loss)
+  - **After**: Quality Reviewer focuses on implementation quality, PR Manager handles PR logistics (1003 lines total, 56% reduction)
+  - **Breaking Change**: Users must use @quality-reviewer for reviews, @pr-manager for PR submission
+  - **Workflow**: Implementer → Quality Reviewer → Devil's Advocate → PR Manager → PR
+  - **Migration**: Replace @agent-validator with @quality-reviewer for quality reviews, @pr-manager for PR coordination
+
+### Added
+- **COMMON-PATTERNS.md Reference Document**: Extracted common patterns, schemas, and guidelines to reduce duplication
+  - **Content**: Frontmatter schema, agent file structure, writing style guidelines, model recommendations, changelog format
+  - **Purpose**: Single source of truth for shared patterns across all meta-agents
+  - **Location**: `agents/COMMON-PATTERNS.md` (146 lines)
+  - **Impact**: Reduces redundancy in agent files, simplifies maintenance
+
+- **quality-reviewer.agent.md**: New agent for quality review responsibilities
+  - **Responsibilities**: Reviews implementations for quality, completeness, best practices
+  - **Model**: Claude Sonnet 4.5 (copilot)
+  - **Handoffs**: To Implementer (revisions), Architect (spec issues), PR Manager (approval)
+  - **Size**: 618 lines (vs original Validator's 2261 lines)
+
+- **pr-manager.agent.md**: New agent for PR management responsibilities
+  - **Responsibilities**: Creates PR details files, coordinates Devil's Advocate review, submits PRs
+  - **Model**: Claude Haiku 4.5 (copilot)
+  - **Handoffs**: To Quality Reviewer (more review), Devil's Advocate (critical review)
+  - **Size**: 385 lines
+
+### Fixed
+- **Complexity Reduction - copilot-instructions.md**: Simplified from 1542 lines to 388 lines (75% reduction)
+  - **Removed**: Redundant workflow details (duplicated in agent files), verbose decision trees, duplicate version history sections
+  - **Consolidated**: Agent descriptions (97 → 40 lines), workflow diagram (163 → 60 lines), workflows (645 → 200 lines), decision trees (187 → 80 lines)
+  - **Extracted**: Common patterns moved to COMMON-PATTERNS.md, troubleshooting moved to README.md
+  - **Result**: Clearer focus on essential workflow, easier to understand and navigate
+
+- **Agent File Size Reduction**: Reduced total agent size by 44% (7039 → 3912 lines)
+  - **architect.agent.md**: 988 → 950 lines (4% reduction) - references COMMON-PATTERNS.md for schemas
+  - **implementer.agent.md**: 1419 → 1382 lines (3% reduction) - references COMMON-PATTERNS.md for portable standards
+  - **devils-advocate.agent.md**: 829 → 831 lines (stable) - updated references to quality-reviewer and pr-manager
+  - **validator.agent.md**: REMOVED (2261 lines) - replaced by quality-reviewer + pr-manager
+  - **quality-reviewer.agent.md**: NEW (618 lines) - quality review focus
+  - **pr-manager.agent.md**: NEW (385 lines) - PR logistics focus
+  - **COMMON-PATTERNS.md**: NEW (146 lines) - shared patterns reference
+
+### Migration Guide
+
+#### For All Users
+- **Workflow Change**: Use @quality-reviewer for implementation reviews (not @agent-validator)
+- **PR Submission**: @pr-manager handles PR coordination and submission
+- **Complete Flow**: Implementer → Quality Reviewer → Devil's Advocate → PR Manager → PR
+
+#### For Agent Groups
+- Update handoffs from `agent-validator` to `quality-reviewer` (for quality feedback)
+- Update handoffs for PR submission to `pr-manager` (for PR coordination)
+- See COMMON-PATTERNS.md for frontmatter schema and portable structure
+
+#### For Documentation
+- Reference COMMON-PATTERNS.md for frontmatter schema, writing guidelines, changelog format
+- copilot-instructions.md now focuses on workflow overview
+- README.md includes troubleshooting (moved from copilot-instructions.md)
+
+### Context
+This breaking change addresses complexity issues causing context loss during agent development. By splitting the Validator's dual responsibilities (quality review + PR management) into two focused agents and extracting common patterns to a shared reference, the system is now 40-50% smaller while maintaining all quality gates and workflow integrity.
+
+### Version Numbers
+- **All meta-agents**: Updated to 2.0.0 (breaking change)
+- **Infrastructure**: copilot-instructions.md 1.5.1 → 2.0.0, README.md 1.5.0 → 2.0.0
+
 ## 1.6.4 - 2025-12-17
 
 ### Fixed

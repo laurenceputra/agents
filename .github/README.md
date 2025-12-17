@@ -1,6 +1,6 @@
 # Agent Builder Meta-System
 
-![Version](https://img.shields.io/badge/version-1.5.0-blue)
+![Version](https://img.shields.io/badge/version-2.0.0-blue)
 
 This directory contains the meta-agent system for designing, implementing, and validating agents for any purpose.
 
@@ -14,7 +14,7 @@ The Agent Builder is a **meta-level system** that helps you create high-quality,
 
 ## How It Works
 
-The system follows a four-phase workflow:
+The system uses five specialized agents in a quality-gated workflow:
 
 ### Phase 1: Architecture (Design)
 **Agent**: `agent-architect.md`
@@ -44,22 +44,35 @@ Once you have a specification, the Agent Implementer:
 
 **Example**: Takes the API Design Reviewer specification → Creates a complete `.md` agent definition file.
 
-### Phase 3: Validation (Quality Assurance)
-**Agent**: `agent-validator.md`
+### Phase 3: Quality Review
+**Agent**: `quality-reviewer.md`
 
-Before critical review, the Agent Validator:
+After implementation, the Quality Reviewer:
 - Reviews implementations for completeness
 - Validates best practices adherence
 - Checks examples and quality criteria
 - Provides structured feedback
 - Approves or requests revisions
-- Hands off to Devil's Advocate for critical review
+- Escalates specification issues to Architect
 
-**When to use**: You have a draft agent definition and need quality assurance before critical review.
+**When to use**: You have a draft agent definition and need quality review.
 
-**Example**: Reviews the API Design Reviewer implementation → Provides approval and hands to Devil's Advocate for critical review.
+**Example**: Reviews the API Design Reviewer implementation → Provides approval or feedback for iteration.
 
-### Phase 4: Critical Review (Pre-PR Gate)
+### Phase 4: PR Management
+**Agent**: `pr-manager.md`
+
+After quality approval, the PR Manager:
+- Creates PR details files
+- Coordinates with Devil's Advocate for critical review
+- Tracks review status
+- Submits PRs when all approvals complete
+
+**When to use**: Quality review is approved and you need to coordinate final steps.
+
+**Example**: Creates PR details, coordinates Devil's Advocate review → Submits PR when approved.
+
+### Phase 5: Critical Review (Pre-PR Gate)
 **Agent**: `devils-advocate.md`
 
 Before PR submission, the Devil's Advocate:
@@ -67,12 +80,11 @@ Before PR submission, the Devil's Advocate:
 - Challenges assumptions and identifies blind spots
 - Surfaces disagreements between agents
 - Documents all perspectives for human decision-making
-- Prepares PR writeup with critical concerns marked
 - Final quality gate before PR submission
 
-**When to use**: You have a Validator-approved implementation and need critical review before PR submission.
+**When to use**: Quality review approved and need critical review before PR.
 
-**Example**: Reviews the API Design Reviewer implementation → Challenges assumptions, surfaces any disagreements, approves for PR with documentation of all perspectives.
+**Example**: Reviews the API Design Reviewer implementation → Challenges assumptions, surfaces disagreements, approves for PR.
 
 ## Quick Start
 
@@ -93,18 +105,18 @@ Before PR submission, the Devil's Advocate:
    - Receive complete agent definition file
    - Review structure and examples
 
-4. **Consult Agent Validator**
+4. **Consult Quality Reviewer**
    - Provide the implementation
    - Receive validation report
    - Address any issues found
 
-5. **Consult Devil's Advocate**
-   - After Validator approval
-   - Receive critical review
-   - Review documented disagreements and assumptions
-   - Ready for PR submission
+5. **Consult PR Manager**
+   - After Quality Reviewer approval
+   - PR Manager coordinates Devil's Advocate review
+   - Review documented disagreements
+   - PR submitted when all approvals complete
 
-5. **Deploy and Iterate**
+6. **Deploy and Iterate**
    - Use your new agent
    - Gather feedback
    - Refine using the same workflow
@@ -163,10 +175,14 @@ The meta-system can help you build agents for:
 .github/
 ├── copilot-instructions.md          # This meta-system's workflow guide
 ├── README.md                         # This file
+├── CHANGELOG.md                      # Version history
 └── agents/
+    ├── COMMON-PATTERNS.md            # Shared patterns and schemas
     ├── agent-architect.md            # Designs agent specifications
     ├── agent-implementer.md          # Implements agent definitions
-    └── agent-validator.md            # Validates agent quality
+    ├── quality-reviewer.md           # Reviews implementation quality
+    ├── pr-manager.md                 # Manages PR submission
+    └── devils-advocate.md            # Critical review before PR
 ```
 
 ## Examples
@@ -193,9 +209,9 @@ Agent Implementer creates agent-security-reviewer.md:
 - Quality Checklist: 10 measurable criteria
 ```
 
-**Step 3 - Validation**
+**Step 3 - Quality Review**
 ```
-Agent Validator reviews implementation:
+Quality Reviewer reviews implementation:
 ✅ All sections present and comprehensive
 ✅ Examples cover happy path and edge cases
 ✅ Quality checklist is measurable
@@ -225,9 +241,9 @@ Agent Implementer creates agent-test-strategy-designer.md:
 - Quality Checklist: Coverage, edge cases, risk assessment
 ```
 
-**Step 3 - Validation**
+**Step 3 - Quality Review**
 ```
-Agent Validator reviews implementation:
+Quality Reviewer reviews implementation:
 ✅ Clear purpose and responsibilities
 ✅ Comprehensive examples with inputs/outputs
 ✅ Detailed quality checklist
@@ -310,8 +326,32 @@ When improving the meta-system itself:
 4. **Validate Quality**: Use Agent Validator to review
 5. **Document Changes**: Update this README and copilot-instructions.md
 
+## Troubleshooting
+
+### "I need a new agent but don't know what to specify"
+**Solution**: Consult @agent-architect. Describe your problem and Architect will design a specification.
+
+### "My implementation was rejected by Quality Reviewer"
+**Solution**: Review feedback carefully. Address critical issues first, then recommendations. Make changes on the same branch and notify Quality Reviewer for re-review.
+
+### "Quality Reviewer and Devil's Advocate disagree"
+**Expected**: Disagreements are captured in the PR for human decision. Both perspectives documented with reasoning.
+
+### "Who submits the PR?"
+**Answer**: PR Manager submits PRs after Quality Reviewer and Devil's Advocate approve. No one else merges agent implementations.
+
+### "Can I skip Devil's Advocate review?"
+**No**: Devil's Advocate is mandatory. All implementations require critical review before PR submission.
+
+### "Specification has gaps during implementation"
+**Solution**: Quality Reviewer escalates to Architect for spec revision. Architect updates spec, then Implementer updates implementation.
+
+### "Too many validation iterations"
+**Expected**: Iteration is normal. Quality takes time. Work through feedback systematically.
+
 ## Version History
 
+- **2.0.0** - BREAKING CHANGE: Split Validator into Quality Reviewer + PR Manager. Extracted COMMON-PATTERNS.md. Simplified copilot-instructions.md (1542 → 388 lines, 75% reduction). Reduced total agent size by 44% (7039 → 3912 lines). Five-agent system for clearer separation of concerns.
 - **1.5.0** - Added Devil's Advocate agent as fourth meta-agent for critical review, disagreement capture, and pre-PR quality gate. Updated workflow to four phases.
 - **1.2.0** - Added mandatory CHANGELOG.md and README.md update enforcement with validation checklists, format guidelines, and quality criteria
 - **1.1.0** - Added strict workflow enforcement, quality gates, decision trees, PR gatekeeper pattern, and version frontmatter support
