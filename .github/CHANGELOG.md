@@ -5,6 +5,36 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.6.5 - 2025-12-17
+
+### Added
+- **Agent Validator PR Submission Process: Explicit `report_progress` Tool Instructions**: Added comprehensive PR submission section with concrete tool usage instructions
+  - **Issue**: PR #51 was submitted without completing both Validator and Devil's Advocate approval gates because Validator lacked concrete instructions on HOW to submit PRs
+  - **Root Cause**: Documentation said "Validator will submit PR" but never specified the `report_progress` tool or provided actionable instructions
+  - **Added Sections**:
+    - **PR Submission Process** (after PR Details File Management): Complete section documenting when to submit (both approvals required), how to submit (`report_progress` tool), tool signature and parameters, working example with actual tool call, common mistakes checklist (8 items), and PR submission verification checklist
+    - **Response Format Updates**: Updated steps 7 and 9 to change from "Execute Handoff" to "Execute Handoff or Submit PR" with explicit condition: "If Devil's Advocate approved → Use `report_progress` to submit PR (see PR Submission Process section)"
+    - **Example 4 Enhancement** (Step 6): Expanded from generic "Validator creates PR" to showing actual `report_progress` call with commitMessage and prDescription parameters, complete PR description including Devil's Advocate review, and workflow sequence after tool invocation
+  - **Before**: Validator knew to submit PR after Devil's Advocate approval but had no instructions on which tool to use or how to invoke it
+  - **After**: Validator has explicit, step-by-step instructions including tool signature, parameter requirements, complete working example, and verification checklist
+  - **Context**: Prevents PR submission before completing approval workflow (as happened in PR #51). Ensures Validator uses correct tool (`report_progress`) with proper parameters (commitMessage, prDescription including Devil's Advocate writeup).
+  - **Migration**: No breaking changes. Adds missing implementation detail to existing workflow. Future PR submissions will follow explicit process.
+
+## 1.5.2 - 2025-12-17
+
+### Added
+- **copilot-instructions.md PR Submission Requirements: Mandatory Two-Approval Gate Documentation**: Added comprehensive section enforcing PR submission workflow
+  - **Issue**: PR #51 bypassed approval gates because workflow documentation lacked explicit enforcement of both Validator and Devil's Advocate approvals before PR submission
+  - **Root Cause**: Workflow diagrams showed the sequence conceptually but didn't explicitly state the tool to use or enforce the mandatory nature of both approvals
+  - **Added Sections**:
+    - **PR Submission Requirements** (before Quality Gates): New section documenting that PRs can ONLY be submitted after BOTH approvals complete, how Validator submits PRs (must use `report_progress` tool exclusively), Never/Always rules, `report_progress` tool usage example with code snippet, and workflow enforcement mechanism
+    - **Phase 3 Path C Update** (line 575): Changed "Validator creates and submits PR" to "Validator uses `report_progress` tool to submit PR"
+    - **Phase 4 Path C Update** (line 651): Changed "Validator creates and submits PR with Devil's Advocate writeup" to "Validator uses `report_progress` tool to submit PR with Devil's Advocate writeup"
+  - **Before**: Workflow documentation explained the approval sequence but didn't specify that `report_progress` tool is the required mechanism for PR submission
+  - **After**: Explicit section stating PRs can only be submitted after both approvals, documenting the tool to use, providing usage example, and showing enforcement mechanism
+  - **Context**: Complements Agent Validator v1.6.5 changes by documenting the workflow-level requirement that both approvals are mandatory gates before PR submission. Ensures meta-agent system documentation reflects the enforcement mechanism.
+  - **Migration**: No breaking changes. Clarifies existing workflow intent with explicit tool requirement. All future PR submissions must use `report_progress` after both approvals.
+
 ## 1.6.4 - 2025-12-17
 
 ### Fixed
