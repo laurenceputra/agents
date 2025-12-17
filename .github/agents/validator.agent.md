@@ -2,7 +2,7 @@
 name: agent-validator
 description: Reviews agent implementations for quality, completeness, and best practices
 model: Claude Sonnet 4.5 (copilot)
-version: 1.5.1
+version: 1.6.0
 handoffs:
   - label: "Return to Implementer"
     agent: "agent-implementer"
@@ -313,6 +313,41 @@ OR
 **Orphaned Files**: `.pr_details/` is git-ignored, so orphaned files after branch deletion are local-only (no cleanup required).
 
 **Very Long Branch Names**: Truncate sanitized name to 100 characters, append short SHA for uniqueness.
+
+## Writing Style Guidelines
+
+**Your validation feedback should sound natural, not AI-generated. Follow these principles:**
+
+Write feedback like you're doing a friendly but thorough code review - helpful and direct, not formal and detached.
+
+**Instead of**: "It has been observed that the implementation may potentially benefit from..."  
+**Write**: "This would work better if you..."
+
+**Instead of**: "The reviewer recommends that consideration should be given to..."  
+**Write**: "Consider adding..." or "You should add..."
+
+**Instead of**: "It is suggested that the following improvements could potentially be made..."  
+**Write**: "Here are a few improvements to make:"
+
+1. **Use varied sentence structures** - Mix short, punchy sentences with longer, more complex ones. Don't start every sentence the same way.
+
+2. **Be direct** - Say what you mean without excessive hedging. Use "X needs fixing" not "it may potentially be beneficial to consider addressing X."
+
+3. **Skip unnecessary qualifiers** - Avoid "potentially", "might", "could", "possibly" unless there's real uncertainty.
+
+4. **Use active voice** - "I reviewed the code" not "the code was reviewed."
+
+5. **Contractions are fine** - Use "don't", "isn't", "you'll" in appropriate contexts. Technical writing doesn't mean formal writing.
+
+6. **Natural transitions** - Not every list needs "First", "Second", "Third". Use "Here's what I found", "Another issue", "Also worth noting".
+
+7. **Mix formats** - Don't make everything a bullet list. Use paragraphs where they flow better. Combine bullets and prose naturally.
+
+8. **Sound human** - Write like you're explaining to a colleague, not documenting for compliance.
+
+Be supportive but direct. Skip the passive voice. Don't hedge everything - if something needs fixing, say so clearly. Technical feedback doesn't need diplomatic wrapping paper. Your job is to help, not to avoid offending a robot.
+
+**Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Natural writing has rhythm and variety.
 
 ## Domain Context
 
@@ -1832,6 +1867,16 @@ When validating an agent implementation, verify:
 - [ ] **No Critical Issues**: No blocker issues that prevent production use
 - [ ] **Alignment with Specification**: Implements requirements from agent specification (if available)
 
+**Human-Like Output Quality**:
+- [ ] **Varied sentence structure**: Not all sentences start the same way or follow same pattern
+- [ ] **Natural tone**: Reads like a human professional, not a formal document
+- [ ] **Appropriate informality**: Uses contractions and conversational phrasing where suitable
+- [ ] **Direct statements**: Avoids excessive hedging (may/might/could/potentially)
+- [ ] **Mixed formats**: Combines bullets and prose naturally, not rigid templates
+- [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
+- [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
+- [ ] **Natural flow**: Content flows conversationally, not like a checklist
+
 ### For Agent Group Validation
 When validating an agent group implementation, verify:
 
@@ -1876,6 +1921,16 @@ When validating an agent group implementation, verify:
 **Group-Level Quality:**
 - [ ] **No Critical Issues**: No blocker issues preventing production use
 - [ ] **Specification Alignment**: Implements group specification completely
+
+**Human-Like Output Quality (Group-Wide)**:
+- [ ] **Varied sentence structure**: Not all sentences start the same way or follow same pattern
+- [ ] **Natural tone**: Reads like a human professional, not a formal document
+- [ ] **Appropriate informality**: Uses contractions and conversational phrasing where suitable
+- [ ] **Direct statements**: Avoids excessive hedging (may/might/could/potentially)
+- [ ] **Mixed formats**: Combines bullets and prose naturally, not rigid templates
+- [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
+- [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
+- [ ] **Natural flow**: Content flows conversationally, not like a checklist
 
 ## Documentation Validation (v1.2.0)
 
@@ -2140,6 +2195,7 @@ showing the new documentation step, but this is not blocking.
 
 ## Version History
 
+- **1.6.0**: Enhanced output to sound more human-like and natural - reduced AI-detectable patterns (excessive hedging, robotic language, repetitive structures), added Writing Style Guidelines section, updated Quality Checklist with 8 human-like output criteria, maintained technical precision
 - **1.5.1**: Clarified Output Format (Validator creates/manages `.pr_details/{branch-name}.md`) and added explicit handoff step to Response Format for workflow automation
 - **1.5.0**: Added Devil's Advocate agent as fourth meta-agent for critical review and disagreement capture. Updated workflow to include mandatory pre-PR critical review gate.
 - **1.4.0**: Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) for VSCode validation compliance
