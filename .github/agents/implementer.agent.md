@@ -2,7 +2,7 @@
 name: agent-implementer
 description: Implements agent definitions from specifications following best practices
 model: Claude Haiku 4.5 (copilot)
-version: 1.6.2
+version: 1.6.3
 handoffs:
   - label: "Submit to Validator"
     agent: "agent-validator"
@@ -1407,6 +1407,7 @@ Before submitting to Validator:
 
 ## Version History
 
+- **1.6.3**: Version bump for consistency with copilot-instructions.md workflow documentation fix (clarified PR timing - all reviews complete on branch before PR submission)
 - **1.6.2**: Added 9th writing principle warning against AI-typical punctuation overuse (excessive em-dashes, semicolons, colons) - updated quality checklists and agent template
 - **1.6.1**: Required all created agents to include Writing Style Guidelines section - agent template now includes 8 writing principles, agent-specific examples, and quality checklist criteria for natural output
 - **1.6.0**: Enhanced output to sound more human-like and natural - reduced AI-detectable patterns (excessive hedging, robotic language, repetitive structures), added Writing Style Guidelines section, updated Quality Checklist with 8 human-like output criteria, maintained technical precision

@@ -265,7 +265,9 @@ BRANCH WORKFLOW:
         ↓
   [Development & Testing]
         ↓
-  [Validation Review]
+  [Validation Review by Validator]
+        ↓
+  [Critical Review by Devil's Advocate]
         ↓
   [PR Submission by Validator]
         ↓
@@ -560,17 +562,17 @@ Implementer updates implementation on same branch
 Return to Path A (validation loop)
 ```
 
-**Path C: Approved → PR Submission**
+**Path C: Approved → Handoff to Devil's Advocate**
 ```
 Validator confirms all approval criteria met
    ↓
 Validator marks as APPROVED in validation report
    ↓
-Validator creates pull request from feature branch to main
+Validator hands off to Devil's Advocate for critical review
    ↓
-Validator includes validation summary in PR description
+Devil's Advocate reviews implementation (see Phase 4)
    ↓
-Validator submits PR
+If approved by Devil's Advocate: Validator creates and submits PR
    ↓
 PR merged to main (agent goes live)
 ```
@@ -588,7 +590,81 @@ PR merged to main (agent goes live)
 **Handoff Options**:
 - If needs revision → Agent Implementer (with feedback)
 - If spec issue → Agent Architect (for spec revision)
-- If approved → Repository (via PR submission)
+- If approved → Devil's Advocate (for critical review)
+
+---
+
+### Phase 4: Critical Review (Devil's Advocate)
+
+**Entry Point**: Receive approved implementation from Agent Validator on feature branch
+
+**Devil's Advocate Responsibilities**:
+
+#### 4.1: Critical Review
+Perform thorough critical review of the approved implementation:
+- **Challenge Assumptions**: Question design decisions and implementation choices
+- **Identify Blind Spots**: Find gaps or issues that other agents may have missed
+- **Surface Disagreements**: Document areas where perspectives differ between agents
+- **Evaluate Trade-offs**: Analyze pros/cons of decisions made
+- **Request Perspectives**: Ask Agent Architect for orchestrator perspective if needed
+
+#### 4.2: Decision Tree
+
+**Path A: Revision Needed → Back to Implementer**
+```
+Devil's Advocate identifies critical issues
+   ↓
+Devil's Advocate provides detailed feedback with concerns
+   ↓
+Implementer fixes issues on same branch
+   ↓
+Implementer commits and pushes fixes
+   ↓
+Return to Phase 3 (Validator re-reviews)
+   ↓
+If Validator approves, return to Phase 4 (Devil's Advocate re-reviews)
+```
+
+**Path B: Specification Issue → Architect Perspective**
+```
+Devil's Advocate identifies specification concerns
+   ↓
+Devil's Advocate requests Agent Architect perspective
+   ↓
+Architect reviews and provides guidance
+   ↓
+If spec revision needed: Return to Phase 2 (Implementer updates)
+If just perspective: Continue to approval
+```
+
+**Path C: Approved for PR → Back to Validator**
+```
+Devil's Advocate approves implementation
+   ↓
+Devil's Advocate prepares PR writeup with:
+  - All disagreements documented
+  - All perspectives captured with reasoning
+  - Trade-offs marked for human decision
+   ↓
+Devil's Advocate hands back to Validator with approval
+   ↓
+Validator creates and submits PR with Devil's Advocate writeup
+   ↓
+PR merged to main (agent goes live)
+```
+
+**Exit Criteria for Approval**:
+- [ ] All assumptions challenged and validated
+- [ ] Blind spots identified and documented
+- [ ] Disagreements surfaced and captured
+- [ ] All perspectives documented with reasoning
+- [ ] Trade-offs clearly articulated
+- [ ] Ready for human decision with full context
+
+**Handoff Options**:
+- If revision needed → Agent Implementer (with feedback)
+- If spec issue → Agent Architect (for perspective)
+- If approved → Agent Validator (with PR writeup for submission)
 
 ---
 
@@ -821,7 +897,7 @@ Check against group specification and best practices:
 
 **Path A: Critical Issues → Feedback Loop**  
 **Path B: Specification Issues → Escalate to Architect**  
-**Path C: Approved → PR Submission**
+**Path C: Approved → Handoff to Devil's Advocate**
 
 **Exit Criteria for Group Approval**:
 - [ ] All structural validation passed
@@ -835,7 +911,15 @@ Check against group specification and best practices:
 **Handoff Options**:
 - If needs revision → Agent Implementer (with feedback)
 - If spec issue → Agent Architect (for spec revision)
-- If approved → Repository (via PR submission)
+- If approved → Devil's Advocate (for critical review)
+
+---
+
+### Phase 4: Critical Review (Devil's Advocate)
+
+**Same as Individual Agent Workflow** - See Phase 4 in "Workflow: Building Individual Agents" section above.
+
+The Devil's Advocate critical review process is identical for both individual agents and agent groups.
 
 ---
 
@@ -1012,7 +1096,8 @@ START: Where are you in the agent lifecycle?
 3. **Only Validator submits PRs** - Implementer, Architect, and Devil's Advocate never merge
 4. **Iterate until approved** - Expect feedback loops; quality takes time
 5. **Devil's Advocate is mandatory** - All implementations require critical review before PR
-6. **Feature branch workflow**: Create branch → Implement → Submit to Validator → Submit to Devil's Advocate → Iterate → Validator submits PR
+6. **Reviews happen ON THE BRANCH, not after PR creation** - Validator and Devil's Advocate reviews complete before PR submission
+7. **Feature branch workflow**: Create branch → Implement → Submit to Validator → Validator approves → Submit to Devil's Advocate → Devil's Advocate approves → Validator submits PR → Human reviews PR with full context
 
 ---
 
@@ -1448,6 +1533,7 @@ When updating versions, verify:
 
 ## Version History
 
+- **1.5.1** - Fixed workflow documentation to clarify PR timing: all reviews (Validator + Devil's Advocate) complete on feature branch BEFORE PR submission. Added Phase 4 to workflows, updated BRANCH WORKFLOW diagram, added workflow rule clarifying reviews happen on branch.
 - **1.5.0** - Added Devil's Advocate agent for critical review and disagreement capture before PR submission. Updated workflow to include mandatory critical review gate, updated decision trees, and added fourth quality gate.
 - **1.4.0** - Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) across all meta-agents and updated Agent Frontmatter Schema documentation
 - **1.3.0** - Required all specifications be created in `./.specifications/` directory at repository root, added specification storage convention section, updated workflows
