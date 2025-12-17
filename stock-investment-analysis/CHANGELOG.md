@@ -21,9 +21,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Updated workflow diagrams to show single sequential path
   - Simplified decision trees to remove workflow selection
   - Updated version to 1.2.0
-- **README.md**: Updated to remove orchestrator references (pending)
+- **README.md**: Updated to remove orchestrator references and updated version history
+- **devils-advocate.agent.md**: Removed handoff references to deleted orchestrator agent
 
-## [1.3.1] - 2025-12-17
+### Deprecated
+- Versions 1.3.x below contain planned changes for stock-analysis-orchestrator which was removed in this version. These entries are preserved for historical record but the features described no longer exist.
+
+---
+
+## [1.3.1] - 2024-12-17 [OBSOLETE - orchestrator removed in 1.2.0]
 
 ### Changed
 - **stock-analysis-orchestrator**: Clarified Response Format section to mandate agent outputs are included (not omitted)
@@ -57,7 +63,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **Resolution**: Explicit "Output from [agent]" language requiring presence of agent outputs in all sections
   - **Impact**: Ensures reports include outputs from all specialist agents, which can be comprehensive or summarized as appropriate
 
-## [1.3.0] - 2025-12-15
+## [1.3.0] - 2024-12-15
 
 ### Added
 - **Feature Enhancement**: Improved quality checklist usability across all agents
@@ -77,7 +83,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Note
 **stock-analysis-orchestrator** uses a 15-item checklist (not 10) due to higher complexity of coordinating 6 specialist agents. This follows the revised complexity-appropriate standard: simple agents 6-10 items, complex agents (orchestrators) 12-18 items.
 
-## [1.2.0] - 2025-12-15
+## [1.2.0] - 2024-12-15
 
 ### Added
 - **Devil's Advocate Agent (devils-advocate.agent.md)**: New seventh agent for objectivity and bias detection
@@ -176,7 +182,7 @@ No breaking changes. Existing manual agent-by-agent workflow remains fully funct
 ### Context
 Built to provide institutional-grade stock analysis to individual investors through systematic multi-dimensional analysis combining fundamental, technical, and risk perspectives.
 
-## 1.3.1 - 2025-12-17
+## 1.3.1 - 2024-12-17
 
 ### Added
 - **Writing Style Guidelines**: All agents now include comprehensive writing style guidelines to ensure natural, human-like output

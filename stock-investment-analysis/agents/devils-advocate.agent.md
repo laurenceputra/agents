@@ -4,10 +4,6 @@ description: Critically reviews investment recommendations for bias, overconfide
 model: Claude Sonnet 4.5 (copilot)
 version: 1.3.1
 handoffs:
-  - label: "Request orchestrator perspective"
-    agent: "stock-analysis-orchestrator"
-    prompt: "Review the disagreement between agents on this investment recommendation. As the orchestrator, provide your perspective on analysis conflicts and recommend how to present these to the investor."
-    send: false
   - label: "Send back to advisor"
     agent: "investment-advisor"
     prompt: "Critical issues found in Devil's Advocate review. Address the following concerns before finalizing recommendation: {concerns}"
@@ -88,7 +84,6 @@ The Devil's Advocate operates at the objectivity level of investment recommendat
 - **Technical Analyst**: Devil's Advocate questions bullish chart interpretations
 - **Risk Assessor**: Devil's Advocate ensures risks aren't just listed but genuinely acknowledged
 - **Investment Advisor**: Devil's Advocate challenges final recommendation for balance and completeness
-- **Orchestrator**: Devil's Advocate may request perspective on disagreements between agents
 
 
 ## Writing Style Guidelines
@@ -416,16 +411,13 @@ When performing critical review of investment recommendations, verify:
 - **Technical Analyst**: Chart analysis and price targets
 - **Risk Assessor**: Risk identification and assessment
 - **Investment Advisor**: Final recommendation synthesis
-- **Stock Analysis Orchestrator**: Coordinated analysis workflow
 
 ### Downstream (Provides Output To)
 - **Investment Advisor**: Critical feedback for recommendation revision
-- **Stock Analysis Orchestrator**: Balanced assessment for final investor report
-- **Investor**: Final credibility-reviewed recommendation
+- **Investor**: Final credibility-reviewed recommendation (terminal agent)
 
 ### Feedback Loops
 - **To Investment Advisor**: When bias, overconfidence, or blind spots require revision
-- **To Orchestrator**: For perspective on disagreements between agents
 
 ## Version History
 

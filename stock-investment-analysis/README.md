@@ -210,12 +210,11 @@ See [Usage Examples](#usage-examples) below for detailed walkthroughs.
 
 2. **Verify Agent Files**:
    ```bash
-   # Check that all 7 agents are present
+   # Check that all 6 agents are present
    ls stock-investment-analysis/agents/
    # Should show: stock-researcher.agent.md, fundamental-analyst.agent.md, 
    #              technical-analyst.agent.md, risk-assessor.agent.md, 
-   #              investment-advisor.agent.md, stock-analysis-orchestrator.agent.md,
-   #              devils-advocate.agent.md
+   #              investment-advisor.agent.md, devils-advocate.agent.md
    ```
 
 3. **Test with Simple Query**:
@@ -356,7 +355,9 @@ You are solely responsible for your investment decisions. Consult licensed finan
 
 ## Version History
 
-- **1.0.0** (2024-12-14): Initial release with seven coordinated agents providing end-to-end stock investment analysis
+- **1.2.0** (2024-12-17): Removed stock-analysis-orchestrator to simplify workflow; reduced from 7 to 6 agents while preserving all analytical depth
+- **1.1.0** (2024-12-15): Added stock-analysis-orchestrator for automated end-to-end analysis
+- **1.0.0** (2024-12-14): Initial release with six coordinated agents providing end-to-end stock investment analysis
 
 ---
 

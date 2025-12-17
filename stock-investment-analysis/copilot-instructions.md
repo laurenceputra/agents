@@ -207,6 +207,13 @@ User Request
    - Buy/hold/sell recommendation
    - Position sizing and entry/exit strategy
    - Monitoring plan and re-evaluation triggers
+   - → Hands off to Devil's Advocate
+
+7. **Devil's Advocate** reviews for objectivity (MANDATORY):
+   - Challenges optimistic bias
+   - Develops bear case scenarios
+   - Identifies blind spots and overconfidence
+   - Ensures balanced perspective
    - → Delivers to user
 
 ---
@@ -495,4 +502,6 @@ Goals: Growth
 
 ## Version History
 
-- **1.0.0** (2024-12-14): Initial release with seven coordinated agents (stock-analysis-orchestrator, stock-researcher, fundamental-analyst, technical-analyst, risk-assessor, investment-advisor, devils-advocate) providing end-to-end stock investment analysis and personalized recommendations
+- **1.2.0** (2024-12-17): Removed stock-analysis-orchestrator to simplify workflow (7→6 agents); single sequential workflow reduces cognitive overhead while preserving all analytical capabilities
+- **1.1.0** (2024-12-15): Added stock-analysis-orchestrator for automated end-to-end analysis with dual workflow modes
+- **1.0.0** (2024-12-14): Initial release with six coordinated agents (stock-researcher, fundamental-analyst, technical-analyst, risk-assessor, investment-advisor, devils-advocate) providing end-to-end stock investment analysis and personalized recommendations
