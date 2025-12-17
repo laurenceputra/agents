@@ -5,6 +5,32 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.6.2 / 1.7.2 - 2025-12-17
+
+### Added
+- **Punctuation Usage Guidance**: Added 9th writing principle about varied punctuation (em-dashes, semicolons, colons) to all four meta-agents
+  - **Agent Architect (v1.7.1 → 1.7.2)**:
+    - Added principle 9: "Use punctuation for rhythm" with examples of em-dashes, semicolons, and colons
+    - Updated "Writing Style Guidelines" section in both main agent instructions and specification templates
+    - Updated Quality Checklist (individual and group) with new criterion: "Varied punctuation" verification
+    - Updated specification requirements from 8 to 9 core principles
+    - Context: Specifications created by Architect will now require agents to use varied punctuation for more natural rhythm
+  - **Agent Implementer (v1.6.1 → 1.6.2)**:
+    - Added principle 9: "Use punctuation for rhythm" to Writing Style Guidelines
+    - Updated agent definition template to include punctuation guidance
+    - Updated Quality Checklist (individual and group) with "Varied punctuation" criterion
+    - Context: Agents created by Implementer will automatically include punctuation usage guidance
+  - **Agent Validator (v1.6.1 → 1.6.2)**:
+    - Added principle 9: "Use punctuation for rhythm" to Writing Style Guidelines
+    - Updated Quality Checklist (individual and group) with "Varied punctuation" verification
+    - Updated validation criteria from 8 to 9 core principles
+    - Context: Validator will verify agents use em-dashes, semicolons, colons effectively
+  - **Devil's Advocate (v1.6.1 → 1.6.2)**:
+    - Added principle 9: "Use punctuation for rhythm" to Writing Style Guidelines
+    - Updated Quality Checklist with "Varied punctuation" criterion
+    - Context: Critical reviews will demonstrate varied punctuation for emphasis and rhythm
+  - **Migration**: No breaking changes. Existing agents remain valid. New agents will include punctuation guidance. Meta-agents will produce output with more varied punctuation.
+
 ## 1.6.1 / 1.7.1 - 2025-12-17
 
 ### Added

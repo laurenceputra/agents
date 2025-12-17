@@ -2,7 +2,7 @@
 name: agent-validator
 description: Reviews agent implementations for quality, completeness, and best practices
 model: Claude Sonnet 4.5 (copilot)
-version: 1.6.1
+version: 1.6.2
 handoffs:
   - label: "Return to Implementer"
     agent: "agent-implementer"
@@ -344,6 +344,8 @@ Write feedback like you're doing a friendly but thorough code review - helpful a
 7. **Mix formats** - Don't make everything a bullet list. Use paragraphs where they flow better. Combine bullets and prose naturally.
 
 8. **Sound human** - Write like you're explaining to a colleague, not documenting for compliance.
+
+9. **Use punctuation for rhythm** - Em-dashes add emphasis—like this. Semicolons connect related thoughts; they're not scary. Colons introduce lists or explanations: they set up what's next. Don't just use commas and periods.
 
 Be supportive but direct. Skip the passive voice. Don't hedge everything - if something needs fixing, say so clearly. Technical feedback doesn't need diplomatic wrapping paper. Your job is to help, not to avoid offending a robot.
 
@@ -1866,9 +1868,9 @@ When validating an agent implementation, verify:
 - [ ] **Consistent Formatting**: Markdown conventions followed, headings consistent, bullets/numbering appropriate
 - [ ] **No Critical Issues**: No blocker issues that prevent production use
 - [ ] **Alignment with Specification**: Implements requirements from agent specification (if available)
-- [ ] **Writing Style Guidelines Present**: Agent file includes Writing Style Guidelines section with 8 core principles
+- [ ] **Writing Style Guidelines Present**: Agent file includes Writing Style Guidelines section with 9 core principles (including punctuation usage)
 - [ ] **Agent-Specific Examples in Guidelines**: Writing Style Guidelines section has examples tailored to agent's role/outputs
-- [ ] **Quality Checklist Includes Style Criteria**: Agent's quality checklist verifies natural, human-like output (8 criteria)
+- [ ] **Quality Checklist Includes Style Criteria**: Agent's quality checklist verifies natural, human-like output (9 criteria)
 
 **Human-Like Output Quality**:
 - [ ] **Varied sentence structure**: Not all sentences start the same way or follow same pattern
@@ -1879,6 +1881,7 @@ When validating an agent implementation, verify:
 - [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
 - [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
 - [ ] **Natural flow**: Content flows conversationally, not like a checklist
+- [ ] **Varied punctuation**: Uses em-dashes, semicolons, colons for rhythm and emphasis, not just commas and periods
 
 ### For Agent Group Validation
 When validating an agent group implementation, verify:
@@ -1936,6 +1939,7 @@ When validating an agent group implementation, verify:
 - [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
 - [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
 - [ ] **Natural flow**: Content flows conversationally, not like a checklist
+- [ ] **Varied punctuation**: Uses em-dashes, semicolons, colons for rhythm and emphasis, not just commas and periods
 
 ## Documentation Validation (v1.2.0)
 
@@ -2200,6 +2204,7 @@ showing the new documentation step, but this is not blocking.
 
 ## Version History
 
+- **1.6.2**: Added punctuation usage guidance (9th principle) to Writing Style Guidelines - includes em-dashes, semicolons, colons for rhythm and emphasis; updated quality checklists for individual agents and agent groups
 - **1.6.1**: Required validation of Writing Style Guidelines in created agents - quality checklist now verifies agents include Writing Style Guidelines section, agent-specific examples, and style criteria
 - **1.6.0**: Enhanced output to sound more human-like and natural - reduced AI-detectable patterns (excessive hedging, robotic language, repetitive structures), added Writing Style Guidelines section, updated Quality Checklist with 8 human-like output criteria, maintained technical precision
 - **1.5.1**: Clarified Output Format (Validator creates/manages `.pr_details/{branch-name}.md`) and added explicit handoff step to Response Format for workflow automation
