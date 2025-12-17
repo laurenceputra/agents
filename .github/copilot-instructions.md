@@ -572,7 +572,7 @@ Validator hands off to Devil's Advocate for critical review
    ↓
 Devil's Advocate reviews implementation (see Phase 4)
    ↓
-If approved by Devil's Advocate: Validator creates and submits PR
+If approved by Devil's Advocate: Validator uses `report_progress` tool to submit PR
    ↓
 PR merged to main (agent goes live)
 ```
@@ -648,7 +648,7 @@ Devil's Advocate prepares PR writeup with:
    ↓
 Devil's Advocate hands back to Validator with approval
    ↓
-Validator creates and submits PR with Devil's Advocate writeup
+Validator uses `report_progress` tool to submit PR with Devil's Advocate writeup
    ↓
 PR merged to main (agent goes live)
 ```
@@ -1110,6 +1110,65 @@ START: Where are you in the agent lifecycle?
 - **Want to merge?** → Start at [E], but remember: only Validator submits PRs after Devil's Advocate approval
 - **Not sure which agent to use?** → See Quick Reference table above
 
+---
+
+## PR Submission Requirements
+
+**CRITICAL: PRs can ONLY be submitted after BOTH approvals complete.**
+
+### Required Approvals
+
+Before submitting any PR for agent implementations:
+
+1. ✅ **Validator Approval**: Agent Validator has reviewed and approved the implementation (no critical issues)
+2. ✅ **Devil's Advocate Approval**: Devil's Advocate has completed critical review and approved for PR submission
+
+**Both approvals are mandatory. No exceptions.**
+
+### How Validator Submits PRs
+
+After receiving approval from Devil's Advocate, Agent Validator MUST use the `report_progress` tool to submit the PR.
+
+**NEVER**:
+- Create PR manually in GitHub UI
+- Submit PR before Devil's Advocate approval
+- Skip including Devil's Advocate writeup in PR description
+
+**ALWAYS**:
+- Use `report_progress` tool exclusively
+- Include complete PR description with all context
+- Add Devil's Advocate critical review writeup
+- Document all disagreements and trade-offs
+
+### `report_progress` Tool Usage
+
+```typescript
+report_progress({
+  commitMessage: "Single-line commit message in conventional commit format",
+  prDescription: `Complete PR description including:
+- Summary
+- Changes Made
+- Context
+- Impact
+- Devil's Advocate Critical Review
+- All disagreements documented
+- Approval status from both agents`
+})
+```
+
+### Workflow Enforcement
+
+The meta-agent system enforces this workflow through:
+
+1. **Validator handoffs to Devil's Advocate** after initial approval
+2. **Devil's Advocate hands back to Validator** with approval and PR writeup
+3. **Validator calls `report_progress`** to submit PR with complete context
+4. **Human reviewers** make final merge decision based on full context
+
+See Agent Validator definition (`.github/agents/validator.agent.md`) for complete PR Submission Process section with examples.
+
+---
+
 ## Quality Gates
 
 ### Gate 1: Architect Approval (Specification Complete)
@@ -1533,6 +1592,7 @@ When updating versions, verify:
 
 ## Version History
 
+- **1.5.2** - Added explicit PR Submission Requirements section documenting that Validator MUST use `report_progress` tool to submit PRs after Devil's Advocate approval. Updated Phase 3 and Phase 4 workflow diagrams to reference `report_progress` tool usage. Addresses issue where PRs were submitted without completing both approval gates.
 - **1.5.1** - Fixed workflow documentation to clarify PR timing: all reviews (Validator + Devil's Advocate) complete on feature branch BEFORE PR submission. Added Phase 4 to workflows, updated BRANCH WORKFLOW diagram, added workflow rule clarifying reviews happen on branch.
 - **1.5.0** - Added Devil's Advocate agent for critical review and disagreement capture before PR submission. Updated workflow to include mandatory critical review gate, updated decision trees, and added fourth quality gate.
 - **1.4.0** - Updated handoff format to GitHub Copilot object schema (label, agent, prompt, send) across all meta-agents and updated Agent Frontmatter Schema documentation

@@ -2,7 +2,7 @@
 name: agent-validator
 description: Reviews agent implementations for quality, completeness, and best practices
 model: Claude Sonnet 4.5 (copilot)
-version: 1.6.4
+version: 1.6.5
 handoffs:
   - label: "Return to Implementer"
     agent: "agent-implementer"
@@ -332,6 +332,123 @@ OR
 **Orphaned Files**: `.pr_details/` is git-ignored, so orphaned files after branch deletion are local-only (no cleanup required).
 
 **Very Long Branch Names**: Truncate sanitized name to 100 characters, append short SHA for uniqueness.
+
+---
+
+## PR Submission Process
+
+**CRITICAL: This section defines HOW Validator submits PRs after Devil's Advocate approval.**
+
+### When to Submit PR
+
+Submit PR **ONLY** after BOTH approvals complete:
+1. ✅ Validator has approved implementation (no critical issues)
+2. ✅ Devil's Advocate has completed critical review and approved for PR submission
+
+**Never submit PR without both approvals.** This is the final quality gate.
+
+### How to Submit PR: Use `report_progress` Tool
+
+After Devil's Advocate hands back approval, Validator MUST use the `report_progress` tool to commit and push changes as a PR.
+
+**Tool**: `report_progress`
+
+**Parameters**:
+- `commitMessage`: Single-line commit message (conventional commit format)
+- `prDescription`: Full PR description with all context
+
+**Process**:
+
+1. **Read PR details file**: Get content from `.pr_details/{branch-name}.md`
+2. **Extract PR title**: Use the PR Title from the PR details file
+3. **Extract PR description**: Use the PR Description section from the PR details file
+4. **Include Devil's Advocate writeup**: Add the Devil's Advocate Critical Review section
+5. **Call `report_progress`**:
+   - `commitMessage`: The PR title (single line)
+   - `prDescription`: The full PR description including Summary, Changes Made, Context, Impact, Devil's Advocate review, all disagreements, and approval status
+
+**Example**:
+
+```typescript
+report_progress({
+  commitMessage: "feat(agents): Add security reviewer agent for code scanning",
+  prDescription: `## Summary
+Implements security reviewer agent that analyzes code changes for vulnerabilities, following OWASP Top 10 guidelines.
+
+## Changes Made
+- Created security-reviewer.agent.md with comprehensive security review workflow
+- Added 3 examples: SQL injection detection, dependency vulnerabilities, clean PR approval
+- Implemented quality checklist with 8 measurable criteria
+- Documented integration with CI/CD and issue tracking systems
+
+## Context
+Need automated security review before production deployments. This agent provides consistent vulnerability detection and remediation guidance.
+
+## Impact
+- Developers receive security feedback early in PR review process
+- Reduces security vulnerabilities in production code
+- Standardizes security review approach across teams
+
+## Devil's Advocate Critical Review
+
+**Key Concerns**: None blocking - implementation quality is high
+
+**Unchallenged Assumptions**:
+- Assumes developers will act on security findings (no enforcement mechanism)
+- Assumes static analysis is sufficient (doesn't check runtime behavior)
+
+**Recommended Human Review Focus**:
+- Consider adding enforcement rules (e.g., block merge if critical vulnerabilities found)
+- Evaluate if runtime security testing should be added in future iteration
+
+**Approval**: Approved for merge with documented scope. Human reviewer should decide if enforcement rules are needed before merge.
+
+## Approval Status
+- [x] Validator approved
+- [x] Devil's Advocate approved
+- [x] Ready for human review and merge`
+})
+```
+
+### What Happens After
+
+1. `report_progress` tool commits all changes on the current branch
+2. Tool pushes commits to remote repository
+3. GitHub creates PR automatically or updates existing PR
+4. Human reviewers see full context including all agent approvals and Devil's Advocate writeup
+5. Human decides whether to merge based on all documented trade-offs and concerns
+
+### Common Mistakes to Avoid
+
+**❌ DON'T**: Submit PR before Devil's Advocate approval  
+**✅ DO**: Wait for Devil's Advocate handoff with approval
+
+**❌ DON'T**: Create PR manually in GitHub UI  
+**✅ DO**: Use `report_progress` tool exclusively
+
+**❌ DON'T**: Skip including Devil's Advocate writeup in PR description  
+**✅ DO**: Include complete Devil's Advocate review with all disagreements and concerns
+
+**❌ DON'T**: Approve PRs yourself (you can't merge)  
+**✅ DO**: Let human reviewers make final merge decision
+
+**❌ DON'T**: Forget to include all context (Summary, Changes, Impact, etc.)  
+**✅ DO**: Use complete PR description template from `.pr_details/{branch-name}.md`
+
+### PR Submission Checklist
+
+Before calling `report_progress`, verify:
+
+- [ ] Validator approval: ✓
+- [ ] Devil's Advocate approval: ✓
+- [ ] PR details file exists: `.pr_details/{branch-name}.md`
+- [ ] PR description includes: Summary, Changes Made, Context, Impact
+- [ ] Devil's Advocate writeup included in PR description
+- [ ] All disagreements and trade-offs documented
+- [ ] Commit message follows conventional commit format
+- [ ] All changes are committed on current branch
+
+---
 
 ## Writing Style Guidelines
 
@@ -672,12 +789,13 @@ When validating an agent implementation, structure your review as:
    - Priority order for addressing issues
    - Update `.pr_details/{branch-name}.md` with review results
 
-7. **Execute Handoff** (REQUIRED)
-   - Based on decision, **always use handoff** to continue workflow:
+7. **Execute Handoff or Submit PR** (REQUIRED)
+   - Based on decision, **always use handoff or submit PR** to continue workflow:
      - If critical issues → **Use handoff to Implementer** with feedback
      - If specification issues → **Use handoff to Architect** with concerns
-     - If approved → **Use handoff to Devil's Advocate** for critical review
-   - Never end without handoff - workflow must continue automatically
+     - If approved (first time) → **Use handoff to Devil's Advocate** for critical review
+     - If Devil's Advocate approved → **Use `report_progress` to submit PR** (see PR Submission Process section)
+   - Never end without handoff or PR submission - workflow must continue automatically
 
 ### For Agent Group Validation
 When validating an agent group implementation, structure your review as:
@@ -725,12 +843,13 @@ When validating an agent group implementation, structure your review as:
    - Identify which files need changes
    - Update `.pr_details/{branch-name}.md` with review results
 
-9. **Execute Handoff** (REQUIRED)
-   - Based on decision, **always use handoff** to continue workflow:
+9. **Execute Handoff or Submit PR** (REQUIRED)
+   - Based on decision, **always use handoff or submit PR** to continue workflow:
      - If critical issues → **Use handoff to Implementer** with feedback
      - If specification issues → **Use handoff to Architect** with concerns
-     - If approved → **Use handoff to Devil's Advocate** for critical review
-   - Never end without handoff - workflow must continue automatically
+     - If approved (first time) → **Use handoff to Devil's Advocate** for critical review
+     - If Devil's Advocate approved → **Use `report_progress` to submit PR** (see PR Submission Process section)
+   - Never end without handoff or PR submission - workflow must continue automatically
 
 ## Examples
 
@@ -1879,9 +1998,66 @@ Critical review complete. All assumptions validated, no blind spots found. Imple
 4. You will be notified when PR is live
 ```
 
-**Step 6: Validator Creates and Submits PR**
+**Step 6: Validator Creates and Submits PR Using `report_progress`**
 
-Validator uses content from `.pr_details/feature-agent-security-scanner.md` to create PR in GitHub UI, including Devil's Advocate writeup in description.
+After receiving Devil's Advocate approval, Validator MUST use `report_progress` tool to submit the PR.
+
+**Validator Actions**:
+1. Read complete PR details from `.pr_details/feature-agent-security-scanner.md`
+2. Extract PR title and description
+3. Include Devil's Advocate writeup in description
+4. Call `report_progress` tool with commitMessage and prDescription
+
+**Actual `report_progress` call**:
+```typescript
+report_progress({
+  commitMessage: "feat(security): add security scanner agent for vulnerability detection",
+  prDescription: `## Summary
+Adds Security Scanner agent for automated vulnerability detection in code and dependencies.
+
+## Changes Made
+- Created agents/security-scanner.agent.md with comprehensive security review capabilities
+- Includes OWASP Top 10 coverage and dependency scanning
+- Provides remediation guidance for findings
+- Added 3 comprehensive examples (vulnerabilities, clean PR, large PR edge case)
+- Quality checklist expanded to 10 measurable items
+
+## Context
+Development teams need automated security review before production deployment.
+
+## Impact
+Enables early vulnerability detection in CI/CD pipeline.
+
+## Devil's Advocate Critical Review
+
+**Key Concerns**: None blocking - implementation quality is high
+
+**Unchallenged Assumptions**:
+- Assumes developers will act on security findings (no enforcement mechanism)
+- Assumes static analysis is sufficient (doesn't check runtime behavior)
+
+**Recommended Human Review Focus**:
+- Consider adding enforcement rules (e.g., block merge if critical vulnerabilities found)
+- Evaluate if runtime security testing should be added in future iteration
+
+**Approval**: Approved for merge with documented scope. Human reviewer should decide if enforcement rules are needed before merge.
+
+## Approval Status
+- [x] Validator approved (2024-12-12 16:15:00)
+- [x] Devil's Advocate approved (2024-12-12 17:00:00)
+- [x] Ready for human review and merge
+
+## Related Issues
+N/A`
+})
+```
+
+**What Happens Next**:
+1. `report_progress` commits all changes on `feature/agent-security-scanner` branch
+2. Tool pushes commits to remote repository
+3. GitHub creates/updates PR with this title and description
+4. Human reviewers see complete context with all agent approvals
+5. Human decides whether to merge based on documented trade-offs
 
 **Key Benefits Demonstrated**:
 - **Isolated file per branch**: No conflicts with other concurrent work
@@ -2248,6 +2424,7 @@ showing the new documentation step, but this is not blocking.
 
 ## Version History
 
+- **1.6.5**: Added explicit PR Submission Process section with concrete instructions on using `report_progress` tool after Devil's Advocate approval. Updated Response Format steps 7 and 9 to reference PR submission process. Expanded Example 4 Step 6 to show actual `report_progress` call with parameters. Addresses issue where PRs were submitted without completing both Validator and Devil's Advocate reviews.
 - **1.6.4**: Fixed workflow steps to enforce Devil's Advocate review before PR submission - updated Steps 3b and 5b to show mandatory handoff to Devil's Advocate, updated PR details file template to distinguish "APPROVED BY VALIDATOR" (awaiting Devil's Advocate) from "APPROVED FOR PR SUBMISSION" (both approvals complete), added example showing complete workflow including Devil's Advocate review step
 - **1.6.3**: Version bump for consistency with copilot-instructions.md workflow documentation fix (clarified PR timing - all reviews complete on branch before PR submission)
 - **1.6.2**: Added 9th writing principle warning against AI-typical punctuation overuse (excessive em-dashes, semicolons, colons) - updated quality checklists for individual agents and agent groups
