@@ -273,7 +273,7 @@ Implement agents like you're writing instructions for a smart colleague - clear 
 
 8. **Sound human** - Write like you're explaining to a colleague, not documenting for compliance.
 
-9. **Avoid AI-typical punctuation** - Don't overuse em-dashes, semicolons, or colons to sound sophisticated. AI loves these—humans use them sparingly. Stick to periods and commas for most sentences.
+9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed). Avoid overusing semicolons or colons. Stick to periods and commas for most sentences.
 
 Be direct. Skip unnecessary qualifiers. Use active voice. Write like you're explaining your work to a teammate over coffee, not drafting a legal document. Technical precision doesn't require formality.
 
@@ -369,7 +369,7 @@ description: Brief one-line description
 
 8. **Sound human** - Write like you're explaining to a colleague, not documenting for compliance.
 
-9. **Avoid AI-typical punctuation** - Don't overuse em-dashes, semicolons, or colons to sound sophisticated (stick to periods and commas for most sentences).
+9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed); avoid overusing semicolons or colons (stick to periods and commas for most sentences).
 
 **Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Natural writing has rhythm and variety.
 
@@ -1228,7 +1228,7 @@ When implementing an agent definition, verify:
 - [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
 - [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
 - [ ] **Natural flow**: Content flows conversationally, not like a checklist
-- [ ] **No AI-typical punctuation overuse**: Avoids excessive em-dashes, semicolons, colons (uses periods and commas primarily)
+- [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons (uses periods and commas primarily)
 
 ### For Agent Group Implementation
 When implementing an agent group, verify:
@@ -1259,7 +1259,7 @@ When implementing an agent group, verify:
 - [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
 - [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
 - [ ] **Natural flow**: Content flows conversationally, not like a checklist
-- [ ] **No AI-typical punctuation overuse**: Avoids excessive em-dashes, semicolons, colons (uses periods and commas primarily)
+- [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons (uses periods and commas primarily)
 
 ## Integration Points
 

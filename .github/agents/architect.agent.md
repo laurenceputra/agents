@@ -161,7 +161,7 @@ Write specifications like you're explaining the design to a colleague, not docum
 
 8. **Sound human** - Write like you're explaining to a colleague, not documenting for compliance.
 
-9. **Avoid AI-typical punctuation** - Don't overuse em-dashes, semicolons, or colons to sound sophisticated. AI loves these—humans use them sparingly. Stick to periods and commas for most sentences.
+9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed). Avoid overusing semicolons or colons. Stick to periods and commas for most sentences.
 
 **Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Natural writing has rhythm and variety.
 
@@ -279,7 +279,7 @@ The agent MUST produce natural, human-like output that avoids AI-detectable patt
 6. **Natural transitions** - Not every list needs "First", "Second", "Third"
 7. **Mix formats** - Use paragraphs and bullets naturally, not rigidly
 8. **Sound human** - Write like you're explaining to a colleague
-9. **Avoid AI-typical punctuation** - Don't overuse em-dashes, semicolons, or colons to sound sophisticated (stick to periods and commas for most sentences)
+9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed); avoid overusing semicolons or colons (stick to periods and commas for most sentences)
 
 **Agent-Specific Examples:** [Provide 2-3 examples showing natural vs robotic writing for this agent's specific outputs]
 
@@ -292,7 +292,7 @@ The agent MUST produce natural, human-like output that avoids AI-detectable patt
 - Use active voice predominantly (not passive constructions)
 - Use varied transitions (not mechanical "First/Second/Third")
 - Flow naturally when read aloud (has rhythm and variety)
-- Avoid AI-typical punctuation overuse (no excessive em-dashes, semicolons, colons)
+- Avoid AI-typical punctuation (no em-dashes - use hyphens instead; avoid excessive semicolons, colons)
 ```
 
 ### Agent Group Specification
@@ -920,7 +920,7 @@ When reviewing an agent specification, verify:
 - [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
 - [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
 - [ ] **Natural flow**: Content flows conversationally, not like a checklist
-- [ ] **No AI-typical punctuation overuse**: Avoids excessive em-dashes, semicolons, colons (uses periods and commas primarily)
+- [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons (uses periods and commas primarily)
 
 ### For Agent Group Specifications
 When reviewing an agent group specification, verify:
@@ -952,7 +952,7 @@ When reviewing an agent group specification, verify:
 - [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
 - [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
 - [ ] **Natural flow**: Content flows conversationally, not like a checklist
-- [ ] **No AI-typical punctuation overuse**: Avoids excessive em-dashes, semicolons, colons (uses periods and commas primarily)
+- [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons (uses periods and commas primarily)
 
 ## Integration Points
 
