@@ -157,3 +157,26 @@ No breaking changes. Existing manual agent-by-agent workflow remains fully funct
 
 ### Context
 Built to provide institutional-grade stock analysis to individual investors through systematic multi-dimensional analysis combining fundamental, technical, and risk perspectives.
+
+## 1.3.1 - 2025-12-17
+
+### Added
+- **Writing Style Guidelines**: All agents now include comprehensive writing style guidelines to ensure natural, human-like output
+  - Added 9 core principles for natural writing (varied sentence structures, direct language, active voice, natural transitions, etc.)
+  - Principle 9 specifically addresses AI-typical punctuation (avoid em-dashes, limit semicolons/colons)
+  - Guidelines positioned after Domain Context section in all agent files
+  - Ensures all agent outputs avoid robotic, AI-detectable patterns
+  - **Context**: Aligns all agent groups with meta-agent system v1.6.1/1.7.1 standards for human-like communication
+  - **Migration**: No breaking changes. Existing usage patterns remain valid. Agents will now produce more natural-sounding output.
+
+### Changed
+- **Version Numbers**: All agents bumped to next patch version
+  - stock-analysis-orchestrator: now v1.3.1
+  - stock-researcher: now v1.3.1
+  - fundamental-analyst: now v1.3.1
+  - technical-analyst: now v1.3.1
+  - risk-assessor: now v1.3.1
+  - investment-advisor: now v1.3.1
+  - devils-advocate: now v1.3.1
+  - **Context**: Patch version increment reflects non-breaking enhancement (documentation/quality improvement)
+

@@ -128,3 +128,24 @@ This update ensures Product Development Agents comply with GitHub Copilot's hand
 
 ### Security
 - N/A
+
+## 1.3.1 - 2025-12-17
+
+### Added
+- **Writing Style Guidelines**: All agents now include comprehensive writing style guidelines to ensure natural, human-like output
+  - Added 9 core principles for natural writing (varied sentence structures, direct language, active voice, natural transitions, etc.)
+  - Principle 9 specifically addresses AI-typical punctuation (avoid em-dashes, limit semicolons/colons)
+  - Guidelines positioned after Domain Context section in all agent files
+  - Ensures all agent outputs avoid robotic, AI-detectable patterns
+  - **Context**: Aligns all agent groups with meta-agent system v1.6.1/1.7.1 standards for human-like communication
+  - **Migration**: No breaking changes. Existing usage patterns remain valid. Agents will now produce more natural-sounding output.
+
+### Changed
+- **Version Numbers**: All agents bumped to next patch version
+  - product-manager: now v1.3.1
+  - staff-engineer: now v1.3.1
+  - code-reviewer: now v1.3.1
+  - qa: now v1.3.1
+  - devils-advocate: now v1.3.1
+  - **Context**: Patch version increment reflects non-breaking enhancement (documentation/quality improvement)
+
