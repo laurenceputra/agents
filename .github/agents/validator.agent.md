@@ -2,7 +2,7 @@
 name: agent-validator
 description: Reviews agent implementations for quality, completeness, and best practices
 model: Claude Sonnet 4.5 (copilot)
-version: 1.6.0
+version: 1.6.1
 handoffs:
   - label: "Return to Implementer"
     agent: "agent-implementer"
@@ -1866,6 +1866,9 @@ When validating an agent implementation, verify:
 - [ ] **Consistent Formatting**: Markdown conventions followed, headings consistent, bullets/numbering appropriate
 - [ ] **No Critical Issues**: No blocker issues that prevent production use
 - [ ] **Alignment with Specification**: Implements requirements from agent specification (if available)
+- [ ] **Writing Style Guidelines Present**: Agent file includes Writing Style Guidelines section with 8 core principles
+- [ ] **Agent-Specific Examples in Guidelines**: Writing Style Guidelines section has examples tailored to agent's role/outputs
+- [ ] **Quality Checklist Includes Style Criteria**: Agent's quality checklist verifies natural, human-like output (8 criteria)
 
 **Human-Like Output Quality**:
 - [ ] **Varied sentence structure**: Not all sentences start the same way or follow same pattern
@@ -1921,6 +1924,8 @@ When validating an agent group implementation, verify:
 **Group-Level Quality:**
 - [ ] **No Critical Issues**: No blocker issues preventing production use
 - [ ] **Specification Alignment**: Implements group specification completely
+- [ ] **All Agents Have Writing Style Guidelines**: Each agent file includes Writing Style Guidelines section
+- [ ] **Consistent Style Requirements**: All agents follow same writing style principles with role-appropriate adaptations
 
 **Human-Like Output Quality (Group-Wide)**:
 - [ ] **Varied sentence structure**: Not all sentences start the same way or follow same pattern
@@ -2195,6 +2200,7 @@ showing the new documentation step, but this is not blocking.
 
 ## Version History
 
+- **1.6.1**: Required validation of Writing Style Guidelines in created agents - quality checklist now verifies agents include Writing Style Guidelines section, agent-specific examples, and style criteria
 - **1.6.0**: Enhanced output to sound more human-like and natural - reduced AI-detectable patterns (excessive hedging, robotic language, repetitive structures), added Writing Style Guidelines section, updated Quality Checklist with 8 human-like output criteria, maintained technical precision
 - **1.5.1**: Clarified Output Format (Validator creates/manages `.pr_details/{branch-name}.md`) and added explicit handoff step to Response Format for workflow automation
 - **1.5.0**: Added Devil's Advocate agent as fourth meta-agent for critical review and disagreement capture. Updated workflow to include mandatory pre-PR critical review gate.
