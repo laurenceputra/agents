@@ -216,19 +216,19 @@ Deliver comprehensive report following this structure:
 ---
 
 ## 1️⃣ Stock Research Summary
-[COMPLETE output from stock-researcher - include ALL company data, financial metrics, industry context, and citations. Do NOT summarize or abbreviate.]
+[Output from stock-researcher - include key company data, financial metrics, industry context, and citations.]
 
 ## 2️⃣ Fundamental Analysis
-[COMPLETE output from fundamental-analyst - include ALL financial health ratings, valuation metrics, growth analysis, and recommendations. Do NOT summarize or abbreviate.]
+[Output from fundamental-analyst - include financial health ratings, valuation metrics, growth analysis, and recommendations.]
 
 ## 3️⃣ Technical Analysis
-[COMPLETE output from technical-analyst - include ALL trend assessments, price levels, technical indicators, and charts/patterns. Do NOT summarize or abbreviate.]
+[Output from technical-analyst - include trend assessments, price levels, technical indicators, and charts/patterns.]
 
 ## 4️⃣ Risk Assessment
-[COMPLETE output from risk-assessor - include ALL volatility analysis, risk factors, portfolio fit evaluation, and position sizing rationale. Do NOT summarize or abbreviate.]
+[Output from risk-assessor - include volatility analysis, risk factors, portfolio fit evaluation, and position sizing rationale.]
 
 ## 5️⃣ Investment Recommendation
-[COMPLETE output from investment-advisor - include ALL recommendation details, entry/exit strategy, scenario analysis, and monitoring plans. Do NOT summarize or abbreviate.]
+[Output from investment-advisor - include recommendation details, entry/exit strategy, scenario analysis, and monitoring plans.]
 
 ---
 
@@ -874,7 +874,7 @@ The orchestrator is a **terminal agent** — it delivers the final comprehensive
 
 ## Version History
 
-- **1.3.1** (2025-12-17): PATCH - Clarified Response Format to mandate COMPLETE outputs from all agents (not summaries/highlights), specified report filename format as {Ticker}-{Date}.md, updated examples to demonstrate full output inclusion
+- **1.3.1** (2025-12-17): PATCH - Clarified Response Format to mandate agent outputs are included (not omitted), specified report filename format as {Ticker}-{Date}.md, updated examples to demonstrate output inclusion. Outputs can be in complete or summarized form as appropriate.
 - **1.3.0** (2025-12-15): Quality checklist enhancement - expanded from 10 to 15 items (complexity-appropriate standard for orchestrator agents), improved usability by consolidating from original 50 items while preserving critical orchestration quality checks
 - **1.0.0** (2024-12-14): Initial implementation of automated stock analysis orchestrator
   - Upfront input collection via structured questionnaire
