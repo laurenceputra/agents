@@ -6,9 +6,15 @@ Comprehensive philanthropic advisory services for Singapore-focused giving, with
 
 ## Version
 
-**Version 1.0.0** — Initial release with five coordinated agents for comprehensive philanthropic decision support
+**Version 1.1.0** — Added Principles & Framework Definer agent for establishing giving criteria before program evaluation
 
-## The Five Agents
+## The Six Agents
+
+### principles-framework-definer (OPTIONAL - Foundation)
+**Role**: Define philanthropic principles and decision framework before evaluating programs  
+**Model**: Claude Sonnet 4.5 (copilot)  
+**When to use**: You want to establish clear giving criteria, values, and decision thresholds before evaluating specific programs  
+**Handoffs to**: impact-evaluator (with framework criteria), devils-advocate (framework challenge)
 
 ### impact-evaluator
 **Role**: Quantitative impact evaluation using SROI, CEA, and trajectory uplift frameworks  
@@ -41,6 +47,44 @@ Comprehensive philanthropic advisory services for Singapore-focused giving, with
 **Handoffs to**: Any agent (for revision) or decision-maker (if approved)
 
 ## Workflow
+
+### Option 1: Start with Framework Definition (Recommended for New Philanthropists)
+
+```
+Philanthropist Needs Clarity on Giving Principles
+    ↓
+@principles-framework-definer
+(Facilitate 8 foundational question areas: values, beneficiaries, theory of change, criteria)
+    ↓
+Comprehensive Framework Document Produced
+(SROI thresholds, risk tolerance, portfolio strategy, decision criteria)
+    ↓
+Program Proposal Submitted
+    ↓
+@impact-evaluator (uses framework criteria)
+(Quantitative analysis: SROI, CEA, trajectory uplift against defined thresholds)
+    ↓
+@portfolio-strategist
+(Strategic fit assessed against explicit framework)
+    ↓
+@risk-opportunity-analyst
+(Risk assessment using framework risk tolerance)
+    ↓
+@recommendation-synthesizer
+(Recommendation aligned with framework criteria)
+    ↓
+@devils-advocate (MANDATORY QUALITY GATE)
+(Challenge framework + analysis assumptions, surface disagreements)
+    ↓
+    ├─ APPROVED → Decision-maker (funding decision)
+    ├─ Framework issues → @principles-framework-definer (refine framework)
+    ├─ Methodology issues → @impact-evaluator (revise calculations)
+    ├─ Strategy issues → @portfolio-strategist (reassess fit)
+    ├─ Risk issues → @risk-opportunity-analyst (deeper analysis)
+    └─ Synthesis issues → @recommendation-synthesizer (adjust recommendation)
+```
+
+### Option 2: Direct Program Evaluation (When Framework Already Clear)
 
 ```
 Program Proposal Submitted
@@ -143,6 +187,12 @@ Program Proposal Submitted
 
 ### Start Here: What Do You Need?
 
+**[0] I don't have clear giving principles or decision criteria yet**  
+ Start with @principles-framework-definer (RECOMMENDED FIRST STEP)  
+ Provides: Framework document with values, beneficiaries, theory of change, SROI thresholds, decision criteria  
+ Next: Use framework to evaluate programs with @impact-evaluator OR challenge framework with @devils-advocate  
+ Duration: ~30-60 minutes for framework definition
+
 **[A] I have a program to evaluate (no analysis yet)**  
  Start with @impact-evaluator  
  Provides: SROI, CEA, trajectory uplift, data quality assessment  
@@ -169,7 +219,13 @@ Program Proposal Submitted
  Provides: Assumption challenges, disagreements, blind spots, questions for you  
  Next: Make informed decision with full picture
 
-**[F] I want to run full workflow from start to finish**  
+**[F] I want to run full workflow from start to finish (with framework)**  
+ 1. Start with @principles-framework-definer to establish criteria (30-60 min)  
+ 2. Submit program to @impact-evaluator with framework criteria  
+ 3. Workflow runs automatically: impact → portfolio → risk → synthesis → devils-advocate → decision  
+ Duration: ~1-2 days for comprehensive analysis after framework established
+
+**[G] I want to run full workflow from start to finish (no framework)**  
  Submit program to @impact-evaluator  
  Workflow runs automatically: impact → portfolio → risk → synthesis → devils-advocate → decision  
  Duration: ~1-2 days for comprehensive analysis

@@ -76,6 +76,25 @@ Initial release focuses on Singapore philanthropic giving for at-risk communitie
 
 [1.0.0]: https://github.com/your-repo/philanthropic-advisory-agents/releases/tag/v1.0.0
 
+## [1.1.0] - 2025-12-17
+
+### Added
+- **Principles & Framework Definer Agent**: New agent for establishing philanthropic principles and decision-making frameworks before program evaluation
+  - Guides philanthropists through 8 predefined foundational question areas (values, beneficiaries, problem areas, theory of change, decision criteria, risk tolerance, portfolio strategy, non-negotiables)
+  - Produces comprehensive framework documents with quantitative thresholds (SROI, cost-effectiveness, mission alignment)
+  - Operates standalone (framework only) or integrates with philanthropic-advisory workflow (framework → evaluation)
+  - Facilitates values articulation and strategic coherence before funding decisions
+  - Singapore context integration (demographics, policies, landscape gaps)
+  - Handoffs to impact-evaluator (with framework criteria) or devils-advocate (framework challenge)
+  - **Context**: Addresses common philanthropist need to define clear principles before making ad-hoc funding decisions
+  - **Use case**: Run principles-framework-definer first, establish criteria, then evaluate programs against explicit standards
+
+### Changed
+- **Workflow Enhancement**: Philanthropic-advisory workflow now supports optional "framework definition first" path
+  - Original workflow remains: Program → @impact-evaluator → ... (no framework needed)
+  - New workflow option: @principles-framework-definer → Framework → Program → @impact-evaluator (uses framework criteria) → ...
+  - **Context**: Flexible integration - philanthropists can define framework upfront or evaluate programs without explicit framework
+
 ## 1.0.1 - 2025-12-17
 
 ### Added
