@@ -2,7 +2,7 @@
 name: agent-validator
 description: Reviews agent implementations for quality, completeness, and best practices
 model: Claude Sonnet 4.5 (copilot)
-version: 1.6.3
+version: 1.6.4
 handoffs:
   - label: "Return to Implementer"
     agent: "agent-implementer"
@@ -83,12 +83,14 @@ If issues require changes:
 6. Return to Step 1 for re-review
 7. **Iterate until all critical issues resolved**
 
-#### Step 3b: Approved → Submit PR
+#### Step 3b: Approved → Handoff to Devil's Advocate
 If implementation meets all approval criteria:
 1. Mark as **APPROVED** in validation report
 2. **Update PR details file** in `.pr_details/{branch}.md` with approval status
-3. **Instruct human to create pull request** using PR details file
-4. Human merges feature branch to main using copy-paste PR title/description from file
+3. **Handoff to Devil's Advocate** for critical review (mandatory gate)
+4. Devil's Advocate reviews and either requests revisions or approves
+5. If approved by Devil's Advocate: Validator creates and submits PR
+6. Human reviews PR with full context and merges to main
 
 #### Step 4: Specification Issues (Escalation Path)
 If specification itself has gaps or ambiguities:
@@ -149,12 +151,14 @@ If issues require changes:
 6. Implementer fixes on same branch
 7. Return to Step 1 for re-review
 
-#### Step 5b: Approved → Submit PR
+#### Step 5b: Approved → Handoff to Devil's Advocate
 If group meets all approval criteria:
 1. Mark as **APPROVED** in validation report
 2. **Update PR details file** in `.pr_details/{branch}.md` with approval status
-3. **Instruct human to create pull request** using PR details file
-4. Human merges feature branch to main using copy-paste PR title/description from file
+3. **Handoff to Devil's Advocate** for critical review (mandatory gate)
+4. Devil's Advocate reviews and either requests revisions or approves
+5. If approved by Devil's Advocate: Validator creates and submits PR
+6. Human reviews PR with full context and merges to main
 
 #### Step 6: Specification Issues (Escalation Path)
 If group specification has gaps:
@@ -214,12 +218,19 @@ Convert git branch names into safe, valid filenames:
 3. Add specific feedback details with timestamp
 4. Maintain "Human Action Required" section showing feedback state
 
-**During Approval** (No critical issues):
-1. Append final approval validation section
-2. Update status to "APPROVED"
+**During Validator Approval** (No critical issues):
+1. Append validation approval section
+2. Update status to "APPROVED BY VALIDATOR"
 3. Add approval timestamp
-4. Update "Human Action Required" section with PR submission steps
-5. Include copy-paste ready PR title and description
+4. Update "Human Action Required" to show "Awaiting Devil's Advocate Review"
+5. Handoff to Devil's Advocate for critical review
+
+**After Devil's Advocate Approval** (Final gate passed):
+1. Append Devil's Advocate approval section
+2. Update status to "APPROVED FOR PR SUBMISSION"
+3. Add final approval timestamp
+4. Update "Human Action Required" with "Validator will submit PR"
+5. Include Devil's Advocate writeup in PR description
 
 **During Escalation** (Specification issues):
 1. Append escalation note to validation history
@@ -280,11 +291,19 @@ Convert git branch names into safe, valid filenames:
 
 ## Human Action Required
 
-✅ **APPROVED** - Ready for PR submission:
-1. Create pull request from `{branch-name}` to `main`
-2. Copy PR title from above
-3. Copy PR description from above
-4. Submit PR in GitHub UI
+✅ **APPROVED BY VALIDATOR** - Awaiting Devil's Advocate Review:
+1. Implementation approved by Validator
+2. Next: Devil's Advocate critical review (mandatory)
+3. After Devil's Advocate approval: Validator will submit PR
+4. Status will update when PR is ready
+
+OR
+
+✅ **APPROVED FOR PR SUBMISSION** - Ready after Devil's Advocate approval:
+1. Validator approved: ✓
+2. Devil's Advocate approved: ✓
+3. Validator will create and submit PR shortly
+4. You will be notified when PR is live
 
 OR
 
@@ -1813,7 +1832,7 @@ Recommendations:
 
 ### Review 2 - 2024-12-12 16:15:00
 **Reviewer**: Agent Validator  
-**Status**: APPROVED
+**Status**: APPROVED BY VALIDATOR
 
 All critical issues resolved:
 ✅ Added clean PR example (Example 3)
@@ -1822,29 +1841,54 @@ All critical issues resolved:
 ✅ Added large PR example (Example 4)
 ✅ Quality checklist criteria now measurable
 
-Implementation meets all quality standards. Ready for merge.
+Implementation meets all quality standards. Handing off to Devil's Advocate for critical review.
 
 ---
 
 ## Human Action Required
 
-✅ **APPROVED** - Ready for PR submission:
-1. Create pull request from `feature/agent-security-scanner` to `main`
-2. Copy PR title from above
-3. Copy PR description from above
-4. Submit PR in GitHub UI
+✅ **APPROVED BY VALIDATOR** - Awaiting Devil's Advocate Review:
+1. Implementation approved by Validator
+2. Next: Devil's Advocate critical review (mandatory)
+3. After Devil's Advocate approval: Validator will submit PR
+4. Status will update when PR is ready
 ```
 
-**Step 4: Human Creates PR**
+**Step 4: Devil's Advocate Critical Review**
 
-Human opens `.pr_details/feature-agent-security-scanner.md`, copies PR title and description, creates PR in GitHub UI.
+Devil's Advocate reviews implementation, challenges assumptions, surfaces any concerns. If approved, prepares writeup for PR.
+
+**Step 5: Validator Updates PR Details After Devil's Advocate Approval**
+
+**Updated PR Details File** (after Devil's Advocate approval):
+```markdown
+### Review 3 - 2024-12-12 17:00:00
+**Reviewer**: Devil's Advocate  
+**Status**: APPROVED FOR PR SUBMISSION
+
+Critical review complete. All assumptions validated, no blind spots found. Implementation ready for production.
+
+---
+
+## Human Action Required
+
+✅ **APPROVED FOR PR SUBMISSION** - Ready after Devil's Advocate approval:
+1. Validator approved: ✓
+2. Devil's Advocate approved: ✓
+3. Validator will create and submit PR shortly
+4. You will be notified when PR is live
+```
+
+**Step 6: Validator Creates and Submits PR**
+
+Validator uses content from `.pr_details/feature-agent-security-scanner.md` to create PR in GitHub UI, including Devil's Advocate writeup in description.
 
 **Key Benefits Demonstrated**:
 - **Isolated file per branch**: No conflicts with other concurrent work
-- **Complete validation history**: Shows full feedback loop (review 1 → fixes → review 2 → approval)
-- **Copy-paste ready**: PR title and description formatted for immediate use
-- **Status tracking**: Clear indication of current state (Feedback Provided → APPROVED)
-- **Human instructions**: Explicit steps for manual PR creation
+- **Complete validation history**: Shows full feedback loop (review 1 → fixes → review 2 → Devil's Advocate review → approval)
+- **Mandatory critical review gate**: Devil's Advocate review enforced before PR submission
+- **Status tracking**: Clear indication of current state (Feedback Provided → Validator Approved → Devil's Advocate Approved → PR Submitted)
+- **Validator controls PR submission**: Only Validator creates PR after both approvals
 
 ---
 
@@ -2204,6 +2248,7 @@ showing the new documentation step, but this is not blocking.
 
 ## Version History
 
+- **1.6.4**: Fixed workflow steps to enforce Devil's Advocate review before PR submission - updated Steps 3b and 5b to show mandatory handoff to Devil's Advocate, updated PR details file template to distinguish "APPROVED BY VALIDATOR" (awaiting Devil's Advocate) from "APPROVED FOR PR SUBMISSION" (both approvals complete), added example showing complete workflow including Devil's Advocate review step
 - **1.6.3**: Version bump for consistency with copilot-instructions.md workflow documentation fix (clarified PR timing - all reviews complete on branch before PR submission)
 - **1.6.2**: Added 9th writing principle warning against AI-typical punctuation overuse (excessive em-dashes, semicolons, colons) - updated quality checklists for individual agents and agent groups
 - **1.6.1**: Required validation of Writing Style Guidelines in created agents - quality checklist now verifies agents include Writing Style Guidelines section, agent-specific examples, and style criteria

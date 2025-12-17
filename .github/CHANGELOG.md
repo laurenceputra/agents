@@ -5,6 +5,23 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.6.4 - 2025-12-17
+
+### Fixed
+- **Agent Validator Workflow Steps: Enforced Devil's Advocate Review Gate**: Fixed Steps 3b and 5b to prevent PR creation without Devil's Advocate review
+  - **Issue**: Steps 3b ("Approved → Submit PR") and 5b showed Validator creating PR immediately after approval, bypassing Devil's Advocate review
+  - **Root Cause**: Workflow steps not updated when Devil's Advocate gate was added in v1.5.0
+  - **Fixed Sections**:
+    - **Step 3b (Individual Agent)**: Changed from "Approved → Submit PR" to "Approved → Handoff to Devil's Advocate" with 6-step sequence including Devil's Advocate review
+    - **Step 5b (Agent Group)**: Changed from "Approved → Submit PR" to "Approved → Handoff to Devil's Advocate" with 6-step sequence including Devil's Advocate review
+    - **PR Details File Template**: Split "APPROVED" status into two states: "APPROVED BY VALIDATOR" (awaiting Devil's Advocate) and "APPROVED FOR PR SUBMISSION" (both approvals complete)
+    - **When to Update PR Details**: Added "After Devil's Advocate Approval" section with steps for final status update
+    - **Example 3**: Updated security scanner example to show complete workflow with Devil's Advocate review step between Validator approval and PR submission
+  - **Before**: Steps 3b/5b showed direct path from Validator approval to human creating PR, bypassing Devil's Advocate
+  - **After**: Steps 3b/5b explicitly show handoff to Devil's Advocate as mandatory gate before PR submission
+  - **Context**: Every implementation MUST pass through Devil's Advocate critical review before PR submission. This is a mandatory quality gate that cannot be skipped.
+  - **Migration**: No breaking changes. Clarifies enforcement of existing Devil's Advocate workflow requirement introduced in v1.5.0.
+
 ## 1.6.3 / 1.7.3 - 2025-12-17
 
 ### Fixed
