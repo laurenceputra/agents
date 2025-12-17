@@ -2,7 +2,7 @@
 name: agent-implementer
 description: Implements agent definitions from specifications following best practices
 model: Claude Haiku 4.5 (copilot)
-version: 1.6.1
+version: 1.6.2
 handoffs:
   - label: "Submit to Validator"
     agent: "agent-validator"
@@ -273,6 +273,8 @@ Implement agents like you're writing instructions for a smart colleague - clear 
 
 8. **Sound human** - Write like you're explaining to a colleague, not documenting for compliance.
 
+9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed). Avoid overusing semicolons or colons. Stick to periods and commas for most sentences.
+
 Be direct. Skip unnecessary qualifiers. Use active voice. Write like you're explaining your work to a teammate over coffee, not drafting a legal document. Technical precision doesn't require formality.
 
 **Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Natural writing has rhythm and variety.
@@ -366,6 +368,8 @@ description: Brief one-line description
 7. **Mix formats** - Don't make everything a bullet list. Use paragraphs where they flow better. Combine bullets and prose naturally.
 
 8. **Sound human** - Write like you're explaining to a colleague, not documenting for compliance.
+
+9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed); avoid overusing semicolons or colons (stick to periods and commas for most sentences).
 
 **Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Natural writing has rhythm and variety.
 
@@ -1209,8 +1213,8 @@ When implementing an agent definition, verify:
 - [ ] **Detailed Response Format**: Step-by-step structure for agent responses
 - [ ] **Realistic Examples**: At least 2 examples covering simple and complex scenarios
 - [ ] **Complete Quality Checklist**: Criteria for validating agent outputs included
-- [ ] **Writing Style Guidelines Section**: Agent file includes Writing Style Guidelines section with 8 core principles and agent-specific examples
-- [ ] **Quality Checklist Includes Style Criteria**: Agent's quality checklist verifies natural, human-like output (8 criteria)
+- [ ] **Writing Style Guidelines Section**: Agent file includes Writing Style Guidelines section with 9 core principles (including avoiding AI-typical punctuation) and agent-specific examples
+- [ ] **Quality Checklist Includes Style Criteria**: Agent's quality checklist verifies natural, human-like output (9 criteria)
 - [ ] **Integration Points Documented**: Connections to other agents/systems described
 - [ ] **Consistent Formatting**: Follows standard structure and markdown conventions
 - [ ] **Optimized for GitHub Copilot**: Instructions are clear, specific, and actionable
@@ -1224,6 +1228,7 @@ When implementing an agent definition, verify:
 - [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
 - [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
 - [ ] **Natural flow**: Content flows conversationally, not like a checklist
+- [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons (uses periods and commas primarily)
 
 ### For Agent Group Implementation
 When implementing an agent group, verify:
@@ -1254,6 +1259,7 @@ When implementing an agent group, verify:
 - [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
 - [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
 - [ ] **Natural flow**: Content flows conversationally, not like a checklist
+- [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons (uses periods and commas primarily)
 
 ## Integration Points
 
@@ -1401,6 +1407,7 @@ Before submitting to Validator:
 
 ## Version History
 
+- **1.6.2**: Added 9th writing principle warning against AI-typical punctuation overuse (excessive em-dashes, semicolons, colons) - updated quality checklists and agent template
 - **1.6.1**: Required all created agents to include Writing Style Guidelines section - agent template now includes 8 writing principles, agent-specific examples, and quality checklist criteria for natural output
 - **1.6.0**: Enhanced output to sound more human-like and natural - reduced AI-detectable patterns (excessive hedging, robotic language, repetitive structures), added Writing Style Guidelines section, updated Quality Checklist with 8 human-like output criteria, maintained technical precision
 - **1.5.1**: Added explicit handoff step to Response Format for workflow automation (ensures Implementer always hands to Validator after completion)

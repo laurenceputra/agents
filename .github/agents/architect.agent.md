@@ -2,7 +2,7 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 1.7.1
+version: 1.7.2
 handoffs:
   - label: "Hand to Implementer"
     agent: "agent-implementer"
@@ -161,6 +161,8 @@ Write specifications like you're explaining the design to a colleague, not docum
 
 8. **Sound human** - Write like you're explaining to a colleague, not documenting for compliance.
 
+9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed). Avoid overusing semicolons or colons. Stick to periods and commas for most sentences.
+
 **Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Natural writing has rhythm and variety.
 
 ## Domain Context
@@ -277,6 +279,7 @@ The agent MUST produce natural, human-like output that avoids AI-detectable patt
 6. **Natural transitions** - Not every list needs "First", "Second", "Third"
 7. **Mix formats** - Use paragraphs and bullets naturally, not rigidly
 8. **Sound human** - Write like you're explaining to a colleague
+9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed); avoid overusing semicolons or colons (stick to periods and commas for most sentences)
 
 **Agent-Specific Examples:** [Provide 2-3 examples showing natural vs robotic writing for this agent's specific outputs]
 
@@ -289,6 +292,7 @@ The agent MUST produce natural, human-like output that avoids AI-detectable patt
 - Use active voice predominantly (not passive constructions)
 - Use varied transitions (not mechanical "First/Second/Third")
 - Flow naturally when read aloud (has rhythm and variety)
+- Avoid AI-typical punctuation (no em-dashes - use hyphens instead; avoid excessive semicolons, colons)
 ```
 
 ### Agent Group Specification
@@ -403,11 +407,11 @@ Required for versions > 1.0.0
 ## Writing Style Guidelines for All Agents
 All agents in the group MUST produce natural, human-like output. Each agent specification should include:
 
-**Core Principles:** (same 8 principles listed in Individual Agent Specification above)
+**Core Principles:** (same 9 principles listed in Individual Agent Specification above)
 
 **Agent-Specific Examples:** For each agent, provide 2-3 examples showing natural vs robotic writing for that agent's outputs
 
-**Quality Checklist Requirements:** Each agent's quality checklist must verify natural output (8 criteria listed above)
+**Quality Checklist Requirements:** Each agent's quality checklist must verify natural output (9 criteria listed above)
 
 **Consistency Across Group:** All agents should follow the same writing style principles while adapting examples to their specific roles
 ```
@@ -904,7 +908,7 @@ When reviewing an agent specification, verify:
 - [ ] **Assumptions Documented**: Are assumptions and limitations explicit?
 - [ ] **Practical Examples**: Are there concrete examples illustrating the agent's use?
 - [ ] **Model Recommended**: Is a specific model recommended with rationale?
-- [ ] **Writing Style Guidelines Included**: Does specification include Writing Style Guidelines section with 8 core principles and agent-specific examples?
+- [ ] **Writing Style Guidelines Included**: Does specification include Writing Style Guidelines section with 9 core principles (including avoiding AI-typical punctuation) and agent-specific examples?
 - [ ] **Quality Checklist Includes Style Criteria**: Does specification require the agent's quality checklist to verify natural, human-like output?
 
 **Human-Like Output Quality**:
@@ -916,6 +920,7 @@ When reviewing an agent specification, verify:
 - [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
 - [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
 - [ ] **Natural flow**: Content flows conversationally, not like a checklist
+- [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons (uses periods and commas primarily)
 
 ### For Agent Group Specifications
 When reviewing an agent group specification, verify:
@@ -947,6 +952,7 @@ When reviewing an agent group specification, verify:
 - [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
 - [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
 - [ ] **Natural flow**: Content flows conversationally, not like a checklist
+- [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons (uses periods and commas primarily)
 
 ## Integration Points
 
@@ -966,6 +972,7 @@ When reviewing an agent group specification, verify:
 
 ## Version History
 
+- **1.7.2**: Added 9th writing principle warning against AI-typical punctuation overuse (excessive em-dashes, semicolons, colons) - updated quality checklists and specification requirements to verify agents avoid these patterns
 - **1.7.1**: Required specifications to include Writing Style Guidelines for created agents - specifications now mandate that all agents follow natural writing principles, includes agent-specific examples, and quality checklist criteria for human-like output
 - **1.7.0**: Enhanced output to sound more human-like and natural - reduced AI-detectable patterns (excessive hedging, robotic language, repetitive structures), added Writing Style Guidelines section, updated Quality Checklist with 8 human-like output criteria, maintained technical precision
 - **1.6.2**: Version bump for consistency with meta-agent workflow automation refactor (v1.5.1 changes to Implementer, Validator, and Devil's Advocate to enable automatic workflow continuation via explicit handoff steps)

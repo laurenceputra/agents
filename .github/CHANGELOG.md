@@ -5,6 +5,33 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 1.6.2 / 1.7.2 - 2025-12-17
+
+### Added
+- **AI-Typical Punctuation Warning**: Added 9th writing principle warning against AI-typical punctuation patterns
+  - **Agent Architect (v1.7.1 → 1.7.2)**:
+    - Added principle 9: "Avoid AI-typical punctuation" - no em-dashes at all (use hyphens instead), avoid overusing semicolons/colons
+    - Updated specification templates to require 9 principles (was 8)
+    - Updated Quality Checklists (individual and group) with new criterion: "No AI-typical punctuation"
+    - Context: Specifications will now require agents to avoid em-dashes entirely and limit semicolons/colons
+  - **Agent Implementer (v1.6.1 → 1.6.2)**:
+    - Added principle 9: "Avoid AI-typical punctuation" to Writing Style Guidelines
+    - Updated agent definition template to ban em-dashes (recommend hyphens instead)
+    - Updated Quality Checklists (individual and group) with "No AI-typical punctuation" criterion
+    - Context: Agents created will automatically warn against em-dashes and excessive semicolons/colons
+  - **Agent Validator (v1.6.1 → 1.6.2)**:
+    - Added principle 9: "Avoid AI-typical punctuation" to Writing Style Guidelines
+    - Updated Quality Checklists (individual and group) to verify no em-dashes used
+    - Updated validation criteria from 8 to 9 core principles
+    - Context: Validator will verify agents don't use em-dashes and limit semicolons/colons
+  - **Devil's Advocate (v1.6.1 → 1.6.2)**:
+    - Added principle 9: "Avoid AI-typical punctuation" to Writing Style Guidelines
+    - Updated Quality Checklist to verify no em-dashes
+    - Context: Critical reviews will avoid em-dashes entirely
+  - **Before**: No guidance on punctuation patterns that make text appear AI-generated
+  - **After**: All meta-agents and created agents now instructed to never use em-dashes (use hyphens instead), avoid overusing semicolons/colons (stick to periods and commas for most sentences)
+  - **Migration**: No breaking changes. Existing agents remain valid. New agents will include stricter punctuation guidance.
+
 ## 1.6.1 / 1.7.1 - 2025-12-17
 
 ### Added
