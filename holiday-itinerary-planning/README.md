@@ -19,7 +19,7 @@ Analyzes your preferences, constraints, and budget to recommend 2-3 destinations
 
 ### 2. activity-planner
 **Role**: Design day-by-day activity schedules  
-**Model**: Claude Haiku 4.5 (copilot)  
+**Model**: Claude Sonnet 4.5 (copilot)  
 **When to use**: You've chosen a destination and need activities planned
 
 Creates engaging itineraries balancing must-see attractions with local experiences, proper pacing, and backup plans for weather.
@@ -33,7 +33,7 @@ Plans flights, accommodation, local transportation, booking timelines, packing l
 
 ### 4. budget-optimizer
 **Role**: Track costs and optimize spending allocation  
-**Model**: Gemini 3 Pro (Preview)  
+**Model**: Claude Sonnet 4.5 (copilot)  
 **When to use**: You need cost analysis and budget optimization
 
 Estimates all trip costs, identifies savings opportunities, suggests splurge-vs-save strategies, and ensures budget feasibility.
@@ -146,6 +146,65 @@ budget-optimizer → itinerary-integrator → devils-advocate
 ```
 *Logistics coordinator plays crucial role verifying accessibility of all components.*
 
+## Planning with Accessibility Needs
+
+For travelers with mobility, sensory, or other accessibility requirements, accessibility should be **the primary filter** throughout planning - not an afterthought.
+
+### Accessibility-First Workflow
+
+When accessibility is a core requirement:
+
+**1. Start with explicit accessibility requirements**
+```
+@destination-researcher: "Recommend beach destinations for wheelchair user. 
+Must have wheelchair-accessible beaches, level sidewalks, accessible restaurants. 
+July dates, $3000 budget, flying from Atlanta."
+```
+
+**2. Filter activities through accessibility lens**
+```
+@activity-planner: "Design activities for wheelchair user in San Diego. 
+All activities must be wheelchair accessible - verify entrance accessibility, 
+bathroom facilities, terrain. Include specific accessibility details for each venue."
+```
+
+**3. Logistics becomes CRITICAL - verify everything**
+```
+@logistics-coordinator: "Add logistics with detailed accessibility verification:
+- Airport assistance and wheelchair transport
+- Accessible hotel room (roll-in shower, grab bars)
+- Accessible rental van or ride services
+- Verify each activity venue called ahead for accessibility
+- Backup plans if venues aren't actually accessible"
+```
+
+**4. Budget may need adjustment for accessibility**
+```
+@budget-optimizer: "Factor in accessibility costs: accessible accommodation 
+premium, specialized transport, potential tour guide needs."
+```
+
+**5. Final check for accessibility gaps**
+```
+@devils-advocate: "Critical review focused on accessibility: Are there 
+unstated assumptions? Hidden barriers? Verify all venues truly accessible."
+```
+
+### Key Principles for Accessible Planning
+
+- **Verify, don't assume**: Just because a venue claims accessibility doesn't mean it meets your needs. Agents should recommend calling ahead.
+- **Accessibility is primary, not secondary**: Filter destinations and activities through accessibility first, not as a constraint added later.
+- **Build in buffer time**: Accessible travel often takes longer. Account for extra time between activities.
+- **Multiple backup plans**: Inaccessible venues are common. Always have alternatives.
+- **Specific details matter**: "Wheelchair accessible" means different things. Specify: ramp grade, door widths, bathroom facilities, seating options.
+
+### Example: Mobility-Focused Trip
+
+**Bad approach**: Plan trip, then try to make it accessible  
+**Good approach**: Filter every decision through accessibility from the start
+
+The difference shows up everywhere - destination choice (cities with accessible public transit), activity selection (venues with verified accessibility), logistics (ground-floor accommodation near amenities), and budget (realistic costs for accessible options).
+
 ## What Makes a Great Itinerary
 
  **Clear daily schedule** - Know what you're doing when  
@@ -177,19 +236,72 @@ Use @devils-advocate to challenge everything. Better to catch problems during pl
 ### Trust the Process
 The workflow has feedback loops. If budget-optimizer finds you're over budget, you'll iterate with activity-planner or logistics-coordinator to adjust. This is normal and leads to better results.
 
+## Workflow Flexibility
+
+### Linear vs. Flexible Approach
+
+The workflows shown above are **recommended starting points**, especially for first-time users. However, **agents can be consulted in any order** based on your needs.
+
+**Linear workflow (recommended for beginners)**:
+- Provides structured progression
+- Ensures nothing is overlooked
+- Natural flow from research to execution
+- Each agent builds on previous work
+
+**Flexible workflow (for experienced travelers)**:
+- Start where you need help most
+- Maybe you already know your destination - skip to @activity-planner
+- Budget-conscious? Start with @budget-optimizer to set constraints
+- Have a specific logistics question? Jump straight to @logistics-coordinator
+- Always end with @devils-advocate regardless of path
+
+### Common Flexible Patterns
+
+**Budget-first planning**:
+```
+budget-optimizer (establish constraints) → destination-researcher (within budget) → 
+activity-planner → logistics-coordinator → itinerary-integrator → devils-advocate
+```
+
+**Destination already chosen**:
+```
+activity-planner → logistics-coordinator → budget-optimizer → 
+itinerary-integrator → devils-advocate
+```
+
+**Specific logistics question**:
+```
+logistics-coordinator (answer specific question) → 
+[return to normal workflow or iterate]
+```
+
+**Activity idea validation**:
+```
+activity-planner (test idea) → devils-advocate (critical review) → 
+[iterate or continue to logistics]
+```
+
+The key: **Use the agents that add value for your situation.** The only non-negotiable step is @devils-advocate as the final review before booking.
+
 ## Common Questions
 
+**Q: Do I have to follow the workflow in order?**  
+A: No! The linear workflow is recommended for beginners, but you can consult agents in any order. Start where you need help. Always end with @devils-advocate.
+
 **Q: Can I skip agents in the workflow?**  
-A: You can, but you'll miss value. Each agent adds a layer of refinement. At minimum, always use devils-advocate as the final review.
+A: You can, but you'll miss value. Each agent adds a layer of refinement. At minimum, always use @devils-advocate as the final review.
 
 **Q: What if agents disagree?**  
-A: Devils-advocate documents all disagreements with reasoning from each perspective. You make the final call based on your priorities.
+A: @devils-advocate documents all disagreements with reasoning from each perspective. You make the final call based on your priorities.
 
 **Q: Do I need to provide all information upfront?**  
 A: No - agents will ask clarifying questions. But the more context you provide initially, the better the first draft.
 
 **Q: Can I change my mind mid-planning?**  
-A: Yes! Maybe budget-optimizer shows Destination A is too expensive, so you go back to destination-researcher to pick Destination B. The workflow is iterative.
+A: Yes! Maybe @budget-optimizer shows Destination A is too expensive, so you go back to @destination-researcher to pick Destination B. The workflow is iterative.
+
+**Q: Can I consult an agent multiple times?**  
+A: Absolutely! You might consult @activity-planner three times as you refine your daily schedule. Iteration is expected.
 
 **Q: How long does this take?**  
 A: Depends on trip complexity. Simple weekend trip might take 2-3 hours of planning. Complex 2-week international trip could take 6-8 hours spread over several days.

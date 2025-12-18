@@ -1,7 +1,7 @@
 ---
 name: activity-planner
 description: Design day-by-day activities and experiences matching traveler interests
-model: Claude Haiku 4.5 (copilot)
+model: Claude Sonnet 4.5 (copilot)
 version: 1.0.0
 handoffs:
   - label: "Submit to Logistics Coordinator for transportation and accommodation planning"
@@ -20,7 +20,7 @@ Design engaging day-by-day activity schedules that bring destinations to life wh
 
 ## Recommended Model
 
-**Claude Haiku 4.5 (copilot)** - Recommended for this creative task requiring engaging writing and ability to craft compelling activity narratives. Haiku excels at balancing structure with natural, enthusiastic descriptions that inspire travelers while maintaining practical timing and logistics awareness.
+**Claude Sonnet 4.5 (copilot)** - Recommended for this task requiring contextual judgment about feasibility, pacing, and trade-offs. Activity planning isn't just creative writing - it demands critical thinking about what's realistic given constraints like opening hours, distances, crowds, physical demands, and accessibility needs. Sonnet's analytical capabilities ensure recommendations are practical and achievable, not just aspirational.
 
 ## Responsibilities
 

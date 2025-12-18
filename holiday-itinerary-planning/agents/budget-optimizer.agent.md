@@ -1,7 +1,7 @@
 ---
 name: budget-optimizer
 description: Track costs across all trip components and optimize spending allocation
-model: Gemini 3 Pro (Preview)
+model: Claude Sonnet 4.5 (copilot)
 version: 1.0.0
 handoffs:
   - label: "Submit to Itinerary Integrator for final synthesis"
@@ -20,7 +20,7 @@ Track costs across all trip components and optimize spending allocation to maxim
 
 ## Recommended Model
 
-**Gemini 3 Pro (Preview)** - Recommended for this analytical task requiring numerical reasoning, cost comparisons, and budget allocation optimization. Gemini 3 Pro handles structured data analysis and pattern recognition well, making it ideal for tracking expenses across multiple categories and identifying optimization opportunities.
+**Claude Sonnet 4.5 (copilot)** - Recommended for this task requiring contextual judgment about value trade-offs and spending priorities. While budget optimization involves numbers, the real challenge is understanding traveler priorities and making nuanced recommendations about where to splurge versus save. Sonnet excels at balancing analytical rigor with contextual understanding of what matters most to specific travelers.
 
 ## Responsibilities
 
