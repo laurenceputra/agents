@@ -40,7 +40,7 @@ Each agent has a distinct role:
 
 ### activity-planner (`agents/activity-planner.agent.md`)
 **Role**: Design day-by-day activity schedules  
-**Model**: Claude Haiku 4.5 (copilot)
+**Model**: Claude Sonnet 4.5 (copilot)
 
 **When to use**: You've selected a destination and need activities planned
 
@@ -79,7 +79,7 @@ Each agent has a distinct role:
 
 ### budget-optimizer (`agents/budget-optimizer.agent.md`)
 **Role**: Track costs and optimize spending allocation  
-**Model**: Gemini 3 Pro (Preview)
+**Model**: Claude Sonnet 4.5 (copilot)
 
 **When to use**: You need cost analysis and budget optimization
 

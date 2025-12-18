@@ -9,9 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - **destination-researcher agent**: Research and recommend destinations matching traveler preferences and constraints. Uses Claude Sonnet 4.5 for analytical evaluation of destinations against complex criteria.
-- **activity-planner agent**: Design day-by-day activity schedules with proper pacing and local experiences. Uses Claude Haiku 4.5 for creative, engaging activity narratives.
+- **activity-planner agent**: Design day-by-day activity schedules with proper pacing and local experiences. Uses Claude Sonnet 4.5 for contextual judgment about feasibility, timing, and practical constraints.
 - **logistics-coordinator agent**: Organize transportation, accommodation, and practical details for seamless travel. Uses Claude Haiku 4.5 for meticulous detail management.
-- **budget-optimizer agent**: Track costs across all trip components and optimize spending allocation. Uses Gemini 3 Pro for numerical analysis and pattern recognition.
+- **budget-optimizer agent**: Track costs across all trip components and optimize spending allocation. Uses Claude Sonnet 4.5 for contextual judgment about value trade-offs and spending priorities.
 - **itinerary-integrator agent**: Synthesize all components into cohesive, ready-to-use travel itinerary. Uses Claude Sonnet 4.5 for integration and conflict resolution.
 - **devils-advocate agent**: MANDATORY critical review and disagreement facilitation before final delivery. Uses Claude Sonnet 4.5 for challenging assumptions and risk assessment.
 - **copilot-instructions.md**: Complete workflow documentation with decision trees, quality gates, and troubleshooting.
@@ -39,9 +39,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Critical review passed (assumptions challenged, trade-offs documented)
 
 ### Models Used
-- **Claude Sonnet 4.5 (copilot)**: destination-researcher, itinerary-integrator, devils-advocate (analytical tasks)
-- **Claude Haiku 4.5 (copilot)**: activity-planner, logistics-coordinator (creative and detail-oriented tasks)
-- **Gemini 3 Pro (Preview)**: budget-optimizer (numerical analysis and optimization)
+- **Claude Sonnet 4.5 (copilot)**: destination-researcher, activity-planner, budget-optimizer, itinerary-integrator, devils-advocate (analytical and contextual judgment tasks)
+- **Claude Haiku 4.5 (copilot)**: logistics-coordinator (detail-oriented coordination tasks)
 
 ### Documentation
 - Complete specification in `.specifications/holiday-itinerary-planning-group-specification.md`
