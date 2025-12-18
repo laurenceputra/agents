@@ -9,31 +9,13 @@
 
 ## Overview
 
-A comprehensive, AI-powered stock investment analysis system that guides investors from initial research through personalized recommendations with critical review for objectivity. Seven specialized agents work together to analyze stocks across fundamental, technical, and risk dimensions, with Devil's Advocate ensuring balanced perspective before final recommendation.
+A comprehensive, AI-powered stock investment analysis system that guides investors from initial research through personalized recommendations with critical review for objectivity. Six specialized agents work together to analyze stocks across fundamental, technical, and risk dimensions, with Devil's Advocate ensuring balanced perspective before final recommendation.
 
 ## Quick Start
 
-### Option 1: Automated Analysis (Recommended) ⭐
+### Sequential Workflow
 
-Use the **Stock Analysis Orchestrator** for fully automated end-to-end analysis:
-
-```bash
-@stock-analysis-orchestrator "Analyze AAPL for my portfolio"
-```
-
-**What happens**:
-1. Orchestrator asks you questions (ticker, risk tolerance, time horizon, goals, portfolio)
-2. Orchestrator automatically coordinates all seven agents
-3. Devil's Advocate reviews for bias and blind spots
-4. You receive a single comprehensive investment report (5-7 minutes)
-
-**Best for**: Most users who want complete analysis with objectivity review
-
----
-
-### Option 2: Manual Agent-by-Agent (Advanced)
-
-Call each agent individually for granular control:
+Follow the agent chain for comprehensive stock analysis:
 
 ```bash
 # Start with stock research
@@ -55,7 +37,8 @@ Call each agent individually for granular control:
 @devils-advocate "Review AAPL recommendation for bias and blind spots"
 ```
 
-**Best for**: Advanced users who want to customize inputs at each stage or need partial analysis
+**Time**: 5-7 minutes for complete analysis  
+**Start**: Always begin with @stock-researcher
 
 See [Usage Examples](#usage-examples) below for detailed walkthroughs.
 
@@ -77,80 +60,24 @@ See [Usage Examples](#usage-examples) below for detailed walkthroughs.
 
 ---
 
-## The Seven Agents
+## The Six Agents
 
 | Agent | Role | Model | When to Use |
 |-------|------|-------|-------------|
-| **stock-analysis-orchestrator** ⭐ | Automate complete workflow | Claude Sonnet 4.5 | **Recommended entry point** |
-| **stock-researcher** | Gather company data and context | Claude Sonnet 4.5 | Manual mode: Always start here |
-| **fundamental-analyst** | Evaluate financial health and valuation | Claude Sonnet 4.5 | Manual mode: After research |
-| **technical-analyst** | Analyze price trends and timing | Claude Haiku 4.5 | Manual mode: After research (parallel) |
-| **risk-assessor** | Assess risks and portfolio fit | Claude Sonnet 4.5 | Manual mode: After fundamental + technical |
-| **investment-advisor** | Provide personalized recommendation | Claude Sonnet 4.5 | Manual mode: Final step |
-| **devils-advocate** | Critical review for bias and blind spots | Claude Sonnet 4.5 | Manual mode: MANDATORY after advisor |
+| **stock-researcher** ⭐ | Gather company data and context | Claude Sonnet 4.5 | **Start here** - Entry point for all analysis |
+| **fundamental-analyst** | Evaluate financial health and valuation | Claude Sonnet 4.5 | After research |
+| **technical-analyst** | Analyze price trends and timing | Claude Haiku 4.5 | After research (parallel with fundamental) |
+| **risk-assessor** | Assess risks and portfolio fit | Claude Sonnet 4.5 | After fundamental + technical |
+| **investment-advisor** | Provide personalized recommendation | Claude Sonnet 4.5 | After risk assessment |
+| **devils-advocate** | Critical review for bias and blind spots | Claude Sonnet 4.5 | MANDATORY after advisor |
 
 ---
 
 ## Usage Examples
 
-### Example 0: Automated Analysis with Orchestrator ⭐ (Recommended)
+### Example 1: Complete Analysis - Large-Cap Stock (Apple Inc.)
 
-**Scenario**: You want complete NVIDIA analysis without managing agent handoffs.
-
-```bash
-@stock-analysis-orchestrator "I want to analyze NVIDIA for my portfolio"
-```
-
-**Orchestrator Workflow**:
-
-1. **Questionnaire** (you answer once):
-   ```
-   Stock Ticker: NVDA
-   Risk Tolerance: Aggressive
-   Time Horizon: Medium-term (1-5 years)
-   Investment Goals: Growth
-   Portfolio Size: $200,000
-   Existing Holdings: AAPL $30K, MSFT $40K, TSLA $25K
-   Focus Areas: Is AI growth sustainable? Is valuation justified?
-   Analysis Depth: Standard
-   ```
-
-2. **Automated Execution** (5-7 minutes):
-   ```
-   [Stage 1/5] 🔍 Gathering Stock Data (stock-researcher)
-   ✓ Complete
-   
-   [Stage 2/5] 📊 Running Fundamental & Technical Analysis (parallel)
-   ✓ Complete
-   
-   [Stage 3/5] ⚠️  Assessing Investment Risks (risk-assessor)
-   ✓ Complete
-   
-   [Stage 4/5] 💡 Generating Final Recommendation (investment-advisor)
-   ✓ Complete
-   
-   [Stage 5/5] 📝 Compiling Comprehensive Report
-   ✓ Complete
-   ```
-
-3. **Comprehensive Report Delivered**:
-   - Executive Summary with final recommendation (Buy/Hold/Sell)
-   - Stock Research highlights
-   - Fundamental Analysis (financial health, valuation, fair value)
-   - Technical Analysis (trends, price levels, entry points)
-   - Risk Assessment (volatility, risks, position sizing)
-   - Investment Recommendation (action plan, monitoring triggers)
-   - Action Checklist with specific next steps
-
-**Result**: Single comprehensive report with Buy recommendation, $10K position (5% of portfolio), entry at $480-490, stop-loss $420, target $650.
-
-**Time**: ~5-7 minutes for complete analysis
-
----
-
-### Example 1: Manual Analysis - Large-Cap Stock (Apple Inc.)
-
-**Scenario**: You're a moderate-risk investor with a long-term horizon (5+ years) seeking quality growth stocks for a $150K portfolio. You want granular control over each analysis stage.
+**Scenario**: You're a moderate-risk investor with a long-term horizon (5+ years) seeking quality growth stocks for a $150K portfolio.
 
 #### Step 1: Research
 ```bash
@@ -283,12 +210,11 @@ See [Usage Examples](#usage-examples) below for detailed walkthroughs.
 
 2. **Verify Agent Files**:
    ```bash
-   # Check that all 7 agents are present
+   # Check that all 6 agents are present
    ls stock-investment-analysis/agents/
    # Should show: stock-researcher.agent.md, fundamental-analyst.agent.md, 
    #              technical-analyst.agent.md, risk-assessor.agent.md, 
-   #              investment-advisor.agent.md, stock-analysis-orchestrator.agent.md,
-   #              devils-advocate.agent.md
+   #              investment-advisor.agent.md, devils-advocate.agent.md
    ```
 
 3. **Test with Simple Query**:
@@ -429,7 +355,9 @@ You are solely responsible for your investment decisions. Consult licensed finan
 
 ## Version History
 
-- **1.0.0** (2024-12-14): Initial release with seven coordinated agents providing end-to-end stock investment analysis
+- **1.2.0** (2024-12-17): Removed stock-analysis-orchestrator to simplify workflow; reduced from 7 to 6 agents while preserving all analytical depth
+- **1.1.0** (2024-12-15): Added stock-analysis-orchestrator for automated end-to-end analysis
+- **1.0.0** (2024-12-14): Initial release with six coordinated agents providing end-to-end stock investment analysis
 
 ---
 

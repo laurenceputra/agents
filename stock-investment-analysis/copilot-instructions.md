@@ -1,12 +1,12 @@
 # Stock Investment Analysis Agent Group
 
-**Version**: 1.1.0  
-**Date**: 2024-12-14  
+**Version**: 1.2.0  
+**Date**: 2024-12-17  
 **Status**: Production Ready
 
 ## Overview
 
-A comprehensive stock investment analysis system that guides investors from initial research through final recommendation. This agent group coordinates seven specialized agents to analyze stocks across fundamental, technical, and risk dimensions, culminating in personalized investment advice tailored to individual risk tolerance and goals.
+A comprehensive stock investment analysis system that guides investors from initial research through final recommendation. This agent group coordinates six specialized agents to analyze stocks across fundamental, technical, and risk dimensions, culminating in personalized investment advice tailored to individual risk tolerance and goals.
 
 ## Purpose
 
@@ -35,56 +35,21 @@ Investors need systematic, multi-dimensional analysis to make informed stock inv
 - Guarantee of returns
 - Licensed financial advisory services
 
-## Workflow Options
+## Workflow
 
-This agent group supports **two workflow modes**:
+This agent group follows a sequential analysis workflow where each agent builds on the previous agent's work. The workflow proceeds from research through analysis to personalized recommendation, with a mandatory critical review before final delivery.
 
-### Option 1: Automated Orchestration (Recommended for Most Users)
-Use the **Stock Analysis Orchestrator** for a fully automated, end-to-end analysis:
-- Answer questions once upfront
-- Orchestrator coordinates all six specialist agents automatically
-- Receive single comprehensive report
-- **Best for**: Users who want complete analysis without managing handoffs
-
-**Start with**: `@stock-analysis-orchestrator`
-
-### Option 2: Manual Agent-by-Agent (Advanced Users)
-Call each agent individually for maximum control:
-- Step through each analysis stage manually
-- Customize inputs at each stage
-- Review outputs before proceeding to next agent
-- **Best for**: Users who want granular control or partial analysis
-
-**Start with**: `@stock-researcher` → then proceed through agents sequentially
+**Start with**: `@stock-researcher` → then proceed through agents via handoff chain
 
 ---
 
-## The Seven Agents
+## The Six Agents
 
-### 0. Stock Analysis Orchestrator (`stock-analysis-orchestrator`) ⭐
-**Model**: Claude Sonnet 4.5 (copilot)  
-**Role**: Automate complete stock analysis workflow from input collection to final report
-
-**When to Use**: When you want fully automated end-to-end analysis (recommended entry point)
-
-**What It Does**:
-- Collects all user inputs upfront via structured questionnaire
-- Automatically coordinates all six specialized agents in sequence
-- Handles parallel execution (fundamental + technical simultaneously)
-- Aggregates outputs into single comprehensive report
-- Includes Devil's Advocate critical review before final delivery
-- Provides progress updates during analysis
-- Handles errors gracefully
-
-**Hands Off To**: All six specialized agents (automatically), then delivers final report
-
----
-
-### 1. Stock Research Agent (`stock-researcher`)
+### 1. Stock Research Agent (`stock-researcher`) ⭐ START HERE
 **Model**: Claude Sonnet 4.5 (copilot)  
 **Role**: Gather comprehensive company data, financials, and market context
 
-**When to Use**: Always start here when analyzing any stock
+**When to Use**: This is the entry point for all stock investment analysis
 
 **What It Does**:
 - Collects company overview, business model, competitive advantages
@@ -181,48 +146,16 @@ Call each agent individually for maximum control:
 - Ensures risks are genuinely acknowledged, not minimized
 - Provides balanced bull/bear perspective
 
-**Hands Off To**: Orchestrator or Investor (final assessment)
+**Hands Off To**: Investor (final assessment with balanced perspective)
 
 ---
 
-## Workflows
-
-### Automated Workflow (Using Orchestrator)
-
-```
-User
-  ↓
-[Stock Analysis Orchestrator]
-  ├─ Collects inputs via questionnaire
-  ├─ Validates inputs
-  ├─ Confirms with user
-  └─ Automatically executes:
-      ↓
-  [1. stock-researcher]
-      ↓
-  [2. fundamental-analyst] ←─┐
-      ↓                      │ (parallel)
-  [3. technical-analyst] ────┘
-      ↓
-  [4. risk-assessor]
-      ↓
-  [5. investment-advisor]
-      ↓
-  [6. devils-advocate] (MANDATORY critical review)
-      ↓
-[Orchestrator compiles comprehensive report]
-      ↓
-User receives final report with balanced perspective
-```
-
-**Estimated Time**: 5-7 minutes for standard single-stock analysis
-
-### Manual Workflow (Agent-by-Agent)
+## Complete Workflow
 
 ```
 User Request
     ↓
-[Stock Research Agent]
+[Stock Research Agent] ⭐ START HERE
     ↓
     ├───→ [Fundamental Analyst] ──→ [Risk Assessor]
     │                                     ↓
@@ -235,7 +168,9 @@ User Request
                                 Final Recommendation
 ```
 
-### Manual Workflow Steps
+**Estimated Time**: 5-7 minutes for standard single-stock analysis
+
+### Workflow Steps
 
 1. **User Provides**:
    - Stock ticker symbol (e.g., AAPL, MSFT, TSLA)
@@ -272,39 +207,20 @@ User Request
    - Buy/hold/sell recommendation
    - Position sizing and entry/exit strategy
    - Monitoring plan and re-evaluation triggers
+   - → Hands off to Devil's Advocate
+
+7. **Devil's Advocate** reviews for objectivity (MANDATORY):
+   - Challenges optimistic bias
+   - Develops bear case scenarios
+   - Identifies blind spots and overconfidence
+   - Ensures balanced perspective
    - → Delivers to user
 
 ---
 
 ## Decision Trees
 
-### Tree 1: Which Workflow Should I Use?
-
-```
-START: What type of analysis do you need?
-  │
-  ├─ I want COMPLETE automated analysis
-  │  └─> Use @stock-analysis-orchestrator
-  │      - Answer questionnaire once
-  │      - Receive comprehensive report automatically
-  │      - Recommended for most users
-  │
-  └─ I want GRANULAR control over each stage
-     └─> Use manual agent-by-agent workflow
-         - Start with @stock-researcher
-         - Proceed through agents sequentially
-         - Customize inputs at each stage
-```
-
-### Tree 2: Which Agent Should I Start With (Manual Mode)?
-
-**Always start with `stock-researcher`.**
-
-The Stock Research Agent is the entry point for manual workflow. It gathers the foundational data that all other agents need.
-
----
-
-### Tree 3: When Should I Use This Agent Group vs. Manual Research?
+### Tree 1: When Should I Use This Agent Group vs. Manual Research?
 
 **Use this agent group when**:
 - You want systematic, multi-dimensional analysis
@@ -319,7 +235,7 @@ The Stock Research Agent is the entry point for manual workflow. It gathers the 
 
 ---
 
-### Tree 3: How to Interpret Conflicting Signals?
+### Tree 2: How to Interpret Conflicting Signals?
 
 **Scenario A: Strong Fundamentals, Weak Technicals**
 - **Example**: Company undervalued (P/E 15x vs. fair 25x) but stock in downtrend
@@ -586,4 +502,6 @@ Goals: Growth
 
 ## Version History
 
-- **1.0.0** (2024-12-14): Initial release with seven coordinated agents (stock-analysis-orchestrator, stock-researcher, fundamental-analyst, technical-analyst, risk-assessor, investment-advisor, devils-advocate) providing end-to-end stock investment analysis and personalized recommendations
+- **1.2.0** (2024-12-17): Removed stock-analysis-orchestrator to simplify workflow (7→6 agents); single sequential workflow reduces cognitive overhead while preserving all analytical capabilities
+- **1.1.0** (2024-12-15): Added stock-analysis-orchestrator for automated end-to-end analysis with dual workflow modes
+- **1.0.0** (2024-12-14): Initial release with six coordinated agents (stock-researcher, fundamental-analyst, technical-analyst, risk-assessor, investment-advisor, devils-advocate) providing end-to-end stock investment analysis and personalized recommendations
