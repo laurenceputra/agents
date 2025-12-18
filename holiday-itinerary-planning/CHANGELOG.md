@@ -49,4 +49,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Decision tree for "which agent do I use?"
 - Troubleshooting guide for common planning conflicts
 
-[1.0.0]: https://github.com/your-repo/holiday-itinerary-planning/releases/tag/v1.0.0
+[1.0.0]: https://github.com/{org}/{repo}/releases/tag/v1.0.0
