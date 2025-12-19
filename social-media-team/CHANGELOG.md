@@ -5,6 +5,21 @@ All notable changes to the Social Media Team agent group will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.2] - 2024-12-19
+
+### Changed
+- **All Agents**: Streamlined to reduce context overload while maintaining functionality
+  - **Before**: Each agent had full 32-line Writing Style Guidelines + 25-line em-dash warning sections duplicated across all 5 agents (~285 lines of duplication)
+  - **After**: Extracted Writing Style Guidelines to copilot-instructions.md. Replaced with 2-line references. Condensed em-dash warnings from 25 lines to 3-line references.
+  - **Impact**: Reduced total agent file sizes by ~200 lines across 5 agents while maintaining all functionality and guidance
+  - **Key Changes**:
+    - Writing Style Guidelines now centralized in copilot-instructions.md (eliminates 160-line duplication)
+    - Em-dash warnings condensed from 25 lines to 3 lines each (saves 110 lines)
+    - Removed LinkedIn-specific validation from coordinator (platform checks belong in platform agents)
+    - Fixed remaining em-dash in coordinator example content
+  - **Migration**: No breaking changes. All agents reference copilot-instructions.md for complete guidelines. Behavior unchanged.
+  - **Context**: User reported em-dash issue was previously addressed but agents became verbose with repetitive warnings. This refactor maintains the fix while eliminating context bloat.
+
 ## [1.2.0] - 2025-12-16
 
 ### Changed

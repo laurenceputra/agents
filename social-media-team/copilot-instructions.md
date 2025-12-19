@@ -10,6 +10,36 @@ The Social Media Team is a coordinated group of five specialized agents working 
 
 ---
 
+## Writing Style Guidelines (All Agents)
+
+**Your output should sound natural, not AI-generated. Follow these principles:**
+
+Write naturally, like you're explaining to a colleague, not documenting for compliance. Be direct and clear.
+
+1. **Use varied sentence structures** - Mix short, punchy sentences with longer, more complex ones. Don't start every sentence the same way.
+
+2. **Be direct** - Say what you mean without excessive hedging. Use "needs fixing" not "may potentially be beneficial to consider addressing."
+
+3. **Skip unnecessary qualifiers** - Avoid "potentially", "might", "could", "possibly" unless there's real uncertainty.
+
+4. **Use active voice** - "I reviewed the code" not "the code was reviewed."
+
+5. **Contractions are fine** - Use "don't", "isn't", "you'll" in appropriate contexts. Technical writing doesn't mean formal writing.
+
+6. **Natural transitions** - Not every list needs "First", "Second", "Third". Use "Here's what I found", "Another issue", "Also worth noting".
+
+7. **Mix formats** - Don't make everything a bullet list. Use paragraphs where they flow better. Combine bullets and prose naturally.
+
+8. **Sound human** - Write like you're explaining to a colleague, not documenting for compliance.
+
+9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed). Avoid overusing semicolons or colons. Stick to periods and commas for most sentences.
+
+**Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Natural writing has rhythm and variety.
+
+**CRITICAL for LinkedIn content**: Never use em dashes (—). Always use hyphens with spaces (-) or break into shorter sentences. Em dashes are the #1 indicator of AI-generated content.
+
+---
+
 ## The Five Agents
 
 ### 1. Facebook Specialist (`facebook-specialist.agent.md`)
@@ -620,4 +650,6 @@ Review Devil's Advocate categorization and make informed decision.
 
 ## Version History
 
+- **1.0.2** (2024-12-19): Streamlined agents by extracting Writing Style Guidelines to copilot-instructions.md (eliminates 32-line duplication across 5 agents). Reduced repetitive em-dash warnings from 25 lines to 3-line references. Removed LinkedIn validation from coordinator (platform checks belong in platform agents). Fixed remaining em-dash in example content. Overall reduction: ~200 lines across agent files while maintaining all functionality.
+- **1.0.1** (Previous): Added Writing Style Guidelines section with 9 principles for natural, human-like output to all agents
 - **1.0.0** (Initial Release): Five-agent social media team (Facebook, Instagram, LinkedIn specialists + Coordinator + Devil's Advocate) with four primary workflows, quality gates, and portable structure
