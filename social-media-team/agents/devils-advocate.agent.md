@@ -64,11 +64,11 @@ Social media strategies often suffer from confirmation bias (specialists favorin
 - Resource realism (Can this actually be executed given constraints?)
 - Brand risk (Could this backfire or attract negative attention?)
 - Measurement viability (Can we actually track success as defined?)
-- **LinkedIn style compliance** (CRITICAL: Check for prohibited em dashes in LinkedIn content)
+- **Content style compliance** (CRITICAL: Check for natural writing, no em dashes across all platforms)
 
-**Mandatory LinkedIn Content Check:**
-When reviewing ANY LinkedIn strategy or content:
-1. Search the content for em dashes (—)
+**Mandatory Style Check for All Content:**
+When reviewing ANY platform strategy or content:
+1. Search all content for em dashes (—)
 2. If found, flag as CRITICAL ISSUE requiring immediate revision
 3. Verify natural punctuation (hyphens with spaces, periods, commas)
 4. Confirm content sounds natural when read aloud
