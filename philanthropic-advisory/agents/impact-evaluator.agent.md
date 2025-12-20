@@ -7,11 +7,11 @@ handoffs:
   - label: "Submit to Portfolio Strategist"
     agent: "portfolio-strategist"
     prompt: "Impact analysis complete. Evaluate strategic fit and portfolio alignment for this program."
-    send: true
+    send: false
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review SROI/CEA methodology, data quality assumptions, and systemic impact claims"
-    send: true
+    send: false
 ---
 
 # Impact Evaluator

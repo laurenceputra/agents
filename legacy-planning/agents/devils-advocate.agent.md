@@ -7,11 +7,11 @@ handoffs:
   - label: "Request advisor perspective"
     agent: "legacy-planning-advisor"
     prompt: "Review the disagreement between agents on this legacy planning guidance. As the primary coordinator, provide your perspective on the planning trade-offs and recommend a path forward that serves the client's best interests."
-    send: true
+    send: false
   - label: "Send back to specialist"
     agent: "legacy-planning-advisor"
     prompt: "Critical issues found in Devil's Advocate review. Address the following concerns before finalizing guidance: {concerns}"
-    send: true
+    send: false
 ---
 
 # Devil's Advocate - Legacy Planning

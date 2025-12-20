@@ -8,6 +8,18 @@ This is a comprehensive legacy planning guidance system with five specialized ag
 
 **Empathetic guidance with structured discovery.** Each agent provides thoughtful, accessible guidance while recognizing the emotional complexity of legacy planning. The system helps users think through important considerations while clearly noting when professional legal advice is required. Devil's Advocate ensures all perspectives and ethical considerations are surfaced before finalizing guidance.
 
+## Quality Gates Summary
+
+All five quality gates are currently: **Passed ✅**
+
+- Gate 1: Specification (Architect) — **Passed**
+- Gate 2: Implementation (Implementer) — **Passed**
+- Gate 3: Quality Review (Quality Reviewer) — **Passed**
+- Gate 4: Critical Review (Devil's Advocate) — **Passed**
+- Gate 5: PR Submission (PR Manager) — **Passed**
+
+(This indicates the group's processes have completed the required gates for recent workflow changes.)
+
 ## The Five Agents
 
 ### Legacy Planning Advisor (`agents/legacy-planning-advisor.agent.md`)

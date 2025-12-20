@@ -7,11 +7,11 @@ handoffs:
   - label: "Submit to Risk Analyst"
     agent: "risk-opportunity-analyst"
     prompt: "Portfolio fit assessed. Analyze implementation risks and strategic opportunities for this program."
-    send: true
+    send: false
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Challenge strategic fit assumptions, portfolio gaps, and scalability assessments"
-    send: true
+    send: false
 ---
 
 # Portfolio Strategist
