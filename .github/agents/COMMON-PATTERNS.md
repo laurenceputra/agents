@@ -28,12 +28,25 @@ handoffs:                                 # Optional: List of handoff objects
 - **version**: Semantic versioning format (e.g., `1.0.0`). Defaults to `1.0.0`
 - **handoffs**: Optional array of handoff objects for agent coordination
 
-### Validation Rules
+## Group Default Handoff Policy
 
-- File name must match `name` field exactly: `{name}.agent.md`
-- File must be in `agents/` subdirectory: `./agent-group-name/agents/{name}.agent.md`
-- Each handoff's `agent` field must reference a valid agent name in the group
+When creating a new **agent group**, the Agent Architect MUST decide and document a **group-level default handoff policy** and include it in the group specification and the group's `copilot-instructions.md` under a `Default Handoff Policy` or `Send Default` section. The policy should state `send_default: true` or `send_default: false` and include a brief rationale.
 
+Suggested assessment criteria (non-exhaustive):
+- **Decision criticality**: Final decision points or approvals (e.g., PR submission, funding decisions) should *generally* default to `send: false`.
+- **External actions**: Agents that trigger external effects (emails, API calls, PR submission, payments) should default to `send: false` unless strong safeguards are present.
+- **Data sensitivity**: High-sensitivity data or privacy-impacting handoffs should favor `send: false`.
+- **Observability & rollback**: If robust observability, auditing, and rollback exist, `send: true` may be acceptable for lower-risk flows.
+- **User preference & safety**: When in doubt, prefer conservative defaults (`send: false`) and document the decision.
+
+Example snippet to add to `copilot-instructions.md` for a new group:
+
+```yaml
+# Default Handoff Policy
+send_default: false  # Chosen because this group's workflows include final decision points and external actions; requires manual confirmation
+```
+
+Architects should justify their choice in the specification (brief rationale and any mitigations such as observability, testing or rollback plans).
 ## Agent File Structure
 
 All agent files follow this section order:

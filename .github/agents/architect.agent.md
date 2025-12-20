@@ -62,6 +62,7 @@ All agent specifications MUST use the standardized frontmatter schema. See `COMM
 - Design group purpose and scope boundaries
 - Define all agents in group with individual responsibilities
 - Design handoff chain patterns showing agent coordination
+- Assess and recommend a group-level default handoff policy (`send_default`) — explicitly choose `true` or `false`, provide a short rationale, and document a risk assessment using criteria such as decision criticality (final decision points), external actions (emails, PRs, destructive operations), data sensitivity, and observability/rollback capabilities. Record this decision in the group specification and in `copilot-instructions.md`.
 - Recommend models for each agent
 - Specify infrastructure requirements (copilot-instructions.md, README.md)
 - Document quality gates for group cohesion
@@ -159,7 +160,7 @@ To design an agent group specification, the Agent Architect needs:
 4. **User Personas**: Who will use this agent group and how?
 5. **Infrastructure Needs**: What documentation and setup is required?
 6. **Quality Standards**: What consistency is needed across agents?
-
+6. **Send default decision**: For agent groups, specify the preferred default (`send_default: true` or `send_default: false`) and include a short rationale and risk assessment in the specification.
 ## Output Format
 
 ### Specification Storage Location
