@@ -7,15 +7,15 @@ handoffs:
   - label: "Analyze financial health"
     agent: "fundamental-analyst"
     prompt: "Evaluate the financial statements and valuation metrics from the research report to determine fundamental investment merit."
-    send: false
+    send: true
   - label: "Analyze price trends"
     agent: "technical-analyst"
     prompt: "Review price action, chart patterns, and technical indicators to assess momentum and timing."
-    send: false
+    send: true
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review this research for balance and potential bias before analysis proceeds."
-    send: false
+    send: true
 ---
 
 # Stock Research Agent

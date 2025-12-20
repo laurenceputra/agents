@@ -7,11 +7,11 @@ handoffs:
   - label: "Get investment recommendation"
     agent: "investment-advisor"
     prompt: "Synthesize all analyses (research, fundamental, technical, risk) to provide a personalized investment recommendation."
-    send: false
+    send: true
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review this risk assessment for minimization of risks or blind spots in risk identification."
-    send: false
+    send: true
 ---
 
 # Risk Assessor Agent

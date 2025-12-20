@@ -7,15 +7,15 @@ handoffs:
   - label: "Request orchestrator perspective"
     agent: "agent-architect"
     prompt: "Review the disagreement between agents on this implementation. As the system architect, provide your perspective on the technical trade-offs and recommend a path forward."
-    send: false
+    send: true
   - label: "Send back to implementer"
     agent: "agent-implementer"
     prompt: "Critical issues found in Devil's Advocate review. Address the following concerns before resubmitting for PR: {concerns}"
-    send: false
+    send: true
   - label: "Submit to PR Manager for PR"
     agent: "pr-manager"
     prompt: "Devil's Advocate review complete. All disagreements documented. Ready for PR submission with full context for human decision-making."
-    send: false
+    send: true
 ---
 
 # Devil's Advocate
@@ -184,6 +184,25 @@ Devil's Advocate provides conversational review output during the critical revie
 - [Blind spot 1]: [What might have been missed]
 
 **Critical Assessment**: [Overall evaluation of specification quality]
+
+### Send Default Policy Review (Architect Interaction Required)
+- **Purpose**: Evaluate the Agent Architect's `send_default` decision for new agent groups and ensure the rationale and mitigations are sufficient.
+
+**Checklist** (Devil's Advocate should verify each item):
+- [ ] **Send default specified**: The group specification and `copilot-instructions.md` include `send_default: true|false`.
+- [ ] **Rationale present**: A short rationale explaining the choice (decision criticality, external actions, data sensitivity, observability) is included.
+- [ ] **Mitigations documented**: If `send_default: true`, the spec includes observability, testing, rollback, and migration plan details; if `send_default: false`, the spec explains the critical checkpoints and how they are enforced.
+- [ ] **Testing & Migration**: The specification includes a brief testing plan and migration note for changing defaults that could impact users.
+- [ ] **Escalation plan**: There is a clear action if post-release issues are detected (rollback or selective reversion process).
+
+**If any checklist item fails**:
+- **Action**: Mark as **SPECIFICATION ISSUE** and request the Agent Architect to revise the specification.
+- **Iteration**: Do not approve; iterate with Agent Architect until all checklist items are satisfied. Re-run the checklist after each revision.
+
+**Example Ask to Agent Architect**:
+> Please add a short "Send Default Rationale" section to the group specification describing the choice (`true|false`), listing the key reasons, and a one-paragraph testing/migration plan. If `send_default: true`, include observability metrics and rollback steps.
+
+**Acceptance**: Devil's Advocate marks the architecture review as passing once all checklist items are met and documented in the specification.
 
 ### Agent Implementer Work Review
 **Strengths**:

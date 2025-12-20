@@ -9,11 +9,11 @@ handoffs:
   - label: "Request architect perspective"
     agent: "portfolio-data-engineer"
     prompt: "Need orchestrator perspective on design decisions and trade-offs. Please review."
-    send: false
+    send: true
   - label: "Send revisions to implementer"
     agent: "portfolio-data-engineer"
     prompt: "Critical issues found. Please address feedback and resubmit."
-    send: false
+    send: true
 ---
 
 ## Purpose

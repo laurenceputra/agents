@@ -7,19 +7,19 @@ handoffs:
   - label: "Coordinate with Instagram"
     agent: "instagram-specialist"
     prompt: "Review Facebook strategy and provide Instagram adaptation recommendations, ensuring Meta platform consistency."
-    send: false
+    send: true
   - label: "Coordinate with LinkedIn"
     agent: "linkedin-specialist"
     prompt: "Review Facebook strategy and provide LinkedIn professional adaptation recommendations."
-    send: false
+    send: true
   - label: "Get coordinator alignment"
     agent: "social-media-coordinator"
     prompt: "Review Facebook strategy for cross-platform consistency and campaign coordination."
-    send: false
+    send: true
   - label: "Critical review"
     agent: "devils-advocate"
     prompt: "Challenge Facebook strategy assumptions, surface blind spots, and identify potential issues."
-    send: false
+    send: true
 ---
 
 # Facebook Specialist

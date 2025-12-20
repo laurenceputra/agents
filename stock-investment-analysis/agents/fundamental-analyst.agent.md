@@ -7,11 +7,11 @@ handoffs:
   - label: "Assess investment risks"
     agent: "risk-assessor"
     prompt: "Evaluate risks based on fundamental analysis, including financial stability, valuation risk, and company-specific concerns."
-    send: false
+    send: true
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review this fundamental analysis for optimistic bias and valuation assumptions."
-    send: false
+    send: true
 ---
 
 # Fundamental Analyst Agent

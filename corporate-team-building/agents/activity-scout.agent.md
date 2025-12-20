@@ -7,7 +7,7 @@ handoffs:
   - label: "Submit activities to Dining Specialist"
     agent: "dining-specialist"
     prompt: "Here are the recommended team building activities. Please suggest 3-5 dining options that complement these activities, accommodate the team size and dietary needs, and support team bonding."
-    send: false
+    send: true
 ---
 
 # Activity Scout

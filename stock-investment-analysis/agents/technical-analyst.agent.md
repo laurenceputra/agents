@@ -7,11 +7,11 @@ handoffs:
   - label: "Assess investment risks"
     agent: "risk-assessor"
     prompt: "Evaluate risks based on technical analysis, including volatility, trend strength, and potential reversal signals."
-    send: false
+    send: true
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review this technical analysis for overconfident price targets and chart interpretation bias."
-    send: false
+    send: true
 ---
 
 # Technical Analyst Agent

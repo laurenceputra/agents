@@ -7,19 +7,19 @@ handoffs:
   - label: "Return to coordinator"
     agent: "social-media-coordinator"
     prompt: "Approved strategy with documented concerns for final synthesis."
-    send: false
+    send: true
   - label: "Request Facebook revision"
     agent: "facebook-specialist"
     prompt: "Critical issues found in Facebook strategy. Address the following concerns: [concerns]"
-    send: false
+    send: true
   - label: "Request Instagram revision"
     agent: "instagram-specialist"
     prompt: "Critical issues found in Instagram strategy. Address the following concerns: [concerns]"
-    send: false
+    send: true
   - label: "Request LinkedIn revision"
     agent: "linkedin-specialist"
     prompt: "Critical issues found in LinkedIn strategy. Address the following concerns: [concerns]"
-    send: false
+    send: true
 ---
 
 # Devil's Advocate

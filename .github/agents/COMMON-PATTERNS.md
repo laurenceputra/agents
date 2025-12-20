@@ -16,7 +16,7 @@ handoffs:                                 # Optional: List of handoff objects
   - label: "Action description"           # Required: User-facing action (e.g., "Submit to Reviewer")
     agent: "agent-name"                   # Required: Target agent name (kebab-case)
     prompt: "Context for handoff..."      # Required: Instructions for receiving agent
-    send: false                           # Optional: Auto-send without confirmation (default: false)
+    send: true                            # Optional: Auto-send without confirmation (default: true)
 ---
 ```
 
@@ -28,12 +28,30 @@ handoffs:                                 # Optional: List of handoff objects
 - **version**: Semantic versioning format (e.g., `1.0.0`). Defaults to `1.0.0`
 - **handoffs**: Optional array of handoff objects for agent coordination
 
-### Validation Rules
+## Group Default Handoff Policy
 
-- File name must match `name` field exactly: `{name}.agent.md`
-- File must be in `agents/` subdirectory: `./agent-group-name/agents/{name}.agent.md`
-- Each handoff's `agent` field must reference a valid agent name in the group
+When creating a new **agent group**, the Agent Architect MUST decide and document a **group-level default handoff policy** and include it in the group specification and the group's `copilot-instructions.md` under a `Default Handoff Policy` or `Send Default` section. The policy should state `send_default: true` or `send_default: false` and include a brief rationale.
 
+Suggested assessment criteria (non-exhaustive):
+- **Decision criticality**: Final decision points or approvals (e.g., PR submission, funding decisions) should *generally* default to `send: false`.
+- **External actions**: Agents that trigger external effects (emails, API calls, PR submission, payments) should default to `send: false` unless strong safeguards are present.
+- **Data sensitivity**: High-sensitivity data or privacy-impacting handoffs should favor `send: false`.
+- **Observability & rollback**: If robust observability, auditing, and rollback exist, `send: true` may be acceptable for lower-risk flows.
+- **User preference & safety**: When in doubt, prefer conservative defaults (`send: false`) and document the decision.
+
+Additional Requirements for `send_default: true` decisions
+- **Testing plan**: If the Architect chooses `send_default: true`, include a brief testing plan describing how the behavior will be validated (test cases, staging validation, or pilot rollout).
+- **Migration note**: Describe how existing users will be informed and what changes they might expect; include a short rollback/mitigation plan.
+- **Observability metrics**: List key metrics or logs to monitor after rollout (e.g., error rate, number of auto-handoffs, user-initiated rollbacks).
+
+Example snippet to add to `copilot-instructions.md` for a new group:
+
+```yaml
+# Default Handoff Policy
+send_default: false  # Chosen because this group's workflows include final decision points and external actions; requires manual confirmation
+```
+
+Architects should justify their choice in the specification (brief rationale and any mitigations such as observability, testing or rollback plans).
 ## Agent File Structure
 
 All agent files follow this section order:
