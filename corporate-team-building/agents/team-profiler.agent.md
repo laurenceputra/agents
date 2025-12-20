@@ -8,7 +8,6 @@ handoffs:
     agent: "activity-scout"
     prompt: "Here's the complete team profile. Please recommend 3-5 team building activities that match this team's goals, size, and constraints. Focus on activities that will genuinely strengthen team bonds."
     send: false
-    send: false
 ---
 
 # Team Profiler
