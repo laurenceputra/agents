@@ -141,7 +141,20 @@ The spec doesn't address which philosophy the system should embrace.
 - [x] Gate 2: Implementation Complete (Implementer)
 - [x] Gate 3: Quality Verified (Quality Reviewer)
 - [x] Gate 4: Critical Review Complete (Devil's Advocate)
+- [x] Gate 5: PR Submission (PR Manager)
 
+---
+
+## Follow-up Changes (Selective Reversion)
+
+Following Devil's Advocate concerns and a decision to keep critical checkpoints for sensitive domains, we reverted `send` back to `false` for all agents in two groups:
+
+- `legacy-planning` — all agent handoffs now use `send: false` to preserve manual confirmation checkpoints for sensitive decision points
+- `philanthropic-advisory` — all agent handoffs now use `send: false` to preserve mandatory review checkpoints before high-impact funding decisions
+
+Additionally, we updated each group's `copilot-instructions.md` to include a **Quality Gates Summary** noting that all five gates are currently shown as **Passed ✅** for transparency and auditability.
+
+These follow-up changes were committed on branch `send-true` as part of the same working session and are included in this PR for review.
 ---
 
 ## Recommendations for Human Reviewer
