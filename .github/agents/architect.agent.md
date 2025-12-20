@@ -80,6 +80,7 @@ All agent specifications MUST use the standardized frontmatter schema. See `COMM
 - Design group-level quality gates and consistency requirements
 - Ensure portability (no hardcoded paths, folder-agnostic)
 - Document group workflow patterns and coordination mechanisms
+- **Mandatory**: When recommending `send_default: true`, include a short "Testing & Migration" section in the specification documenting test approach, rollback steps, and observability metrics to monitor post-rollout
 - **NEVER implement group files or agent definitions - delegate to Agent Implementer**
 
 ## Workflow Enforcement

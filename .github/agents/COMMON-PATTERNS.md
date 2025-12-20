@@ -39,6 +39,11 @@ Suggested assessment criteria (non-exhaustive):
 - **Observability & rollback**: If robust observability, auditing, and rollback exist, `send: true` may be acceptable for lower-risk flows.
 - **User preference & safety**: When in doubt, prefer conservative defaults (`send: false`) and document the decision.
 
+Additional Requirements for `send_default: true` decisions
+- **Testing plan**: If the Architect chooses `send_default: true`, include a brief testing plan describing how the behavior will be validated (test cases, staging validation, or pilot rollout).
+- **Migration note**: Describe how existing users will be informed and what changes they might expect; include a short rollback/mitigation plan.
+- **Observability metrics**: List key metrics or logs to monitor after rollout (e.g., error rate, number of auto-handoffs, user-initiated rollbacks).
+
 Example snippet to add to `copilot-instructions.md` for a new group:
 
 ```yaml
