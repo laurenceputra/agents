@@ -8,6 +8,7 @@ handoffs:
     agent: "event-coordinator"
     prompt: "Here are the activity and dining recommendations. Please create 2-3 integrated event plan options that combine these elements with proper timing, transitions, and logistics."
     send: false
+    send: false
 ---
 
 # Dining Specialist

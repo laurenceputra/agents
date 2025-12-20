@@ -8,6 +8,7 @@ handoffs:
     agent: "devils-advocate"
     prompt: "Here are the complete event plan options. Please critically review these plans to identify potential issues, challenge assumptions, and ensure we haven't overlooked anything important before the planner makes booking commitments."
     send: false
+    send: false
 ---
 
 # Event Coordinator

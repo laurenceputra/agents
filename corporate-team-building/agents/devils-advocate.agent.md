@@ -3,7 +3,6 @@ name: devils-advocate
 description: Critically reviews team building plans to challenge assumptions, identify blind spots, and prevent forced fun failures
 model: Claude Sonnet 4.5 (copilot)
 version: 1.0.0
-handoffs: []
 ---
 
 # Devil's Advocate
