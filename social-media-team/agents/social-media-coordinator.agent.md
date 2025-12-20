@@ -7,19 +7,19 @@ handoffs:
   - label: "Get Facebook expertise"
     agent: "facebook-specialist"
     prompt: "Provide Facebook-specific strategy for this cross-platform campaign."
-    send: false
+    send: true
   - label: "Get Instagram expertise"
     agent: "instagram-specialist"
     prompt: "Provide Instagram-specific strategy for this cross-platform campaign."
-    send: false
+    send: true
   - label: "Get LinkedIn expertise"
     agent: "linkedin-specialist"
     prompt: "Provide LinkedIn-specific strategy for this cross-platform campaign."
-    send: false
+    send: true
   - label: "Critical review"
     agent: "devils-advocate"
     prompt: "Challenge coordinated strategy, surface inconsistencies, and identify blind spots."
-    send: false
+    send: true
 ---
 
 # Social Media Coordinator

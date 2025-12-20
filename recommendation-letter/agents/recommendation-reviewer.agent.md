@@ -13,7 +13,7 @@ handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review this recommendation letter for authenticity, credibility, and believability before final signature."
-    send: false
+    send: true
 ---
 
 # Recommendation Reviewer

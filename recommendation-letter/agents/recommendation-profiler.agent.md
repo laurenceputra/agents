@@ -10,7 +10,7 @@ handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review this candidate profile for credibility concerns and authenticity before letter drafting begins."
-    send: false
+    send: true
 ---
 
 # Recommendation Profiler

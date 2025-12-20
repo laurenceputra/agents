@@ -7,11 +7,11 @@ handoffs:
   - label: "Submit to Impact Evaluator"
     agent: "impact-evaluator"
     prompt: "Philanthropic framework established. Use framework criteria (SROI thresholds, data quality requirements, risk tolerance) to evaluate this program."
-    send: false
+    send: true
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review framework assumptions, challenge values and priorities, identify blind spots in theory of change"
-    send: false
+    send: true
 ---
 
 # Principles & Framework Definer

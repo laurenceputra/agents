@@ -10,7 +10,7 @@ handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review this beneficiary distribution plan for fairness assumptions, family dynamics, and ethical considerations before finalization."
-    send: false
+    send: true
 ---
 
 # Beneficiary Planning Agent

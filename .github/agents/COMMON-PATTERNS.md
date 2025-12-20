@@ -16,7 +16,7 @@ handoffs:                                 # Optional: List of handoff objects
   - label: "Action description"           # Required: User-facing action (e.g., "Submit to Reviewer")
     agent: "agent-name"                   # Required: Target agent name (kebab-case)
     prompt: "Context for handoff..."      # Required: Instructions for receiving agent
-    send: false                           # Optional: Auto-send without confirmation (default: false)
+    send: true                            # Optional: Auto-send without confirmation (default: true)
 ---
 ```
 

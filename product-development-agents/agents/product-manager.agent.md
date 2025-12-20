@@ -10,7 +10,7 @@ handoffs:
   - label: "Weigh in on disagreement"
     agent: "devils-advocate"
     prompt: "I've reviewed the disagreement on {topic} and here's my perspective as product owner: {perspective}. Include this in the PR writeup for human decision-making."
-    send: false
+    send: true
 ---
 
 # Product Manager

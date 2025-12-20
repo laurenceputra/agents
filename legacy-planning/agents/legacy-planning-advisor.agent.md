@@ -16,7 +16,7 @@ handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review this legacy planning guidance for assumptions, ethical dilemmas, and family dynamics blind spots before client delivery."
-    send: false
+    send: true
 ---
 
 # Legacy Planning Advisor

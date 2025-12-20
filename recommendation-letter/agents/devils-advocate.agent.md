@@ -7,11 +7,11 @@ handoffs:
   - label: "Request reviewer perspective"
     agent: "recommendation-reviewer"
     prompt: "Review the disagreement between critical analysis and quality review on this recommendation letter. As the reviewer, provide your perspective on credibility concerns and recommend whether revisions are needed."
-    send: false
+    send: true
   - label: "Send back to writer"
     agent: "recommendation-writer"
     prompt: "Critical issues found in Devil's Advocate review. Address the following concerns before finalizing the letter: {concerns}"
-    send: false
+    send: true
 ---
 
 # Devil's Advocate - Recommendation Letter

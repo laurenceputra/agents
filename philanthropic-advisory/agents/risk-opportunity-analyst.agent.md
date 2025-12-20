@@ -7,11 +7,11 @@ handoffs:
   - label: "Submit to Recommendation Synthesizer"
     agent: "recommendation-synthesizer"
     prompt: "Risk assessment complete. Synthesize impact, portfolio fit, and risk analyses into funding recommendation."
-    send: false
+    send: true
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Review risk matrix assumptions, mitigation strategies, and opportunity assessments"
-    send: false
+    send: true
 ---
 
 # Risk-Opportunity Analyst

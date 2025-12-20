@@ -7,7 +7,7 @@ handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review this investment recommendation for bias, overconfidence, and blind spots before investor decision."
-    send: false
+    send: true
 ---
 
 # Investment Advisor Agent

@@ -7,15 +7,15 @@ handoffs:
   - label: "Request Product Manager perspective"
     agent: "product-manager"
     prompt: "Review the disagreement between {Agent A} and {Agent B} on {topic}. Provide product/business context and your recommendation as the product owner for this feature."
-    send: false
+    send: true
   - label: "Send back to Staff Engineer"
     agent: "staff-engineer"
     prompt: "Critical issues found in Devil's Advocate review. Address the following concerns before resubmitting for PR: {concerns}"
-    send: false
+    send: true
   - label: "Submit to QA for validation"
     agent: "qa"
     prompt: "Devil's Advocate review complete with revisions. All disagreements documented. Ready for final QA validation before PR submission."
-    send: false
+    send: true
 ---
 
 # Devil's Advocate (Product Development)

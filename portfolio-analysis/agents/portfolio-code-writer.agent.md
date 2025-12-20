@@ -9,11 +9,11 @@ handoffs:
   - label: "Review code quality"
     agent: "code-quality-reviewer"
     prompt: "Portfolio analysis script generated. Please review for code quality, best practices, and potential improvements."
-    send: false
+    send: true
   - label: "Challenge assumptions"
     agent: "devils-advocate"
     prompt: "Review analysis approach and assumptions. Identify edge cases, limitations, and potential issues."
-    send: false
+    send: true
 ---
 
 ## Purpose

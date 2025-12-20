@@ -7,7 +7,7 @@ handoffs:
   - label: "Send back to advisor"
     agent: "investment-advisor"
     prompt: "Critical issues found in Devil's Advocate review. Address the following concerns before finalizing recommendation: {concerns}"
-    send: false
+    send: true
 ---
 
 # Devil's Advocate - Stock Investment Analysis

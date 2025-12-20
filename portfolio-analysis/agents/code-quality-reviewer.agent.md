@@ -9,7 +9,7 @@ handoffs:
   - label: "Critical review before delivery"
     agent: "devils-advocate"
     prompt: "Code reviewed for quality. Please perform final critical review before delivery to user."
-    send: false
+    send: true
 ---
 
 ## Purpose

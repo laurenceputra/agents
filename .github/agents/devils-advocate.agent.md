@@ -7,15 +7,15 @@ handoffs:
   - label: "Request orchestrator perspective"
     agent: "agent-architect"
     prompt: "Review the disagreement between agents on this implementation. As the system architect, provide your perspective on the technical trade-offs and recommend a path forward."
-    send: false
+    send: true
   - label: "Send back to implementer"
     agent: "agent-implementer"
     prompt: "Critical issues found in Devil's Advocate review. Address the following concerns before resubmitting for PR: {concerns}"
-    send: false
+    send: true
   - label: "Submit to PR Manager for PR"
     agent: "pr-manager"
     prompt: "Devil's Advocate review complete. All disagreements documented. Ready for PR submission with full context for human decision-making."
-    send: false
+    send: true
 ---
 
 # Devil's Advocate
