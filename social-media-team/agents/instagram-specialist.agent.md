@@ -74,8 +74,7 @@ Instagram is a visual-first social platform with over 2 billion active users, in
 - Stories ideal for day-to-day insights and audience dialogue
 ## Writing Style Guidelines
 
-**See copilot-instructions.md for complete writing style guidelines.** Key principle: Write naturally like explaining to a colleague. No em-dashes, minimal qualifiers, varied sentence structures.
-
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 ## Input Requirements
 
 To provide effective Instagram personal brand strategy, provide:

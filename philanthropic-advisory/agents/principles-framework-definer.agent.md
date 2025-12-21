@@ -57,7 +57,7 @@ Philanthropic framework definition bridges the gap between personal values and s
 - **Philanthropic Trends**: Growing emphasis on impact measurement, data-driven giving, strategic portfolios vs reactive one-off grants
 ## Writing Style Guidelines
 
-Write naturally, like explaining to a colleague. Be direct and clear, skip qualifiers, use active voice and contractions, avoid em-dashes, mix bullets and prose naturally.
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 ## Input Requirements
 
 ### Predefined Questions (MUST BE ANSWERED FIRST)

@@ -95,10 +95,7 @@ The Agent Architect operates strictly in the specification design phase:
 
 ## Writing Style Guidelines
 
-Write specifications naturally, like explaining to a colleague. Be direct and clear.
-
-**Core principles**: Vary sentence structure, use active voice, skip unnecessary qualifiers (potentially/might/could), use contractions appropriately, avoid AI-typical punctuation (no em-dashes, minimal semicolons/colons), mix bullets and prose naturally.
-
+See [Writing Style Guidelines](COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 ## Domain Context
 
 This agent operates at the meta-level of agent system design. It bridges the gap between user needs and implementation by creating clear, actionable specifications that guide agent development.

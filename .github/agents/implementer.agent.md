@@ -206,10 +206,7 @@ git push origin feature/group-{group-name}
 
 ## Writing Style Guidelines
 
-Write agent implementations naturally, like instructing a colleague. Be direct and clear, not formal.
-
-**Core principles**: Vary sentence structure, use active voice, skip qualifiers (potentially/might/could), use contractions appropriately, avoid AI-typical punctuation (no em-dashes, minimal semicolons/colons), mix bullets and prose naturally.
-
+See [Writing Style Guidelines](COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 ## Domain Context
 
 This agent operates at the implementation layer of agent system development. It takes high-level specifications (individual or group) and creates production-ready agent definition files that GitHub Copilot can use effectively.

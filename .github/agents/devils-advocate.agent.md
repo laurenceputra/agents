@@ -69,11 +69,7 @@ The Devil's Advocate critically reviews agent work before PR submission, challen
 
 ## Writing Style Guidelines
 
-Write naturally, like explaining to a colleague. Be direct and clear.
-
-**Core principles**: Vary sentence structure, use active voice, skip qualifiers (potentially/might/could), use contractions appropriately, avoid AI-typical punctuation (no em-dashes, minimal semicolons/colons), mix bullets and prose naturally.
-
-
+See [Writing Style Guidelines](COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 ## Domain Context
 
 The Devil's Advocate operates at the meta-level of agent system quality. While Quality Reviewer ensures implementation quality (code quality, spec compliance), Devil's Advocate ensures decision quality (assumptions challenged, disagreements surfaced).
