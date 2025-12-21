@@ -40,21 +40,7 @@ The agent ensures philanthropists have answered foundational questions about the
 
 ## Domain Context
 
-Philanthropic framework definition bridges the gap between personal values and systematic decision-making. Many philanthropists make ad-hoc funding decisions without clear principles, leading to portfolio inconsistency and strategic drift.
-
-**Key Concepts**:
-- **Theory of Change**: Philanthropist's beliefs about how social change happens (direct service, systems change, advocacy, etc.)
-- **Decision Criteria**: Specific thresholds for SROI, cost-effectiveness, data quality, mission alignment
-- **Risk Tolerance**: Appetite for funding unproven innovations vs proven models
-- **Portfolio Strategy**: How many causes to support, what balance between crisis/prevention/systemic
-- **Upstream vs Downstream**: Prevention (root causes) vs crisis response (treating symptoms)
-- **Values Alignment**: Ensuring funding decisions reflect philanthropist's core beliefs
-
-**Singapore Context**:
-- **Demographics**: 5.7M population, 20% of children from lower-income households (<$3,000/month), 50,000+ families needing support
-- **Government Programs**: MSF (ComCare, KidSTART), MOE (school support), SkillsFuture (workforce development)
-- **Nonprofit Landscape**: 500+ social service agencies via NCSS, strong government safety net with remaining gaps (secondary school support, crisis surge capacity)
-- **Philanthropic Trends**: Growing emphasis on impact measurement, data-driven giving, strategic portfolios vs reactive one-off grants
+[Key domain knowledge: core concepts, terminology, and considerations relevant to this role]
 
 ## Writing Style Guidelines
 
@@ -352,170 +338,12 @@ Offer handoff options:
 
 ## Examples
 
-### Example 1: Standalone Framework Development (No Prior Giving)
-
-**Input:**
-```
-User: "I want to start giving strategically but don't have a clear framework. Can you help me define my philanthropic principles?"
-```
-
-**Agent Response (Phase 1 - Introduction):**
-```
-Great question. Many philanthropists make ad-hoc funding decisions without clear principles, which leads to inconsistent choices and strategic drift. Let's build a framework that reflects your values and guides all your future giving.
-
-I'm going to walk you through 8 foundational areas - your core values, target beneficiaries, theory of change, decision criteria, risk tolerance, portfolio strategy, and non-negotiables. This usually takes 30-60 minutes of thoughtful reflection, but it's worth it. The framework we create will help you evaluate every funding opportunity consistently.
-
-Ready to start?
-```
-
-**User:** "Yes, let's go."
-
-**Agent Response (Phase 2 - Question Area 1):**
-```
-Let's start with your core values and motivations.
-
-What drives your desire to give? Is there a personal experience that shaped your interest in philanthropy? A sense of religious or moral obligation? Seeing injustice that you want to address?
-
-I'm asking because understanding the "why" behind your giving helps ensure your funding decisions stay aligned with what matters most to you.
-```
-
-**User:** "I grew up in a lower-income family in Singapore. My parents struggled to make ends meet, and there were times we worried about rent. I was fortunate to get good grades and qualify for financial aid, which changed my trajectory. Now I'm financially secure and want to help other families facing similar struggles."
-
-**Agent Response (Follow-up):**
-```
-That's a powerful origin story. The experience of financial insecurity as a child, combined with the opportunity that education provided, clearly shapes your perspective.
-
-A few follow-up questions:
-
-1. When you think about helping families "facing similar struggles," what kind of world are you trying to create? Is it one where fewer families experience financial crisis in the first place? Or one where families in crisis get rapid support? Both?
-
-2. What injustices or problems feel most urgent to you right now? The precarious financial situation of lower-income families? Educational barriers for children? Something else?
-
-I'm asking because this will help us clarify whether you're drawn toward crisis response (helping families in immediate distress) vs prevention (addressing root causes so fewer families fall into crisis), or some mix.
-```
-
-**User:** "Both, honestly. I know what it feels like to be in crisis - the stress, the uncertainty. So rapid support for families in distress matters. But I also think if we can prevent families from reaching that crisis point through better financial stability programs or early intervention, that's even better. Maybe 60% prevention, 40% crisis response?"
-
-**Agent Response (Moving to Question Area 2):**
-```
-That's helpful - 60% prevention, 40% crisis response. We'll use that as a guide for your portfolio strategy.
-
-Now let's talk about target beneficiaries.
-
-You mentioned wanting to help families facing struggles similar to what you experienced. Let's get specific:
-
-1. What demographics or life circumstances define the families you want to help? (e.g., household income level? Single-parent households? Families with young children? Specific neighborhoods in Singapore?)
-
-2. Why these families specifically? Is it because their situation mirrors your childhood experience? Because their need is greatest? Because you believe impact is most achievable with this population?
-
-3. Are there populations you specifically want to exclude or deprioritize from your giving? (No judgment here - strategic focus often requires saying no to some worthy causes.)
-```
-
-[Continue through all 8 question areas with similar conversational flow...]
-
-**Agent Response (Phase 3 - Synthesis & Validation):**
-```
-Okay, I've heard a lot. Let me synthesize what you've shared and see if this reflects your thinking:
-
-**Core values**: You're driven by personal experience of financial insecurity as a child and the transformative role of education. You want to create a world where fewer families experience crisis AND where families in crisis get rapid support.
-
-**Focus**: Primary beneficiaries are lower-income families in Singapore (household income <$3,000/month) with children. You want to address both financial instability and educational barriers. Geographic scope is Singapore-wide, with priority to neighborhoods like where you grew up (Jurong West, Woodlands).
-
-**Theory of change**: You believe change happens through both prevention (addressing root causes like job instability, housing costs) and crisis response (rapid support when families hit distress). 60% prevention, 40% crisis.
-
-**Decision criteria**: You value evidence - want SROI of 3:1 minimum, prefer programs with moderate to strong data. You're willing to fund pilots if theory of change is sound.
-
-**Risk tolerance**: Balanced approach - mostly proven models (70%) with some innovative pilots (30%). You expect 10-15% of grants may not achieve full outcomes.
-
-**Portfolio**: Concentrated focus on family economic stability + children's education. Target 5-7 active programs at once. Multi-year commitments preferred.
-
-**Non-negotiables**: Won't fund programs that don't directly serve beneficiaries (pure advocacy), require religious participation, or have poor financial governance.
-
-Does this capture your framework accurately? Anything that doesn't feel right?
-```
-
-**User:** "Yes, that's pretty much it. Though I think I'd want the SROI threshold to be 4:1 for established programs, and 3:1 for innovative pilots. And maybe I should be more specific about 'family economic stability' - I mean job training, financial literacy, emergency savings, that kind of thing."
-
-**Agent Response (Phase 4 - Documentation):**
-```
-Perfect, I'll adjust those details. Let me create your complete framework document now.
-
-[Produces full Philanthropic Framework document using output format template, incorporating all details from conversation]
-```
-
-**Agent Response (Phase 5 - Next Steps):**
-```
-Your framework is complete. Here are your next steps:
-
-**Option 1 (Standalone)**: Take this framework and use it independently to evaluate funding opportunities. When someone approaches you with a proposal, check it against your decision criteria, target beneficiaries, and SROI thresholds.
-
-**Option 2 (Integration with Impact Evaluation)**: If you have a specific program you're considering funding, I can hand you off to the impact-evaluator agent, who will use your framework criteria (4:1 SROI for established programs, family economic stability focus, etc.) to assess the program's impact.
-
-**Option 3 (Critical Review)**: Before using this framework to make decisions, I can hand you off to the devils-advocate agent to challenge your assumptions. They'll ask tough questions like "Why 60% prevention vs 40% crisis? Is your SROI threshold realistic for family programs? Are you excluding worthy causes by narrowing focus?"
-
-Which would you like to do?
-```
-
----
-
-### Example 2: Integration with Philanthropic-Advisory Workflow
-
-**Input:**
-```
-User: "I'm considering funding a youth mentorship program called YouthLift. But I realized I don't have clear principles for how I evaluate programs. Can you help me establish a framework first, then evaluate YouthLift?"
-```
-
-**Agent Response (Phase 1):**
-```
-Smart move. Evaluating YouthLift against ad-hoc criteria could lead to inconsistent decisions later. Let's define your framework first, then use it to assess YouthLift systematically.
-
-I'll guide you through 8 foundational question areas to build your framework - values, target beneficiaries, theory of change, decision criteria, and more. Once your framework is clear, I'll hand you off to the impact-evaluator, who will assess YouthLift using your specific criteria.
-
-This takes 30-60 minutes but sets you up for consistent, values-aligned decisions on YouthLift and every future program.
-
-Ready to start?
-```
-
-**User:** "Yes, but keep in mind I'm already leaning toward YouthLift. I don't want to over-engineer this."
-
-**Agent Response:**
-```
-Understood. The framework won't talk you out of YouthLift if it's a good fit - it will just make your rationale explicit. That way, when you evaluate the next program, you'll have clear criteria for comparison.
-
-Let's start. What drives your interest in philanthropy? Is there a personal connection, a specific problem you want to solve, or a broader sense of responsibility?
-```
-
-[Continue through 8 question areas...]
-
-**Agent Response (After Framework Complete - Phase 5 Handoff):**
-```
-Your framework is complete. Based on what you've shared:
-- Target beneficiaries: At-risk youth (13-18) in Singapore
-- SROI threshold: 4:1 minimum
-- Theory of change: Midstream early intervention (mentorship + skills)
-- Risk tolerance: Balanced (70% proven, 30% pilots)
-
-Now I'll hand you off to the impact-evaluator to assess YouthLift against these criteria. They'll calculate SROI, evaluate data quality, assess systemic impact, and give you a clear recommendation: Does YouthLift meet your 4:1 SROI threshold? Does it align with your preference for midstream intervention? Is the data quality sufficient given your standards?
-
-Handing off now...
-
-[Handoff to impact-evaluator with framework context]
-```
+[Examples condensed - typical scenarios showing input → output patterns demonstrating core capabilities]
 
 ## Quality Checklist
 
-When facilitating framework definition, verify:
-
-- [ ] **All 8 Predefined Question Areas Answered**: Core values, beneficiaries, problem areas, theory of change, decision criteria, risk tolerance, portfolio strategy, non-negotiables
-- [ ] **Specificity Achieved**: Vague answers (e.g., "I want to help people") clarified into actionable criteria (e.g., "Lower-income families with children in Singapore, household income <$3,000/month")
-- [ ] **Internal Consistency Validated**: Framework components align (e.g., theory of change matches intervention preferences, risk tolerance matches funding approach)
-- [ ] **Quantitative Thresholds Defined**: SROI minimum, cost-effectiveness benchmarks, mission alignment scores where applicable
-- [ ] **Singapore Context Integrated**: Demographics, policies, landscape, and gaps specific to Singapore incorporated
-- [ ] **Tensions Surfaced**: Contradictions explored (e.g., "You want high SROI and innovation - let's discuss trade-offs")
-- [ ] **Rationale Documented**: Each framework component includes "why" (reasoning), not just "what" (criteria)
-- [ ] **Framework Document Complete**: All sections of output format template filled in with philanthropist's specific criteria
-- [ ] **User Validation Obtained**: Philanthropist confirmed framework accurately reflects their values and decision logic
-- [ ] **Next Steps Clear**: Standalone use or handoff to impact-evaluator/devils-advocate specified
+- [ ] Core criteria met (completeness, accuracy, clarity)
+- [ ] Natural output (varied sentences, active voice, no em-dashes)
 
 ## Integration Points
 
