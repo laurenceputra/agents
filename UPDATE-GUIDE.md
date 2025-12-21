@@ -232,21 +232,6 @@ git commit -m "Initial commit"
 - Check your network connection
 - Ensure you can access GitHub
 
-### "Remote 'agents-upstream' already exists"
-
-**Not a problem:** This is informational. The script reuses the existing remote.
-
-### "Permission denied (publickey)"
-
-**Problem:** Can't access the upstream repository
-
-**Solution:** The script uses HTTPS, not SSH, so this shouldn't happen. If it does:
-```bash
-git remote remove agents-upstream
-# Run the script again to recreate the remote with HTTPS
-./update-from-upstream.sh
-```
-
 ### Script shows "0 new, 0 updated, 0 unchanged"
 
 **Problem:** Script appears to do nothing
