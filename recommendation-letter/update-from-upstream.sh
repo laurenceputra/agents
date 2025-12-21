@@ -13,7 +13,8 @@
 # 4. Handle new files, modifications, and unchanged files
 # 5. Show a summary of changes
 
-set -e  # Exit on error
+# Note: We don't use 'set -e' globally because we want to continue processing
+# even if individual file downloads fail. We check error codes explicitly instead.
 
 # Colors for output
 RED='\033[0;31m'
@@ -27,6 +28,9 @@ GITHUB_REPO="laurenceputra/agents"
 DEFAULT_BRANCH="main"
 RAW_BASE_URL="https://raw.githubusercontent.com/${GITHUB_REPO}/${DEFAULT_BRANCH}"
 API_BASE_URL="https://api.github.com/repos/${GITHUB_REPO}/contents"
+
+# GitHub token for API rate limiting (optional, set via GITHUB_TOKEN env var)
+GITHUB_TOKEN="${GITHUB_TOKEN:-}"
 
 # Helper functions
 log_info() {
@@ -67,6 +71,11 @@ check_curl() {
         log_error "curl is not installed. Please install curl to use this script."
         exit 1
     fi
+    
+    # Check for jq (optional, for better JSON parsing)
+    if ! command -v jq &> /dev/null; then
+        log_warning "jq is not installed. JSON parsing will be limited but the script will still work."
+    fi
 }
 
 # Get list of files from upstream using GitHub API
@@ -76,66 +85,75 @@ get_upstream_files() {
     
     log_info "Fetching file list from upstream..."
     
-    # Function to recursively fetch files from a directory
-    fetch_directory() {
-        local path="$1"
-        local api_url="${API_BASE_URL}/${path}"
-        
-        # Fetch directory contents
-        local response=$(curl -s -f "${api_url}" 2>/dev/null)
-        
-        if [[ $? -ne 0 ]]; then
-            return 1
+    > "${temp_dir}/file_list.txt"  # Initialize empty file
+    
+    # Build auth header if token is available
+    local auth_header=""
+    if [[ -n "$GITHUB_TOKEN" ]]; then
+        auth_header="-H \"Authorization: token ${GITHUB_TOKEN}\""
+    fi
+    
+    # Step 1: Get root-level files
+    log_info "Discovering root-level files..."
+    local root_files=(
+        "AGENTGROUPNAME"
+        "README.md"
+        "CHANGELOG.md"
+        "copilot-instructions.md"
+        "update-from-upstream.sh"
+    )
+    
+    for file in "${root_files[@]}"; do
+        local url="${RAW_BASE_URL}/${agent_group}/${file}"
+        if curl -s -f -I "$url" &>/dev/null; then
+            echo "${agent_group}/${file}" >> "${temp_dir}/file_list.txt"
         fi
-        
-        # Parse JSON response to get files and directories
-        echo "$response" | grep -o '"path":"[^"]*"' | sed 's/"path":"//g' | sed 's/"//g' | while read -r item_path; do
-            # Determine the type of this item
-            local item_type
-            item_type=$(echo "$response" | grep -A 2 "\"path\":\"${item_path}\"" | grep '"type"' | sed 's/.*"type":"\([^"]*\)".*/\1/')
-            
-            if [[ "$item_type" == "file" ]]; then
-                echo "$item_path"
-            elif [[ "$item_type" == "dir" ]]; then
-                fetch_directory "$item_path"
-            fi
+    done
+    
+    # Step 2: Get agents directory
+    log_info "Discovering agent files..."
+    local agents_api_url="${API_BASE_URL}/${agent_group}/agents"
+    local agents_response=$(curl -s -f $auth_header "${agents_api_url}" 2>/dev/null)
+    local agents_api_status=$?
+    
+    if [[ $agents_api_status -eq 0 ]] && [[ -n "$agents_response" ]]; then
+        # Successfully got agents from API
+        # Extract agent filenames from JSON response
+        echo "$agents_response" | grep -o '"name"[[:space:]]*:[[:space:]]*"[^"]*\.agent\.md"' | sed 's/.*"name"[[:space:]]*:[[:space:]]*"//g' | sed 's/"//g' | while read -r agent_file; do
+            echo "${agent_group}/agents/${agent_file}" >> "${temp_dir}/file_list.txt"
         done
-    }
-    
-    # Try to fetch files using API
-    fetch_directory "$agent_group" > "${temp_dir}/file_list.txt" 2>/dev/null
-    
-    # If API fetch failed or returned empty, try a simpler approach
-    if [[ ! -s "${temp_dir}/file_list.txt" ]]; then
-        log_warning "GitHub API approach failed, using alternative method..."
-        
-        # Download the directory structure from a known structure
-        # For agent groups, we know they typically have: agents/, README.md, CHANGELOG.md, etc.
-        local common_files=(
-            "AGENTGROUPNAME"
-            "README.md"
-            "CHANGELOG.md"
-            "copilot-instructions.md"
-            "update-from-upstream.sh"
+    else
+        # API failed or no agents found, try direct downloads with common agent names
+        log_warning "Could not discover all agents via API, attempting with common agent names..."
+        local common_agents=(
+            "activity-scout"
+            "activity-planner"
+            "beneficiary-planning"
+            "budget-optimizer"
+            "code-quality-reviewer"
+            "destination-researcher"
+            "devils-advocate"
+            "dining-specialist"
+            "event-coordinator"
+            "impact-evaluator"
+            "itinerary-integrator"
+            "legacy-planning-advisor"
+            "letter-of-wishes-composer"
+            "portfolio-code-writer"
+            "portfolio-strategist"
+            "principles-framework-definer"
+            "recommendation-synthesizer"
+            "risk-opportunity-analyst"
+            "team-profiler"
+            "trust-structure-designer"
         )
         
-        # Try to download each common file to see if it exists
-        for file in "${common_files[@]}"; do
-            local url="${RAW_BASE_URL}/${agent_group}/${file}"
-            if curl -s -f -I "$url" &>/dev/null; then
-                echo "${agent_group}/${file}" >> "${temp_dir}/file_list.txt"
+        for agent_name in "${common_agents[@]}"; do
+            local agent_url="${RAW_BASE_URL}/${agent_group}/agents/${agent_name}.agent.md"
+            if curl -s -f -I "$agent_url" &>/dev/null; then
+                echo "${agent_group}/agents/${agent_name}.agent.md" >> "${temp_dir}/file_list.txt"
             fi
         done
-        
-        # Try to get agents directory
-        local agents_api_url="${API_BASE_URL}/${agent_group}/agents"
-        local agents_response=$(curl -s -f "${agents_api_url}" 2>/dev/null)
-        
-        if [[ $? -eq 0 ]]; then
-            echo "$agents_response" | grep -o '"name":"[^"]*\.agent\.md"' | sed 's/"name":"//g' | sed 's/"//g' | while read -r agent_file; do
-                echo "${agent_group}/agents/${agent_file}" >> "${temp_dir}/file_list.txt"
-            done
-        fi
     fi
     
     if [[ ! -s "${temp_dir}/file_list.txt" ]]; then
@@ -197,6 +215,14 @@ update_agent_group() {
         local rel_file="${upstream_file#$agent_group/}"
         local target_file="${script_dir}/${rel_file}"
         
+        # Skip the update script itself (to preserve local modifications)
+        # Users can manually review and update the script if needed
+        if [[ "$rel_file" == "update-from-upstream.sh" ]]; then
+            log_info "Skipping: ${rel_file} (to preserve local script version)"
+            skip_count=$((skip_count + 1))
+            continue
+        fi
+        
         # Download file to temp location (preserve directory structure to avoid collisions)
         local temp_download="${temp_dir}/${rel_file}"
         mkdir -p "$(dirname "$temp_download")"
@@ -257,11 +283,23 @@ main() {
     # Check if curl is available
     check_curl
     
+    # Check for GITHUB_TOKEN and inform user about rate limits
+    if [[ -z "$GITHUB_TOKEN" ]]; then
+        log_warning "GITHUB_TOKEN environment variable not set"
+        log_info "GitHub API requests are limited to 60/hour without authentication"
+        log_info "To increase the limit, set: export GITHUB_TOKEN=<your-github-token>"
+        log_info "Create a token at: https://github.com/settings/tokens"
+        echo ""
+    fi
+    
     # Get script directory
     local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     
     # Detect agent group
     local agent_group=$(detect_agent_group)
+    if [[ $? -ne 0 ]]; then
+        exit 1
+    fi
     log_info "Detected agent group: ${agent_group}"
     
     # Update agent group
@@ -272,5 +310,9 @@ main() {
     echo ""
 }
 
-# Run main function
+# Run main function with error handling
 main "$@"
+if [[ $? -ne 0 ]]; then
+    log_error "Update process failed"
+    exit 1
+fi
