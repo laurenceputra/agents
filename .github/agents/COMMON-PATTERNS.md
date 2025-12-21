@@ -106,13 +106,15 @@ Agent groups use this portable structure:
 
 ```
 agent-group-name/
+├── AGENTGROUPNAME                  # Contains the agent group name (required)
 ├── agents/
 │   ├── agent-1.agent.md
 │   ├── agent-2.agent.md
 │   └── devils-advocate.agent.md  # MANDATORY for all groups
 ├── copilot-instructions.md       # Group-level workflow
 ├── README.md                      # Usage guide
-└── CHANGELOG.md                   # Version history (for v1.1.0+)
+├── CHANGELOG.md                   # Version history (for v1.1.0+)
+└── update-from-upstream.sh        # Self-updating script
 ```
 
 ### Portability Requirements
@@ -121,6 +123,7 @@ agent-group-name/
 - Agents reference each other by name, not path
 - No references to parent folders or repo-specific names
 - Folder can be renamed without breaking
+- `AGENTGROUPNAME` file must contain the exact agent group name (e.g., "recommendation-letter")
 
 ## Changelog Format
 

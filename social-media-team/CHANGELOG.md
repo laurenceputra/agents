@@ -5,6 +5,22 @@ All notable changes to the Social Media Team agent group will be documented in t
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2025-12-21
+
+### Added
+- Self-update capability via `update-from-upstream.sh` script
+- `UPDATING.md` documentation with complete guide for using the self-update feature
+- Support for direct downloads from GitHub repository using HTTP endpoints
+- GitHub token support for higher API rate limits (5000 req/hr vs 60 req/hr)
+- Automatic file discovery via GitHub API with intelligent fallback to common agent names
+- Portable design allowing agent group to be copied to other projects via `cp -r` and updating itself
+- Smart file handling: updates changed files, adds new files, preserves unchanged files
+- Intentional preservation of local script modifications (update-from-upstream.sh)
+
+### Changed
+- Added `AGENTGROUPNAME` file containing the group name for script auto-detection
+- Enhanced error handling and logging in update process
+
 ## [1.0.2] - 2024-12-19
 
 ### Changed

@@ -223,6 +223,33 @@ These agents follow GitHub Copilot agent patterns and are provided as-is for phi
 
 - **1.0.0** (2024-12-16): Initial release with five agents (impact-evaluator, portfolio-strategist, risk-opportunity-analyst, recommendation-synthesizer, devils-advocate)
 
+## Updating This Agent Group
+
+This agent group can be updated from the upstream repository to get the latest improvements, bug fixes, and new features.
+
+**To update:**
+
+```bash
+cd philanthropic-advisory  # or wherever you installed this agent group
+./update-from-upstream.sh
+```
+
+The script will:
+- Fetch the latest changes from the upstream repository
+- Update agents and documentation files
+- Preserve the update script itself
+- Show a summary of changes
+
+After running the update:
+```bash
+git status              # Review what changed
+git diff                # See detailed changes
+git add .              # Stage the updates
+git commit -m "Update philanthropic-advisory agents from upstream"
+```
+
+**Note:** If you've made local customizations to agent files, the update will overwrite them. Consider keeping local modifications in a separate branch or using different file names.
+
 ---
 
 **For detailed workflow and decision trees, see [copilot-instructions.md](./copilot-instructions.md)**

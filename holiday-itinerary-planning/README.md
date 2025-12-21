@@ -338,6 +338,33 @@ The itinerary includes specific booking timelines, websites, and confirmation tr
 
 - **1.0.0** (2024-12-18): Initial release with six agents (destination-researcher, activity-planner, logistics-coordinator, budget-optimizer, itinerary-integrator, devils-advocate)
 
+## Updating This Agent Group
+
+This agent group can be updated from the upstream repository to get the latest improvements, bug fixes, and new features.
+
+**To update:**
+
+```bash
+cd holiday-itinerary-planning  # or wherever you installed this agent group
+./update-from-upstream.sh
+```
+
+The script will:
+- Fetch the latest changes from the upstream repository
+- Update agents and documentation files
+- Preserve the update script itself
+- Show a summary of changes
+
+After running the update:
+```bash
+git status              # Review what changed
+git diff                # See detailed changes
+git add .              # Stage the updates
+git commit -m "Update holiday-itinerary-planning agents from upstream"
+```
+
+**Note:** If you've made local customizations to agent files, the update will overwrite them. Consider keeping local modifications in a separate branch or using different file names.
+
 ## Support
 
 This is an open-source agent system. For issues or suggestions, refer to the specification document in `.specifications/holiday-itinerary-planning-group-specification.md`.
