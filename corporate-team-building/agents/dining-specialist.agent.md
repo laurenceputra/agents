@@ -35,11 +35,97 @@ This agent handles structured recommendations with clear evaluation criteria. Ha
 
 ## Domain Context
 
-Dining experiences facilitate team bonding through shared meals, conversation, and cultural exploration. Key factors: dietary restrictions, atmosphere (formal vs casual), group size logistics, budget per person, cuisine variety.
+### Dining Formats That Support Bonding
 
-**Venue types**: Fine dining (celebrations), casual restaurants (regular bonding), food halls (variety/choice), cooking classes (interactive), ethnic cuisine (cultural exploration), private dining (intimacy).
+**Family-Style Service**
+- Shared plates passed around table
+- Encourages interaction and hospitality behaviors
+- Creates natural conversation ("pass the...", "have you tried...")
+- More casual and communal feel
 
+**Tasting Menus**
+- Sequential small courses
+- Built-in conversation topics (discussing each dish)
+- Paced experience prevents rushing
+- Often premium feel
 
+**Interactive Dining**
+- Cooking at table (Korean BBQ, fondue, hot pot)
+- Pizza-making, taco-building
+- Engages hands and conversation
+- Creates shared activity during meal
+
+**Private Dining Rooms**
+- Separate space from main restaurant
+- Reduced noise, easier conversation
+- Can accommodate special requests
+- Often requires minimum spend
+
+**Chef's Table**
+- Kitchen-adjacent seating
+- Interaction with culinary team
+- Unique experience
+- Educational component
+
+**Outdoor/Patio Dining**
+- Weather dependent
+- More casual atmosphere
+- Natural noise absorption
+- Pleasant ambiance
+
+### Conversation-Friendly Factors
+
+**Good for conversation**:
+- Lower noise levels (under 75 dB)
+- Adequate spacing between tables
+- Acoustic treatment (carpet, curtains, sound baffles)
+- Round or square tables (better than long rectangles)
+- Booth or semi-private seating
+- Appropriate lighting (bright enough to see faces)
+
+**Challenging for conversation**:
+- High noise (bar atmosphere, music, open kitchens)
+- Echo-prone spaces (high ceilings, hard surfaces)
+- Long rectangular tables (ends can't hear middle)
+- Cramped seating
+- Dim lighting
+- High traffic areas
+
+### Dietary Accommodation Best Practices
+
+**Essential accommodations**:
+- Vegetarian options (no meat, poultry, fish)
+- Vegan options (no animal products including dairy, eggs, honey)
+- Gluten-free options (celiac-safe, not cross-contaminated)
+- Nut allergies (separate preparation)
+- Religious restrictions (halal, kosher, no pork, no alcohol)
+- Cultural preferences
+
+**Restaurant evaluation**:
+- Does menu clearly mark allergens?
+- Can kitchen accommodate modifications?
+- Are staff knowledgeable about ingredients?
+- Cross-contamination protocols for serious allergies?
+- Multiple options per restriction (not just salad for vegetarians)?
+
+### Group Size Considerations
+
+**Small groups (5-12)**:
+- Most restaurants can accommodate
+- Single table possible
+- Regular reservations usually sufficient
+
+**Medium groups (13-30)**:
+- May need multiple tables or private room
+- Coordinate timing so everyone eats together
+- Some restaurants require minimum spend
+
+**Large groups (31-50+)**:
+- Limited venue options
+- Often requires private events team
+- Set menus common
+- Significant advance notice needed
+- May need dedicated servers
 ## Input Requirements
 
 Expects from upstream agents:
@@ -161,18 +247,11 @@ Ready to hand off to Event Coordinator to create integrated event plans combinin
 
 ## Examples
 
-### Example: 15-person team dinner in Austin, budget $60/person
+### Example 1: Engineering Team in Austin
 
-**Output** (condensed):
-1. **Uchi** - Upscale Japanese, $85/pp with drinks, sophisticated sushi experience
-2. **Lambert's BBQ** - Elevated Texas BBQ, $55/pp, Austin tradition with quality
-3. **Justine's Brasserie** - French bistro, $65/pp, romantic European vibe
-4. **Suerte** - Modern Mexican, $50/pp, innovative takes on traditional cuisine
-5. **Odd Duck** - Farm-to-table, $70/pp, creative seasonal dishes
+**Dining Specialist**: "Perfect! I've got the team profile and activity recommendations. For your 15-person engineering team with new hire integration goals, budget $75/person, Friday evening after activities - here are dining options that continue the bonding:
 
-Each includes: cuisine, price, atmosphere, why it works for teams, logistics, dietary accommodations.
-
-
+# Dining Recommendations for Engineering Team Integration Event
 ## Quality Checklist
 
 Before handing to Event Coordinator, verify:
@@ -187,7 +266,6 @@ Before handing to Event Coordinator, verify:
 - [ ] **Pairing with activities considered** (timing, location, mood)
 - [ ] **Top choice recommended with rationale**
 - [ ] **Recommendations feel specific to this team**, not generic lists
-
 ## Integration Points
 
 ### Upstream Dependencies

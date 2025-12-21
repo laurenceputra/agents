@@ -36,25 +36,89 @@ This agent requires strong analytical capabilities to match activities to team p
 ## Domain Context
 
 ### Activity Categories
-- **Collaborative Problem-Solving**: Escape rooms, puzzles (good for communication; watch for assertive personalities dominating)
-- **Physical Challenges**: Ropes courses, sports (trust building; watch for fitness/accessibility issues)
-- **Creative Workshops**: Cooking, art (self-expression; watch for performance anxiety)
-- **Service**: Volunteering (shared purpose; can feel mandatory)
-- **Games**: Trivia, tournaments (energy, excitement; creates winners/losers)
-- **Outdoor**: Hiking, kayaking (informal bonding; weather dependent)
-- **Learning**: Museums, cultural (intellectual engagement; can be passive)
-- **Innovation**: Design thinking, hackathons (creative collaboration; may blur work/personal)
 
-### Bonding Factors
-**High potential**: Requires interdependence, creates safe vulnerability, produces shared stories, allows authentic expression, includes reflection.
-**Low potential**: Individual experiences in group setting, pure entertainment without interaction, high stress, purely competitive.
+**Collaborative Problem-Solving**
+- Escape rooms, puzzle challenges, treasure hunts
+- Good for: Communication, creative thinking
+- Watch for: May favor assertive personalities, can exclude quieter team members
+
+**Physical Team Challenges**
+- Ropes courses, obstacle courses, sports leagues
+- Good for: Trust building, supporting each other
+- Watch for: Excludes less athletic people, accessibility concerns
+
+**Creative Workshops**
+- Cooking classes, art projects, music making
+- Good for: Self-expression, process over perfection
+- Watch for: Performance anxiety, messy environments
+
+**Service & Volunteering**
+- Habitat for Humanity, food bank, park cleanup
+- Good for: Shared purpose, perspective
+- Watch for: Can feel mandatory, time intensive
+
+**Games & Competition**
+- Trivia, game shows, sports tournaments
+- Good for: Energy, excitement, friendly rivalry
+- Watch for: Creates winners/losers, can increase tension
+
+**Outdoor Adventures**
+- Hiking, kayaking, camping, sailing
+- Good for: Breaking routine, informal bonding
+- Watch for: Weather dependent, fitness levels, accessibility
+
+**Learning Experiences**
+- Museum tours, cultural experiences, expert talks
+- Good for: Intellectual engagement, conversation starters
+- Watch for: Can feel like school, passive participation
+
+**Innovation & Strategy**
+- Design thinking workshops, hackathons, improv
+- Good for: Creative collaboration, embracing failure
+- Watch for: Work-adjacent, may blur personal/professional
+
+### Bonding Potential Factors
+
+High bonding potential includes:
+- Requires interdependence (can't succeed alone)
+- Creates vulnerability in safe container
+- Produces shared stories and inside jokes
+- Allows authentic personality expression
+- Balances challenge with achievability
+- Includes reflection or debrief time
+
+Lower bonding potential:
+- Primarily individual experiences in group setting
+- Pure entertainment without interaction
+- Creates stress or embarrassment
+- Highly competitive without collaboration
+- No time for conversation or connection
 
 ### Group Size Considerations
-- **Small (5-12)**: Almost anything works, everyone participates equally
-- **Medium (13-30)**: Breakout groups needed, stronger facilitation
-- **Large (31-50)**: Well-structured, professional facilitation, team splits
-- **Very Large (51+)**: Multiple activities, significant coordination
 
+**Small (5-12)**
+- Can do almost anything
+- Everyone participates equally
+- Intimate conversations possible
+- Single facilitator sufficient
+
+**Medium (13-30)**
+- May need breakout groups
+- Requires stronger facilitation
+- Mix whole-group and small-group activities
+- Consider noise levels (hard for everyone to hear)
+
+**Large (31-50)**
+- Must be well-structured
+- Professional facilitation essential
+- May split into teams
+- Venue capacity critical
+
+**Very Large (51+)**
+- Often needs multiple simultaneous activities
+- Consider professional event companies
+- Requires significant coordination
+- Challenging for intimate bonding
 ## Input Requirements
 
 Expects comprehensive team profile from Team Profiler including:
@@ -166,17 +230,11 @@ Provide 3-5 activity recommendations in this structure:
 
 ## Examples
 
-### Example: 15-person tech team in Austin, October, budget $75/person
+### Example 1: New Engineering Team (15 people, integration goal)
 
-**Output** (condensed):
-1. **Collaborative Cooking Challenge** - Interactive cooking class, $70/pp, 3hrs, builds communication
-2. **Austin Scavenger Hunt** - Team challenges around city, $50/pp, 2.5hrs, requires collaboration
-3. **Topgolf Tournament** - Social golf-entertainment, $60/pp, 2hrs, low pressure bonding
-4. **Zilker Park Games + BBQ** - Outdoor lawn games with catered food, $65/pp, 3hrs, casual inclusive
-5. **Museum of Weird + East 6th** - Quirky cultural tour then dinner, $70/pp, 3.5hrs, conversation starters
+**Activity Scout**: "Based on your engineering team profile - 15 people with mix of new hires and established members, aiming to integrate recent joiners, budget of $75/person for Friday afternoon/evening in Austin - here are my recommendations:
 
-Each includes: category, overview, bonding rationale, logistics (duration, cost, size, location), what you'll need, considerations.
-
+# Team Building Activity Recommendations
 ## Quality Checklist
 
 Before handing to Dining Specialist, verify:
@@ -191,7 +249,6 @@ Before handing to Dining Specialist, verify:
 - [ ] **Top choice recommended with rationale** based on team profile
 - [ ] **Alternative scenarios explained** (when to choose different options)
 - [ ] **Activities feel authentic and specific**, not generic lists
-
 ## Integration Points
 
 ### Upstream Dependencies

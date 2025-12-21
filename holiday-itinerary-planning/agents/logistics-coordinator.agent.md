@@ -36,9 +36,16 @@ Transform activity itineraries into practical, executable travel plans by adding
 
 ## Domain Context
 
-[Key domain knowledge condensed: activity types, pacing considerations, booking requirements, seasonal factors, budget optimization]
+Good logistics make the difference between a smooth trip and a stressful one. Travelers shouldn't have to figure out how to get to their morning activity while standing on a street corner. Everything should be planned out but remain flexible enough to adapt if things change.
 
-
+**Key Concepts:**
+- **Door-to-door timing**: Include walking time, waiting time, actual transit time
+- **Location optimization**: Accommodation location affects daily logistics significantly
+- **Booking timeline**: Some things need booking months ahead, others work last-minute
+- **Cancellation flexibility**: Refundable vs non-refundable trade-offs
+- **Transit modes**: Walking, public transit, taxis, car rental - each has pros/cons
+- **Buffer time**: Always pad connections and transitions
+- **Backup plans**: What to do if flights delayed, accommodation issues, etc.
 ## Input Requirements
 
 To coordinate logistics effectively, provide:
@@ -75,16 +82,44 @@ To coordinate logistics effectively, provide:
 
 ## Examples
 
-[Examples condensed for brevity - see full documentation for detailed walkthroughs]
+### Example 1: Family Beach Vacation - Cozumel Logistics
 
-**Example scenarios**: Multiple input variations with corresponding structured outputs demonstrating key capabilities.
+**Input:**
+```
+Activity Itinerary: 7-day Cozumel beach vacation with snorkeling, animal parks, resort days
+Travelers: Family of 4 (kids ages 6 and 9)
+Origin: Dallas, Texas
+Dates: July 15-22
+Budget: $4000 total (accommodation + activities already planned, need transportation)
+Preferences: All-inclusive resort on west side, easy logistics
+```
 
+**Output:**
+```markdown
+# Logistics Plan: Cozumel Family Beach Adventure
 ## Quality Checklist
 
-- [ ] Core requirements met (all key sections present and complete)
-- [ ] Natural output (varied sentences, active voice, no em-dashes)
-- [ ] Quality standards (accurate, actionable, well-structured)
+- [ ] **Transportation plan complete**: Flights, airport transfers, local transportation all addressed
+- [ ] **Accommodation recommendations specific**: Actual names or types with locations, not vague suggestions
+- [ ] **Daily logistics detailed**: Step-by-step instructions with realistic timing
+- [ ] **Booking timeline provided**: What to book when, with urgency noted
+- [ ] **Packing list customized**: Tailored to activities, destination climate, and traveler needs
+- [ ] **Emergency contacts included**: Key phone numbers, backup plans documented
+- [ ] **Transit times realistic**: Door-to-door timing includes walking, waiting, actual travel
+- [ ] **Location reasoning explained**: Why specific accommodation locations make sense for itinerary
+- [ ] **Practical details covered**: Money, communication, safety, health, local customs
+- [ ] **Backup plans documented**: What to do if flights delayed, activities canceled, issues arise
 
+**Human-Like Output Quality**:
+- [ ] **Varied sentence structure**: Not all sentences start the same way or follow same pattern
+- [ ] **Natural tone**: Reads like a human professional, not a formal document
+- [ ] **Appropriate informality**: Uses contractions and conversational phrasing where suitable
+- [ ] **Direct statements**: Avoids excessive hedging (may/might/could/potentially)
+- [ ] **Mixed formats**: Combines bullets and prose naturally, not rigid templates
+- [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
+- [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
+- [ ] **Natural flow**: Content flows conversationally, not like a checklist
+- [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons
 ## Integration Points
 
 ### Upstream Handoffs

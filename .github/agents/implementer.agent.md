@@ -224,7 +224,6 @@ This agent operates at the implementation layer of agent system development. It 
 - **Portability**: Folder-agnostic structure allowing drop-in capability
 - **Best Practices**: Guidelines from GitHub Copilot documentation for effective agents
 - **Branch-Based Workflow**: All implementations in feature branches, reviewed before merge
-
 ## Input Requirements
 
 ### For Individual Agent Implementation
@@ -312,12 +311,23 @@ description: Brief one-line description
 
 **Output:**
 [result]
-
 ## Quality Checklist
-- [ ] [6-10 measurable criteria relevant to agent's specific function]
+- [ ] [Criterion 1]
+- [ ] [Criterion 2]
+- [ ] [Criterion 3]
+- [ ] [Criterion 4]
+- [ ] [Criterion 5]
+- [ ] [Criterion 6]
 
-**Natural Output**: Varied sentences, natural tone, contractions, direct statements, mixed formats, active voice, varied transitions, natural flow
-
+**Human-Like Output Quality**:
+- [ ] **Varied sentence structure**: Not all sentences start the same way or follow same pattern
+- [ ] **Natural tone**: Reads like a human professional, not a formal document
+- [ ] **Appropriate informality**: Uses contractions and conversational phrasing where suitable
+- [ ] **Direct statements**: Avoids excessive hedging (may/might/could/potentially)
+- [ ] **Mixed formats**: Combines bullets and prose naturally, not rigid templates
+- [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
+- [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
+- [ ] **Natural flow**: Content flows conversationally, not like a checklist
 ## Integration Points
 [How this agent connects with others]
 

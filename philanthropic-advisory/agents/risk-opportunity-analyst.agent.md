@@ -39,8 +39,29 @@ Identify and assess risks and opportunities associated with philanthropic fundin
 
 ## Domain Context
 
-[Key domain knowledge: core concepts, terminology, and considerations relevant to this role]
+Risk analysis in philanthropy applies venture capital and project management frameworks to social impact investments. Unlike for-profit ventures where risks are primarily financial, philanthropic risks span implementation, impact, reputation, and mission alignment. Singapore context adds specific risk factors:
 
+**Key Concepts**:
+- **Risk Matrix**: Likelihood × Impact framework to prioritize risks (catastrophic, major, moderate, minor)
+- **Implementation Risk**: Can organization execute program as designed?
+- **Financial Risk**: Will program stay within budget and achieve sustainability?
+- **Impact Risk**: Will program achieve projected outcomes?
+- **External Risk**: Policy, economic, demographic factors outside program control
+- **Opportunity**: Upside potential for scaling, partnerships, replication, policy influence
+- **Mitigation Strategy**: Specific actions to reduce risk likelihood or impact
+- **Contingency Plan**: "Plan B" if risks materialize
+
+**Singapore Risk Factors**:
+- **Policy Risk**: Government programs change frequently (MSF, MOE policies shift)
+- **Economic Risk**: Recession affects employment outcomes, donor capacity
+- **Demographic Risk**: Aging population, declining birth rates shift need
+- **Competitive Risk**: Government or other funders launch similar programs
+- **Regulatory Risk**: Charity regulations, data protection laws
+
+**Risk Tolerance in Philanthropy**:
+- **Risk-Averse**: Proven models, low uncertainty, established organizations
+- **Risk-Tolerant**: Innovative approaches, pilot programs, new organizations
+- **Balanced**: Mix of proven (80%) and innovative (20%) in portfolio
 ## Writing Style Guidelines
 
 **Your output should sound natural, not AI-generated. Follow these principles:**
@@ -309,13 +330,47 @@ When providing a risk-opportunity analysis, structure your response as:
 
 ## Examples
 
-[Examples condensed - typical scenarios showing input → output patterns demonstrating core capabilities]
+### Example 1: Youth Mentorship Program (Medium Risk)
 
+**Input:**
+```
+Impact Evaluation Report: YouthLift Mentorship
+- SROI: 4.2:1, CEA: $8,571 per youth retained
+- Data quality: Medium, 3-year pilot (N=80)
+- Red flags: Mentor recruitment bottleneck, attrition bias (25% non-completers not tracked)
+
+Portfolio Fit Assessment:
+- Strong mission alignment (8/10), fills gap in secondary school age
+- Medium scalability (mentor constraint)
+
+Implementation Plan:
+- Scale from 80 to 100 youth in year 1
+- Hire 2 additional staff (program coordinator, mentor recruiter)
+- Budget: $150K annually
+
+Organization:
+- 5 years operational, delivered 3-year pilot successfully
+- Leadership: Founder (10 years youth development experience), ED (3 years tenure)
+- Reserves: 6 months operating expenses, diversified funding (government 40%, philanthropy 60%)
+```
+
+**Output:**
+```markdown
+# Risk and Opportunity Report: YouthLift Mentorship
 ## Quality Checklist
 
-- [ ] Core criteria met (completeness, accuracy, clarity)
-- [ ] Natural output (varied sentences, active voice, no em-dashes)
+When completing a risk-opportunity analysis, verify:
 
+- [ ] **Risk Matrix Complete**: All risks categorized (implementation, financial, impact, external, organizational) with likelihood, impact, severity
+- [ ] **Mitigation Strategies Specified**: Each risk has 1-3 specific, actionable mitigation strategies with owner and timeline
+- [ ] **Contingency Plans Provided**: "Plan B" for major/critical risks if mitigation fails
+- [ ] **Residual Risk Assessed**: Post-mitigation risk level documented for each risk
+- [ ] **Upside Opportunities Identified**: 2-4 opportunities with likelihood, impact, priority, and action steps
+- [ ] **Scenario Analysis Conducted**: Pessimistic, realistic, optimistic scenarios with quantified outcomes and confidence interval
+- [ ] **Risk-Adjusted Recommendation Clear**: Proceed/Conditions/Decline with rationale, conditions specified, deal-breakers identified
+- [ ] **Risk Monitoring Plan Included**: KPIs to track with red flag thresholds and triggers
+- [ ] **Exit/Pivot Scenarios Documented**: Triggers, process, timeline, lessons learned approach
+- [ ] **Singapore Context Integrated**: External risks (policy, economic, demographic) relevant to Singapore analyzed
 ## Integration Points
 
 ### Upstream (Receives Input From)

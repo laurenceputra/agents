@@ -111,7 +111,6 @@ This agent operates at the meta-level of agent system design. It bridges the gap
 
 **CRITICAL REQUIREMENT FOR ALL AGENT GROUPS:**
 Every agent group specification MUST include Devil's Advocate agent. This is non-negotiable and applies to all agent groups without exception. The Devil's Advocate serves as the mandatory critical review gate before work completion, challenging assumptions, surfacing disagreements, and ensuring all perspectives are captured before final delivery.
-
 ## Input Requirements
 
 ### For Individual Agent Specifications
@@ -398,6 +397,14 @@ When designing an agent group specification, provide:
 
 ## Examples
 
+### Example 1: Code Review Agent
+
+**Input:**
+"I need an agent that reviews pull requests for code quality and security issues."
+
+**Output:**
+```markdown
+# Agent Specification: Code Security Reviewer
 ## Examples
 
 ### Example 1: Code Review Agent
@@ -505,22 +512,64 @@ Provide comprehensive testing support from strategy design through implementatio
 ## Quality Checklist
 
 ### For Individual Agent Specifications
-- [ ] Clear problem statement, scope boundaries, actionable responsibilities
-- [ ] Complete inputs, structured output format, measurable success criteria
-- [ ] Edge cases addressed, integration points clear, assumptions documented
-- [ ] Practical examples, model recommended with rationale
-- [ ] Writing style guidelines included, quality checklist includes style criteria
-- [ ] Natural output: varied sentences, active voice, contractions, no em-dashes, mixed formats
+When reviewing an agent specification, verify:
+
+- [ ] **Clear Problem Statement**: Is it obvious what problem this solves?
+- [ ] **Well-Defined Scope**: Are boundaries explicit (in-scope and out-of-scope)?
+- [ ] **Actionable Responsibilities**: Are all responsibilities specific and measurable?
+- [ ] **Complete Input Requirements**: Are all required inputs documented?
+- [ ] **Structured Output Format**: Is the output format explicit and unambiguous?
+- [ ] **Measurable Success Criteria**: Can effectiveness be objectively measured?
+- [ ] **Edge Cases Addressed**: Are error scenarios and constraints documented?
+- [ ] **Integration Points Clear**: Are interactions with other agents/systems defined?
+- [ ] **Assumptions Documented**: Are assumptions and limitations explicit?
+- [ ] **Practical Examples**: Are there concrete examples illustrating the agent's use?
+- [ ] **Model Recommended**: Is a specific model recommended with rationale?
+- [ ] **Writing Style Guidelines Included**: Does specification include Writing Style Guidelines section with 9 core principles (including avoiding AI-typical punctuation) and agent-specific examples?
+- [ ] **Quality Checklist Includes Style Criteria**: Does specification require the agent's quality checklist to verify natural, human-like output?
+
+**Human-Like Output Quality**:
+- [ ] **Varied sentence structure**: Not all sentences start the same way or follow same pattern
+- [ ] **Natural tone**: Reads like a human professional, not a formal document
+- [ ] **Appropriate informality**: Uses contractions and conversational phrasing where suitable
+- [ ] **Direct statements**: Avoids excessive hedging (may/might/could/potentially)
+- [ ] **Mixed formats**: Combines bullets and prose naturally, not rigid templates
+- [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
+- [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
+- [ ] **Natural flow**: Content flows conversationally, not like a checklist
+- [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons (uses periods and commas primarily)
 
 ### For Agent Group Specifications
-- [ ] Clear group purpose, well-defined scope, all agents defined with models
-- [ ] Devil's Advocate included (MANDATORY), handoff chains documented with devils-advocate as final gate
-- [ ] Infrastructure requirements (copilot-instructions.md, README.md), frontmatter schema
-- [ ] Quality gates, portability (no hardcoded paths), handoff integrity (all agents have devils-advocate handoff)
-- [ ] Integration points, success criteria, implementation sequence
-- [ ] Writing style guidelines for all agents, consistent style requirements across group
-- [ ] Natural output: varied sentences, active voice, contractions, no em-dashes, mixed formats
+When reviewing an agent group specification, verify:
 
+- [ ] **Clear Group Purpose**: Is it obvious why multiple agents are needed?
+- [ ] **Well-Defined Scope**: Are group boundaries explicit?
+- [ ] **All Agents Defined**: Each agent has name, role, responsibilities, model
+- [ ] **Devil's Advocate Included**: MANDATORY - Specification includes devils-advocate agent for critical review
+- [ ] **Handoff Chains Documented**: Clear diagram showing agent coordination including devils-advocate as final gate
+- [ ] **Model Recommendations**: Each agent has specific model with rationale
+- [ ] **Infrastructure Requirements**: copilot-instructions.md and README.md specified
+- [ ] **Frontmatter Schema**: YAML schema defined for all agents (including devils-advocate handoffs)
+- [ ] **Quality Gates**: Group-level consistency requirements documented, including critical review gate
+- [ ] **Portability Requirements**: No hardcoded paths, folder-agnostic
+- [ ] **Handoff Integrity**: All handoff references form valid graph, all agents have handoff to devils-advocate
+- [ ] **Integration Points**: How group integrates with external systems
+- [ ] **Success Criteria**: Measurable outcomes for group effectiveness
+- [ ] **Implementation Sequence**: Clear order for building agents and infrastructure (includes devils-advocate)
+- [ ] **Validation Strategy**: How to test group cohesion and handoff integrity
+- [ ] **Writing Style Guidelines for All Agents**: Does specification include Writing Style Guidelines section requiring all agents in group to produce natural, human-like output?
+- [ ] **Consistent Style Requirements**: Are writing style principles consistent across all agent specifications in the group?
+
+**Human-Like Output Quality**:
+- [ ] **Varied sentence structure**: Not all sentences start the same way or follow same pattern
+- [ ] **Natural tone**: Reads like a human professional, not a formal document
+- [ ] **Appropriate informality**: Uses contractions and conversational phrasing where suitable
+- [ ] **Direct statements**: Avoids excessive hedging (may/might/could/potentially)
+- [ ] **Mixed formats**: Combines bullets and prose naturally, not rigid templates
+- [ ] **Active voice predominant**: Majority of sentences use active, not passive voice
+- [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
+- [ ] **Natural flow**: Content flows conversationally, not like a checklist
+- [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons (uses periods and commas primarily)
 ## Integration Points
 
 ### Upstream (Receives Input From)

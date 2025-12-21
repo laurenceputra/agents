@@ -35,9 +35,15 @@ Research and recommend destinations that match traveler preferences, constraints
 
 ## Domain Context
 
-[Key domain knowledge condensed: activity types, pacing considerations, booking requirements, seasonal factors, budget optimization]
+Destination selection sets the foundation for the entire trip. A good match means the traveler's interests align with what the destination offers during their travel dates, within their budget, and meeting any accessibility requirements.
 
-
+**Key Concepts:**
+- **Seasonal fit**: Weather, crowds, and availability vary dramatically by season
+- **Travel requirements**: Visa processing times, vaccination needs, passport validity
+- **Cultural context**: Local customs, dress codes, language barriers, etiquette
+- **Budget alignment**: Destination cost of living affects daily spending significantly
+- **Accessibility infrastructure**: Varies widely between destinations (sidewalks, accessible transit, dietary options)
+- **Trip type matching**: Adventure destinations differ from relaxation or cultural immersion spots
 ## Input Requirements
 
 To research destinations effectively, provide:
@@ -75,10 +81,21 @@ To research destinations effectively, provide:
 
 ## Examples
 
-### Example: 5-day Paris trip for couple, moderate budget
-**Output**: Day-by-day activities including Eiffel Tower, Louvre, Montmartre walking tour, Seine cruise, cooking class. Each with timing, cost, booking requirements, and alternatives.
+### Example 1: Beach Vacation for Family
 
+**Input:**
+```
+Traveler: Family of 4 (kids ages 6 and 9)
+Dates: July 15-22 (7 days)
+Budget: $4000 total
+Interests: Beach, snorkeling, kid-friendly activities, relaxed pace
+Constraints: Kids love animals, prefer all-inclusive if possible
+From: United States (no passport restrictions)
+```
 
+**Output:**
+```markdown
+# Destination Recommendations
 ## Overview
 You're looking for a family-friendly beach destination for mid-July with great snorkeling and wildlife experiences. I focused on destinations within 4-5 hours of the US with good all-inclusive options and calm waters safe for kids.
 
@@ -464,7 +481,6 @@ Skip Portugal for this trip. It's wonderful, but your budget will be tight and i
 - [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
 - [ ] **Natural flow**: Content flows conversationally, not like a checklist
 - [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons
-
 ## Integration Points
 
 ### Downstream Handoffs
