@@ -199,8 +199,9 @@ update_agent_group() {
         local rel_file="${upstream_file#$agent_group/}"
         local target_file="${script_dir}/${rel_file}"
         
-        # Download file to temp location
-        local temp_download="${temp_dir}/$(basename "$rel_file")"
+        # Download file to temp location (preserve directory structure)
+        local temp_download="${temp_dir}/${rel_file}"
+        mkdir -p "$(dirname "$temp_download")"
         
         if download_file "$upstream_file" "$temp_download"; then
             # Check if file exists locally
