@@ -89,17 +89,17 @@ get_upstream_files() {
         fi
         
         # Parse JSON response to get files and directories
-        echo "$response" | grep -o '"path":"[^"]*"' | sed 's/"path":"//g' | sed 's/"//g' | while read -r item_path; do
-            # Check if it's within our agent group
-            if [[ "$item_path" == "${agent_group}/"* ]]; then
-                # Get the type of this item
-                local item_type=$(echo "$response" | grep -A 2 "\"path\":\"${item_path}\"" | grep '"type"' | sed 's/.*"type":"\([^"]*\)".*/\1/')
-                
-                if [[ "$item_type" == "file" ]]; then
-                    echo "$item_path"
-                elif [[ "$item_type" == "dir" ]]; then
-                    fetch_directory "$item_path"
-                fi
+        echo "$response" | grep -o '"name":"[^"]*"' | sed 's/"name":"//g' | sed 's/"//g' | while read -r item_name; do
+            # Build the full path for this item relative to the current directory
+            local item_path="${path}/${item_name}"
+            
+            # Get the type of this item (file or dir)
+            local item_type=$(echo "$response" | grep -A 2 "\"name\":\"${item_name}\"" | grep '"type"' | sed 's/.*"type":"\([^"]*\)".*/\1/' | head -n 1)
+            
+            if [[ "$item_type" == "file" ]]; then
+                echo "$item_path"
+            elif [[ "$item_type" == "dir" ]]; then
+                fetch_directory "$item_path"
             fi
         done
     }
