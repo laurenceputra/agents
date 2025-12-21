@@ -82,24 +82,32 @@ get_upstream_files() {
         local api_url="${API_BASE_URL}/${path}"
         
         # Fetch directory contents
-        local response=$(curl -s -f "${api_url}" 2>/dev/null)
+        local response
+        response=$(curl -s -f "${api_url}" 2>/dev/null)
         
         if [[ $? -ne 0 ]]; then
             return 1
         fi
         
         # Parse JSON response to get files and directories
-        echo "$response" | grep -o '"path":"[^"]*"' | sed 's/"path":"//g' | sed 's/"//g' | while read -r item_path; do
-            # Check if it's within our agent group
-            if [[ "$item_path" == "${agent_group}/"* ]]; then
-                # Get the type of this item
-                local item_type=$(echo "$response" | grep -A 2 "\"path\":\"${item_path}\"" | grep '"type"' | sed 's/.*"type":"\([^"]*\)".*/\1/')
-                
-                if [[ "$item_type" == "file" ]]; then
-                    echo "$item_path"
-                elif [[ "$item_type" == "dir" ]]; then
-                    fetch_directory "$item_path"
-                fi
+        # We iterate over each JSON object, extract "name" and "type",
+        # then construct the full path based on the current directory.
+        echo "$response" | grep -o '{[^}]*}' | while read -r item; do
+            local name type
+            name=$(echo "$item" | grep -o '"name":"[^"]*"' | sed 's/"name":"//; s/"$//')
+            type=$(echo "$item" | grep -o '"type":"[^"]*"' | sed 's/"type":"//; s/"$//')
+            
+            # Skip entries where we failed to parse name or type
+            if [[ -z "$name" || -z "$type" ]]; then
+                continue
+            fi
+            
+            local full_path="${path}/${name}"
+            
+            if [[ "$type" == "file" ]]; then
+                echo "$full_path"
+            elif [[ "$type" == "dir" ]]; then
+                fetch_directory "$full_path"
             fi
         done
     }
