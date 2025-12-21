@@ -252,14 +252,18 @@ git remote remove agents-upstream
 **Problem:** Script appears to do nothing
 
 **Possible causes:**
-1. You're already up to date
-2. The upstream remote hasn't been fetched properly
-3. The agent group path doesn't match upstream
+1. You're already up to date (all local files match upstream)
+2. The agent group name in `AGENTGROUPNAME` doesn't match any folder in the upstream repository
+3. Network or GitHub API issues prevented the script from fetching the upstream file list
 
 **Solution:**
 ```bash
-git remote remove agents-upstream
-./update-from-upstream.sh  # Will re-fetch everything
+# Verify the agent group name matches a folder in:
+# https://github.com/laurenceputra/agents/tree/main
+cat AGENTGROUPNAME
+
+# Re-run with verbose output to check for API or download errors
+bash -x ./update-from-upstream.sh
 ```
 
 ## Best Practices
