@@ -215,14 +215,6 @@ update_agent_group() {
         local rel_file="${upstream_file#$agent_group/}"
         local target_file="${script_dir}/${rel_file}"
         
-        # Skip the update script itself (to preserve local modifications)
-        # Users can manually review and update the script if needed
-        if [[ "$rel_file" == "update-from-upstream.sh" ]]; then
-            log_info "Skipping: ${rel_file} (to preserve local script version)"
-            skip_count=$((skip_count + 1))
-            continue
-        fi
-        
         # Download file to temp location (preserve directory structure to avoid collisions)
         local temp_download="${temp_dir}/${rel_file}"
         mkdir -p "$(dirname "$temp_download")"

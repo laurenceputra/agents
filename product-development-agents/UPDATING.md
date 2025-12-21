@@ -121,17 +121,21 @@ The script updates:
 - ✅ Agent definitions (`.agent.md` files)
 - ✅ Documentation (README.md, CHANGELOG.md, copilot-instructions.md)
 - ✅ Configuration files (AGENTGROUPNAME)
+- ✅ The update script itself (`update-from-upstream.sh`)
 
-The script intentionally does NOT auto-update:
-- ❌ `update-from-upstream.sh` (your local copy is preserved)
+### Auto-Updating the Update Script
 
-### Updating the Update Script
+The update script now automatically updates itself when you run it. This ensures you always have the latest version with bug fixes and improvements.
 
-If you want to get the latest version of the update script:
+**What happens when the script updates itself:**
+1. The currently running script downloads the latest version
+2. It replaces itself with the new version
+3. The old code in memory continues executing (this is safe)
+4. The new version will be used on the next run
 
-1. Check for changes: https://github.com/laurenceputra/agents/blob/main/{agent-group-name}/update-from-upstream.sh
-2. Manually copy it if updates are needed
-3. Review the changes to understand what improvements were made
+If you've made local customizations to `update-from-upstream.sh`, they will be overwritten. To preserve custom versions:
+1. Create a separate script file (e.g., `update-custom.sh`)
+2. Or use version control to track your changes and rebase them after updates
 
 ## Troubleshooting
 
