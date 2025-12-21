@@ -461,6 +461,33 @@ A: Check your company's policy. Some organizations allow this, others don't. Whe
 
 - **1.0.0** - Initial recommendation letter writing system with sequential workflow and four specialized agents
 
+## Updating This Agent Group
+
+This agent group can be updated from the upstream repository to get the latest improvements, bug fixes, and new features.
+
+**To update:**
+
+```bash
+cd recommendation-letter  # or wherever you installed this agent group
+./update-from-upstream.sh
+```
+
+The script will:
+- Fetch the latest changes from the upstream repository
+- Update agents and documentation files
+- Preserve the update script itself
+- Show a summary of changes
+
+After running the update:
+```bash
+git status              # Review what changed
+git diff                # See detailed changes
+git add .              # Stage the updates
+git commit -m "Update recommendation-letter agents from upstream"
+```
+
+**Note:** If you've made local customizations to agent files, the update will overwrite them. Consider keeping local modifications in a separate branch or using different file names.
+
 ## Support and Feedback
 
 This agent system is designed to help you create compelling recommendation letters efficiently. If you encounter issues or have suggestions:

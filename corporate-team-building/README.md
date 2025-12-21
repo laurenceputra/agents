@@ -301,6 +301,33 @@ A: Designed for 5-50 people. 50+ may need professional event companies for execu
 
 - **1.0.0** - Initial corporate team building planning system with five specialized agents
 
+## Updating This Agent Group
+
+This agent group can be updated from the upstream repository to get the latest improvements, bug fixes, and new features.
+
+**To update:**
+
+```bash
+cd corporate-team-building  # or wherever you installed this agent group
+./update-from-upstream.sh
+```
+
+The script will:
+- Fetch the latest changes from the upstream repository
+- Update agents and documentation files
+- Preserve the update script itself
+- Show a summary of changes
+
+After running the update:
+```bash
+git status              # Review what changed
+git diff                # See detailed changes
+git add .              # Stage the updates
+git commit -m "Update corporate-team-building agents from upstream"
+```
+
+**Note:** If you've made local customizations to agent files, the update will overwrite them. Consider keeping local modifications in a separate branch or using different file names.
+
 ## Getting Started
 
 Ready to plan team building that genuinely strengthens your team?

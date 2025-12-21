@@ -484,6 +484,33 @@ For issues or questions:
 
 Built using GitHub Copilot agent best practices and the portable agent group pattern.
 
+## Updating This Agent Group
+
+This agent group can be updated from the upstream repository to get the latest improvements, bug fixes, and new features.
+
+**To update:**
+
+```bash
+cd portfolio-analysis  # or wherever you installed this agent group
+./update-from-upstream.sh
+```
+
+The script will:
+- Fetch the latest changes from the upstream repository
+- Update agents and documentation files
+- Preserve the update script itself
+- Show a summary of changes
+
+After running the update:
+```bash
+git status              # Review what changed
+git diff                # See detailed changes
+git add .              # Stage the updates
+git commit -m "Update portfolio-analysis agents from upstream"
+```
+
+**Note:** If you've made local customizations to agent files, the update will overwrite them. Consider keeping local modifications in a separate branch or using different file names.
+
 ---
 
 **Ready to analyze your portfolio?**
