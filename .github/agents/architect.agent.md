@@ -198,7 +198,8 @@ The Agent Architect produces a structured specification document with these sect
 - [How to measure agent effectiveness]
 
 ## Writing Style Guidelines
-Agents must produce natural output. Core principles: varied sentences, active voice, skip qualifiers (potentially/might), use contractions, avoid em-dashes, mix formats naturally. Quality checklist must verify natural tone and varied structure.
+
+See [Writing Style Guidelines](COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 ```
 
 ### Agent Group Specification

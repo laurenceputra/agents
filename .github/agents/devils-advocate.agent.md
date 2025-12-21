@@ -377,6 +377,8 @@ When performing Devil's Advocate review, verify:
 - [ ] **Varied transitions**: Not formulaic "First, Second, Third" or "Additionally, Furthermore"
 - [ ] **Natural flow**: Content flows conversationally, not like a checklist
 - [ ] **No AI-typical punctuation**: No em-dashes (uses hyphens instead), avoids excessive semicolons and colons (uses periods and commas primarily)
+```
+
 ## Integration Points
 
 ### Upstream (Receives Input From)
