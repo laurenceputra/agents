@@ -2,12 +2,12 @@
 
 Comprehensive philanthropic advisory services for Singapore-focused giving with quantitative impact analysis, strategic portfolio alignment, and risk-opportunity assessment.
 
-[![Version](https://img.shields.io/badge/version-1.1.0-blue.svg)](./CHANGELOG.md)
+[![Version](https://img.shields.io/badge/version-1.2.0-blue.svg)](./CHANGELOG.md)
 [![Model](https://img.shields.io/badge/model-Claude%20Sonnet%204.5-purple.svg)](https://www.anthropic.com/claude)
 
 ## Overview
 
-This agent group helps philanthropists make data-driven funding decisions for initiatives targeting at-risk communities in Singapore (families in crisis, children from lower-income families). Six coordinated agents provide comprehensive analysis from framework definition through impact evaluation to strategic recommendation with mandatory critical review.
+This agent group helps philanthropists make data-driven funding decisions for initiatives targeting at-risk communities in Singapore (families in crisis, children from lower-income families). Seven coordinated agents provide comprehensive analysis from framework definition through impact evaluation to strategic recommendation with mandatory critical review, plus optional marketing content creation.
 
 ## Quick Start
 
@@ -27,7 +27,13 @@ This agent group helps philanthropists make data-driven funding decisions for in
 2. Then submit program to `@impact-evaluator` (uses your framework criteria)
 3. Receive recommendation aligned with your explicit values and thresholds
 
-## The Six Agents
+**I need marketing content for a program:**
+1. Consult `@marketing-content-writer`
+2. Provide program details and content requirements
+3. Receive marketing copy with devils-advocate review
+4. Use approved content for website, social media, or communications
+
+## The Seven Agents
 
 ### 0. Principles & Framework Definer (OPTIONAL - Run First)
 **Define giving principles and decision framework before evaluating programs**
@@ -78,14 +84,25 @@ This agent group helps philanthropists make data-driven funding decisions for in
 - Identifies blind spots and alternative interpretations
 - **Final quality gate before decision**
 
+### 6. Marketing Content Writer (OPTIONAL)
+**Create marketing content aligned with principles**
+- Generates marketing writeups and program descriptions
+- Creates website copy and social media posts
+- Ensures content aligns with philanthropic framework
+- Adapts tone for different audiences (donors, beneficiaries, public)
+- Submits content to devils-advocate for review
+- Provides multiple format variations (short, medium, long)
+
 ## Workflow
 
 ```
 Program → @impact-evaluator → @portfolio-strategist → @risk-opportunity-analyst 
   → @recommendation-synthesizer → @devils-advocate (MANDATORY) → Decision
+
+Optional: @marketing-content-writer → @devils-advocate → Approved Content
 ```
 
-All agents use **Claude Sonnet 4.5 (copilot)** for high-quality analytical reasoning.
+All agents use **Claude Sonnet 4.5 (copilot)** for analytical reasoning, except **marketing-content-writer** which uses **Claude Haiku 4.5 (copilot)** for creative writing.
 
 ## Features
 
@@ -167,6 +184,7 @@ User: "I have a recommendation to fund Program X. Challenge the assumptions."
 - **Detailed Reports**: 10-20 page comprehensive analyses
 - **Comparative Tables**: Side-by-side program comparisons
 - **Risk Matrices**: Visual likelihood × impact grids
+- **Marketing Content**: Website pages, social media posts, program descriptions
 
 ## Examples
 
@@ -181,6 +199,12 @@ User: "I have a recommendation to fund Program X. Challenge the assumptions."
 **Output**: SROI 3.8:1, Moderate mission alignment (7/10), Fills crisis response gap  
 **Recommendation**: FUND with portfolio balance consideration  
 **Decision**: Philanthropist funds to diversify from prevention-only portfolio
+
+### Example 3: Marketing Content for Approved Program
+**Input**: Need website description for YouthLift after funding approval  
+**Output**: Marketing copy (400 words), social media variations, headlines, CTA  
+**Review**: Devils-advocate approves after minor revision  
+**Use**: Published on website and shared via social media
 
 ## Troubleshooting
 
@@ -213,7 +237,7 @@ This is a reference implementation. To adapt for your context:
 1. Modify Singapore-specific references in agent files
 2. Update demographic data and policy landscape
 3. Adjust SROI/CEA benchmarks for your region
-4. Preserve five-agent structure and workflow
+4. Preserve seven-agent structure and workflow
 
 ## License
 
@@ -221,6 +245,8 @@ These agents follow GitHub Copilot agent patterns and are provided as-is for phi
 
 ## Version History
 
+- **1.2.0** (2025-12-21): Added marketing-content-writer agent for creating marketing content aligned with principles
+- **1.1.0** (2025-12-17): Added principles-framework-definer agent and self-update capability
 - **1.0.0** (2024-12-16): Initial release with five agents (impact-evaluator, portfolio-strategist, risk-opportunity-analyst, recommendation-synthesizer, devils-advocate)
 
 ## Updating This Agent Group
