@@ -6,10 +6,11 @@ This guide explains how to use the self-updating scripts included in each agent 
 
 Each agent group in this repository includes a self-updating bash script (`update-from-upstream.sh`) that:
 - Reads the agent group name from the `AGENTGROUPNAME` file
-- Fetches the latest changes from the upstream repository (`https://github.com/laurenceputra/agents`)
+- Downloads the latest files directly from the upstream repository (`https://github.com/laurenceputra/agents`)
 - Selectively updates only the files for that specific agent group
 - Updates all files including the update script itself
 - Provides a clear summary of what changed
+- Works without requiring git operations or adding remotes
 
 ## Quick Start
 
@@ -24,10 +25,9 @@ cd path/to/agent-group-name
 
 ### Prerequisites
 
-- The agent group must be in a Git repository
 - The agent group must have an `AGENTGROUPNAME` file containing the group name
-- You must have network access to `https://github.com/laurenceputra/agents`
-- Git must be installed and available in your PATH
+- `curl` must be installed and available in your PATH
+- You must have network access to `https://raw.githubusercontent.com` and `https://api.github.com`
 
 ### Step-by-Step Update Process
 
@@ -295,15 +295,14 @@ The following agent groups include update scripts:
 For those interested in how the script works:
 
 1. **Reads agent group name:** Reads the group name from the `AGENTGROUPNAME` file in the script's directory
-2. **Sets up upstream remote:** Adds `agents-upstream` pointing to `https://github.com/laurenceputra/agents`
-3. **Fetches latest:** Runs `git fetch agents-upstream main`
-4. **Lists upstream files:** Uses `git ls-tree` to get all files for the agent group in upstream
-5. **Compares and updates:** For each upstream file:
+2. **Fetches file list:** Uses GitHub API to get the list of files in the agent group from upstream
+3. **Downloads files:** Uses `curl` to download each file from `https://raw.githubusercontent.com/laurenceputra/agents/main/`
+4. **Compares and updates:** For each upstream file:
    - If it doesn't exist locally → add as new file
    - If it exists but differs → overwrite with upstream version
    - If it exists and matches → skip (no action)
-6. **Updates all files:** Including the update script itself and AGENTGROUPNAME
-7. **Shows summary:** Displays counts and git status
+5. **Updates all files:** Including the update script itself and AGENTGROUPNAME
+6. **Shows summary:** Displays counts of new, updated, and unchanged files
 
 ## Related Documentation
 

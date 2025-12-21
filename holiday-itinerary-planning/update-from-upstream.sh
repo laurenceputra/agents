@@ -1,17 +1,17 @@
 #!/bin/bash
 
 # Self-Update Script for Agent Groups
-# This script pulls updates from the upstream laurenceputra/agents repository
-# for a specific agent group while preserving local modifications.
+# This script downloads updates from the upstream laurenceputra/agents repository
+# for a specific agent group using direct file downloads.
 #
 # Usage: ./update-from-upstream.sh
 #
 # The script will:
-# 1. Detect the current agent group name from its location
-# 2. Add the upstream repository as a remote (if not already added)
-# 3. Fetch the latest changes from upstream
-# 4. Selectively merge changes for this agent group only
-# 5. Handle new files, modifications, and deletions
+# 1. Read the agent group name from the AGENTGROUPNAME file
+# 2. Fetch the list of files from the upstream repository
+# 3. Download each file and compare with local version
+# 4. Handle new files, modifications, and unchanged files
+# 5. Show a summary of changes
 
 set -e  # Exit on error
 
@@ -23,9 +23,10 @@ BLUE='\033[0;34m'
 NC='\033[0m' # No Color
 
 # Configuration
-UPSTREAM_REPO="https://github.com/laurenceputra/agents.git"
-UPSTREAM_REMOTE="agents-upstream"
+GITHUB_REPO="laurenceputra/agents"
 DEFAULT_BRANCH="main"
+RAW_BASE_URL="https://raw.githubusercontent.com/${GITHUB_REPO}/${DEFAULT_BRANCH}"
+API_BASE_URL="https://api.github.com/repos/${GITHUB_REPO}/contents"
 
 # Helper functions
 log_info() {
@@ -60,98 +61,173 @@ detect_agent_group() {
     fi
 }
 
-# Check if we're in a git repository
-check_git_repo() {
-    if ! git rev-parse --git-dir > /dev/null 2>&1; then
-        log_error "Not a git repository. Please run this script from within a git repository."
+# Check if curl is available
+check_curl() {
+    if ! command -v curl &> /dev/null; then
+        log_error "curl is not installed. Please install curl to use this script."
         exit 1
     fi
 }
 
-# Add upstream remote if it doesn't exist
-setup_upstream_remote() {
-    if git remote | grep -q "^${UPSTREAM_REMOTE}$"; then
-        log_info "Upstream remote '${UPSTREAM_REMOTE}' already exists"
-        git remote set-url "${UPSTREAM_REMOTE}" "${UPSTREAM_REPO}"
-    else
-        log_info "Adding upstream remote '${UPSTREAM_REMOTE}'"
-        git remote add "${UPSTREAM_REMOTE}" "${UPSTREAM_REPO}"
+# Get list of files from upstream using GitHub API
+get_upstream_files() {
+    local agent_group="$1"
+    local temp_dir="$2"
+    
+    log_info "Fetching file list from upstream..."
+    
+    # Function to recursively fetch files from a directory
+    fetch_directory() {
+        local path="$1"
+        local api_url="${API_BASE_URL}/${path}"
+        
+        # Fetch directory contents
+        local response=$(curl -s -f "${api_url}" 2>/dev/null)
+        
+        if [[ $? -ne 0 ]]; then
+            return 1
+        fi
+        
+        # Parse JSON response to get files and directories
+        echo "$response" | grep -o '"path":"[^"]*"' | sed 's/"path":"//g' | sed 's/"//g' | while read -r item_path; do
+            # Check if it's within our agent group
+            if [[ "$item_path" == "${agent_group}/"* ]]; then
+                # Get the type of this item
+                local item_type=$(echo "$response" | grep -A 2 "\"path\":\"${item_path}\"" | grep '"type"' | sed 's/.*"type":"\([^"]*\)".*/\1/')
+                
+                if [[ "$item_type" == "file" ]]; then
+                    echo "$item_path"
+                elif [[ "$item_type" == "dir" ]]; then
+                    fetch_directory "$item_path"
+                fi
+            fi
+        done
+    }
+    
+    # Try to fetch files using API
+    fetch_directory "$agent_group" > "${temp_dir}/file_list.txt" 2>/dev/null
+    
+    # If API fetch failed or returned empty, try a simpler approach
+    if [[ ! -s "${temp_dir}/file_list.txt" ]]; then
+        log_warning "GitHub API approach failed, using alternative method..."
+        
+        # Download the directory structure from a known structure
+        # For agent groups, we know they typically have: agents/, README.md, CHANGELOG.md, etc.
+        local common_files=(
+            "AGENTGROUPNAME"
+            "README.md"
+            "CHANGELOG.md"
+            "copilot-instructions.md"
+            "update-from-upstream.sh"
+        )
+        
+        # Try to download each common file to see if it exists
+        for file in "${common_files[@]}"; do
+            local url="${RAW_BASE_URL}/${agent_group}/${file}"
+            if curl -s -f -I "$url" &>/dev/null; then
+                echo "${agent_group}/${file}" >> "${temp_dir}/file_list.txt"
+            fi
+        done
+        
+        # Try to get agents directory
+        local agents_api_url="${API_BASE_URL}/${agent_group}/agents"
+        local agents_response=$(curl -s -f "${agents_api_url}" 2>/dev/null)
+        
+        if [[ $? -eq 0 ]]; then
+            echo "$agents_response" | grep -o '"name":"[^"]*\.agent\.md"' | sed 's/"name":"//g' | sed 's/"//g' | while read -r agent_file; do
+                echo "${agent_group}/agents/${agent_file}" >> "${temp_dir}/file_list.txt"
+            done
+        fi
     fi
+    
+    if [[ ! -s "${temp_dir}/file_list.txt" ]]; then
+        log_error "Could not fetch file list for agent group '${agent_group}'"
+        log_error "Please check that the agent group exists in the upstream repository"
+        return 1
+    fi
+    
+    return 0
 }
 
-# Fetch updates from upstream
-fetch_upstream() {
-    log_info "Fetching updates from upstream repository..."
-    git fetch "${UPSTREAM_REMOTE}" "${DEFAULT_BRANCH}"
-}
-
-# Get the relative path to the agent group in the current repository
-get_current_group_path() {
-    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-    local repo_root="$(git rev-parse --show-toplevel)"
-    local rel_path="${script_dir#$repo_root/}"
-    echo "$rel_path"
+# Download a file from upstream
+download_file() {
+    local upstream_path="$1"
+    local output_file="$2"
+    
+    local url="${RAW_BASE_URL}/${upstream_path}"
+    
+    # Download to temporary location first
+    local temp_file="${output_file}.tmp"
+    
+    if curl -s -f -o "$temp_file" "$url" 2>/dev/null; then
+        mv "$temp_file" "$output_file"
+        return 0
+    else
+        rm -f "$temp_file"
+        return 1
+    fi
 }
 
 # Update agent group files from upstream
 update_agent_group() {
     local agent_group="$1"
-    local current_path="$2"
+    local script_dir="$2"
     
     log_info "Updating agent group: ${agent_group}"
-    log_info "Current location: ${current_path}"
+    log_info "Current location: ${script_dir}"
     
-    # Get the list of files in upstream for this agent group
-    log_info "Fetching file list from upstream..."
+    # Create temporary directory for tracking
+    local temp_dir=$(mktemp -d)
+    trap "rm -rf $temp_dir" EXIT
     
-    # Checkout files from upstream for this specific agent group
-    local upstream_ref="${UPSTREAM_REMOTE}/${DEFAULT_BRANCH}"
-    
-    # Check if the agent group exists in upstream
-    if ! git ls-tree -r --name-only "${upstream_ref}" "${agent_group}/" > /dev/null 2>&1; then
-        log_error "Agent group '${agent_group}' not found in upstream repository"
-        log_info "Available agent groups in upstream:"
-        git ls-tree -d --name-only "${upstream_ref}" | grep -v "^\." | head -10
+    # Get list of files from upstream
+    if ! get_upstream_files "$agent_group" "$temp_dir"; then
+        log_error "Failed to get file list from upstream"
         exit 1
     fi
     
-    log_info "Pulling updates for agent group '${agent_group}'..."
-    
-    # Get list of files in upstream for this agent group
-    local temp_file_list=$(mktemp)
-    git ls-tree -r --name-only "${upstream_ref}" "${agent_group}/" > "$temp_file_list"
+    log_info "Processing updates..."
     
     local update_count=0
     local new_count=0
     local skip_count=0
+    local error_count=0
     
     # Process each file from upstream
     while IFS= read -r upstream_file; do
         # Calculate the target path in current repository
         local rel_file="${upstream_file#$agent_group/}"
-        local target_file="${current_path}/${rel_file}"
+        local target_file="${script_dir}/${rel_file}"
         
-        # Check if file exists locally
-        if [[ -f "$target_file" ]]; then
-            # File exists - check if it differs from upstream
-            if git diff --quiet "${upstream_ref}:${upstream_file}" "$target_file" 2>/dev/null; then
-                skip_count=$((skip_count + 1))
+        # Download file to temp location
+        local temp_download="${temp_dir}/$(basename "$rel_file")"
+        
+        if download_file "$upstream_file" "$temp_download"; then
+            # Check if file exists locally
+            if [[ -f "$target_file" ]]; then
+                # File exists - check if it differs from upstream
+                if cmp -s "$temp_download" "$target_file"; then
+                    skip_count=$((skip_count + 1))
+                else
+                    log_info "Updating: ${rel_file}"
+                    mkdir -p "$(dirname "$target_file")"
+                    cp "$temp_download" "$target_file"
+                    update_count=$((update_count + 1))
+                fi
             else
-                log_info "Updating: ${target_file}"
+                # New file
+                log_success "Adding new file: ${rel_file}"
                 mkdir -p "$(dirname "$target_file")"
-                git show "${upstream_ref}:${upstream_file}" > "$target_file"
-                update_count=$((update_count + 1))
+                cp "$temp_download" "$target_file"
+                new_count=$((new_count + 1))
             fi
+            
+            rm -f "$temp_download"
         else
-            # New file
-            log_success "Adding new file: ${target_file}"
-            mkdir -p "$(dirname "$target_file")"
-            git show "${upstream_ref}:${upstream_file}" > "$target_file"
-            new_count=$((new_count + 1))
+            log_warning "Failed to download: ${upstream_file}"
+            error_count=$((error_count + 1))
         fi
-    done < "$temp_file_list"
-    
-    rm "$temp_file_list"
+    done < "${temp_dir}/file_list.txt"
     
     # Summary
     echo ""
@@ -160,13 +236,14 @@ update_agent_group() {
     echo "  - New files: ${new_count}"
     echo "  - Updated files: ${update_count}"
     echo "  - Unchanged files: ${skip_count}"
+    if [[ $error_count -gt 0 ]]; then
+        echo "  - Failed downloads: ${error_count}"
+    fi
     echo ""
     
-    # Show git status
-    log_info "Git status:"
-    git status --short
-    echo ""
-    log_info "Review the changes above. If everything looks good, commit them with:"
+    log_info "Changes have been applied to your local files."
+    log_info "Review the changes and commit them if you use version control:"
+    echo "  git status"
     echo "  git add ."
     echo "  git commit -m 'Update ${agent_group} agent group from upstream'"
 }
@@ -178,24 +255,18 @@ main() {
     log_info "==============================="
     echo ""
     
-    # Check if in git repo
-    check_git_repo
+    # Check if curl is available
+    check_curl
+    
+    # Get script directory
+    local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
     
     # Detect agent group
     local agent_group=$(detect_agent_group)
     log_info "Detected agent group: ${agent_group}"
     
-    # Get current path
-    local current_path=$(get_current_group_path)
-    
-    # Setup upstream remote
-    setup_upstream_remote
-    
-    # Fetch updates
-    fetch_upstream
-    
     # Update agent group
-    update_agent_group "$agent_group" "$current_path"
+    update_agent_group "$agent_group" "$script_dir"
     
     echo ""
     log_success "Update process completed successfully!"

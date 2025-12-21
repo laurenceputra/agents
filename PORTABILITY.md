@@ -212,7 +212,7 @@ git push origin main
 
 ### Pulling Updates from Upstream Repository
 
-Each agent group includes a self-updating script (`update-from-upstream.sh`) that pulls the latest updates from the upstream repository (`https://github.com/laurenceputra/agents`).
+Each agent group includes a self-updating script (`update-from-upstream.sh`) that downloads the latest updates from the upstream repository (`https://github.com/laurenceputra/agents`).
 
 **To update an agent group:**
 
@@ -223,16 +223,20 @@ cd path/to/agent-group-name
 
 The script will:
 1. Read the agent group name from the `AGENTGROUPNAME` file
-2. Add the upstream repository as a git remote (if not already added)
-3. Fetch the latest changes from upstream
+2. Download the file list from the upstream repository using GitHub API
+3. Download and compare each file from upstream
 4. Selectively update files for this agent group only (including the update script itself)
 5. Show a summary of new, updated, and unchanged files
 
 **After running the script:**
-- Review the changes with `git status` and `git diff`
+- Review the changes with your version control system (if using git: `git status` and `git diff`)
 - If satisfied, commit the updates: `git add . && git commit -m "Update agent-group-name from upstream"`
 
-**Note:** The script updates all files including `update-from-upstream.sh` and `AGENTGROUPNAME`. Local customizations will be overwritten. To preserve local changes, use a different branch or file naming convention for customizations.
+**Requirements:**
+- `curl` must be installed
+- Internet access to GitHub
+
+**Note:** The script downloads files directly from GitHub without requiring git operations or adding remotes. This makes it suitable for projects that have copied agent groups to any location, whether or not they use version control.
 
 ### Adding a New Agent to a Group
 
