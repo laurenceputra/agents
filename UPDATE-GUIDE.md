@@ -5,10 +5,10 @@ This guide explains how to use the self-updating scripts included in each agent 
 ## Overview
 
 Each agent group in this repository includes a self-updating bash script (`update-from-upstream.sh`) that:
-- Automatically detects the agent group name from its location
+- Reads the agent group name from the `AGENTGROUPNAME` file
 - Fetches the latest changes from the upstream repository (`https://github.com/laurenceputra/agents`)
 - Selectively updates only the files for that specific agent group
-- Preserves local modifications where appropriate
+- Updates all files including the update script itself
 - Provides a clear summary of what changed
 
 ## Quick Start
@@ -25,6 +25,7 @@ cd path/to/agent-group-name
 ### Prerequisites
 
 - The agent group must be in a Git repository
+- The agent group must have an `AGENTGROUPNAME` file containing the group name
 - You must have network access to `https://github.com/laurenceputra/agents`
 - Git must be installed and available in your PATH
 
@@ -66,10 +67,11 @@ cd path/to/agent-group-name
 The script updates:
 - ✅ Agent definition files (`agents/*.agent.md`)
 - ✅ Documentation files (`README.md`, `CHANGELOG.md`, `copilot-instructions.md`)
+- ✅ The update script itself (`update-from-upstream.sh`)
+- ✅ The `AGENTGROUPNAME` file
 - ✅ Any other files in the agent group directory
 
 The script **does not** update:
-- ❌ The update script itself (`update-from-upstream.sh`) - to preserve local customizations
 - ❌ Files outside the agent group directory
 - ❌ Files not present in the upstream repository
 
@@ -292,7 +294,7 @@ The following agent groups include update scripts:
 
 For those interested in how the script works:
 
-1. **Detects agent group:** Parses the script's directory path to identify the agent group name
+1. **Reads agent group name:** Reads the group name from the `AGENTGROUPNAME` file in the script's directory
 2. **Sets up upstream remote:** Adds `agents-upstream` pointing to `https://github.com/laurenceputra/agents`
 3. **Fetches latest:** Runs `git fetch agents-upstream main`
 4. **Lists upstream files:** Uses `git ls-tree` to get all files for the agent group in upstream
@@ -300,7 +302,7 @@ For those interested in how the script works:
    - If it doesn't exist locally → add as new file
    - If it exists but differs → overwrite with upstream version
    - If it exists and matches → skip (no action)
-6. **Skips update script:** Never overwrites `update-from-upstream.sh` itself
+6. **Updates all files:** Including the update script itself and AGENTGROUPNAME
 7. **Shows summary:** Displays counts and git status
 
 ## Related Documentation

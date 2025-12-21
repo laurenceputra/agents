@@ -44,17 +44,20 @@ log_error() {
     echo -e "${RED}[ERROR]${NC} $1"
 }
 
-# Detect the agent group name from script location
+# Detect the agent group name from AGENTGROUPNAME file
 detect_agent_group() {
     local script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-    local group_name="$(basename "$script_dir")"
+    local agentgroupname_file="$script_dir/AGENTGROUPNAME"
     
-    # If we're in .github/agents or similar, get the parent name
-    if [[ "$group_name" == "agents" ]]; then
-        group_name="$(basename "$(dirname "$script_dir")")"
+    if [[ -f "$agentgroupname_file" ]]; then
+        # Read group name from AGENTGROUPNAME file
+        local group_name="$(cat "$agentgroupname_file" | tr -d '[:space:]')"
+        echo "$group_name"
+    else
+        log_error "AGENTGROUPNAME file not found in $script_dir"
+        log_error "Please create a file named 'AGENTGROUPNAME' containing the agent group name"
+        exit 1
     fi
-    
-    echo "$group_name"
 }
 
 # Check if we're in a git repository
@@ -124,12 +127,6 @@ update_agent_group() {
     
     # Process each file from upstream
     while IFS= read -r upstream_file; do
-        # Skip the update script itself to avoid overwriting local version
-        if [[ "$upstream_file" == *"/update-from-upstream.sh" ]]; then
-            log_info "Skipping update script: ${upstream_file}"
-            continue
-        fi
-        
         # Calculate the target path in current repository
         local rel_file="${upstream_file#$agent_group/}"
         local target_file="${current_path}/${rel_file}"
