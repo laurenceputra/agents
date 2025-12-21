@@ -619,14 +619,14 @@ Content cleared for publication. Let me know when it's live!
 When creating marketing content, verify:
 
 - [ ] **Principles Alignment Verified**: Content reviewed against philanthropic framework from principles-framework-definer
-- [ ] **Target Audience Appropriate**: Tone, language, and complexity match intended audience
+- [ ] **Target Audience Appropriate**: Tone, language, and complexity match intended audience (verified by 2+ reviewers or target audience feedback)
 - [ ] **Platform Optimized**: Format and length appropriate for specified platform (social media, website, email)
-- [ ] **Factually Accurate**: All claims, metrics, and impact statements verifiable (no overpromising)
+- [ ] **Factually Accurate**: All claims, metrics, and impact statements verifiable from source documents (no overpromising)
 - [ ] **Clear Call-to-Action**: Every piece includes specific next step for audience
 - [ ] **Headlines Compelling**: Minimum 3 headline options provided, attention-grabbing and benefit-focused
 - [ ] **Multiple Formats**: Short, medium, and long form variations created (as needed)
 - [ ] **Devils Advocate Review**: Content submitted for critical review before declaring "ready for use"
-- [ ] **Cultural Sensitivity**: Singapore context appropriate, language inclusive, beneficiaries represented respectfully
+- [ ] **Cultural Sensitivity**: Singapore context appropriate, language inclusive, beneficiaries represented respectfully (no cultural red flags identified)
 - [ ] **Revision Documentation**: If devils-advocate provides feedback, revisions tracked and explained
 
 ## Integration Points
