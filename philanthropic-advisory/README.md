@@ -246,7 +246,7 @@ These agents follow GitHub Copilot agent patterns and are provided as-is for phi
 ## Version History
 
 - **1.2.0** (2025-12-21): Added marketing-content-writer agent for creating marketing content aligned with principles
-- **1.1.0** (2025-12-17): Added principles-framework-definer agent and self-update capability
+- **1.1.0** (2025-12-21): Added principles-framework-definer agent and self-update capability
 - **1.0.0** (2024-12-16): Initial release with five agents (impact-evaluator, portfolio-strategist, risk-opportunity-analyst, recommendation-synthesizer, devils-advocate)
 
 ## Updating This Agent Group
