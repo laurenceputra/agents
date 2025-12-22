@@ -631,6 +631,3 @@ Marketing-content-writer operates as optional, standalone agent that can be call
 
 Does NOT interfere with core evaluation workflow (impact → portfolio → risk → synthesis → devils-advocate → decision).
 
-## Version History
-
-- **1.0.0** (Initial): Marketing content creation capabilities for philanthropic programs with principles alignment, devils-advocate review, and Singapore context
