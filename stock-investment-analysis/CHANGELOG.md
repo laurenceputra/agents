@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.3.1] - 2025-12-22
 
 ### Changed
 - **Examples Restoration**: Restored comprehensive examples (minimum 2 per agent with full input/output)
