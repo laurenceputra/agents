@@ -299,6 +299,197 @@ Stock Research Report for Apple Inc. (AAPL) showing:
 **Date**: 2024-12-14
 **Analyst**: Fundamental Analyst Agent
 **Input Source**: Stock Research Report dated 2024-12-14
+
+### Example 2: Weak Fundamentals (Highly Leveraged Company)
+
+**Input:**
+```
+Stock Research Report for Spirit Airlines (SAVE) showing:
+- Heavy debt load ($3.5B debt vs. $1.2B equity, D/E ratio 2.9)
+- Operating margins compressed (2% net margin)
+- Revenue declining due to competition from Southwest, budget carriers
+- Interest coverage ratio 1.8x (low safety margin)
+- Cash position $1.1B but burning cash ($200M quarterly losses)
+```
+
+**Output:**
+```markdown
+# Fundamental Analysis Report: Spirit Airlines (SAVE)
+**Date**: 2024-12-14
+**Analyst**: Fundamental Analyst Agent
+**Input Source**: Stock Research Report dated 2024-12-14
+
+## 1. Executive Summary
+**Fundamental Rating**: Sell
+**Confidence Level**: High
+**Fair Value Estimate**: $3 (Range: $1 - $5)
+**Current Price**: $7
+**Downside**: -57% to base case
+
+**Key Takeaway**: Spirit Airlines faces critical financial distress with unsustainable debt load (D/E 2.9x), deteriorating margins, and cash burn; bankruptcy risk is material; recommend avoiding.
+
+## 2. Financial Health Assessment
+
+### Liquidity Analysis
+- **Current Ratio**: 0.68
+  - **Assessment**: Critical (indicates inability to meet short-term obligations)
+  - **Interpretation**: Current assets ($1.5B) insufficient to cover current liabilities ($2.2B). Spirit burning cash and may need financing within 6-9 months.
+- **Quick Ratio**: 0.51
+  - **Assessment**: Critical
+- **Cash Position**: $1.1 billion (22% of total assets)
+  - **Cash Runway**: ~5 quarters at current burn rate ($200M/quarter losses), but debt maturities in 2025 require refinancing
+
+### Profitability Analysis
+- **Gross Margin**: 12% (Declining from 18% in 2022)
+  - **Peer Average**: 22% (Southwest, Ryanair)
+  - **Assessment**: Well below peers; indicates pricing power lost
+- **Operating Margin**: 2% (Declining from 10% in 2022)
+  - **Assessment**: Weak; insufficient to cover interest expense
+- **Net Margin**: -5% (Losses in 3 of last 4 quarters)
+  - **Assessment**: Critical; company unprofitable
+- **Return on Equity (ROE)**: -18%
+  - **Assessment**: Negative returns destroying shareholder value
+- **Return on Assets (ROA)**: -6%
+  - **Assessment**: Poor capital efficiency
+
+### Leverage Analysis
+- **Debt-to-Equity Ratio**: 2.9
+  - **Assessment**: Excessive (airlines typically <1.5; Spirit dangerously high)
+- **Interest Coverage Ratio**: 1.8x (Operating Income $180M / Interest $100M)
+  - **Assessment**: Risky (below 3.0 threshold; one bad quarter could lead to covenant breach)
+- **Debt Maturity Profile**: $800M due in 2025, $1.2B in 2026
+  - **Risk**: Refinancing risk high given distressed financial condition
+- **Credit Rating**: B- (S&P), Caa1 (Moody's) - Junk, high default risk
+
+**Overall Financial Health Score**: Critical
+**Summary**: Spirit Airlines is in financial distress. Excessive debt (D/E 2.9x), weak interest coverage (1.8x), and cash burn create near-term bankruptcy risk. Failed JetBlue merger eliminated potential bailout. Without dramatic turnaround or capital injection, insolvency likely within 12-18 months.
+
+## 3. Growth Analysis
+
+### Historical Growth (Last 3 Years)
+- **Revenue CAGR**: -8% per year (2021-2024, peak in 2022)
+- **Earnings (EPS) CAGR**: N/A (unprofitable in 2023-2024)
+- **Free Cash Flow CAGR**: N/A (negative FCF)
+- **Consistency**: Volatile and declining; pandemic recovery momentum lost
+
+### Growth Drivers (Minimal)
+1. **Leisure Travel Demand**: Post-pandemic travel demand remains strong, benefiting low-cost carriers
+
+### Growth Headwinds (Dominant)
+1. **Intensifying Competition**: Southwest, Frontier, and major carriers (United, Delta) expanding basic economy offerings; Spirit losing pricing power
+2. **Cost Inflation**: Jet fuel prices elevated ($2.80/gallon vs. $2.00 pre-pandemic), labor costs rising (pilot/crew shortages), maintenance costs increasing (aging fleet)
+3. **Failed JetBlue Merger**: $3.8B acquisition blocked by DOJ (antitrust); eliminated potential liquidity injection and synergies
+4. **Brand Damage**: Customer satisfaction lowest in industry; fee-heavy model (baggage, seats) alienates customers
+
+### Future Growth Projection
+- **Expected Revenue Growth**: -5% to flat annually over next 2-3 years (market share losses)
+- **Expected Earnings Growth**: N/A (return to profitability uncertain)
+- **Key Assumptions**: 
+  - Spirit survives (avoids Chapter 11 bankruptcy)
+  - Fuel prices stabilize or decline
+  - Major capacity cuts improve load factors
+- **Confidence in Projection**: Low (survival uncertain)
+
+## 4. Competitive Positioning and Moat
+
+### Competitive Advantages (Moat Strength)
+1. **Cost Structure**: None (Spirit's cost advantage eroding; major carriers matching ultra-low fares with basic economy)
+2. **Brand**: None (Spirit has negative brand value; associated with poor service and hidden fees)
+3. **Network Effects**: None (no loyalty program or corporate contracts)
+
+**Overall Moat Rating**: None
+**Moat Durability**: Eroding (competition from Southwest, Frontier, and major carriers' basic economy offerings)
+
+### Competitive Position
+- **Market Share**: 3% of U.S. domestic market (down from 5% in 2019)
+- **Positioning vs. Peers**: Losing share to Southwest (better service at similar price) and Frontier (comparable ultra-low-cost model)
+- **Barriers to Entry**: Low (multiple competitors can replicate Spirit's model)
+
+## 5. Valuation Analysis
+
+### Valuation Metrics (vs. Peers and Historical Averages)
+| Metric | Current | Peer Avg | Historical Avg (5yr) | Assessment |
+|--------|---------|----------|----------------------|------------|
+| P/E Ratio | N/A (losses) | 12.5 | 8.3 | N/A |
+| P/B Ratio | 5.8 | 1.8 | 1.2 | Expensive (book value questionable) |
+| EV/EBITDA | 18.5 | 7.2 | 6.5 | Expensive given distress |
+| Price/Sales | 0.25 | 0.8 | 0.5 | Cheap (but reflects risk) |
+
+### Bankruptcy Scenario Analysis
+Given financial distress, traditional valuation methods inappropriate. Analyze liquidation vs. restructuring scenarios:
+
+**Scenario 1: Chapter 11 Bankruptcy (60% probability)**
+- Equity likely wiped out or severely diluted (debt converts to equity)
+- Fair value: $0-1 per share
+
+**Scenario 2: Successful Turnaround (30% probability)**
+- Cost cuts, capacity reduction, return to profitability by 2026
+- Fair value: $5-8 per share (implies P/S 0.4-0.6x)
+
+**Scenario 3: Acquisition (10% probability)**
+- Strategic buyer (Frontier, private equity) acquires at discount
+- Fair value: $4-6 per share (takeout premium minimal given distress)
+
+### Fair Value Estimate Range
+- **Conservative Estimate**: $1 (Bankruptcy scenario, equity nearly wiped out)
+- **Base Case Estimate**: $3 (Probability-weighted: 60% × $0.50 + 30% × $6.50 + 10% × $5)
+- **Optimistic Estimate**: $5 (Turnaround succeeds, return to profitability)
+
+**Current Price**: $7
+**Valuation Assessment**: Overvalued (downside risk exceeds upside potential)
+**Risk-Reward Ratio**: Unfavorable (-57% downside vs. +17% upside in optimistic case)
+
+## 6. Fundamental Strengths (Limited)
+
+1. **Liquidity (Temporary)**: $1.1B cash provides 5-quarter runway; buys time for turnaround efforts
+2. **Fleet Modernization**: Some newer A320neo aircraft (more fuel-efficient than older A319s)
+3. **Leisure Market Exposure**: Post-pandemic leisure travel demand remains strong (tailwind for industry)
+
+## 7. Fundamental Concerns and Red Flags
+
+1. **Bankruptcy Risk**: D/E 2.9x, interest coverage 1.8x, cash burn, debt maturities 2025-2026 create high probability of Chapter 11 filing within 12-18 months
+   - **Severity**: Critical (could lead to total equity wipeout)
+
+2. **Deteriorating Margins**: Operating margin 2% (vs. 10% in 2022); competitive pressure forces price cuts while costs rise (fuel, labor)
+   - **Severity**: Critical (path to profitability unclear)
+
+3. **Market Share Losses**: Down to 3% from 5% in 2019; Southwest and major carriers' basic economy offerings winning customers
+   - **Severity**: Moderate (structural headwind)
+
+## 8. Key Assumptions and Limitations
+
+**Assumptions**:
+- Spirit avoids bankruptcy (optimistic assumption; required for $3+ valuation)
+- Management executes aggressive cost cuts and capacity reduction
+- Fuel prices don't spike above $3/gallon
+- No major safety incidents or regulatory issues
+
+**Limitations**:
+- High uncertainty (bankruptcy timing unpredictable)
+- Valuation methods unreliable for distressed companies
+- Book value may overstate asset liquidation value
+- Limited visibility into restructuring plans
+
+## 9. Fundamental Recommendation
+
+**Recommendation**: Sell (or Avoid if not held)
+
+**Rationale**: Spirit Airlines faces imminent bankruptcy risk due to unsustainable debt load, cash burn, and margin compression. Base case fair value of $3 implies -57% downside from current $7 price. Even in optimistic turnaround scenario, upside limited to ~$5 (+17%). Risk-reward is highly unfavorable. Recommend selling and reallocating to higher-quality airlines or avoiding entirely.
+
+**Investment Case**:
+- **Bull Case**: Management executes radical turnaround (capacity cuts, cost reductions, fleet right-sizing); fuel prices decline; competition eases; Spirit returns to profitability by 2026. Fair value: $5-8.
+- **Bear Case** (Base Case, 60% probability): Spirit enters Chapter 11 bankruptcy within 12 months; equity wiped out or severely diluted; creditors convert debt to equity. Fair value: $0-1.
+
+**Catalyst for Re-Rating**:
+- Bankruptcy filing announcement (negative, likely catalyst within 6-12 months)
+- Refinancing announcement or capital raise (neutral to positive if avoids bankruptcy)
+- Deeper-than-expected losses in next earnings report (negative)
+
+---
+
+**Next Steps**: Hand off to **Risk Assessor** to quantify bankruptcy risk and evaluate portfolio suitability (likely unsuitable for most investors)
+```
+
 ## Quality Checklist
 
 When completing a fundamental analysis report, verify:

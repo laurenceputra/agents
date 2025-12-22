@@ -248,6 +248,203 @@ Pull Request #456: Implement Password Reset Feature
 **Output:**
 ```markdown
 # Code Review: PR #456 - Implement Password Reset Feature
+
+### Example 2: Approving Bug Fix with Minor Suggestions
+
+**Input:**
+Pull Request #789: Fix Search Special Characters Bug
+- Context: Bug fix for QA report #789
+- Files changed: queryValidator.ts, SearchBar.tsx, searchService.ts
+- Bug: Search fails with special characters (quotes, apostrophes, etc.)
+- Engineer: Second submission after previous feedback
+
+**Output:**
+```markdown
+# Code Review: PR #789 - Fix Search Special Characters Bug
+
+## Review Decision
+**Status**: ✅ Approved with Minor Suggestions
+**Reviewer**: Code Review Team
+**Date**: 2025-12-11
+
+## Summary
+Excellent bug fix! The root cause analysis is spot-on, and the fix properly addresses the validation regex issue while maintaining security. The implementation is clean, well-tested, and thoroughly documented. This is ready to move to QA for validation.
+
+The minor suggestions below are optional improvements that could be addressed in a follow-up PR if desired.
+
+## Critical Issues (Must Fix Before Approval)
+*None - all critical issues from previous review have been addressed*
+
+---
+
+## Recommendations (Should Consider)
+
+### Recommendation 1: Extract Regex Pattern to Constant
+**Location**: `src/middleware/queryValidator.ts:34`
+**Category**: Maintainability
+
+**Current Approach**:
+```typescript
+const validQueryRegex = /^[a-zA-Z0-9\s\-_.'"!?@#$%^&*()\[\]+=,:/]+$/;
+```
+
+**Suggested Improvement**:
+Extract regex to named constant with documentation:
+
+```typescript
+// Allow common punctuation while preventing injection attacks
+// Blocks: <, >, {, }, ;, \, NULL
+const VALID_SEARCH_QUERY_REGEX = /^[a-zA-Z0-9\s\-_.'"!?@#$%^&*()\[\]+=,:/]+$/;
+const MAX_QUERY_LENGTH = 500;
+
+function validateSearchQuery(query: string): ValidationResult {
+  if (!VALID_SEARCH_QUERY_REGEX.test(query)) {
+    // ...
+  }
+}
+```
+
+**Benefit**:
+- Easier to understand what characters are allowed
+- Easier to modify if requirements change
+- Constant can be reused elsewhere if needed
+- Documents the security rationale
+
+---
+
+### Recommendation 2: Add Telemetry for Rejected Queries
+**Location**: `src/middleware/queryValidator.ts:40`
+**Category**: Observability
+
+**Current Approach**:
+Validation errors are returned but not logged/tracked.
+
+**Suggested Improvement**:
+Add metrics or logging for rejected queries:
+
+```typescript
+if (!validQueryRegex.test(query)) {
+  // Log for monitoring - helps catch legitimate use cases we're blocking
+  logger.warn('Search query validation failed', {
+    queryLength: query.length,
+    hasSpecialChars: /[<>{};\\]/.test(query),
+    // Don't log full query (may contain sensitive data)
+  });
+  
+  metrics.increment('search.query.validation.failed');
+  
+  return res.status(400).json({ 
+    error: 'Search query contains invalid characters' 
+  });
+}
+```
+
+**Benefit**:
+- Helps identify if legitimate queries are being blocked
+- Provides data for future improvements to validation logic
+- Enables monitoring of potential attack attempts
+
+---
+
+## Minor Suggestions (Nice to Have)
+
+- Consider adding a comment in `SearchBar.tsx` explaining why `encodeURIComponent` is needed (helps future developers understand)
+- The test case "Search with only special chars" is great - consider adding to documentation as an example of graceful degradation
+- Might want to add a user-facing helper (e.g., tooltip) explaining which special characters are supported
+
+---
+
+## Strengths
+
+- ✅ **Thorough Root Cause Analysis**: Clearly identified the validation regex as the problem
+- ✅ **Comprehensive Fix**: Addressed issue at multiple layers (validation, encoding, sanitization)
+- ✅ **Excellent Test Coverage**: 8 new test cases covering happy path, edge cases, and security
+- ✅ **Security Maintained**: Dangerous characters still properly rejected, parameterized queries verified
+- ✅ **Regression Testing**: Verified existing functionality still works
+- ✅ **Clear Documentation**: Bug fix explanation is thorough and easy to understand
+- ✅ **Manual Testing**: Comprehensive manual testing performed and documented
+- ✅ **Security Conscious**: Verified SQL injection and XSS prevention still in place
+
+---
+
+## Product Alignment Review
+**Bug Report**: QA #789 - Search Fails with Special Characters
+**Assessment**: Fully addresses the reported bug
+
+- ✅ Search with quotes (`"exact phrase"`) now works
+- ✅ Search with apostrophes (`user's data`) now works  
+- ✅ Search with brackets (`[tag] content`) now works
+- ✅ Search with ampersands (`cats & dogs`) now works
+- ✅ Graceful handling of edge cases (only special chars)
+- ✅ Security maintained (dangerous chars still blocked)
+- ✅ User experience improved (helpful error messages)
+
+**Overall**: Bug completely fixed, all acceptance criteria met.
+
+---
+
+## Test Coverage Assessment
+**Unit Tests**: 85% coverage (excellent!)
+**New Tests Added**: 8 comprehensive test cases
+**Edge Cases**: Well covered (only special chars, dangerous chars, length limits)
+**Regression Tests**: Verified existing functionality
+
+**Assessment**: Excellent - test coverage is comprehensive and well-thought-out
+
+**Test Quality**:
+- ✅ Tests cover both allowed and disallowed characters
+- ✅ Boundary conditions tested (500 char limit)
+- ✅ Security scenarios tested (XSS attempts, SQL injection)
+- ✅ Frontend encoding tested
+- ✅ Backend sanitization tested
+
+---
+
+## Security Review
+
+- ✅ **Input Validation**: Properly updated to allow safe special characters
+- ✅ **Injection Prevention**: Parameterized queries verified intact
+- ✅ **XSS Prevention**: Dangerous characters (<, >, script tags) still blocked
+- ✅ **URL Encoding**: Query properly encoded in transit
+- ✅ **Data Sanitization**: Special characters safely escaped for database
+- ✅ **Defense in Depth**: Multiple layers (validation, encoding, sanitization)
+
+**Security Assessment**: **Approved** - maintains security while fixing functionality
+
+---
+
+## Next Steps
+
+**Approved for QA Testing!** ✅
+
+The bug fix is solid and ready for QA to validate. The minor suggestions above are optional enhancements that could be addressed in a follow-up PR.
+
+**For QA**:
+- Verify bug is fixed using original reproduction steps
+- Test with various special character combinations
+- Verify existing search functionality not regressed
+- Check that dangerous characters are still properly rejected
+
+---
+
+## Approval Criteria Met
+
+- [x] Bug root cause correctly identified
+- [x] Fix addresses root cause (not just symptoms)
+- [x] Security maintained (no new vulnerabilities introduced)
+- [x] Test coverage excellent (85%+, edge cases covered)
+- [x] Code quality high (clean, readable, well-documented)
+- [x] Manual testing thorough
+- [x] Regression testing performed
+
+**Great work on this bug fix!** The attention to security, comprehensive testing, and clear documentation make this a high-quality fix.
+
+---
+
+## Resources
+*None needed - excellent work!*
+```
+
 ## Quality Checklist
 
 When reviewing code, verify:

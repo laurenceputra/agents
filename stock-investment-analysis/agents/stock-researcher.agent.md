@@ -211,6 +211,184 @@ Depth: Standard
 **Date**: 2024-12-14
 **Data Sources**: Apple 10-Q (Q3 2024), Yahoo Finance, Apple Investor Relations
 **Analysis Timeframe**: December 2023 - December 2024
+
+### Example 2: High-Growth Tech Company (Tesla Inc.)
+
+**Input:**
+```
+Ticker: TSLA
+Timeframe: Last 12 months
+Research Questions: "Is the valuation justified? What are the biggest risks?"
+Depth: Deep dive
+```
+
+**Output:**
+```markdown
+# Stock Research Report: Tesla, Inc. (TSLA)
+**Date**: 2024-12-14
+**Data Sources**: Tesla 10-Q (Q3 2024), Tesla Investor Relations, Reuters, Bloomberg
+**Analysis Timeframe**: December 2023 - December 2024
+
+## 1. Company Overview
+**Business Model**: Tesla designs, manufactures, and sells electric vehicles (EVs) and energy storage systems. Revenue primarily from automotive sales (~85%), with growing energy generation/storage (~5%) and services (~10%) segments. Also developing autonomous driving software (FSD) and robotaxi network.
+
+**Products/Services**:
+- Electric Vehicles: Model 3, Model Y (mass market), Model S, Model X (premium), Cybertruck (launching)
+- Energy: Solar panels, Powerwall (home battery), Megapack (utility-scale storage)
+- Software: Full Self-Driving (FSD) subscription, over-the-air updates
+- Future: Robotaxi network, Optimus humanoid robot (in development)
+
+**Market Position**: Largest EV manufacturer globally by units sold (~1.8M vehicles in 2023). Market cap significantly higher than all traditional automakers combined despite producing far fewer vehicles. Leading battery technology and charging infrastructure (Supercharger network).
+
+**Competitive Advantages**:
+- First-mover advantage in premium EVs (brand recognition)
+- Vertical integration (batteries, software, manufacturing, charging)
+- Supercharger network (15,000+ stations globally)
+- Over-the-air software updates (recurring revenue potential)
+- Direct-to-consumer sales model (no dealerships)
+- Elon Musk's vision and brand (double-edged: attracts investors but also controversy)
+
+**Management**: Elon Musk (CEO, also CEO of SpaceX, X/Twitter), Vaibhav Taneja (CFO), Andrew Baglino (SVP Powertrain & Energy, recently departed). Leadership concerns due to Musk's divided attention across multiple companies.
+
+## 2. Financial Summary
+### Income Statement Highlights (Q3 2024)
+- **Revenue**: $25.2 billion (+8% YoY growth, slower than prior years)
+- **Gross Profit**: $4.8 billion (Margin: 19.1%, compressed from 25%+ in 2022)
+- **Operating Income**: $2.0 billion (Margin: 7.9%)
+- **Net Income**: $2.2 billion (Margin: 8.5%)
+- **Earnings Per Share (EPS)**: $0.62 (GAAP)
+
+### Balance Sheet Highlights (Q3 2024)
+- **Total Assets**: $113 billion
+- **Total Liabilities**: $44 billion
+- **Total Equity**: $69 billion
+- **Cash and Equivalents**: $33 billion (strong liquidity)
+- **Total Debt**: $6.5 billion (very low leverage)
+- **Debt-to-Equity Ratio**: 0.09 (minimal debt)
+
+### Cash Flow Highlights (Trailing 12 Months)
+- **Operating Cash Flow**: $11.5 billion
+- **Free Cash Flow**: $6.2 billion (after $5.3B capex)
+- **Capital Expenditures**: $5.3 billion (building new factories)
+
+### Key Financial Metrics
+- **Current Ratio**: 1.84 (healthy liquidity)
+- **Quick Ratio**: 1.32
+- **Return on Equity (ROE)**: 21% (strong)
+- **Return on Assets (ROA)**: 11%
+- **Price-to-Earnings (P/E) Ratio**: 95.3 (very high, implies aggressive growth expectations)
+- **Price-to-Book (P/B) Ratio**: 15.8 (high valuation)
+
+## 3. Historical Performance
+**Revenue Trend (Last 5 Years)**:
+- 2019: $24.6 billion (baseline)
+- 2020: $31.5 billion (+28%)
+- 2021: $53.8 billion (+71%, rapid growth)
+- 2022: $81.5 billion (+51%)
+- 2023: $96.8 billion (+19%, growth decelerating)
+- **Trend**: Hypergrowth phase (50%+ annual growth) appears to be ending; maturing toward 10-20% growth
+
+**Earnings Trend**:
+- 2019: -$0.87 EPS (net loss)
+- 2020: $0.64 EPS (first profitable year)
+- 2021: $2.26 EPS (+253%)
+- 2022: $4.07 EPS (+80%)
+- 2023: $3.12 EPS (-23%, margin compression from price cuts)
+- **Trend**: Earnings declining despite revenue growth (margin pressure from competition)
+
+## 4. Recent News and Events
+- **November 2024**: Donald Trump elected U.S. President; Elon Musk close advisor (potential regulatory tailwinds for Tesla, but also distraction risk)
+- **October 2024**: Tesla unveils Cybercab (robotaxi) and Optimus humanoid robot at "We, Robot" event; limited technical details, stock declines post-event
+- **Q3 2024**: Cybertruck production ramping slowly, profitability still negative on Cybertruck
+- **August 2024**: Tesla cuts prices globally to defend market share against BYD, Hyundai/Kia, others
+- **June 2024**: Shareholder vote approves Elon Musk's $56B compensation package (controversial)
+- **Earnings Call Highlights**: Musk emphasizes long-term autonomy vision (FSD, robotaxi) over near-term vehicle margins; targets 2M+ deliveries in 2024 (stretch goal)
+
+## 5. Industry and Sector Context
+**Industry**: Automotive (Electric Vehicles)
+**Sector Trends**:
+- EV adoption accelerating globally (20-25% of new car sales in China, 15% in Europe, 8% in U.S.)
+- Competition intensifying: BYD (China leader, overtaking Tesla globally), legacy automakers launching EVs (Ford, GM, VW), new entrants (Rivian, Lucid)
+- Price wars in China (BYD cutting prices aggressively)
+- Battery costs declining but commodities (lithium, nickel) volatile
+- Charging infrastructure expanding (but Tesla's Supercharger advantage narrowing as others build out)
+- Government incentives shifting (IRA in U.S. provides $7,500 tax credit, but Tesla vehicles losing eligibility as prices rise)
+
+**Competitive Landscape**:
+- **Global EV leader**: BYD (China) now sells more EVs than Tesla (3M+ vehicles in 2023)
+- **China**: NIO, XPeng, Li Auto growing rapidly
+- **U.S.**: Ford Mustang Mach-E, Chevy Bolt/Silverado EV, Rivian R1T/R1S
+- **Europe**: VW ID.4, BMW iX, Mercedes EQS
+- **Luxury**: Lucid Air, Porsche Taycan
+
+**Regulatory Environment**:
+- U.S. Inflation Reduction Act (IRA): $7,500 tax credit for EVs (Tesla Model 3/Y eligible for some versions)
+- EU emissions regulations tightening (benefits EVs)
+- China subsidies for EVs declining (neutral to negative for Tesla)
+- Autonomous driving regulation: Unclear timeline for full self-driving approval (FSD currently Level 2, requires human supervision)
+- Safety investigations: NHTSA investigating Autopilot/FSD crashes
+
+**Macroeconomic Factors**:
+- Rising interest rates hurt EV affordability (monthly payments higher)
+- Inflation pressures battery/materials costs
+- Slowing China economy (Tesla's largest market outside U.S.)
+- Strong U.S. dollar hurts international sales conversion
+
+## 6. Peer Comparison
+| Metric | Tesla (TSLA) | BYD (BYDDF) | Ford (F) | GM (GM) | Rivian (RIVN) |
+|--------|--------------|-------------|----------|---------|---------------|
+| Market Cap | $1.1T | $130B | $45B | $52B | $12B |
+| Revenue Growth (YoY) | +8% | +24% | -5% | -3% | +120% (small base) |
+| Profit Margin | 8.5% | 7.2% | 2.1% | 4.8% | -92% (losses) |
+| P/E Ratio | 95.3 | 28.5 | 6.8 | 5.2 | N/A (unprofitable) |
+| Debt/Equity | 0.09 | 0.78 | 4.2 | 1.9 | 0.35 |
+| Vehicles Sold (2023) | 1.8M | 3.0M | 4.4M | 6.2M | 50K |
+
+**Competitive Positioning**: Tesla trades at massive valuation premium (P/E 95.3x vs. BYD 28.5x, Ford/GM <7x), implying market expects Tesla to disrupt multiple industries (EVs, autonomy, energy, robotics). However, BYD growing faster and gaining share. Legacy automakers far cheaper but struggling EV transition (low margins or losses). Rivian high-growth but burning cash. Tesla's valuation only justified if autonomy/FSD becomes major revenue driver.
+
+## 7. Data Limitations and Caveats
+- **Regional breakdown**: Tesla reports revenue by geography but limited product-level detail by region
+- **Cybertruck profitability**: Not disclosed separately, unclear when/if it will be profitable
+- **FSD adoption**: Tesla doesn't disclose FSD subscriber count or revenue (estimated ~400K subscribers at $99-199/month)
+- **Autonomy timeline**: Musk has missed multiple self-imposed deadlines for full autonomy (promised since 2016); current timeline (robotaxi by 2026) highly uncertain
+- **Competition data**: BYD and Chinese competitors' data less transparent (not U.S. GAAP)
+- **Data freshness**: Q3 2024 (ended September 30, 2024)
+
+## 8. Research Summary
+**Strengths**:
+- Leading EV brand with strong customer loyalty (high Net Promoter Score)
+- Exceptional cash generation for automotive company (~$6B FCF annually)
+- Best-in-class charging infrastructure (Supercharger network)
+- Vertical integration reduces costs and improves margins over time
+- Strong balance sheet (minimal debt, $33B cash)
+- Optionality in energy storage, autonomy, robotics (real but highly speculative value)
+
+**Concerns**:
+- **Valuation extreme**: P/E 95x implies perfection; any growth hiccup could trigger sharp decline
+- **Margin compression**: Gross margin fell from 29% (2022) to 19% (2024) due to price cuts and competition
+- **Competition intensifying**: BYD overtaking globally, legacy automakers improving EV offerings
+- **Autonomy timeline uncertain**: Musk has repeatedly overpromised and underdelivered on FSD timeline; regulatory approval years away
+- **Key man risk**: Elon Musk is CEO of 4+ companies (Tesla, SpaceX, X/Twitter, xAI, Neuralink); divided attention
+- **China exposure**: ~20% of revenue from China (geopolitical risk, BYD competition)
+- **Cybertruck ramp slow**: Production challenges, unclear demand at high price points
+
+**Open Questions**:
+- Can Tesla achieve FSD and robotaxi vision? Timeline? Regulatory approval?
+- Will margins stabilize or continue compressing as competition intensifies?
+- How much market share will Tesla lose to BYD and other Chinese EVs?
+- Is the $1.1T valuation justified? What growth rate is priced in?
+- Can Tesla achieve 20M+ vehicles per year by 2030 (Musk's stated goal)?
+- What is Optimus humanoid robot's realistic timeline and value?
+
+---
+
+**Next Steps**:
+- Hand off to **Fundamental Analyst** for rigorous valuation analysis (is P/E 95x justified?)
+- Hand off to **Technical Analyst** for price momentum and potential entry/exit points
+```
+
+---
+
 ## Quality Checklist
 
 When completing a stock research report, verify:

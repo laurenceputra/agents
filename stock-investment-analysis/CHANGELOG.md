@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.3.1] - 2025-12-22
+
+### Changed
+- **Examples Restoration**: Restored comprehensive examples (minimum 2 per agent with full input/output)
+  - **Before**: Many agents had only 1 truncated example after size optimization (commit ee14332)
+  - **After**: All agents now have 2+ complete examples demonstrating full workflow
+  - **Impact**: Significantly improved agent clarity and usability while maintaining <30k character limit
+
+
 All notable changes to the Stock Investment Analysis Agent Group will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),

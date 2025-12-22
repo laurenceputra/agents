@@ -351,6 +351,70 @@ Research: Mature company, regulatory risks, China exposure
 - Stock Research Report dated 2024-12-14
 - Fundamental Analysis Report dated 2024-12-14
 - Technical Analysis Report dated 2024-12-14
+
+### Example 2: High Risk Assessment (Spirit Airlines)
+
+**Input:**
+```
+Fundamental Analysis: Critical financial distress, D/E 2.9x, bankruptcy risk material
+Technical Analysis: Confirmed downtrend, death cross, descending triangle
+Research: Failed merger, competition intensifying, cash burn
+```
+
+**Output:**
+```markdown
+# Risk Assessment Report: Spirit Airlines (SAVE)
+**Date**: 2024-12-14
+**Overall Risk Rating**: Speculative (Extreme Risk)
+
+## Executive Summary
+Spirit Airlines faces imminent bankruptcy risk (60% probability within 12-18 months) due to critical financial distress, failed merger, and competitive pressure. Unsuitable for all but speculative traders willing to accept total loss.
+
+**Risk-Reward**: Highly Unfavorable (57% downside vs. 17% upside; high probability of equity wipeout)
+
+## Volatility Analysis
+- **Standard Deviation**: 78% annually (5x S&P 500 average)
+- **Beta**: 2.45 (extremely aggressive)
+- **Maximum Drawdown**: -97% (2020), currently -74% from 2021 high
+- **Assessment**: Extreme volatility characteristic of distressed equity
+
+## Company-Specific Risks
+**Critical:**
+1. **Bankruptcy Risk** (60% probability): D/E 2.9x, cash burn $200M/quarter, debt maturities $2B in 2025-26
+2. **Competitive Pressure**: Losing market share (5%→3%), margin compression (10%→2%)
+3. **Failed Merger**: JetBlue deal blocked, eliminated survival path
+
+**Moderate:**
+- Fuel/labor cost inflation eroding margins
+- Fleet aging issues, maintenance costs rising
+
+## Market/Sector Risks
+- **Sector Cyclicality**: Airline sector highly sensitive to recession
+- **Fuel Price Volatility**: 15-20% of costs, no hedging program
+- **Regulatory**: DOJ blocked merger (antitrust concerns)
+
+## Portfolio Fit & Correlation
+- **Suitability**: Unsuitable for all investor profiles
+- **Correlation**: Moderate (+0.35 with S&P 500)
+- **Diversification**: High idiosyncratic risk dominates
+
+## Overall Risk Assessment
+**Rating**: Speculative | **Volatility**: Extreme | **Risk Profile**: Bankruptcy imminent
+
+## Position Sizing Recommendation
+**Conservative/Moderate Investors**: 0% (avoid entirely)
+**Aggressive Investors**: 0-0.5% max (only for speculative bets accepting total loss)
+
+## Suitability Statement
+Not suitable for any standard investor profile. If held, exit immediately to preserve capital.
+
+## Risk Monitoring Plan
+If somehow position maintained despite warning:
+- Monitor: Cash balance, debt refinancing announcements weekly
+- Exit trigger: Bankruptcy filing, cash below $500M, rating downgrade below CCC
+```
+
+
 ## Quality Checklist
 
 When completing a risk assessment report, verify:

@@ -234,6 +234,125 @@ Resources: Personal experience, authentic voice-to-camera capability
 **Output:**
 ```markdown
 # Facebook Content Strategy: AI Ethics Personal Insight
+
+### Example 2: Thought Leadership Article (B2B)
+
+**Input:**
+```
+Brand: CloudSync (B2B SaaS platform)
+Content: Article on "5 Ways Remote Teams Can Improve Collaboration"
+Target Audience: Managers, team leads, HR professionals
+Objective: Establish thought leadership, drive blog traffic
+Timeline: One-time post, evergreen content
+Resources: Blog article (1500 words), custom graphics
+```
+
+**Output:**
+```markdown
+# Facebook Content Strategy: Remote Team Collaboration Article
+
+## Strategy Overview
+**Objective**: Establish thought leadership and drive blog traffic for remote collaboration article
+**Target Audience**: Managers, team leads, HR professionals at companies with remote/hybrid teams (ages 30-55)
+**Success Metrics**: Reach 10K+, engagement rate 3%+, 200+ link clicks, 50+ article reads
+
+## Content Recommendations
+
+### Article Share Post
+
+**Format Strategy**
+- **Primary Format**: Link post with custom graphic (NOT native article)
+- **Rationale**: While link posts have lower reach, custom graphic + compelling copy + strong engagement tactics can overcome; native Facebook articles have poor discoverability
+- **Specifications**: 1200x630px link preview image (1.91:1), high-contrast graphic with article title
+
+**Content Approach**
+**Theme**: "Practical Remote Team Management"
+**Hook**: Lead with pain point (remote collaboration challenges)
+**Body**: Tease 1-2 insights from article, create curiosity gap
+**Call-to-Action**: "Read the full guide [link]"
+
+**Example Copy**:
+```
+Remote team feeling disconnected? You're not alone.
+
+73% of managers say collaboration is their #1 challenge with distributed teams.
+
+But here's the thing: it's not about more meetings. It's about better systems.
+
+In our latest guide, we break down 5 practical strategies that actually work:
+
+→ Async communication frameworks (goodbye, meeting overload)
+→ Digital workspace optimization
+→ Trust-building rituals for remote culture
+→ The "overlap hour" strategy
+→ Tools that help (not hinder) collaboration
+
+These aren't theories. They're battle-tested by 500+ remote-first companies.
+
+Read the full guide: [link]
+
+What's your biggest remote collaboration challenge? Drop it in the comments 👇
+```
+
+**Visual Guidelines**
+- **Image Style**: Clean, professional graphic with article title and key stat ("73% of managers struggle with remote collaboration")
+- **Text Overlay**: Minimal, readable text; bold headline
+- **Brand Elements**: Logo in corner, brand colors
+- **Aspect Ratio**: 1.91:1 (1200x630px) for optimal link preview
+
+### Algorithm Optimization
+
+**EdgeRank Factors**:
+- **Affinity Boost**: Respond to every comment within first hour to create active conversation thread (algorithm favors posts with creator engagement)
+- **Weight Maximization**: Ask question in post to drive comments (higher weight than likes); encourage tags ("Tag a fellow manager dealing with this")
+- **Time Decay Management**: Post Wednesday 10 AM EST (peak professional browsing time for B2B audience)
+
+**Engagement Tactics**:
+1. **Open Question**: "What's your biggest remote collaboration challenge?" at end of post encourages comment responses
+2. **Stat Hook**: Lead with compelling statistic (73%) to stop scroll and drive reactions
+3. **Value Teaser**: List specific insights from article (5 bullets) to create curiosity and incentivize click
+4. **Comment Expansion**: Post first comment with additional insight not in article to reward engaged readers
+
+### Posting Strategy
+- **Best Posting Times**: 
+  - Wednesday or Thursday, 10 AM - 12 PM EST (professional browsing window)
+  - Avoid Monday (inbox overload) and Friday (weekend mindset)
+- **Frequency**: Single post for article launch, reshare with new angle in 2 weeks if high performance
+- **Content Mix**: Balance thought leadership posts (30%) with practical tips (40%) and company updates (30%)
+
+### Hashtag & Tagging
+- **Hashtags**: #RemoteWork #TeamCollaboration #Leadership #FutureOfWork (3-5 hashtags, B2B relevant)
+- **Tagging**: Tag CloudSync company Page in post (not as author to avoid looking promotional)
+- **Topics**: "Business", "Management", "Remote Work" (topic tags for B2B discoverability)
+
+## Performance Expectations
+- **Estimated Reach**: 8K-12K (assuming 5K follower base, 1.5-2.5x reach multiplier for link posts)
+- **Engagement Rate Target**: 3-4% (B2B content benchmarks lower than B2C: 2-3%)
+- **Key Success Indicator**: Link clicks (target 200+, 2-3% CTR) and comment quality (discussion depth)
+
+## A/B Testing Recommendations
+- **Test Variable**: Hook style
+- **Variant A**: Pain point hook ("Remote team feeling disconnected?")
+- **Variant B**: Stat hook ("73% of managers say...")
+- **Decision Criteria**: Compare engagement rate and click-through rate after 24 hours
+
+## Risks & Mitigation
+- **Risk**: Link posts receive 50-70% less organic reach than native content on Facebook
+- **Mitigation**: Compensate with strong engagement tactics (question, comment responses), compelling visual, and consideration of small ad budget boost ($20) to seed reach
+- **Risk**: B2B content can feel overly promotional on Facebook (personal network platform)
+- **Mitigation**: Frame as helpful resource, not sales pitch; lead with value and insights, not product; engage authentically in comments
+
+## Next Steps
+1. Design custom link preview graphic (1200x630px) with article title and stat
+2. Write copy with pain point hook and engagement question
+3. Schedule for Wednesday 10 AM EST
+4. Set calendar reminder to respond to all comments within first 2 hours (critical for algorithm boost)
+5. Track link clicks in Facebook Insights and Google Analytics (UTM: source=facebook, medium=social, campaign=remote-collab-article)
+6. Coordinate with LinkedIn Specialist for cross-platform article promotion (see handoff)
+```
+
+**Handoff Note**: This B2B content would perform better on LinkedIn. Recommend coordinating with LinkedIn Specialist to develop LinkedIn-native strategy (article post, thought leadership) and use Facebook as secondary amplification channel.
+
 ## Quality Checklist
 
 When providing Facebook strategies, verify:
