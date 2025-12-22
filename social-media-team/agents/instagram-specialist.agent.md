@@ -265,6 +265,167 @@ Resources: Product photos, ingredient close-ups, before/after photos (3 weeks), 
 **Output:**
 ```markdown
 # Instagram Content Strategy: GlowSkin Vitamin C Serum Launch
+
+### Example 2: Behind-the-Scenes Story Series
+
+**Input:**
+```
+Brand: ArtisanRoast (small-batch coffee roaster)
+Content: Behind-the-scenes of coffee roasting process
+Target Audience: Coffee enthusiasts, millennials, values-driven consumers
+Objective: Build community and brand storytelling
+Timeline: Single day (story series), save to highlights
+Resources: Photos/video from roasting facility, founder interview clips
+```
+
+**Output:**
+```markdown
+# Instagram Story Strategy: ArtisanRoast Behind-the-Scenes
+
+## Strategy Overview
+**Objective**: Build authentic community connection and brand storytelling through behind-the-scenes content
+**Target Audience**: Coffee enthusiasts, millennials 25-40, values-driven consumers interested in craft, sustainability, small business
+**Success Metrics**: Story completion rate 60%+, 200+ replies, 150+ shares, 100+ profile visits, highlight saves 50+
+
+## Content Recommendations
+
+### Story Series Structure (12-15 Slides)
+
+**Format Strategy**
+- **Primary Format**: Instagram Story series (12-15 slides, mix of photo and video)
+- **Rationale**: Stories allow for authentic, low-polish storytelling; multiple slides let viewers opt-in to deeper engagement; interactive stickers build community connection
+- **Specifications**: 1080x1920px (9:16), photos + 15-second video clips, <4MB per slide
+
+**Visual Style**
+**Aesthetic**: Warm, earthy, authentic (not overly produced)
+**Color Palette**: Coffee browns, cream, warm lighting from roasting facility
+**Composition**: Mix of close-up (coffee beans, roasting action) and wide shots (facility, people)
+**Consistency**: Use consistent text overlay style (sans-serif white text with subtle shadow for readability)
+
+**Story Arc** (12 Slides):
+
+**Slide 1: Hook**
+- **Visual**: Close-up of fresh-roasted coffee beans pouring (satisfying video clip)
+- **Text Overlay**: "Ever wondered how your coffee goes from bean to cup? ☕️ Take a tour with us 👇"
+- **Sticker**: None (clean hook)
+
+**Slide 2: Introduction**
+- **Visual**: Photo of roasting facility wide shot
+- **Text Overlay**: "Welcome to our roastery in Portland 🏭 Where the magic happens every day"
+- **Sticker**: Location tag (Portland, OR - increases local discoverability)
+
+**Slide 3: Interactive Engagement**
+- **Visual**: Photo of green coffee beans (pre-roast)
+- **Text Overlay**: "We start with ethically sourced beans from around the world 🌍"
+- **Sticker**: Poll "Have you tried single-origin coffee? ☕️ Yes / Not yet"
+- **Purpose**: Engagement + audience insight
+
+**Slide 4-5: Process Education**
+- **Visual**: Video clip of roasting drum spinning, beans roasting (15 seconds)
+- **Text Overlay**: "Each batch is roasted in small quantities (just 15 lbs at a time!) for perfect flavor"
+- **Sticker**: None (let video shine)
+
+**Slide 6: Founder Story**
+- **Visual**: Photo of founder with roasting machine
+- **Text Overlay**: "Meet Sarah, our founder & head roaster 👋"
+- **Sticker**: None
+
+**Slide 7: Interactive Questions**
+- **Visual**: Photo of Sarah holding beans
+- **Text Overlay**: None
+- **Sticker**: Question sticker "Ask Sarah anything about coffee! ⬇️"
+- **Purpose**: Collect UGC, build personal connection, content ideas for future
+
+**Slide 8-9: Sustainability Story**
+- **Visual**: Video of compostable packaging being sealed
+- **Text Overlay**: "Sustainability matters to us. Our bags are 100% compostable 🌱"
+- **Sticker**: None
+
+**Slide 10: Quiz (Educational + Fun)**
+- **Visual**: Photo of different roast levels (light, medium, dark beans)
+- **Text Overlay**: None
+- **Sticker**: Quiz "Which roast has the MOST caffeine? ☕️ A) Light B) Medium C) Dark" (Answer: A - light)
+- **Purpose**: Educational + engagement + fun surprise (most people think dark has more caffeine)
+
+**Slide 11: Product Connection**
+- **Visual**: Photo of packaged coffee bags ready to ship
+- **Text Overlay**: "Fresh-roasted and shipped to your door within 48 hours 📦"
+- **Sticker**: Product sticker (link to shop page if Shopping enabled)
+
+**Slide 12: CTA + Interactive**
+- **Visual**: Photo of coffee cup with latte art
+- **Text Overlay**: "Thanks for joining us today! ☕️ Your support means everything to our small team"
+- **Sticker**: Emoji slider "How much do you love behind-the-scenes content? 🤎" (heart slider)
+- **Purpose**: Positive engagement, sentiment gauge
+
+**Slide 13: Link**
+- **Visual**: Simple branded graphic with logo
+- **Text Overlay**: "Shop our fresh-roasted coffee"
+- **Sticker**: Link sticker (swipe up if 10K+ followers, or "Link in bio" text)
+
+### Algorithm Optimization
+
+**Story Signals**:
+- **Completion Rate**: Keep total series under 15 slides (optimal completion rate); use compelling visuals and varied content to retain viewers
+- **Replies**: Question sticker on Slide 7 drives direct replies (strong signal for relationship)
+- **Shares**: Educational quiz (Slide 10) and satisfying visuals (Slide 1, 4-5) encourage shares to friends
+- **Profile Visits**: Link sticker on final slide drives profile visits (algorithm rewards this)
+
+**Interactive Sticker Strategy**:
+- Poll (Slide 3): Low-effort engagement, warms up audience
+- Question (Slide 7): High-effort but high-value engagement, collects content ideas
+- Quiz (Slide 10): Fun + educational, highly shareable
+- Emoji Slider (Slide 12): Positive engagement to end series
+
+### Posting Strategy
+- **Best Posting Times**: 
+  - Tuesday or Thursday, 10 AM - 12 PM EST (mid-morning coffee time, high story viewing)
+  - Avoid Monday (story fatigue) and Friday (weekend mindset)
+- **Frequency**: One-time story series, save to "Our Story" or "Behind-the-Scenes" highlight for evergreen viewing
+- **Content Mix**: Balance BTS stories (30%) with product features (30%), customer spotlights (20%), and daily moments (20%)
+
+### Highlight Strategy
+**Highlight Reel**: Save entire series to "Our Story" or "Roasting Process" highlight
+- **Cover Image**: Use Slide 1 visual (coffee beans pouring) or custom highlight cover matching brand aesthetic
+- **Purpose**: Allows new followers to discover brand story anytime, builds brand narrative
+
+## Performance Expectations
+- **Story Views**: 30-40% of follower base will view first slide (industry average)
+- **Completion Rate Target**: 60%+ complete all slides (benchmark: 40-50%, BTS content performs higher)
+- **Replies Target**: 200+ replies to question sticker (2-3% of viewers typically reply)
+- **Shares Target**: 150+ shares (compelling education + satisfying visuals)
+- **Profile Visits**: 100+ from story views (link sticker + brand interest drives profile clicks)
+
+## Interactive Response Strategy
+**Question Sticker Responses** (Slide 7 "Ask Sarah anything"):
+- **Response Time**: Respond to questions within 2-4 hours via text reply or follow-up story
+- **Response Format**: Create 3-5 follow-up story slides answering top questions (extend story series life)
+- **Engagement**: Tag users who asked great questions (with permission) in follow-up stories, creating community spotlight
+- **Content Bank**: Save questions for future FAQ content, blog posts, or Q&A highlights
+
+## A/B Testing Recommendations
+- **Test Variable**: Interactive sticker placement (early vs. late in series)
+- **Variant A**: Poll on Slide 3 (early engagement)
+- **Variant B**: Poll on Slide 9 (later engagement, only engaged viewers reach)
+- **Decision Criteria**: Compare completion rate and poll response rate; determine optimal placement for future BTS stories
+
+## Risks & Mitigation
+- **Risk**: 12-slide series may lose viewers before completion (story drop-off)
+- **Mitigation**: Keep most compelling content (satisfying visuals, quiz) in middle slides (4-10) to retain viewers; monitor completion rate via Insights and adjust length for future series
+- **Risk**: Behind-the-scenes content may not drive direct sales (softer ROI)
+- **Mitigation**: This is relationship-building content (top of funnel); pair with product-focused stories throughout week; measure success by engagement metrics and highlight saves, not immediate sales
+
+## Next Steps
+1. Gather BTS photos and video clips from roasting facility (12-15 pieces of content)
+2. Write text overlays for each slide (keep concise, readable in 3 seconds)
+3. Add interactive stickers (poll, question, quiz, emoji slider) to designated slides
+4. Schedule story series for Tuesday 10 AM EST
+5. Set reminder to monitor question sticker responses within 2 hours, respond throughout day
+6. Create 3-5 follow-up story slides answering top questions (post 4-6 hours after initial series)
+7. Save entire series + Q&A follow-ups to "Our Story" highlight for permanent viewing
+8. Analyze completion rate and engagement metrics in Insights 24 hours after posting
+```
+
 ## Quality Checklist
 
 When providing Instagram strategies, verify:
