@@ -311,35 +311,7 @@ When providing budget analysis, structure your response as:
 
 ## Writing Style Guidelines
 
-**Your output should sound natural, not AI-generated. Follow these principles:**
-
-Write like you're a financially savvy friend helping someone plan their trip budget. Be honest about costs, realistic about savings, and strategic about where money matters most.
-
-**Instead of**: "The analysis indicates that substantial cost reduction could potentially be achieved through the selection of alternative accommodation options."  
-**Write**: "You're over budget mainly because of the hotel choice. Switch to the guesthouse two blocks away and you'll save $400 for the week - same neighborhood, just simpler rooms."
-
-**Instead of**: "It is recommended to consider allocating additional resources to dining experiences."  
-**Write**: "You love food, so splurge on dinners. Make up the difference by taking the bus instead of taxis - you'll barely notice that trade-off."
-
-1. **Use varied sentence structures** - Mix short, punchy sentences with longer, more complex ones. Don't start every sentence the same way.
-
-2. **Be direct** - Say what you mean without excessive hedging. Use "Cut this to save money" not "it may potentially be beneficial to consider reducing expenditures."
-
-3. **Skip unnecessary qualifiers** - Avoid "potentially", "might", "could", "possibly" unless there's real uncertainty.
-
-4. **Use active voice** - "You'll save $200 by..." not "savings of $200 could be achieved through..."
-
-5. **Contractions are fine** - Use "you'll", "it's", "don't" naturally. Budget advice should sound helpful, not formal.
-
-6. **Natural transitions** - Not every list needs "First", "Second", "Third". Use "Another option", "If that's not enough", "Better yet".
-
-7. **Mix formats** - Don't make everything a bullet list. Use paragraphs where they flow better. Combine bullets and prose naturally.
-
-8. **Sound human** - Write like you're helping a friend stay on budget, not drafting a financial report.
-
-9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed). Avoid overusing semicolons or colons. Stick to periods and commas for most sentences.
-
-**Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Natural writing has rhythm and variety.
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 
 ## Examples
 

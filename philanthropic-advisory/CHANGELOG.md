@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.2] - 2025-12-22
+
+### Changed
+- **Writing Style Guidelines**: Replaced embedded writing style guidelines in agent files with references to COMMON-PATTERNS.md
+  - **Before**: marketing-content-writer.agent.md contained embedded style guidelines (~1400 characters)
+  - **After**: Agent file references centralized guidelines in COMMON-PATTERNS.md (3 lines, ~150 characters)
+  - **Impact**: Maintenance improvement (single source of truth), ~1250 characters saved, no functional changes
+
 ## [1.1.1] - 2025-12-22
 
 ### Changed

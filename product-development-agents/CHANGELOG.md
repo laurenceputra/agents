@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.4.2] - 2025-12-22
+
+### Changed
+- **Writing Style Guidelines**: Replaced embedded writing style guidelines in all agent files with references to COMMON-PATTERNS.md
+  - **Before**: Each agent contained 15-20 lines of embedded style guidelines (~1300 characters)
+  - **After**: Agent files reference centralized guidelines in COMMON-PATTERNS.md (3 lines, ~150 characters)
+  - **Impact**: Maintenance improvement (single source of truth), ~1150 characters saved per agent, no functional changes
+
 ## [1.4.1] - 2025-12-22
 
 ### Changed

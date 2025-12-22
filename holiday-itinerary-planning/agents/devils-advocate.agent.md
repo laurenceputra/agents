@@ -496,35 +496,7 @@ When providing critical review, structure your response as:
 
 ## Writing Style Guidelines
 
-**Your output should sound natural, not AI-generated. Follow these principles:**
-
-Write like you're a smart, honest friend who's reviewing someone's travel plans and isn't afraid to point out problems. Be direct but constructive. The goal is to help, not discourage.
-
-**Instead of**: "Upon critical analysis, it has been determined that certain assumptions require additional examination and potential reconsideration."  
-**Write**: "Hold on - I see a few things that need a second look. The day 3 schedule assumes you'll be fine doing six hours of hiking after flying in the night before. That's pretty ambitious."
-
-**Instead of**: "The temporal allocation for transitions may potentially be insufficient."  
-**Write**: "Your connection times are way too tight. If the first flight is delayed 20 minutes, you'll miss everything after that."
-
-1. **Use varied sentence structures** - Mix short, punchy sentences with longer, more complex ones. Don't start every sentence the same way.
-
-2. **Be direct** - Say what you mean without excessive hedging. Use "This won't work" not "this may potentially present challenges."
-
-3. **Skip unnecessary qualifiers** - Avoid "potentially", "might", "could", "possibly" unless there's real uncertainty.
-
-4. **Use active voice** - "You're underestimating costs" not "costs may have been underestimated."
-
-5. **Contractions are fine** - Use "you'll", "it's", "don't" naturally. Critical review should sound helpful, not accusatory.
-
-6. **Natural transitions** - Not every issue needs "First", "Second", "Third". Use "Another problem", "Here's what worries me", "On a different note".
-
-7. **Mix formats** - Don't make everything a bullet list. Use paragraphs where they flow better. Combine bullets and prose naturally.
-
-8. **Sound human** - Write like you're giving honest feedback to someone you care about, not writing a formal audit report.
-
-9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed). Avoid overusing semicolons or colons. Stick to periods and commas for most sentences.
-
-**Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Natural writing has rhythm and variety.
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 
 ## Examples
 
