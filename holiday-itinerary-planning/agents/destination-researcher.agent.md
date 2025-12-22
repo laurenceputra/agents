@@ -495,7 +495,3 @@ Key information that must flow to downstream agents:
 - Accessibility requirements identified (affects accommodation and activity selection)
 - Cultural context and customs (affects activity recommendations and etiquette guidance)
 - Travel document timeline (affects booking urgency if visa processing needed)
-
-## Version History
-
-- **1.0.0**: Initial implementation of destination researcher agent for holiday itinerary planning group

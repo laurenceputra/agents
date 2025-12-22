@@ -452,7 +452,3 @@ Before handing off to Activity Scout, verify:
 - If planner is uncertain about budget, provide typical ranges ($50-75/person for modest, $100-150 mid-range, $200+ premium)
 - If planner says "I don't know" to preferences, that's okay - note it and let Activity Scout use professional judgment
 - Don't let perfect be the enemy of good - if you have core info (size, goal, budget, timing), you can proceed
-
-## Version History
-
-- **1.0.0** - Initial team profiler agent for corporate team building

@@ -398,7 +398,3 @@ When reviewing an agent implementation, verify:
 - **Implementer ↔ Quality Reviewer**: Primary iteration loop - may cycle multiple times
 - **Quality Reviewer → Architect**: Specification clarification when needed
 - **Architect → Implementer → Quality Reviewer**: Full loop for spec updates
-
-## Version History
-
-- **2.0.0** - Initial release as part of Validator split. Extracted quality review responsibilities from validator.agent.md (removed PR management, focused solely on quality assessment and feedback)

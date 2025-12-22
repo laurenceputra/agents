@@ -315,8 +315,3 @@ When completing an impact evaluation, verify:
 
 ### Feedback Loops
 - **devils-advocate**: May return for methodology revision if critical issues identified
-
-## Version History
-
-- **1.0.1**: Added Writing Style Guidelines section with 9 principles for natural, human-like output
-- **1.0.0** (Initial): Quantitative impact evaluation capabilities for Singapore philanthropic programs with SROI, CEA, trajectory uplift frameworks

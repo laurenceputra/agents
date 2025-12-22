@@ -542,7 +542,3 @@ Key integration tasks:
 - Ensure booking timeline accounts for all activities and logistics
 - Consolidate emergency contacts from multiple sources
 - Resolve any conflicts between agents (timing, costs, feasibility)
-
-## Version History
-
-- **1.0.0**: Initial implementation of itinerary integrator agent for holiday itinerary planning group

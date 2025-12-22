@@ -470,7 +470,3 @@ This context ensures impact-evaluator assesses programs against philanthropist's
 
 ### Feedback Loops
 - **devils-advocate**: May challenge framework assumptions and recommend revisions before use in decisions
-
-## Version History
-
-- **1.0.0** (Initial): Framework definition capabilities with 8 predefined question areas, standalone and integration modes, Singapore philanthropic context

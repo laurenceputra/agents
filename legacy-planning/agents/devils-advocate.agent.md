@@ -350,9 +350,3 @@ When performing critical review of legacy planning guidance, verify:
 ### Feedback Loops
 - **To Specialists**: When critical issues found requiring specific expertise
 - **To Advisor**: For orchestrator perspective on conflicts or final approval
-
-## Version History
-
-- **1.3.1**: Added Writing Style Guidelines section with 9 principles for natural, human-like output
-- **1.3.0** (2025-12-15): Quality checklist compliance - synchronized version with group agents for consistency
-- **1.1.0**: Initial implementation - Critical review agent for legacy planning guidance quality assurance and ethical consideration surfacing

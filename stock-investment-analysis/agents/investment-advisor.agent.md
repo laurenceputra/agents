@@ -188,9 +188,3 @@ Risk Assessment Summary:
 
 ### Workflow Position
 - **Final Stage**: Synthesizes all analyses, provides personalized recommendation
-
-## Version History
-
-- **1.3.1**: Added Writing Style Guidelines section with 9 principles for natural, human-like output
-- **1.3.0** (2024-12-15): Quality checklist compliance - synchronized version with group agents for consistency
-- **1.0.0** (Initial): Core investment advisory capabilities for synthesizing analyses and providing personalized buy/hold/sell recommendations
