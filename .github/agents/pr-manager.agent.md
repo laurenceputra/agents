@@ -340,7 +340,3 @@ When managing PR process, verify:
 
 ### Coordination Flow
 Quality Reviewer Approval → PR Manager creates PR details → Devil's Advocate review → PR Manager updates PR details → PR submission
-
-## Version History
-
-- **2.0.0** - Initial release as part of Validator split. Extracted PR management responsibilities from validator.agent.md (removed quality review, focused on PR logistics and approval coordination)

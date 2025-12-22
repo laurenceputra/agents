@@ -5,6 +5,54 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.1.0 - 2025-12-22
+
+### Changed
+- **Removed Version History from Agent Files**: Version history now exclusively maintained in CHANGELOG.md files
+  - **Before**: Duplicate version history sections in every agent file (51 agent files × 3-8 lines = ~300 lines duplication)
+  - **After**: Agent files reference CHANGELOG.md; version tracking centralized in project-level CHANGELOG.md files
+  - **Impact**: Reduces agent file size, eliminates duplication, single source of truth for version history
+  - **Migration**: All version history removed from `.github/agents/*.agent.md` and all agent group agent files; refer to CHANGELOG.md for version information
+
+- **Removed Reference Content from copilot-instructions.md**: Extracted non-instructional content to appropriate homes
+  - **Removed Sections**:
+    - "Best Practices" (GitHub Copilot reference documentation) - belongs in GitHub Copilot official docs
+    - "Tips for Effective Agents" (design guidance) - belongs in COMMON-PATTERNS.md or agent specifications
+    - "Version History" (version tracking) - belongs in CHANGELOG.md
+  - **Before**: copilot-instructions.md was 388 lines (workflow instructions mixed with reference content)
+  - **After**: copilot-instructions.md is 351 lines (pure workflow instructions and specifications)
+  - **Result**: Clear focus on actionable workflow guidance vs. design reference material
+
+### Files Modified
+- `.github/copilot-instructions.md`: Removed Best Practices, Tips for Effective Agents, Version History sections
+- `.github/agents/architect.agent.md`: Removed 9-line Version History section
+- `.github/agents/implementer.agent.md`: Removed 2 version history template sections (7 lines total)
+- `.github/agents/quality-reviewer.agent.md`: Removed 1-line Version History section
+- `.github/agents/pr-manager.agent.md`: Removed 1-line Version History section
+- `.github/agents/devils-advocate.agent.md`: Removed 3-line Version History section
+- **Agent Groups**: Removed Version History sections from 45 agent group agent files across 10 groups:
+  - social-media-team (5 agents): ~9 lines removed
+  - philanthropic-advisory (6 agents): ~10 lines removed
+  - holiday-itinerary-planning (6 agents): ~10 lines removed
+  - corporate-team-building (5 agents): ~9 lines removed
+  - portfolio-analysis (3 agents): ~6 lines removed
+  - legacy-planning (5 agents): ~10 lines removed
+  - stock-investment-analysis (6 agents): ~12 lines removed
+  - recommendation-letter (4 agents): ~8 lines removed
+  - product-development-agents (5 agents): ~10 lines removed
+
+### Rationale
+Version history in agent files creates maintenance burden and duplication:
+1. **Duplication**: 51 agent files each maintain their own version history (51 × 3-8 lines = ~300 lines total)
+2. **Inconsistency**: Different agents use different version formats and detail levels
+3. **Single Source of Truth**: Project CHANGELOG.md already documents all changes; agent files duplicate this
+4. **Agent File Focus**: Version history distracts from core agent instructions and responsibilities
+5. **Maintenance**: Updating version information requires changes across 51 files instead of 1 centralized location
+
+CHANGELOG.md files now serve as the definitive version history source for each project:
+- `.github/CHANGELOG.md`: Meta-agent system versions (architect, implementer, quality-reviewer, pr-manager, devils-advocate)
+- `{agent-group}/CHANGELOG.md`: Individual agent group versions
+
 ## 2.0.0 - 2025-12-17
 
 ### Changed

@@ -497,8 +497,3 @@ When completing a critical review, verify:
 ### Feedback Loops
 - Any agent can receive work back from Devil's Advocate if critical issues require revision
 - Devil's Advocate re-reviews after revisions until approval criteria met
-
-## Version History
-
-- **1.0.1**: Added Writing Style Guidelines section with 9 principles for natural, human-like output
-- **1.0.0** (Initial): Critical review capabilities for philanthropic funding decisions with assumption challenging, disagreement facilitation, blind spot identification for Singapore-focused impact investing

@@ -585,13 +585,3 @@ When reviewing an agent group specification, verify:
 - **End Users**: May request specification adjustments based on usage
 
 **Critical Workflow Rule**: Architect produces specifications → Agent Implementer implements → Quality Reviewer reviews. Architect NEVER implements.
-
-## Version History
-
-- **2.0.0**: BREAKING CHANGE - Validator split to quality-reviewer + PR manager. Extracted common patterns to COMMON-PATTERNS.md.
-- **1.7.x**: Writing style improvements (natural output, avoid AI patterns, no em-dashes)
-- **1.6.x**: Devil's Advocate mandatory for all groups, removed legacy PR details
-- **1.5.0**: Added Devil's Advocate agent for critical review
-- **1.4.0**: Updated handoff format to GitHub Copilot object schema
-- **1.3.0**: Required specifications in `.specifications/` directory
-- **1.0.0**: Initial release

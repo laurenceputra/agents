@@ -569,7 +569,3 @@ Before completing review, verify:
 - Might recommend significant plan changes or even reconsidering event timing
 - Should provide enough detail that planner can make informed decisions
 - Final recommendation is advisory, not directive—planner ultimately decides
-
-## Version History
-
-- **1.0.0** - Initial devil's advocate agent for corporate team building

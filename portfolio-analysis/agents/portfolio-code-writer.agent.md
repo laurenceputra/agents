@@ -624,8 +624,3 @@ Before submitting script to code-quality-reviewer or devils-advocate:
 **When**: After code-quality-reviewer approval
 **Why**: Challenge analysis assumptions, identify edge cases, surface limitations
 **What to send**: Script + intended use case + assumptions made
-
-## Version History
-
-- **2.0.1**: Added Writing Style Guidelines section with 9 principles for natural, human-like output
-- **2.0.0** (2024-12-16): Initial version - generates scripts using portfolio_toolkit library, replaces 5 code-generation agents with unified code-writing approach

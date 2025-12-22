@@ -348,41 +348,4 @@ For detailed information on these topics, see `agents/COMMON-PATTERNS.md`:
 
 See `COMMON-PATTERNS.md` for changelog format requirements.
 
----
 
-## Best Practices
-
-### From GitHub Copilot Documentation
-
-1. **Be Specific**: Define exact scope, use concrete examples, specify formats
-2. **Provide Context**: Explain the "why", define terminology
-3. **Structure for Clarity**: Use consistent markdown, clear headings, lists
-4. **Include Examples**: Minimum 2 (happy path + edge case), show input/output
-5. **Define Success**: Make outcomes measurable, include quality checklists
-6. **Optimize for Iteration**: Keep modular, support incremental improvements
-
-Reference: https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/coding-agent/get-the-best-results
-
----
-
-## Tips for Effective Agents
-
-1. **Single Responsibility**: Each agent should have one clear purpose
-2. **Composable**: Agents work together through handoffs
-3. **Testable**: Include clear success criteria and quality checklists
-4. **Maintainable**: Document assumptions and limitations
-5. **Evolvable**: Design for change with version history
-6. **Portable**: No hardcoded paths, folder-agnostic references
-
----
-
-## Version History
-
-- **2.0.0** - BREAKING CHANGE: Split Validator into Quality Reviewer + PR Manager. Extracted common patterns to COMMON-PATTERNS.md. Simplified copilot-instructions.md (1542 → 800 lines, 48% reduction). Updated all workflow documentation for five-agent system.
-- **1.5.1** - Fixed workflow documentation to clarify PR timing: all reviews complete on branch before PR submission
-- **1.5.0** - Added Devil's Advocate agent for critical review and disagreement capture
-- **1.4.0** - Updated handoff format to GitHub Copilot object schema
-- **1.3.0** - Required specifications in `./.specifications/` directory
-- **1.2.0** - Added mandatory CHANGELOG.md and README.md update requirements
-- **1.1.0** - Added strict workflow enforcement, quality gates, decision trees
-- **1.0.0** - Initial meta-agent system with Architect, Implementer, Validator

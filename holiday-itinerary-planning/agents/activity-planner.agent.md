@@ -269,7 +269,3 @@ Key information that must flow to downstream agents:
 - Budget implications from activity choices (affects budget optimizer's analysis)
 - Accessibility accommodations needed (affects logistics coordination)
 - Pacing philosophy (relaxed vs active) to maintain consistency through final itinerary
-
-## Version History
-
-- **1.0.0**: Initial implementation of activity planner agent for holiday itinerary planning group

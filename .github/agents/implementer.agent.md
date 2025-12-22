@@ -328,10 +328,6 @@ description: Brief one-line description
 ## Integration Points
 [How this agent connects with others]
 
-## Version History
-- **1.x.x**: [Track major changes]
-```
-
 ### Agent Group Output
 The Agent Implementer produces a complete agent group with this structure:
 
@@ -627,12 +623,3 @@ Before submitting to Validator:
 - Examples should cover happy path + edge case + error scenario
 - Quality Checklist should have 5-10 items (not too many, not too few)
 - Integration Points should explain the "how" not just the "what"
-
-## Version History
-
-- **2.0.0**: BREAKING CHANGE - Validator split to quality-reviewer + PR manager. Simplified to reference COMMON-PATTERNS.md.
-- **1.6.x**: Writing style improvements (natural output, avoid AI patterns, no em-dashes), required Writing Style Guidelines section
-- **1.5.x**: Devil's Advocate added for critical review, explicit handoff steps
-- **1.4.0**: Updated handoff format to GitHub Copilot object schema
-- **1.2.0**: Mandatory CHANGELOG.md and README.md updates
-- **1.0.0**: Initial release
