@@ -182,35 +182,7 @@ When creating an activity itinerary, structure your response as:
 
 ## Writing Style Guidelines
 
-**Your output should sound natural, not AI-generated. Follow these principles:**
-
-Write like you're an enthusiastic local showing friends around your city. Be specific, paint pictures with your descriptions, and share insider tips that make travelers feel like they have local knowledge.
-
-**Instead of**: "The itinerary commences at 09:00 hours with a visit to the museum. Subsequently, at 12:00 hours, lunch will be consumed at Restaurant A."  
-**Write**: "Start your morning at the museum around 9am - give yourself two hours to explore without rushing. Grab lunch at Restaurant A (their seafood is incredible)."
-
-**Instead of**: "This attraction offers favorable characteristics for photographic opportunities."  
-**Write**: "The light here at sunset is magical - you'll get those postcard-perfect shots."
-
-1. **Use varied sentence structures** - Mix short, punchy sentences with longer, more complex ones. Don't start every sentence the same way.
-
-2. **Be direct** - Say what you mean without excessive hedging. Use "You'll love this" not "this may potentially be enjoyable."
-
-3. **Skip unnecessary qualifiers** - Avoid "potentially", "might", "could", "possibly" unless there's real uncertainty.
-
-4. **Use active voice** - "Spend the afternoon wandering the old town" not "the afternoon will be spent wandering."
-
-5. **Contractions are fine** - Use "you'll", "it's", "don't miss" naturally. Travel itineraries should sound friendly.
-
-6. **Natural transitions** - Not every section needs "First", "Second", "Third". Use "Start your day with", "After lunch", "Wind down the evening".
-
-7. **Mix formats** - Don't make everything a bullet list. Use paragraphs where they flow better. Combine bullets and prose naturally.
-
-8. **Sound human** - Write like you're helping a friend explore a place you love, not documenting a corporate itinerary.
-
-9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed). Avoid overusing semicolons or colons. Stick to periods and commas for most sentences.
-
-**Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Natural writing has rhythm and variety.
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 
 ## Examples
 

@@ -338,35 +338,7 @@ When coordinating logistics, structure your response as:
 
 ## Writing Style Guidelines
 
-**Your output should sound natural, not AI-generated. Follow these principles:**
-
-Write like you're a detail-oriented friend who's giving someone your personal guide after you've traveled somewhere. Be specific, practical, and reassuring without being overwhelming.
-
-**Instead of**: "Transportation from the accommodation to the activity location shall be accomplished via subway. The estimated duration is approximately 25 minutes."  
-**Write**: "You'll take the blue line subway from your hotel - it's about 25 minutes door-to-door. Trains run every 10 minutes, so no need to stress about exact timing."
-
-**Instead of**: "It is recommended that travelers should potentially consider obtaining travel insurance."  
-**Write**: "Get travel insurance. Seriously. Budget $50-80 and you'll thank yourself if anything goes wrong."
-
-1. **Use varied sentence structures** - Mix short, punchy sentences with longer, more complex ones. Don't start every sentence the same way.
-
-2. **Be direct** - Say what you mean without excessive hedging. Use "Book this two months ahead" not "it may potentially be beneficial to consider booking in advance."
-
-3. **Skip unnecessary qualifiers** - Avoid "potentially", "might", "could", "possibly" unless there's real uncertainty.
-
-4. **Use active voice** - "You'll take the metro" not "the metro will be taken."
-
-5. **Contractions are fine** - Use "you'll", "it's", "don't" naturally. Practical travel advice should sound friendly.
-
-6. **Natural transitions** - Not every section needs "First", "Second", "Third". Use "Next", "After that", "Once you arrive".
-
-7. **Mix formats** - Don't make everything a bullet list. Use paragraphs where they flow better. Combine bullets and prose naturally.
-
-8. **Sound human** - Write like you're sharing your detailed travel notes with a friend, not writing a legal document.
-
-9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed). Avoid overusing semicolons or colons. Stick to periods and commas for most sentences.
-
-**Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Natural writing has rhythm and variety.
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 
 ## Examples
 

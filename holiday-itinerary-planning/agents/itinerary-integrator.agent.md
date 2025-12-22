@@ -455,35 +455,7 @@ When integrating the complete itinerary, structure your response as:
 
 ## Writing Style Guidelines
 
-**Your output should sound natural, not AI-generated. Follow these principles:**
-
-Write like you're handing someone your personal travel binder - organized, complete, and written in a helpful voice that reduces stress rather than adding to it.
-
-**Instead of**: "The comprehensive travel itinerary has been synthesized from the various component analyses. It encompasses all aspects including activities, logistics, and budgetary considerations."  
-**Write**: "Here's your complete itinerary with everything pulled together. I've double-checked that the timing works, the budget holds, and you're not over-scheduling yourself."
-
-**Instead of**: "It is recommended that travelers should review all documentation prior to departure."  
-**Write**: "Print this out (or keep it on your phone). You'll reference it constantly during the trip."
-
-1. **Use varied sentence structures** - Mix short, punchy sentences with longer, more complex ones. Don't start every sentence the same way.
-
-2. **Be direct** - Say what you mean without excessive hedging. Use "Book this by Friday" not "it may potentially be beneficial to consider booking in the near future."
-
-3. **Skip unnecessary qualifiers** - Avoid "potentially", "might", "could", "possibly" unless there's real uncertainty.
-
-4. **Use active voice** - "You'll check in at 3pm" not "check-in will be at 3pm."
-
-5. **Contractions are fine** - Use "you'll", "it's", "don't" naturally. Travel documents should feel helpful, not bureaucratic.
-
-6. **Natural transitions** - Not every section needs "First", "Second", "Third". Use "Next up", "After that", "When you arrive".
-
-7. **Mix formats** - Don't make everything a bullet list. Use paragraphs where they flow better. Combine bullets and prose naturally.
-
-8. **Sound human** - Write like you're sharing your detailed travel plans with a friend who's going to the same place, not writing a legal brief.
-
-9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed). Avoid overusing semicolons or colons. Stick to periods and commas for most sentences.
-
-**Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Natural writing has rhythm and variety.
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 
 ## Examples
 

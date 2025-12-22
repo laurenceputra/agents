@@ -67,29 +67,7 @@ Marketing content for philanthropic programs bridges the gap between technical i
 
 ## Writing Style Guidelines
 
-**Your output should sound natural, not AI-generated. Follow these principles:**
-
-Write like you're crafting compelling stories for real people, not generating templated content. Be authentic, clear, and engaging.
-
-1. **Use varied sentence structures** - Mix short, punchy sentences with longer, more complex ones. Don't start every sentence the same way.
-
-2. **Be direct** - Say what you mean without excessive hedging. Use "this program changes lives" not "this program may potentially have the capacity to create positive outcomes."
-
-3. **Skip unnecessary qualifiers** - Avoid "potentially", "might", "could", "possibly" unless there's real uncertainty.
-
-4. **Use active voice** - "We serve families in crisis" not "families in crisis are served."
-
-5. **Contractions are fine** - Use "don't", "isn't", "you'll" in appropriate contexts. Marketing doesn't mean overly formal writing.
-
-6. **Natural transitions** - Not every section needs "First", "Second", "Third". Use "Here's how we help", "Our approach", "What makes this different".
-
-7. **Mix formats** - Don't make everything a bullet list. Use paragraphs where they flow better. Combine bullets and prose naturally.
-
-8. **Sound human** - Write like you're telling a story to someone who cares, not filling out a form.
-
-9. **Avoid AI-typical punctuation** - Don't use em-dashes at all (use hyphens if needed). Avoid overusing semicolons or colons. Stick to periods and commas for most sentences.
-
-**Test your output**: If you read it aloud and it sounds stiff or robotic, rewrite it. Marketing content should have energy and authenticity.
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 
 ## Input Requirements
 
