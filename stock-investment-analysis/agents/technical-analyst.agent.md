@@ -317,6 +317,226 @@ Stock Research Report for Apple (AAPL):
 **Analyst**: Technical Analyst Agent
 **Input Source**: Stock Research Report dated 2024-12-14
 **Price Data**: As of 2024-12-14, Current Price $185.50
+
+### Example 2: Downtrend with Bearish Indicators (Weak Technical Setup)
+
+**Input:**
+```
+Stock Research Report for Boeing (BA):
+- Current Price: $175
+- 52-week range: $165 - $265
+- Price below 50-day MA ($185) and 200-day MA ($215)
+- Death cross: 50-MA crossed below 200-MA in September
+- RSI at 32 (approaching oversold)
+- Volume elevated on down days (distribution pattern)
+```
+
+**Output:**
+```markdown
+# Technical Analysis Report: Boeing Company (BA)
+**Date**: 2024-12-14
+**Analyst**: Technical Analyst Agent
+**Input Source**: Stock Research Report dated 2024-12-14
+**Price Data**: As of 2024-12-14, Current Price $175
+
+## 1. Executive Summary
+**Technical Outlook**: Bearish
+**Confidence Level**: High
+**Trend**: Downtrend (all timeframes)
+**Momentum**: Weakening (approaching oversold)
+
+**Key Takeaway**: Boeing in confirmed downtrend with price below all major moving averages, death cross in September, and distribution pattern on volume; RSI approaching oversold (32) suggests potential bounce, but trend remains bearish; avoid until clear reversal signal.
+
+## 2. Price Trend Analysis
+
+### Long-Term Trend (12 Months)
+- **Trend Direction**: Downtrend
+- **Trend Strength**: Strong
+- **Description**: BA peaked at $265 in March 2024, then entered sustained downtrend. Price making lower highs and lower lows throughout year. Down -34% from March high. Downtrend line from March high currently at $195 (resistance).
+- **Key Levels**:
+  - **Resistance**: $215 (200-day MA and prior support), $225 (breakdown level from July)
+  - **Support**: $165 (52-week low, tested November), $155 (2020 pandemic low, psychological level)
+
+### Intermediate Trend (6 Months)
+- **Trend Direction**: Downtrend
+- **Trend Strength**: Strong
+- **Description**: Accelerated decline from July ($225) to November ($165), down -27% in 4 months. Brief bounce to $185 in November failed at 50-day MA. Currently retesting $175 support.
+- **Key Levels**:
+  - **Resistance**: $185 (50-day MA, failed breakout), $195 (downtrend line)
+  - **Support**: $165 (recent low), $155 (major support)
+
+### Short-Term Trend (3 Months)
+- **Trend Direction**: Downtrend
+- **Momentum**: Decelerating (oversold bounce possible)
+- **Description**: Sharp drop from $200 (Sept) to $165 (Nov). Brief bounce to $185 failed. Currently at $175, down from $185 rejection. RSI oversold suggests bounce imminent, but trend bearish.
+- **Key Levels**:
+  - **Immediate Resistance**: $180 (minor resistance), $185 (50-day MA)
+  - **Immediate Support**: $170 (minor support), $165 (major support)
+
+**Trend Alignment**: All timeframes bearish (strong sell signal)
+
+## 3. Chart Pattern Analysis
+
+### Primary Pattern
+**Pattern Type**: Bearish Continuation - Descending Triangle
+**Formation Period**: September 2024 to present (3 months)
+**Status**: Forming (not yet broken down, but at risk)
+**Description**: BA forming descending triangle with flat bottom at $165 (support tested 3 times: early Nov, mid-Nov, late Nov) and lower highs ($185, $180, $175). Classic bearish continuation pattern. If breaks below $165, measured move targets $125.
+**Implication**: Bearish (breakdown below $165 projects -$40 measured move)
+**Target Price (if breakdown)**: $125 (measured move: $165 support - $40 triangle height)
+**Invalidation Level**: $195 (if price closes above downtrend line, pattern fails and signals reversal)
+
+### Secondary Patterns
+**Pattern Type**: Failed Breakdown (November)
+**Description**: BA broke below $165 briefly on Nov 15 but closed above (false breakdown). Bulls defended level, causing 10% bounce to $185. However, bounce failed at 50-MA resistance, and price returned to $175.
+**Implication**: Support at $165 critical; if breaks on closing basis, likely continuation lower
+
+### Support and Resistance Zones
+| Level Type | Price | Significance | Tests | Last Test |
+|------------|-------|--------------|-------|-----------|
+| Major Resistance | $215 | Very Strong (200-MA) | 0 | Sept 2024 |
+| Major Resistance | $195 | Strong (downtrend) | 2 | Oct, Nov 2024 |
+| Minor Resistance | $185 | Moderate (50-MA) | 1 | Nov 2024 |
+| Minor Resistance | $180 | Weak | 1 | Dec 2024 |
+| Current Price | $175 | - | - | Dec 14, 2024 |
+| Minor Support | $170 | Weak | 1 | Dec 2024 |
+| Major Support | $165 | Strong (3 tests) | 3 | Nov 2024 |
+| Major Support | $155 | Very Strong | 0 | 2020 low |
+
+## 4. Technical Indicator Analysis
+
+### Moving Averages
+- **20-Day MA**: $180 (Stock Below MA by -2.8%)
+  - **Signal**: Bearish (price below MA, MA falling)
+- **50-Day MA**: $185 (Stock Below MA by -5.4%)
+  - **Signal**: Bearish (price rejected at MA in November)
+  - **Slope**: Falling (bearish)
+- **200-Day MA**: $215 (Stock Below MA by -18.6%)
+  - **Signal**: Bearish (price far below long-term MA)
+  - **Slope**: Falling (bearish)
+- **Death Cross**: Occurred September 2024 (50-MA crossed below 200-MA), bearish signal
+
+**Moving Average Assessment**: Bearish (price below all MAs, all MAs falling, death cross active)
+
+### Relative Strength Index (RSI)
+- **Current RSI (14-day)**: 32
+- **Interpretation**: Approaching oversold (<30); suggests potential bounce but not reversal. Oversold conditions can persist in strong downtrends.
+- **Recent Divergences**: Bullish divergence forming (price making lower lows but RSI making higher lows since November) - early reversal signal, but needs confirmation
+- **Signal**: Bearish trend, but oversold bounce likely in near term
+
+### MACD (Moving Average Convergence Divergence)
+- **MACD Line**: -4.2
+- **Signal Line**: -3.5
+- **Histogram**: -0.7 (Negative, but narrowing)
+- **Recent Crossover**: No recent crossover; MACD below signal line since October (bearish)
+- **Interpretation**: Bearish momentum, but histogram narrowing (momentum decelerating) - could signal bounce
+- **Signal**: Bearish (downtrend intact)
+
+### Volume Analysis
+- **Average Volume (20-day)**: 6.2 million shares
+- **Recent Volume Trend**: Elevated during declines, lighter on bounces
+- **Volume on Recent Move**: Nov 15 selloff to $165: 9.8M shares (1.6x average); Nov bounce to $185: 5.5M (below average)
+- **Interpretation**: Distribution pattern (high volume on selling, low volume on rallies) indicates institutional selling
+- **Signal**: Bearish (volume not supporting bounces; rallies are short-covering, not accumulation)
+
+### Additional Indicators
+- **Bollinger Bands**: Stock at lower band ($168); bands wide (high volatility). Oversold against lower band (bounce likely but trend bearish).
+- **ATR (Average True Range)**: $6.50 (14-day); volatility very high (stress in stock)
+
+## 5. Technical Outlook and Momentum
+
+### Overall Momentum
+**Momentum Rating**: Moderate Bearish (weakening)
+
+**Supporting Bearish Factors**:
+- Price below all major moving averages (20, 50, 200-day) with falling slopes
+- Death cross active since September (50-MA below 200-MA)
+- Descending triangle pattern (bearish continuation)
+- Distribution on volume (high volume selling, low volume rallies)
+- All timeframes in downtrend
+
+**Contradicting Factors (Suggesting Bounce)**:
+- RSI approaching oversold (32, near 30 trigger)
+- Bullish RSI divergence (price lower lows, RSI higher lows)
+- MACD histogram narrowing (momentum decelerating)
+- Support at $165 held 3 times (bulls defending level)
+
+**Assessment**: Downtrend intact, but oversold conditions suggest near-term bounce to $180-185 likely. However, any bounce should be viewed as selling opportunity unless price breaks above $195 (downtrend line).
+
+### Breakout/Breakdown Watch
+- **Key Level to Watch**: $165 (critical support)
+- **Breakdown Scenario**: If price closes below $165 with volume >7M shares:
+  - **Target**: $155 (next major support), then $125 (measured move from descending triangle)
+  - **Probability**: Medium (50%; support tested 3 times, may break on 4th test)
+- **Bounce Scenario**: If price bounces from current $175 level (oversold):
+  - **Target**: $180-185 (50-day MA resistance)
+  - **Probability**: Medium-High (60%; oversold conditions typically produce bounces, but trend remains bearish)
+
+## 6. Entry and Exit Recommendations
+
+### Optimal Entry Points (for Contrarian Bounce Play Only)
+**Note**: Recommend avoiding BA until clear reversal signal. If attempting bounce trade:
+**Primary Entry**: $168-170 (Rationale: Near lower Bollinger Band, extreme oversold on RSI; very short-term bounce play only)
+**Secondary Entry**: $165-166 (Rationale: Major support level; last line of defense before breakdown)
+
+**DO NOT RECOMMEND LONG-TERM ENTRIES** - Downtrend too strong. Any entry is high-risk, short-term trade only.
+
+### Stop-Loss Levels (if attempting bounce trade)
+**Conservative Stop**: $162 (below $165 support; 5-7% risk)
+**Aggressive Stop**: $165 closing basis (if breaks support, exit immediately)
+
+### Target Prices (for bounce trade only)
+**First Target**: $180 (3% gain; 20-day MA resistance, realistic for dead-cat bounce)
+**Second Target**: $185 (6% gain; 50-day MA resistance, requires strong momentum)
+**DO NOT hold beyond $185** - Major resistance and downtrend line near $195
+
+### Risk-Reward Ratio (for bounce trade from $170)
+**Entry**: $170
+**Stop-Loss**: $162 (Risk: $8 or 4.7%)
+**Target**: $180 (Reward: $10 or 5.9%)
+**Risk-Reward Ratio**: 1:1.25 (Barely acceptable; only for skilled short-term traders)
+
+**WARNING**: Risk-reward unfavorable for long-term investors. Trend is bearish. Avoid until reversal confirmed (price above $195 and 50-MA).
+
+## 7. Technical Warnings and Cautions
+
+### Red Flags
+1. **Death Cross Active**: 50-MA crossed below 200-MA in September (major bearish signal); historically precedes further declines
+   - **Severity**: High (strong long-term bearish indicator)
+2. **Distribution Pattern on Volume**: Institutional selling evident (high volume on declines, low volume on rallies); smart money exiting
+   - **Severity**: High (indicates lack of conviction in rallies)
+3. **Descending Triangle**: Bearish continuation pattern; breakdown below $165 targets $125 (-28% from current price)
+   - **Severity**: High (pattern breakdown would accelerate decline)
+4. **Price 18.6% Below 200-Day MA**: Significant divergence from long-term trend; indicates major trend reversal
+   - **Severity**: High (large gap to close before trend turns bullish)
+
+### Timing Considerations
+- **Best Case Timing**: AVOID until price closes above $195 (downtrend line) and 50-MA ($185). Wait for clear reversal.
+- **Caution Zones**: 
+  - Any entry above $180 is "chasing" a bounce into resistance (high risk)
+  - Breakdown below $165 triggers measured move to $125 (avoid catching falling knife)
+- **Alternative Strategy**: 
+  - For aggressive traders: Bounce trade from $168-170 to $180-185 (very short-term, tight stops)
+  - For long-term investors: Place on watchlist; wait for reversal confirmation (price > $195 and golden cross)
+
+## 8. Technical Summary and Recommendation
+
+**Technical Recommendation**: Sell / Avoid (from technical perspective)
+
+**Rationale**: Boeing in confirmed downtrend across all timeframes with death cross, price below all major MAs, and bearish descending triangle pattern. While RSI oversold (32) suggests near-term bounce possible, trend remains firmly bearish. Distribution on volume indicates institutional selling. Risk of breakdown below $165 support targeting $125. Recommend avoiding until clear reversal (price > $195 and above 50-MA).
+
+**Timing Assessment**:
+- **Immediate Entry**: Unfavorable (downtrend too strong; oversold bounce insufficient reason for long-term entry)
+- **Wait for Setup**: Yes (wait for reversal: price above $195 and 50-MA, preferably golden cross)
+
+**Confidence in Technical Outlook**: High (bearish indicators strongly aligned)
+**Key Assumptions**: Assumes downtrend continuation unless $195 resistance broken; assumes $165 support may break on next test; assumes any bounce is temporary (dead-cat bounce)
+
+---
+
+**Next Steps**: Hand off to **Risk Assessor** for volatility and drawdown risk evaluation (BA has high volatility and significant downside risk)
+```
+
 ## Quality Checklist
 
 When completing a technical analysis report, verify:
