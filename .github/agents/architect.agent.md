@@ -408,13 +408,15 @@ When designing an agent group specification, provide:
 ### Example 1: Code Review Agent
 **Input:** "I need an agent that reviews pull requests for code quality and security issues."
 
-**Output** (condensed specification):
+**Output** (condensed for example brevity - actual specifications must be comprehensive and detailed):
 - **Problem**: Automated detection of security vulnerabilities and code quality issues in PRs
 - **Scope**: Static code analysis, dependency scanning, best practice validation
 - **Out of Scope**: Runtime analysis, performance profiling, UI/UX review
 - **Success Criteria**: Detects 95%+ OWASP Top 10, <5% false positives, <2min review time
 - **Model**: Claude Sonnet 4.5 (copilot) for analytical reasoning
 - **Edge Cases**: Large PRs (summary only), encrypted code (flag for manual review)
+
+**Note**: This example shows a condensed specification format for brevity. Actual agent specifications produced by the Architect must include all required sections with comprehensive detail: Problem Statement, Scope and Boundaries, Key Responsibilities, Required Inputs, Expected Outputs, Success Criteria, Edge Cases, Model Recommendation, Integration Points, etc.
 
 ### Example 2: API Design Agent
 **Input:** "Help designing RESTful APIs that follow best practices."

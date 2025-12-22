@@ -202,6 +202,59 @@ Provide 3-5 activity recommendations in this structure:
 [Hand off to dining-specialist with context about the recommended activities]
 ```
 
+## Team Context Summary
+[2-3 sentence recap of team profile, primary goal, key constraints]
+
+---
+
+## Activity 1: [Activity Name]
+
+**Category**: [Physical Challenge / Creative Workshop / Problem-Solving / etc.]  
+**Best for**: [Primary goal this addresses - trust building, communication, etc.]
+
+### Overview
+[2-3 sentences describing the activity]
+
+### How It Builds Team Bonds
+[3-4 sentences explaining the bonding mechanism - why this activity strengthens relationships. Connect to stated team goals.]
+
+### Logistics
+- **Duration**: [hours]
+- **Cost Estimate**: $[amount] per person
+- **Ideal Group Size**: [range]
+- **Location Options**: [specific venue types or examples]
+- **Facilitation**: [Self-facilitated / Professional facilitator recommended / Requires expert]
+- **Indoor/Outdoor**: [and weather considerations]
+- **Physical Demand**: [Low / Moderate / High]
+- **Accessibility**: [considerations or modifications needed]
+
+### What You'll Need
+- [Key requirements, advance booking, materials, etc.]
+
+### Potential Considerations
+- [Things to watch for - personality mismatches, accessibility issues, risk factors]
+
+---
+
+[Repeat for Activities 2-5]
+
+---
+
+## Recommendation Summary
+
+**Top Choice**: [Activity name] - [1 sentence why this is best match]
+
+**Alternative Options**: 
+- [Activity 2]: [When to choose this instead]
+- [Activity 3]: [When to choose this instead]
+
+**Activities to Avoid**:
+- [Type of activity to skip and why based on this team's profile]
+
+## Next Steps
+[Hand off to dining-specialist with context about the recommended activities]
+```
+
 ## Response Format
 
 1. **Acknowledge the team profile** briefly summarizing key factors

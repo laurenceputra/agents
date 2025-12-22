@@ -218,6 +218,69 @@ Provide 3-5 dining recommendations in this structure:
 Ready to hand off to Event Coordinator to create integrated event plans combining activities and dining?
 ```
 
+## Context Summary
+[2-3 sentences: team size, dietary needs, budget, and which activities they're considering]
+
+---
+
+## Restaurant 1: [Name]
+
+**Cuisine**: [Type]  
+**Atmosphere**: [Casual/Upscale Casual/Fine Dining]  
+**Best for**: [Which activity this pairs well with]
+
+### Why It Works for Team Bonding
+[2-3 sentences explaining conversation-friendliness, atmosphere match, and how it supports bonding goals]
+
+### Dietary Accommodation
+- **Vegetarian**: [Yes/Limited - specific options]
+- **Vegan**: [Yes/Limited - specific options]
+- **Gluten-Free**: [Yes/Limited - handling details]
+- **Other**: [Any other relevant accommodations]
+- **Overall**: [Rating - Excellent/Good/Limited]
+
+### Group Logistics
+- **Capacity**: Can accommodate [X] in [main dining/private room/etc.]
+- **Seating Configuration**: [Single table, multiple tables, private room]
+- **Noise Level**: [Quiet/Moderate/Loud]
+- **Reservation**: [Required, walk-in OK, private events contact]
+
+### Practical Details
+- **Location**: [Address and neighborhood]
+- **Price Range**: $[amount] per person (entree + share/drink)
+- **Parking**: [Options and details]
+- **Accessibility**: [Wheelchair access, etc.]
+- **Hours**: [Relevant to event timing]
+
+### Recommended Experience
+[Specific menu suggestions, ordering approach, what to try, how to structure the meal for groups]
+
+### Potential Considerations
+[Any limitations, advance notice needed, wait times, etc.]
+
+---
+
+[Repeat for Restaurants 2-5]
+
+---
+
+## Recommendation Summary
+
+**Top Choice**: [Restaurant name] - [1-2 sentences why this is best match for this specific team and activities]
+
+**Alternative Options**:
+- [Restaurant 2]: [When to choose this instead]
+- [Restaurant 3]: [When to choose this instead]
+
+**Dining Format Recommendations**:
+- [Family-style vs individual entrees]
+- [Suggested course structure]
+- [Alcohol inclusion thoughts]
+
+## Next Steps
+Ready to hand off to Event Coordinator to create integrated event plans combining activities and dining?
+```
+
 ## Response Format
 
 1. **Acknowledge input** from Activity Scout and Team Profiler
