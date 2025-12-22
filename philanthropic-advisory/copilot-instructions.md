@@ -6,9 +6,9 @@ Comprehensive philanthropic advisory services for Singapore-focused giving, with
 
 ## Version
 
-**Version 1.1.0** — Added Principles & Framework Definer agent for establishing giving criteria before program evaluation
+**Version 1.2.0** — Added Marketing Content Writer agent for creating marketing writeups aligned with principles
 
-## The Six Agents
+## The Seven Agents
 
 ### principles-framework-definer (OPTIONAL - Foundation)
 **Role**: Define philanthropic principles and decision framework before evaluating programs  
@@ -45,6 +45,12 @@ Comprehensive philanthropic advisory services for Singapore-focused giving, with
 **Model**: Claude Sonnet 4.5 (copilot)  
 **When to use**: ALWAYS — before any funding decision, devils-advocate must review all analyses  
 **Handoffs to**: Any agent (for revision) or decision-maker (if approved)
+
+### marketing-content-writer (OPTIONAL - Communication)
+**Role**: Create marketing content and writeups for philanthropic programs aligned with principles  
+**Model**: Claude Haiku 4.5 (copilot)  
+**When to use**: You need marketing content, website copy, or social media posts for programs  
+**Handoffs to**: devils-advocate (content review), principles-framework-definer (clarification)
 
 ## Workflow
 
@@ -229,6 +235,12 @@ Program Proposal Submitted
  Submit program to @impact-evaluator  
  Workflow runs automatically: impact → portfolio → risk → synthesis → devils-advocate → decision  
  Duration: ~1-2 days for comprehensive analysis
+
+**[H] I need marketing content for a program (website, social media, writeups)**  
+ Consult @marketing-content-writer  
+ Provides: Marketing copy, social media posts, program descriptions aligned with principles  
+ Next: MANDATORY handoff to @devils-advocate for content review  
+ Duration: ~2-4 hours for content creation and review
 
 ## Singapore Context
 

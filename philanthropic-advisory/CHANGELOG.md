@@ -14,21 +14,30 @@ All notable changes to the Philanthropic Advisory agent group will be documented
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.1.0] - 2025-12-21
+## [1.2.0] - 2025-12-21
 
 ### Added
-- Self-update capability via `update-from-upstream.sh` script
-- `UPDATING.md` documentation with complete guide for using the self-update feature
-- Support for direct downloads from GitHub repository using HTTP endpoints
-- GitHub token support for higher API rate limits (5000 req/hr vs 60 req/hr)
-- Automatic file discovery via GitHub API with intelligent fallback to common agent names
-- Portable design allowing agent group to be copied to other projects via `cp -r` and updating itself
-- Smart file handling: updates changed files, adds new files, preserves unchanged files
-- Intentional preservation of local script modifications (update-from-upstream.sh)
+- **Marketing Content Writer Agent**: New agent for creating marketing content and writeups for philanthropic programs
+  - Generates website copy, social media posts, and program descriptions
+  - Ensures content aligns with philanthropic framework from principles-framework-definer
+  - Submits content to devils-advocate for critical review (mandatory quality gate)
+  - Supports multiple content formats (short, medium, long) and platforms (LinkedIn, Facebook, Instagram, Twitter, website)
+  - Adapts tone for different audiences (donors, beneficiaries, public, partners)
+  - Uses Claude Haiku 4.5 (copilot) for creative writing tasks
+  - Handoffs to devils-advocate (content review) and principles-framework-definer (clarification)
+  - **Context**: Addresses need for consistent, principles-aligned marketing communications
+  - **Use case**: Generate marketing content for approved programs, standalone content creation, pre-launch communications
 
 ### Changed
-- Added `AGENTGROUPNAME` file containing the group name for script auto-detection
-- Enhanced error handling and logging in update process
+- **Agent Group Expansion**: Philanthropic-advisory now has seven agents (was six)
+  - Core evaluation workflow unchanged (impact → portfolio → risk → synthesis → devils-advocate → decision)
+  - Marketing-content-writer operates as optional agent, can be called independently or after evaluation
+- **Documentation Updates**: Updated copilot-instructions.md, README.md to reflect new agent and expanded capabilities
+  - Added decision tree option [H] for marketing content needs
+  - Added Example 3 showing marketing content creation workflow
+  - Updated agent count references from "six" to "seven"
+
+
 
 ## [1.0.0] - 2024-12-16
 
@@ -101,7 +110,7 @@ Initial release focuses on Singapore philanthropic giving for at-risk communitie
 
 [1.0.0]: https://github.com/your-repo/philanthropic-advisory-agents/releases/tag/v1.0.0
 
-## [1.1.0] - 2025-12-17
+## [1.1.0] - 2025-12-21
 
 ### Added
 - **Principles & Framework Definer Agent**: New agent for establishing philanthropic principles and decision-making frameworks before program evaluation
@@ -114,11 +123,22 @@ Initial release focuses on Singapore philanthropic giving for at-risk communitie
   - **Context**: Addresses common philanthropist need to define clear principles before making ad-hoc funding decisions
   - **Use case**: Run principles-framework-definer first, establish criteria, then evaluate programs against explicit standards
 
+- **Self-Update Capability**: Added via `update-from-upstream.sh` script
+  - `UPDATING.md` documentation with complete guide for using the self-update feature
+  - Support for direct downloads from GitHub repository using HTTP endpoints
+  - GitHub token support for higher API rate limits (5000 req/hr vs 60 req/hr)
+  - Automatic file discovery via GitHub API with intelligent fallback to common agent names
+  - Portable design allowing agent group to be copied to other projects via `cp -r` and updating itself
+  - Smart file handling: updates changed files, adds new files, preserves unchanged files
+  - Intentional preservation of local script modifications (update-from-upstream.sh)
+
 ### Changed
 - **Workflow Enhancement**: Philanthropic-advisory workflow now supports optional "framework definition first" path
   - Original workflow remains: Program → @impact-evaluator → ... (no framework needed)
   - New workflow option: @principles-framework-definer → Framework → Program → @impact-evaluator (uses framework criteria) → ...
   - **Context**: Flexible integration - philanthropists can define framework upfront or evaluate programs without explicit framework
+- Added `AGENTGROUPNAME` file containing the group name for script auto-detection
+- Enhanced error handling and logging in update process
 
 ## 1.0.1 - 2025-12-17
 
