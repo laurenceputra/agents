@@ -2,7 +2,7 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 2.0.0
+version: 2.1.0
 handoffs:
   - label: "Hand to Implementer"
     agent: "agent-implementer"
@@ -55,6 +55,9 @@ All agent specifications MUST use the standardized frontmatter schema. See `COMM
 - Design integration points with other agents
 - Consider edge cases and error scenarios
 - Document assumptions and limitations
+- **Design concise specifications targeting 15,000-20,000 character agents**
+- **Flag specifications approaching 25,000 characters for review**
+- **Recommend agent splits for overly complex specifications**
 - **NEVER implement agents or write agent definition files - delegate to Agent Implementer**
 
 ### For Agent Groups
@@ -196,6 +199,11 @@ The Agent Architect produces a structured specification document with these sect
 
 ## Quality Metrics
 - [How to measure agent effectiveness]
+
+## Size Guidance
+- Target agent file size: 15,000-20,000 characters
+- If approaching 25,000 characters, recommend optimization or agent split
+- Hard limit: 30,000 characters (GitHub Copilot constraint)
 
 ## Writing Style Guidelines
 

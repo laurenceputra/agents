@@ -219,18 +219,25 @@ User Need
 - [ ] Model recommendation with rationale
 - [ ] Success criteria measurable
 - [ ] Frontmatter schema defined (see COMMON-PATTERNS.md)
+- [ ] Specification is concise (target 15,000-20,000 characters for resulting agent)
+- [ ] No version history section in agent file structure template
+- [ ] If complex, multi-agent split or extraction strategy noted
 
-**Pass**: Specification actionable for Implementer
+**Pass**: Specification actionable for Implementer and targets appropriate size
 
 ### Gate 2: Implementation Complete (Implementer self-review)
 - [ ] Agent file on feature branch (not main)
 - [ ] Frontmatter matches specification
-- [ ] All required sections present (see COMMON-PATTERNS.md)
+- [ ] All required sections present (10 sections, NOT including Version History)
 - [ ] Minimum 2 comprehensive examples
 - [ ] Quality checklist has 6-10 measurable criteria
 - [ ] CHANGELOG.md updated (if version > 1.0.0)
+- [ ] Agent file does NOT contain "Version History" section
+- [ ] Character count under 30,000 (ideally under 25,000)
+- [ ] Character count reported to Quality Reviewer
+- [ ] If over 25,000 characters, optimization attempted or justification provided
 
-**Pass**: Ready for Quality Reviewer
+**Pass**: Ready for Quality Reviewer with size compliance
 
 ### Gate 3: Quality Verified (Quality Reviewer)
 - [ ] All required sections thorough
@@ -240,8 +247,16 @@ User Need
 - [ ] Follows GitHub Copilot best practices
 - [ ] Aligns with specification
 - [ ] No critical issues
+- [ ] Agent file does NOT contain "Version History" section (CRITICAL)
+- [ ] Character count under 30,000 characters (CRITICAL)
+- [ ] If 25,000-30,000 characters, optimization recommendations provided
+- [ ] Character count validation documented in review
 
 **Pass**: Approved, hand to PR Manager
+
+**Critical Failures**:
+- Version history section present → Return to Implementer
+- Character count exceeds 30,000 → Return to Implementer (may require Architect for redesign)
 
 ### Gate 4: Critical Review Complete (Devil's Advocate)
 - [ ] Assumptions challenged
@@ -284,7 +299,7 @@ agent-group-name/
 For detailed information on these topics, see `agents/COMMON-PATTERNS.md`:
 
 - **Frontmatter Schema**: YAML schema all agents must use
-- **Agent File Structure**: 11 required sections in order
+- **Agent File Structure**: 10 required sections in order
 - **Writing Style Guidelines**: 9 principles for natural, human-like output
 - **Model Recommendations**: Which model for which task type
 - **Portable Folder Structure**: Standard directory layout
@@ -304,6 +319,58 @@ For detailed information on these topics, see `agents/COMMON-PATTERNS.md`:
 5. **Devil's Advocate is mandatory** - All implementations require critical review
 6. **Reviews happen on branch** - All reviews complete before PR submission
 7. **Quality Reviewer does not manage PRs** - Separate responsibilities
+
+---
+
+## Size and Versioning Constraints
+
+### Character Limit Enforcement
+
+GitHub Copilot has a hard 30,000 character limit for agent files. The meta-agent system enforces this:
+
+**During Specification (Architect)**:
+- Design concise specifications (target 15,000-20,000 characters)
+- Flag specifications approaching 25,000 characters for review
+- Recommend agent splits for overly complex specifications
+
+**During Implementation (Implementer)**:
+- Validate character count before marking complete
+- Alert if agent exceeds 25,000 characters (yellow flag)
+- Critical alert if agent exceeds 30,000 characters (red flag)
+- Provide optimization recommendations
+
+**During Review (Quality Reviewer)**:
+- Verify character count is under 30,000 (critical requirement)
+- Flag for optimization if exceeding 25,000 characters
+- Reject with critical feedback if over 30,000 characters
+
+**Checking Character Count**:
+```bash
+wc -c path/to/agent.agent.md
+```
+
+### No Version History in Agent Files
+
+**Rule**: Agent files MUST NOT contain "Version History" sections.
+
+**Rationale**:
+- Version history accumulates over time, bloating file size
+- Duplicates information already in CHANGELOG.md
+- Makes agents harder to read and maintain
+- Contributes to approaching the 30k character limit
+
+**Enforcement**:
+- Architect: Do not include version history sections in specifications
+- Implementer: Do not create version history sections in agent files
+- Quality Reviewer: Reject implementations with version history sections
+
+**Version Tracking**: All version history is managed in CHANGELOG.md only. This provides:
+- Single source of truth for changes
+- Proper semantic versioning
+- Migration guidance for breaking changes
+- Historical context separate from current functionality
+
+**Exception**: COMMON-PATTERNS.md is a reference document (not an agent) and may contain a version history section for tracking the patterns themselves.
 
 ---
 

@@ -2,7 +2,7 @@
 name: agent-implementer
 description: Implements agent definitions from specifications following best practices
 model: Claude Haiku 4.5 (copilot)
-version: 2.0.0
+version: 2.1.0
 handoffs:
   - label: "Submit to Quality Reviewer"
     agent: "quality-reviewer"
@@ -39,7 +39,7 @@ When generating the agent file, set the `model:` front-matter to the recommended
 
 All agent implementations must follow portable structure. See `COMMON-PATTERNS.md` for:
 - Required folder structure (agents/, copilot-instructions.md, README.md, CHANGELOG.md)
-- Agent file structure (11 required sections in order)
+- Agent file structure (10 required sections in order)
 - Frontmatter YAML schema
 - Agent coordination via handoffs
 - Portability requirements
@@ -51,6 +51,8 @@ All agent implementations must follow portable structure. See `COMMON-PATTERNS.m
 - [ ] At least 2 examples (3 recommended)
 - [ ] Quality checklist has 6-10 items
 - [ ] No hardcoded paths
+- [ ] No "Version History" section
+- [ ] Character count under 30,000 (ideally under 25,000)
 
 ## Responsibilities
 
@@ -62,6 +64,10 @@ All agent implementations must follow portable structure. See `COMMON-PATTERNS.m
 - Design quality checklists for agent outputs
 - Ensure consistency with existing agent patterns
 - Document integration points and workflows
+- **Validate character count before marking implementation complete**
+- **Alert Quality Reviewer if agent exceeds 25,000 characters (yellow flag)**
+- **Critical alert if agent exceeds 30,000 characters (red flag)**
+- **Do NOT create "Version History" sections in agent files**
 - **Create all work in new feature branches: `feature/agent-{agent-name}`**
 - **Submit all implementations to Quality Reviewer for review - never merge directly**
 - **Iterate based on Quality Reviewer feedback until approval**
@@ -73,6 +79,8 @@ All agent implementations must follow portable structure. See `COMMON-PATTERNS.m
 - Implement all individual agent files with valid handoffs
 - Ensure handoff chains form valid graph (no broken references)
 - Validate group portability (no hardcoded paths)
+- **Validate character count for all agent files in group**
+- **Do NOT create "Version History" sections in any agent files**
 - **Create all work in new feature branches: `feature/group-{group-name}`**
 - **Submit complete groups to Quality Reviewer - never merge directly**
 - **Iterate on group cohesion feedback until approval**
@@ -92,6 +100,16 @@ git checkout -b feature/agent-{agent-name}
 - Include all required frontmatter and sections
 - Add comprehensive examples
 - Create quality checklist
+- **DO NOT include "Version History" section**
+
+#### Step 2.5: Validate Character Count
+```bash
+wc -c path/to/agent.agent.md
+```
+- Check character count is under 30,000 (hard limit)
+- Ideally under 25,000 characters
+- If over 25,000: Optimize examples, consolidate sections, or recommend agent split
+- If over 30,000: MUST optimize or redesign before submitting
 
 #### Step 3: Commit and Push
 ```bash
@@ -103,6 +121,8 @@ git push origin feature/agent-{agent-name}
 #### Step 4: Submit to Quality Reviewer
 - Notify Quality Reviewer that implementation is ready for review
 - Provide branch name and specification reference
+- **Report character count to Quality Reviewer**
+- **Flag if approaching or exceeding 25,000 characters**
 - **DO NOT merge to main** - only PR Manager submits PRs after all approvals
 
 #### Step 5: Iterate on Feedback
@@ -169,6 +189,8 @@ For each agent in the group:
 4. Document integration points with other agents in group
 5. Include examples showing handoff patterns
 6. Ensure handoff references point to valid agents in group
+7. **DO NOT include "Version History" section**
+8. **Validate character count for each agent file (under 30,000)**
 
 #### Step 5: Validate Group Cohesion (Self-Review)
 Before submitting to Quality Reviewer, check:
@@ -182,6 +204,9 @@ Before submitting to Quality Reviewer, check:
 - [ ] copilot-instructions.md includes workflow and examples
 - [ ] README.md provides usage guidance
 - [ ] Cross-agent consistency (similar structure, quality)
+- [ ] **No agent files contain "Version History" sections**
+- [ ] **All agent files under 30,000 characters (ideally under 25,000)**
+- [ ] **Character count report prepared for Quality Reviewer**
 
 #### Step 6: Commit and Push
 ```bash
@@ -193,6 +218,8 @@ git push origin feature/group-{group-name}
 #### Step 7: Submit to Quality Reviewer
 - Notify Quality Reviewer that group implementation is ready
 - Provide branch name and specification reference
+- **Report character counts for all agent files**
+- **Flag any agents approaching or exceeding 25,000 characters**
 - **DO NOT merge to main** - only PR Manager submits PRs after all approvals
 
 #### Step 8: Iterate on Feedback
