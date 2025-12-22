@@ -66,7 +66,49 @@ All agent files follow this section order:
 8. **Examples**: Minimum 2, ideally 3 comprehensive examples
 9. **Quality Checklist**: 6-10 measurable criteria
 10. **Integration Points**: Upstream/downstream dependencies
-11. **Version History**: Chronological change log
+
+**Version History Prohibition**: Agent files MUST NOT contain version history sections. All version tracking is managed in CHANGELOG.md only.
+
+**Character Limit**: Agent files MUST NOT exceed 30,000 characters (GitHub Copilot hard limit). Target 15,000-20,000 characters. Flag for review if exceeding 25,000 characters.
+
+## Size Management Guidelines
+
+GitHub Copilot enforces a 30,000 character limit on agent files. Follow these guidelines to stay within limits:
+
+### Character Count Targets
+- **Target Range**: 15,000-20,000 characters (comfortable headroom)
+- **Yellow Flag**: 25,000-30,000 characters (review for optimization)
+- **Hard Limit**: 30,000 characters (agent will fail to load)
+
+### Validation Requirements
+- Agent Implementer MUST check character count before completion
+- Quality Reviewer MUST verify character count during review
+- Any agent exceeding 30,000 characters MUST be rejected with critical feedback
+
+### Optimization Strategies
+
+**If approaching 25,000 characters:**
+1. **Reduce example verbosity**: Use concise examples, remove redundant scenarios
+2. **Consolidate sections**: Merge overlapping content, eliminate repetition
+3. **Extract to README**: Move usage guides, tutorials, and extended examples to README.md
+4. **Simplify quality checklists**: Keep 6-10 focused criteria, avoid redundancy
+
+**If exceeding 30,000 characters:**
+1. **Agent split**: Redesign as multiple coordinated agents with clear handoffs
+2. **Reference external docs**: Link to README or external documentation for detailed guidance
+3. **Prioritize core functionality**: Keep only essential instructions in agent file
+
+### Version History Prohibition
+Agent files MUST NOT contain "Version History" sections. This is the single most impactful size reduction strategy:
+- Version history accumulates over time without improving current functionality
+- All version tracking belongs in CHANGELOG.md (single source of truth)
+- Removing version history can reclaim thousands of characters
+- Agents focus on current behavior only
+
+### Checking Character Count
+```bash
+wc -c path/to/agent.agent.md
+```
 
 ## Writing Style Guidelines
 
