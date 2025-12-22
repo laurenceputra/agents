@@ -389,6 +389,144 @@ PRD for Self-Service Password Reset (see Product Manager Example 1)
 **Output:**
 ```markdown
 # Test Plan: Self-Service Password Reset
+
+### Example 2: Bug Report - Search Special Characters
+
+**Input:**
+Testing search functionality, discovered query with special characters fails
+
+**Output:**
+```markdown
+# Bug Report #789: Search Fails with Special Characters
+
+## Status
+**Status**: Open
+**Severity**: Critical
+**Priority**: P1
+**Found in Version**: v1.8-staging
+**Assigned to**: Staff Engineer
+
+## Summary
+Search returns no results and 400 error when query contains special characters (quotes, apostrophes, brackets, ampersands), even though matching content exists.
+
+## Impact
+- **User Impact**: Users cannot search for content with punctuation (e.g., `"exact phrase"`, `user's data`). This is a common use case.
+- **Frequency**: Estimated 5-10% of searches (based on error logs)
+- **Workaround**: None - users must search without punctuation
+- **Blocks**: Acceptance Criteria #1 from PRD (search with quotes for exact phrases)
+
+## Environment
+- **Test Environment**: staging.example.com v1.8-rc3
+- **Browser/Device**: Reproduced on Chrome 120, Firefox 115, Safari 17, Edge 120 (all browsers)
+- **User Account**: testuser1@test.com
+- **Test Data**: Standard test content database
+
+## Reproduction Steps
+
+**Preconditions**:
+- Content exists in database with text: "This is the user's data and information"
+
+**Steps to Reproduce**:
+1. Navigate to search page: staging.example.com/search
+2. Enter search query: `user's "data"`
+3. Click "Search" button
+4. Observe results
+
+**Expected Result**:
+- Search executes successfully
+- Results displayed containing "user's data"
+- OR: Special characters gracefully handled (sanitized) and search returns results
+
+**Actual Result**:
+- No results displayed
+- Error message: "An error occurred while searching. Please try again."
+- Console error: `Bad Request: Invalid search query`
+- Network tab shows: `GET /api/v1/search?q=user's%20%22data%22` returns HTTP 400
+
+## Evidence
+
+**Screenshots**: [Attached: screenshot-search-error.png]
+
+**Console Errors**:
+```
+[ERROR] 10:23:45 - GET /api/v1/search 400 (Bad Request)
+Response: {"error": "Invalid search query"}
+
+[ERROR] 10:23:45 - Invalid character in search query: "
+```
+
+**Network Logs**:
+```
+Request URL: https://staging.example.com/api/v1/search?q=user's%20%22data%22
+Request Method: GET
+Status Code: 400 Bad Request
+Response Headers:
+  Content-Type: application/json
+Response Body:
+  {"error": "Invalid search query"}
+```
+
+**Test Results Table**:
+| Query | Status | Notes |
+|-------|--------|-------|
+| `hello world` | ✅ Works | Simple query works fine |
+| `user's data` | ❌ Fails | Apostrophe causes 400 error |
+| `"exact phrase"` | ❌ Fails | Quotes cause 400 error |
+| `[tag] search` | ❌ Fails | Brackets cause 400 error |
+| `cats & dogs` | ❌ Fails | Ampersand causes 400 error |
+| `user data` | ✅ Works | Same query without punctuation works |
+
+## Additional Context
+
+**Related Acceptance Criteria**: 
+- PRD Scenario 1: "Users can search with quotes for exact phrase matching"
+- Currently **NOT MET** due to this bug
+
+**Related Test Cases**:
+- TC-012: Search with special characters (FAILED)
+- TC-013: Search with quoted phrases (FAILED)
+
+**Regression**: No - this is an existing issue, not a regression
+
+**Similar to**: None - new bug discovery
+
+## Suggested Debugging
+
+Based on error message location, the issue appears to be in API Gateway query validation:
+- Check `src/middleware/queryValidator.ts` for overly restrictive regex
+- Validation may reject special characters that should be allowed
+- May need to update validation to allow common punctuation
+- Ensure URL encoding is properly handled
+- Verify database query properly escapes special characters
+
+**Logs to Check**:
+- API Gateway logs at 2025-12-11T10:23:45Z
+- Look for query validation logic
+
+**Possible Root Cause**:
+Validation regex likely only allows `[a-zA-Z0-9\s]` and rejects all punctuation.
+
+## Next Steps for Engineer
+
+1. Reproduce the bug using steps above (should be straightforward)
+2. Identify root cause (likely query validation regex)
+3. Implement fix:
+   - Update validation to allow common special characters (quotes, apostrophes, brackets, ampersands, etc.)
+   - Ensure security (prevent injection attacks)
+   - Add URL encoding if needed
+   - Handle edge cases (only special characters, excessive special characters)
+4. Add tests:
+   - Unit tests for query validation with special characters
+   - Integration tests for search API with special characters
+   - E2E tests for search UI with special characters
+5. Submit for Code Review
+6. After Code Review approval, reassign to QA for retest
+
+---
+
+**QA Notes**: This is a critical bug blocking a key PRD requirement. Recommend prioritizing for v1.8 release.
+```
+
 ## Quality Checklist
 
 When conducting QA testing, verify:

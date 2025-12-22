@@ -337,6 +337,159 @@ The Staff Engineer's response varies by phase:
 **Output:**
 ```markdown
 # Technical Design: Self-Service Password Reset
+
+### Example 2: Code Review Response - Fixing Security Issue
+
+**Input (from Code Reviewer):**
+```
+Code Review Feedback for PR #456: Password Reset Implementation
+
+❌ REJECTED - Critical security issue found
+
+Issue 1: Token generation is not cryptographically secure
+Location: src/services/tokenService.ts:23
+Problem: Using Math.random() for token generation
+Code:
+```typescript
+const token = Math.random().toString(36).substring(2);
+```
+This is predictable and can be brute-forced. MUST use crypto.randomBytes().
+
+Issue 2: Rate limiting is per-IP, not per-email
+Location: src/middleware/rateLimiter.ts:15
+Problem: Will block legitimate users behind NAT/VPN
+Code:
+```typescript
+const key = `password_reset_rate:${req.ip}`;
+```
+Should rate limit by email address as per design doc.
+
+Issue 3: SQL injection vulnerability
+Location: src/services/userService.ts:42
+Problem: Email is directly interpolated into query
+Code:
+```typescript
+const query = `SELECT * FROM users WHERE email = '${email}'`;
+```
+MUST use parameterized queries.
+
+Issue 4: Sensitive data in logs
+Location: src/routes/passwordReset.ts:67
+Problem: Logging full reset token
+Code:
+```typescript
+logger.info(`Reset token generated: ${token}`);
+```
+Tokens should never be logged. Remove or log token hash only.
+
+Please fix these issues and resubmit for review.
+```
+
+**Output (Staff Engineer Response):**
+```markdown
+## Response to Code Review Feedback - PR #456
+
+Thank you for the thorough review. I've addressed all four issues.
+
+### Issue 1: Token generation not cryptographically secure ✅ FIXED
+**Reviewer**: Code Reviewer
+**Issue**: Using Math.random() instead of cryptographically secure random number generation
+**Resolution**: Replaced Math.random() with crypto.randomBytes() for secure token generation
+**Location**: src/services/tokenService.ts:23
+
+**Before**:
+```typescript
+const token = Math.random().toString(36).substring(2);
+```
+
+**After**:
+```typescript
+import crypto from 'crypto';
+
+const token = crypto.randomBytes(32).toString('base64url'); // 256-bit token
+```
+
+**Testing**: Added unit test verifying token uniqueness over 10,000 generations; verified tokens are URL-safe base64url format.
+
+### Issue 2: Rate limiting per-IP instead of per-email ✅ FIXED
+**Reviewer**: Code Reviewer
+**Issue**: Rate limiting by IP address blocks legitimate users behind NAT; design doc specifies email-based rate limiting
+**Resolution**: Changed rate limiting key from IP to email address
+**Location**: src/middleware/rateLimiter.ts:15
+
+**Before**:
+```typescript
+const key = `password_reset_rate:${req.ip}`;
+```
+
+**After**:
+```typescript
+const email = req.body.email;
+const key = `password_reset_rate:${email}`;
+```
+
+**Testing**: Updated integration tests to verify rate limiting works correctly per email; tested multiple users from same IP can each make requests.
+
+### Issue 3: SQL injection vulnerability ✅ FIXED
+**Reviewer**: Code Reviewer
+**Issue**: Direct string interpolation in SQL query allows injection attacks
+**Resolution**: Converted to parameterized query using prepared statements
+**Location**: src/services/userService.ts:42
+
+**Before**:
+```typescript
+const query = `SELECT * FROM users WHERE email = '${email}'`;
+const result = await db.query(query);
+```
+
+**After**:
+```typescript
+const query = `SELECT * FROM users WHERE email = $1`;
+const result = await db.query(query, [email]);
+```
+
+**Testing**: Verified query still works correctly; tested with malicious input (`' OR '1'='1`) confirms injection is prevented.
+
+### Issue 4: Sensitive data in logs ✅ FIXED
+**Reviewer**: Code Reviewer
+**Issue**: Logging full reset token exposes sensitive credential
+**Resolution**: Removed token from logs entirely; log only non-sensitive metadata
+**Location**: src/routes/passwordReset.ts:67
+
+**Before**:
+```typescript
+logger.info(`Reset token generated: ${token}`);
+```
+
+**After**:
+```typescript
+logger.info(`Reset token generated for user`, {
+  userId: user.id,
+  email: maskEmail(user.email), // u***@example.com
+  timestamp: new Date().toISOString()
+});
+// Token not logged anywhere
+```
+
+**Testing**: Verified logs no longer contain tokens; confirmed masked email format.
+
+## Changes Summary
+- **Security**: All four critical security issues resolved
+  - Cryptographically secure token generation
+  - Email-based rate limiting
+  - SQL injection prevented with parameterized queries
+  - Tokens no longer logged
+- **Testing**: 
+  - Added/updated 6 unit tests for token generation
+  - Updated 3 integration tests for rate limiting
+  - Added security test for SQL injection prevention
+  - All tests passing
+- **Code Review Checklist**: Self-reviewed; no other issues found
+
+## Ready for Re-Review
+All critical issues have been addressed. The implementation now matches the security requirements from the design document. Ready for code review re-approval.
+```
+
 ## Quality Checklist
 
 When providing technical leadership, verify:
