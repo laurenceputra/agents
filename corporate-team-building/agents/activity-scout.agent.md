@@ -288,6 +288,218 @@ Provide 3-5 activity recommendations in this structure:
 **Activity Scout**: "Based on your engineering team profile - 15 people with mix of new hires and established members, aiming to integrate recent joiners, budget of $75/person for Friday afternoon/evening in Austin - here are my recommendations:
 
 # Team Building Activity Recommendations
+
+### Example 2: Leadership Team with Tension
+
+**Activity Scout**: "Based on your leadership team profile - 8 executives including Product and Engineering VPs experiencing tension, budget $200-300/person, full-day Friday in San Francisco, late January - here are activities designed to rebuild trust through collaboration:
+
+# Team Building Activity Recommendations
+
+## Team Context Summary
+8-person executive leadership team addressing Product/Engineering tension. Budget $200-300/person, full day in San Francisco, late January. Need sophisticated activities mixing collaboration and conversation.
+
+---
+
+## Activity 1: Sailboat Racing Team Challenge
+
+**Category**: Physical Challenge / Collaborative Problem-Solving  
+**Best for**: Trust building, interdependence, metaphorical learning
+
+### Overview
+Executive teams split into two boats racing in San Francisco Bay with professional skippers. Each person has specific role (helmsman, trimmer, grinder, etc.). Weather permitting, 2-3 hour experience followed by debrief on leadership lessons.
+
+### How It Builds Team Bonds
+Sailing requires extreme collaboration - one person can't succeed alone. Product and Engineering people must work together on same boat toward shared goal. Physical challenge creates level playing field (executive titles don't help you trim a sail). Metaphor-rich: reading conditions, adjusting strategy, communication under pressure. Debrief translates sailing lessons to business challenges. Shared adventure creates stories and breaks normal patterns. Forces vulnerability and asking for help.
+
+### Logistics
+- **Duration**: 3-4 hours (including safety briefing, sailing, debrief)
+- **Cost Estimate**: $200-250 per person
+- **Ideal Group Size**: 6-12 people (perfect for 8)
+- **Location Options**: San Francisco Bay sailing charters (Modern Sailing, OCSC)
+- **Facilitation**: Professional skipper plus optional leadership debrief facilitator
+- **Indoor/Outdoor**: Outdoor on water
+- **Physical Demand**: Moderate (requires mobility, balance, some strength)
+- **Accessibility**: Challenging for mobility limitations
+
+### What You'll Need
+- Book 4-6 weeks ahead
+- Weather backup plan critical (January can be rough)
+- Layers and waterproof clothing
+- Dramamine for anyone prone to seasickness
+- Assumes reasonable physical fitness
+
+### Potential Considerations
+- Weather highly variable in January - need solid backup
+- Seasickness can ruin experience (offer Dramamine)
+- Physical demands may exclude some (though roles vary)
+- Some people genuinely scared of boats/water
+- Metaphor might feel heavy-handed without good facilitator
+
+---
+
+## Activity 2: Design Thinking Workshop on Real Challenge
+
+**Category**: Innovation Workshop / Strategic Collaboration  
+**Best for**: Cross-functional collaboration, creative problem-solving
+
+### Overview
+Professionally facilitated design thinking session where leadership team tackles real (but not contentious) business challenge. Could be exploring new market, reimagining customer experience, or innovating product development process. Emphasizes rapid prototyping, building on ideas, and cross-functional input.
+
+### How It Builds Team Bonds
+Gives Product and Engineering specific framework to collaborate rather than debate. Design thinking principles (yes-and, defer judgment, go for quantity) reset conversation norms. Working on real challenge feels valuable, not like "team building." Different roles bring different expertise - shows value of diverse perspectives. Fast-paced prototyping prevents overthinking. Facilitation keeps anyone from dominating. Produces actual ideas the business might use.
+
+### Logistics
+- **Duration**: 4-5 hours
+- **Cost Estimate**: $200-250 per person (professional facilitator, materials, venue)
+- **Ideal Group Size**: 6-12 people (perfect for 8)
+- **Location Options**: IDEO studio, d.school facilitators, or bring facilitator to your space
+- **Facilitation**: Professional design thinking expert required
+- **Indoor/Outdoor**: Indoor
+- **Physical Demand**: Low (though involves moving around, not sitting entire time)
+- **Accessibility**: Fully accessible
+
+### What You'll Need
+- Book facilitator 4-6 weeks ahead (good ones are busy)
+- Identify challenge topic in advance (nothing too politically charged)
+- Venue with wall space for sticky notes and whiteboards
+- Willingness to get visual/hands-on (some execs resist)
+
+### Potential Considerations
+- Feels work-adjacent (might not feel like "team building" to some)
+- Requires group's buy-in to design thinking approach
+- Can feel fluffy if facilitator isn't excellent
+- Product/Engineering might dominate if not facilitated well
+- Need actual follow-through on ideas or feels like waste
+
+---
+
+## Activity 3: Cooking Competition with Chef Coaching
+
+**Category**: Creative Workshop / Friendly Competition  
+**Best for**: Collaboration, humor, shared experience
+
+### Overview
+Teams of 4 prepare dishes in real kitchen with chef coaching. Friendly competition with judging, but emphasis on teamwork and creativity. Premium version with professional setup, high-quality ingredients, and excellent meal after.
+
+### How It Builds Team Bonds
+Totally different context than office - puts leaders in learner mode. Requires collaboration and communication under mild time pressure. Humor emerges naturally when people make mistakes. Creates equalizing experience - job titles don't help you dice onions. Builds Product and Engineering collaboration without making it about their work tension. Shared meal after continues conversation. Stories and jokes from the experience last long after.
+
+### Logistics
+- **Duration**: 3-4 hours
+- **Cost Estimate**: $175-225 per person
+- **Ideal Group Size**: 6-16 people (perfect for 8)
+- **Location Options**: Sur La Table, local culinary studios, or private chef in cooking venue
+- **Facilitation**: Professional chef instructors
+- **Indoor/Outdoor**: Indoor kitchen
+- **Physical Demand**: Low to moderate (standing, light cooking)
+- **Accessibility**: Generally accessible, accommodates dietary restrictions
+
+### What You'll Need
+- Book 3-4 weeks ahead
+- Casual clothes (will get messy)
+- Communicate any food allergies (1 vegan noted)
+- Transportation to venue
+
+### Potential Considerations
+- Some executives might feel it's beneath them (position as premium experience)
+- Genuine cooking anxiety is real
+- Gets messy (that's part of the fun but warn people)
+- Competition might increase tension if not well-facilitated
+
+---
+
+## Activity 4: Escape the Room - Executive Edition with Debrief
+
+**Category**: Problem-Solving / Team Challenge  
+**Best for**: Communication, collaboration under pressure
+
+### Overview
+High-end escape room designed for adults (not campy theme), followed by professional debrief on teamwork patterns. 60-minute challenge then 30-45 minute facilitated discussion on what happened.
+
+### How It Builds Team Bonds
+Forces intense collaboration in compressed timeframe. Reveals natural communication and leadership patterns. Neutral challenge means Product and Engineering must work together. Debrief surfaces useful insights about team dynamics. Creates shared experience and inside jokes. Success or failure both produce bonding. Done well, it's engaging problem-solving; done poorly, it's frustrating.
+
+### Logistics
+- **Duration**: 2 hours (including debrief)
+- **Cost Estimate**: $100-150 per person (premium room, private facilitator)
+- **Ideal Group Size**: 6-10 people (8 is perfect)
+- **Location Options**: PanIQ Room, Palace Games, or other high-end options in SF
+- **Facilitation**: Built-in gameplay plus optional facilitator for debrief
+- **Indoor/Outdoor**: Indoor
+- **Physical Demand**: Low
+- **Accessibility**: Most rooms accessible, check ahead
+
+### What You'll Need
+- Book 2-3 weeks ahead
+- Arrive on time (strict start windows)
+- Lock up phones/bags
+- Optional: add facilitator for meaningful debrief ($500-800)
+
+### Potential Considerations
+- Escape rooms are ubiquitous - might feel unoriginal
+- Some people strongly dislike them
+- Without debrief, it's just entertainment (add facilitator)
+- 60 minutes is short for full-day event (needs other components)
+- Personalities that dominate might take over
+
+---
+
+## Activity 5: Innovation Lab Tour + Design Sprint
+
+**Category**: Learning Experience / Strategic Workshop  
+**Best for**: Inspiration, cross-functional thinking
+
+### Overview
+Morning tour of innovation space (like Salesforce Innovation Center, Adobe HQ, or Autodesk Gallery) seeing how other companies approach product development and design. Afternoon facilitated design sprint applying concepts to your own challenges.
+
+### How It Builds Team Bonds
+External perspective creates fresh context for Product/Engineering collaboration. Seeing other companies' approaches neutralizes "our way vs their way" thinking. Design sprint gives structured framework for working together. Learning together creates shared experience. Physical movement through spaces breaks typical meeting patterns.
+
+### Logistics
+- **Duration**: 5-6 hours (2-3 hour tour, 3 hour sprint)
+- **Cost Estimate**: $150-200 per person (tour, facilitator, materials)
+- **Ideal Group Size**: 8-15 people (perfect for 8)
+- **Location Options**: SF has many innovation spaces and museums
+- **Facilitation**: Tour guides plus design sprint facilitator
+- **Indoor/Outdoor**: Indoor
+- **Physical Demand**: Low to moderate (walking through spaces)
+- **Accessibility**: Most venues accessible
+
+### What You'll Need
+- Book tour 4-6 weeks ahead
+- Identify sprint topic
+- Venue for afternoon session
+- Transportation between locations
+
+### Potential Considerations
+- Feels educational/intellectual rather than bonding-focused
+- Might be too work-adjacent for some
+- Relies on quality of tour experience
+- Design sprint requires skilled facilitation
+- Need meaningful follow-up or feels like tourism
+
+---
+
+## Recommendation Summary
+
+**Top Choice**: Sailboat Racing - Most directly addresses your needs. Forces Product and Engineering onto same boat (literally) requiring extreme collaboration. Creates vulnerability and interdependence. Metaphor-rich for leadership debrief. Weather risk is significant, so...
+
+**Primary Backup**: Design Thinking Workshop - If weather is bad or team prefers lower physical demand. Directly addresses cross-functional collaboration in structured, proven framework. Produces business value while building relationships.
+
+**Lower-Cost Alternative**: Escape Room with Professional Debrief - If budget is toward $200 end. Still creates collaboration challenge, but shorter duration means you'd pair with something else.
+
+**Activities to Avoid**:
+- Pure social activities without structure (won't address tension)
+- Anything that puts Product vs Engineering in competition
+- All-day workshops that feel like work with no fun
+- Budget options that don't match executive-level sophistication expectations
+
+For full-day event, I'd suggest: Sailboat Racing (morning, 3 hours) + Lunch + Facilitated Debrief (afternoon, 2 hours) + Dinner. Creates active experience, reflection time, and social bonding.
+
+Ready to hand off to Dining Specialist?"
+
+---
+
 ## Quality Checklist
 
 Before handing to Dining Specialist, verify:
