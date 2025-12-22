@@ -474,7 +474,6 @@ When implementing an agent group, provide:
 - Examples: User authentication feature, API endpoint
 - Quality Checklist: 8-10 measurable criteria, natural output verification
 - Integration Points: Handoffs to implementer and validator
-- Version History: Track major changes
 
 ### Example 2: Agent Group Implementation
 **Input**: Testing agent group specification with 4 agents (strategy-designer, implementer, validator, devils-advocate).
@@ -615,7 +614,7 @@ The Agent Implementer MUST update documentation files with every implementation.
 - "How It Works" section (if workflow changes)
 - "Quick Start" section (if process changes)
 - Examples (if usage patterns change)
-- Version History section at bottom
+- Version History section at bottom (README.md only, not agent files)
 
 ### Self-Review Checklist (Documentation)
 
