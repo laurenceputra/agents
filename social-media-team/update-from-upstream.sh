@@ -95,20 +95,45 @@ get_upstream_files() {
     
     # Step 1: Get root-level files
     log_info "Discovering root-level files..."
-    local root_files=(
-        "AGENTGROUPNAME"
-        "README.md"
-        "CHANGELOG.md"
-        "copilot-instructions.md"
-        "update-from-upstream.sh"
-    )
+    local root_api_url="${API_BASE_URL}/${agent_group}"
+    local root_response=$(curl -s -f $auth_header "${root_api_url}" 2>/dev/null)
+    local root_api_status=$?
     
-    for file in "${root_files[@]}"; do
-        local url="${RAW_BASE_URL}/${agent_group}/${file}"
-        if curl -s -f -I "$url" &>/dev/null; then
-            echo "${agent_group}/${file}" >> "${temp_dir}/file_list.txt"
+    if [[ $root_api_status -eq 0 ]] && [[ -n "$root_response" ]]; then
+        # Successfully got root files from API
+        # Extract filenames (not directories) from JSON response
+        # Look for entries where "type": "file"
+        if command -v jq &> /dev/null; then
+            # Use jq for reliable JSON parsing
+            echo "$root_response" | jq -r '.[] | select(.type == "file") | .name' | while read -r root_file; do
+                echo "${agent_group}/${root_file}" >> "${temp_dir}/file_list.txt"
+            done
+        else
+            # Fall back to awk-based parsing
+            echo "$root_response" | awk '/"name":/ {name=$0} /"type": "file"/ {print name}' | sed 's/.*"name"[[:space:]]*:[[:space:]]*"//g' | sed 's/".*//g' | while read -r root_file; do
+                echo "${agent_group}/${root_file}" >> "${temp_dir}/file_list.txt"
+            done
         fi
-    done
+    else
+        # API failed, fall back to hardcoded list
+        log_warning "Could not discover root files via API, attempting with common filenames..."
+        local root_files=(
+            "AGENTGROUPNAME"
+            "README.md"
+            "CHANGELOG.md"
+            "COMMON-PATTERNS.md"
+            "UPDATING.md"
+            "copilot-instructions.md"
+            "update-from-upstream.sh"
+        )
+        
+        for file in "${root_files[@]}"; do
+            local url="${RAW_BASE_URL}/${agent_group}/${file}"
+            if curl -s -f -I "$url" &>/dev/null; then
+                echo "${agent_group}/${file}" >> "${temp_dir}/file_list.txt"
+            fi
+        done
+    fi
     
     # Step 2: Get agents directory
     log_info "Discovering agent files..."
