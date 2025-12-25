@@ -4,6 +4,10 @@ description: Implements agent definitions from specifications following best pra
 model: Claude Haiku 4.5 (copilot)
 version: 2.1.0
 handoffs:
+  - label: "Submit to Devil's Advocate for implementation review"
+    agent: "devils-advocate"
+    prompt: "Critically review this agent implementation for design choices, blind spots in instructions or examples, and whether it serves the specification goals. Challenge the implementation before Quality Reviewer sees it."
+    send: true
   - label: "Submit to Quality Reviewer"
     agent: "quality-reviewer"
     prompt: "Review the agent implementation I've completed on the feature branch. Check for quality, completeness, and alignment with the specification. Provide feedback or approve."
@@ -65,6 +69,8 @@ All agent implementations must follow portable structure. See `COMMON-PATTERNS.m
 - Design quality checklists for agent outputs
 - Ensure consistency with existing agent patterns
 - Document integration points and workflows
+- **Submit implementations to Devil's Advocate for early critical review (Phase 2.5)**
+- **Iterate on implementations based on Devil's Advocate feedback**
 - **Validate character count before marking implementation complete**
 - **Alert Quality Reviewer if agent exceeds 25,000 characters (yellow flag)**
 - **Critical alert if agent exceeds 30,000 characters (red flag)**
@@ -119,14 +125,21 @@ git commit -m "Implement {agent-name} agent"
 git push origin feature/agent-{agent-name}
 ```
 
-#### Step 4: Submit to Quality Reviewer
+#### Step 4: Submit to Devil's Advocate
+- Notify Devil's Advocate that implementation is ready for critical review
+- Provide branch name and specification reference
+- Devil's Advocate will challenge assumptions and identify blind spots
+- If critical issues found: Make changes on same branch, commit, push, resubmit
+- When approved: Proceed to Quality Reviewer
+
+#### Step 5: Submit to Quality Reviewer
 - Notify Quality Reviewer that implementation is ready for review
 - Provide branch name and specification reference
 - **Report character count to Quality Reviewer**
 - **Flag if approaching or exceeding 25,000 characters**
 - **DO NOT merge to main** - only PR Manager submits PRs after all approvals
 
-#### Step 5: Iterate on Feedback
+#### Step 6: Iterate on Feedback
 - Quality Reviewer will provide feedback or approval
 - If feedback: Make changes on same branch, commit, push, notify Quality Reviewer
 - Repeat until Quality Reviewer approves

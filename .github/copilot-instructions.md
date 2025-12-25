@@ -131,10 +131,26 @@ User Need
          │ Specification (.specifications/ directory)
          ↓
 ┌──────────────────┐
+│ Devil's Advocate │ Critical review of specification (Phase 1.5)
+└────┬────┬────────┘
+     │    │
+     │    └─→ Issues found? Return to Architect (iterate)
+     │
+     │ Approved
+     ↓
+┌──────────────────┐
 │ Agent Implementer│ Create agent on feature branch
 └────────┬─────────┘
          │ Implementation on branch
          ↓
+┌──────────────────┐
+│ Devil's Advocate │ Critical review of implementation (Phase 2.5)
+└────┬────┬────────┘
+     │    │
+     │    └─→ Issues found? Return to Implementer (iterate)
+     │
+     │ Approved
+     ↓
 ┌──────────────────┐
 │ Quality Reviewer │ Review quality & completeness
 └────┬────┬────────┘
@@ -149,7 +165,7 @@ User Need
          │
          ↓
 ┌──────────────────┐
-│ Devil's Advocate │ Critical review, challenge assumptions
+│ Devil's Advocate │ Final critical review (Phase 5)
 └────┬────┬────────┘
      │    │
      │    └─→ Issues found? Return to Implementer (Quality Reviewer re-reviews)
@@ -171,7 +187,16 @@ User Need
 2. Architect asks clarifying questions
 3. Architect creates specification in `.specifications/` directory
 4. Specification includes: scope, responsibilities, model recommendation, success criteria
-5. **Handoff**: Specification document → Agent Implementer
+5. **Handoff**: Specification document → Devil's Advocate for critical review
+
+#### Phase 1.5: Specification Critical Review (Devil's Advocate)
+1. Challenge specification assumptions and design decisions
+2. Identify blind spots in scope, requirements, or agent boundaries
+3. Question model recommendations and success criteria
+4. Surface potential issues before implementation begins
+5. **Decision Point**:
+   - **Critical Issues**: Provide feedback → Return to Architect
+   - **Approved**: Handoff to Agent Implementer
 
 #### Phase 2: Implementation (Implementer)
 1. Create feature branch: `feature/agent-{name}` or `feature/group-{name}`
@@ -180,7 +205,16 @@ User Need
 4. Self-review against checklist
 5. Update CHANGELOG.md and README.md (if applicable)
 6. Commit and push to branch
-7. **Handoff**: Feature branch → Quality Reviewer
+7. **Handoff**: Feature branch → Devil's Advocate for critical review
+
+#### Phase 2.5: Implementation Critical Review (Devil's Advocate)
+1. Challenge implementation decisions and design choices
+2. Identify blind spots in instructions, examples, or quality criteria
+3. Question whether implementation serves specification goals
+4. Surface potential usability or maintainability issues
+5. **Decision Point**:
+   - **Critical Issues**: Provide feedback → Return to Implementer
+   - **Approved**: Handoff to Quality Reviewer
 
 #### Phase 3: Quality Review (Quality Reviewer)
 1. Review implementation against specification
@@ -193,12 +227,12 @@ User Need
 #### Phase 4: PR Coordination (PR Manager)
 1. Create PR details file in `.pr_details/{branch-name}.md`
 2. Document Quality Reviewer approval
-3. **Handoff**: Implementation → Devil's Advocate for critical review
+3. **Handoff**: Implementation → Devil's Advocate for final critical review
 
-#### Phase 5: Critical Review (Devil's Advocate)
-1. Challenge assumptions and identify blind spots
+#### Phase 5: Final Critical Review (Devil's Advocate)
+1. Challenge assumptions and identify blind spots across all work
 2. Surface disagreements between agents
-3. Document all perspectives
+3. Document all perspectives and trade-offs
 4. **Decision Point**:
    - **Revision Needed**: Return to Implementer (Quality Reviewer re-reviews)
    - **Approved**: Hand back to PR Manager with writeup
@@ -225,6 +259,18 @@ User Need
 
 **Pass**: Specification actionable for Implementer and targets appropriate size
 
+### Gate 1.5: Specification Critical Review (Devil's Advocate)
+- [ ] Specification assumptions challenged
+- [ ] Scope boundaries questioned for completeness
+- [ ] Model recommendation rationale verified
+- [ ] Success criteria evaluated for measurability
+- [ ] Blind spots in requirements identified
+- [ ] Design decisions questioned for appropriateness
+- [ ] Edge cases and integration points validated
+- [ ] All perspectives documented
+
+**Pass**: Specification ready for implementation with critical review complete
+
 ### Gate 2: Implementation Complete (Implementer self-review)
 - [ ] Agent file on feature branch (not main)
 - [ ] Frontmatter matches specification
@@ -238,6 +284,18 @@ User Need
 - [ ] If over 25,000 characters, optimization attempted or justification provided
 
 **Pass**: Ready for Quality Reviewer with size compliance
+
+### Gate 2.5: Implementation Critical Review (Devil's Advocate)
+- [ ] Implementation decisions challenged
+- [ ] Instructions evaluated for clarity and completeness
+- [ ] Examples assessed for comprehensiveness
+- [ ] Quality criteria questioned for measurability
+- [ ] Blind spots in guidance identified
+- [ ] Usability and maintainability concerns surfaced
+- [ ] Alignment with specification verified
+- [ ] All perspectives and trade-offs documented
+
+**Pass**: Implementation ready for quality review with critical review complete
 
 ### Gate 3: Quality Verified (Quality Reviewer)
 - [ ] All required sections thorough
@@ -258,11 +316,12 @@ User Need
 - Version history section present → Return to Implementer
 - Character count exceeds 30,000 → Return to Implementer (may require Architect for redesign)
 
-### Gate 4: Critical Review Complete (Devil's Advocate)
-- [ ] Assumptions challenged
-- [ ] Blind spots identified
-- [ ] Disagreements documented
-- [ ] All perspectives captured
+### Gate 4: Final Critical Review Complete (Devil's Advocate)
+- [ ] Assumptions challenged across all agent work
+- [ ] Blind spots identified in specification and implementation
+- [ ] Disagreements documented with full reasoning
+- [ ] All perspectives captured from Architect, Implementer, Quality Reviewer
+- [ ] Trade-offs clearly articulated
 - [ ] Ready for human decision
 
 **Pass**: Approved for PR submission

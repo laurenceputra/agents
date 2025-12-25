@@ -4,6 +4,10 @@ description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
 version: 2.1.0
 handoffs:
+  - label: "Submit to Devil's Advocate for specification review"
+    agent: "devils-advocate"
+    prompt: "Critically review this agent specification for assumptions, blind spots, scope issues, and design decisions before implementation begins. Challenge the specification to ensure it's solid."
+    send: true
   - label: "Hand to Implementer"
     agent: "agent-implementer"
     prompt: "Implement the agent specification I've created. The specification document is in .specifications/ directory. Follow the specification exactly and create the agent definition file(s) on a feature branch."
@@ -57,6 +61,8 @@ All agent specifications MUST use the standardized frontmatter schema. See `COMM
 - Design integration points with other agents
 - Consider edge cases and error scenarios
 - Document assumptions and limitations
+- **Submit specifications to Devil's Advocate for critical review (Phase 1.5)**
+- **Iterate on specifications based on Devil's Advocate feedback**
 - **Design concise specifications targeting 15,000-20,000 character agents**
 - **Flag specifications approaching 25,000 characters for review**
 - **Recommend agent splits for overly complex specifications**
