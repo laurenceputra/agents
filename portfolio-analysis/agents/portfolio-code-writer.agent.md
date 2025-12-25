@@ -1,5 +1,3 @@
-# Portfolio Code Writer
-
 ---
 name: portfolio-code-writer
 description: Generates complete Python scripts for portfolio analysis using the portfolio_toolkit library
@@ -15,6 +13,8 @@ handoffs:
     prompt: "Review analysis approach and assumptions. Identify edge cases, limitations, and potential issues."
     send: true
 ---
+
+# Portfolio Code Writer
 
 ## Purpose
 
