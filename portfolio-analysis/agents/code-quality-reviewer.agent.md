@@ -1,5 +1,3 @@
-# Code Quality Reviewer
-
 ---
 name: code-quality-reviewer
 description: Reviews generated Python code for quality, best practices, and performance optimization
@@ -11,6 +9,8 @@ handoffs:
     prompt: "Code reviewed for quality. Please perform final critical review before delivery to user."
     send: true
 ---
+
+# Code Quality Reviewer
 
 ## Purpose
 

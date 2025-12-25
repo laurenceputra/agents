@@ -1,20 +1,20 @@
-# Devil's Advocate
-
 ---
 name: devils-advocate
 description: Critically reviews all agent work, challenges assumptions, surfaces disagreements, and identifies blind spots
 model: Claude Sonnet 4.5 (copilot)
 version: 1.0.1
 handoffs:
-  - label: "Request architect perspective"
-    agent: "portfolio-data-engineer"
-    prompt: "Need orchestrator perspective on design decisions and trade-offs. Please review."
+  - label: "Request code quality review"
+    agent: "code-quality-reviewer"
+    prompt: "Need additional code review for quality and best practices before final approval."
     send: true
-  - label: "Send revisions to implementer"
-    agent: "portfolio-data-engineer"
-    prompt: "Critical issues found. Please address feedback and resubmit."
+  - label: "Request code revision"
+    agent: "portfolio-code-writer"
+    prompt: "Critical issues found. Please address feedback and regenerate code."
     send: true
 ---
+
+# Devil's Advocate
 
 ## Purpose
 
