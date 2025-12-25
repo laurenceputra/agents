@@ -9,7 +9,7 @@ handoffs:
     prompt: "Critically review this agent specification for assumptions, blind spots, scope issues, and design decisions before implementation begins. Challenge the specification to ensure it's solid."
     send: true
   - label: "Hand to Implementer"
-    agent: "agent-implementer"
+    agent: "implementer"
     prompt: "Implement the agent specification I've created. The specification document is in .specifications/ directory. Follow the specification exactly and create the agent definition file(s) on a feature branch."
     send: true
   - label: "Escalate to Quality Reviewer"

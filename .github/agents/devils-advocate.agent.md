@@ -5,15 +5,15 @@ model: Claude Sonnet 4.5 (copilot)
 version: 2.0.0
 handoffs:
   - label: "Send specification back to Architect"
-    agent: "agent-architect"
+    agent: "architect"
     prompt: "Critical issues found in specification review. Revise the specification to address these concerns: {concerns}"
     send: true
   - label: "Request orchestrator perspective"
-    agent: "agent-architect"
+    agent: "architect"
     prompt: "Review the disagreement between agents on this implementation. As the system architect, provide your perspective on the technical trade-offs and recommend a path forward."
     send: true
   - label: "Send back to implementer"
-    agent: "agent-implementer"
+    agent: "implementer"
     prompt: "Critical issues found in Devil's Advocate review. Address the following concerns before resubmitting: {concerns}"
     send: true
   - label: "Submit to PR Manager for PR"

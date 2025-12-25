@@ -5,11 +5,11 @@ model: Claude Sonnet 4.5 (copilot)
 version: 2.1.0
 handoffs:
   - label: "Return to Implementer"
-    agent: "agent-implementer"
+    agent: "implementer"
     prompt: "Address the feedback from my quality review. I've identified issues that need fixes. Review my feedback report and make the necessary changes on the same feature branch."
     send: true
   - label: "Escalate to Architect"
-    agent: "agent-architect"
+    agent: "architect"
     prompt: "Revise the specification based on issues I've identified. The current specification has gaps or ambiguities blocking implementation approval. Review my feedback and update the specification."
     send: true
   - label: "Approve to Devil's Advocate"
