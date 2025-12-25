@@ -7,19 +7,19 @@ handoffs:
   - label: "Return to Impact Evaluator"
     agent: "impact-evaluator"
     prompt: "Critical review identified methodology issues. Revise SROI/CEA calculations with these concerns addressed."
-    send: false
+    send: true
   - label: "Return to Portfolio Strategist"
     agent: "portfolio-strategist"
     prompt: "Strategic assumptions questioned. Reassess portfolio fit with these alternative perspectives."
-    send: false
+    send: true
   - label: "Return to Risk Analyst"
     agent: "risk-opportunity-analyst"
     prompt: "Risk assessment incomplete or optimistic. Conduct deeper analysis on these identified risks."
-    send: false
+    send: true
   - label: "Return to Recommendation Synthesizer"
     agent: "recommendation-synthesizer"
     prompt: "Synthesis needs adjustment based on critical review findings. Revise recommendation."
-    send: false
+    send: true
 ---
 
 # Devil's Advocate

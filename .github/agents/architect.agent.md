@@ -7,9 +7,11 @@ handoffs:
   - label: "Hand to Implementer"
     agent: "agent-implementer"
     prompt: "Implement the agent specification I've created. The specification document is in .specifications/ directory. Follow the specification exactly and create the agent definition file(s) on a feature branch."
+    send: true
   - label: "Escalate to Quality Reviewer"
     agent: "quality-reviewer"
     prompt: "Review the specification I've created for completeness before implementation begins. Check for gaps, ambiguities, or missing requirements."
+    send: true
 ---
 
 # Agent Architect

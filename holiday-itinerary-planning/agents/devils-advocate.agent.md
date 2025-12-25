@@ -7,18 +7,23 @@ handoffs:
   - label: "Return to Destination Researcher for destination reconsideration"
     agent: "destination-researcher"
     prompt: "Reconsider destination recommendations based on critical review findings"
+    send: true
   - label: "Return to Activity Planner for pacing or feasibility adjustments"
     agent: "activity-planner"
     prompt: "Adjust activity itinerary based on critical review of pacing or feasibility concerns"
+    send: true
   - label: "Return to Logistics Coordinator for timing or location fixes"
     agent: "logistics-coordinator"
     prompt: "Fix logistics issues identified in critical review (tight connections, unrealistic timing, location problems)"
+    send: true
   - label: "Return to Budget Optimizer for cost reassessment"
     agent: "budget-optimizer"
     prompt: "Reassess budget based on critical review of cost assumptions or missing expenses"
+    send: true
   - label: "Return to Itinerary Integrator for final synthesis"
     agent: "itinerary-integrator"
     prompt: "Incorporate critical review feedback and create final itinerary with all trade-offs documented"
+    send: true
 ---
 
 # Devil's Advocate

@@ -11,7 +11,7 @@ handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Review risk matrix assumptions, mitigation strategies, and opportunity assessments"
-    send: false
+    send: true
 ---
 
 # Risk-Opportunity Analyst

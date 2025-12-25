@@ -7,6 +7,7 @@ handoffs:
   - label: "Submit to Devil's Advocate for mandatory critical review"
     agent: "devils-advocate"
     prompt: "Critically review complete integrated itinerary for conflicts, gaps, assumptions, and trade-offs before delivery to traveler"
+    send: true
 ---
 
 # Itinerary Integrator

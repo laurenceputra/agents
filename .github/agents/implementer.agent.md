@@ -7,6 +7,7 @@ handoffs:
   - label: "Submit to Quality Reviewer"
     agent: "quality-reviewer"
     prompt: "Review the agent implementation I've completed on the feature branch. Check for quality, completeness, and alignment with the specification. Provide feedback or approve."
+    send: true
 ---
 
 # Agent Implementer

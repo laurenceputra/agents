@@ -10,6 +10,7 @@ handoffs:
   - label: "Submit to Devil's Advocate for critical review"
     agent: "devils-advocate"
     prompt: "Critically review activity itinerary for overly ambitious pacing, unrealistic timing, and accessibility gaps"
+    send: true
 ---
 
 # Activity Planner

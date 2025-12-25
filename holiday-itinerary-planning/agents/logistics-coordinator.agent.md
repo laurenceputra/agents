@@ -10,6 +10,7 @@ handoffs:
   - label: "Submit to Devil's Advocate for critical review"
     agent: "devils-advocate"
     prompt: "Critically review logistics for tight connections, unrealistic transit times, and accommodation location issues"
+    send: true
 ---
 
 # Logistics Coordinator

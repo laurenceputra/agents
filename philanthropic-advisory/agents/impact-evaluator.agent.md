@@ -11,7 +11,7 @@ handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review SROI/CEA methodology, data quality assumptions, and systemic impact claims"
-    send: false
+    send: true
 ---
 
 # Impact Evaluator

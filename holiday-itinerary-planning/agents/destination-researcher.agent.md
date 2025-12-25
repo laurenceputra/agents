@@ -10,6 +10,7 @@ handoffs:
   - label: "Submit to Devil's Advocate for critical review"
     agent: "devils-advocate"
     prompt: "Critically review destination recommendations for hidden downsides, visa complexity, safety concerns, and seasonal issues"
+    send: true
 ---
 
 # Destination Researcher
