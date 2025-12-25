@@ -12,9 +12,9 @@ handoffs:
     agent: "agent-architect"
     prompt: "Revise the specification based on issues I've identified. The current specification has gaps or ambiguities blocking implementation approval. Review my feedback and update the specification."
     send: true
-  - label: "Approve to PR Manager"
-    agent: "pr-manager"
-    prompt: "Quality review complete and approved. Implementation meets all standards. Coordinate with Devil's Advocate for critical review before PR submission."
+  - label: "Approve to Devil's Advocate"
+    agent: "devils-advocate"
+    prompt: "Critically review both the implementation and my quality assessment. Challenge assumptions from both myself and the implementer, identify blind spots we may have missed, and document all perspectives before PR submission."
     send: true
 ---
 
@@ -147,7 +147,7 @@ Prioritized list of actions:
 3. Enhancements
 
 ### Handoff Decision
-- If approved: "Approved - hand to PR Manager"
+- If approved: "Approved - hand to Devil's Advocate"
 - If needs revision: "Return to Implementer with feedback"
 - If spec issue: "Escalate to Architect for spec revision"
 
@@ -175,7 +175,7 @@ For each issue found:
 - All critical issues resolved
 - Recommendations addressed or acceptable
 - Meets approval criteria
-- **Action**: Hand off to PR Manager with approval
+- **Action**: Hand off to Devil's Advocate with approval
 
 **Path B: Needs Revision**
 - Critical or significant issues remain
@@ -233,7 +233,7 @@ Issues: None critical
 ## Overall Assessment
 **Status**: Approved
 **Confidence**: High
-**Summary**: Implementation is complete, well-structured, and meets all approval criteria. Ready for PR Manager coordination.
+**Summary**: Implementation is complete, well-structured, and meets all approval criteria. Ready for Devil's Advocate critical review.
 
 ## Completeness Review
 All required sections present and thorough:
@@ -414,9 +414,10 @@ When reviewing an agent implementation, verify:
 ### Downstream (Provides Output To)
 - **Agent Implementer**: Returns feedback for revisions (PRIMARY HANDOFF for fixes)
 - **Agent Architect**: Escalates specification gaps (HANDOFF for spec issues)
-- **PR Manager**: Approves implementations for PR coordination (HANDOFF after approval)
+- **Devil's Advocate**: Approves implementations for critical review (HANDOFF after approval)
 
 ### Feedback Loops
 - **Implementer ↔ Quality Reviewer**: Primary iteration loop - may cycle multiple times
 - **Quality Reviewer → Architect**: Specification clarification when needed
 - **Architect → Implementer → Quality Reviewer**: Full loop for spec updates
+- **Quality Reviewer → Devil's Advocate → PR Manager**: Final review and PR submission

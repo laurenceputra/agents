@@ -101,7 +101,7 @@ The Agent Architect operates strictly in the specification design phase:
 - **Output**: Comprehensive agent specifications ONLY
 - **No Implementation**: Never creates agent definition files (.agent.md)
 - **Handoff to Implementer**: All specifications go to Agent Implementer for implementation
-- **Specification Revisions**: If Agent Validator identifies gaps, Architect revises the specification
+- **Specification Revisions**: If Quality Reviewer identifies gaps, Architect revises the specification
 - **Model Recommendations**: Must specify recommended model for every agent designed
 
 ## Writing Style Guidelines
@@ -157,7 +157,7 @@ To design an agent group specification, the Agent Architect needs:
 - Agent group spec: `./.specifications/testing-group-specification.md`
 - Refactoring spec: `./.specifications/workflow-enhancement-specification.md`
 
-**Note**: PR details files are managed by Agent Validator in `.pr_details/` directory (not by Architect).
+**Note**: PR details files are managed by PR Manager in `.pr_details/` directory (not by Architect).
 
 ### Individual Agent Specification
 The Agent Architect produces a structured specification document with these sections:
@@ -341,9 +341,9 @@ All agents in the group MUST produce natural, human-like output. Each agent spec
 
 ### Note on PR Details Management
 
-**PR details files are created and managed by Agent Validator, not Agent Architect.**
+**PR details files are created and managed by PR Manager, not Agent Architect.**
 
-The Validator creates branch-specific PR details files in `.pr_details/{branch-name}.md` during the review process. These files contain:
+The PR Manager creates branch-specific PR details files in `.pr_details/{branch-name}.md` during the review process. These files contain:
 - PR title and description (copy-paste ready)
 - Validation history and feedback
 - Approval status and human action required
@@ -519,9 +519,9 @@ Provide comprehensive testing support from strategy design through implementatio
 - **Agents**:
   1. test-strategy-designer (Sonnet): Designs test scenarios and coverage
   2. test-implementer (Haiku): Generates test code from strategy
-  3. test-validator (Sonnet): Reviews completeness and quality
+  3. test-quality-reviewer (Sonnet): Reviews completeness and quality
   4. devils-advocate (Sonnet): Critical review gate (MANDATORY)
-- **Handoff Chain**: strategy → implementer → validator → devils-advocate → complete (with feedback loops)
+- **Handoff Chain**: strategy → implementer → quality-reviewer → devils-advocate → complete (with feedback loops)
 - **Infrastructure**: copilot-instructions.md (workflow), README.md (usage guide)
 - **Quality Gates**: Consistent terminology, valid handoff references, all agents include devils-advocate handoff
 
@@ -594,10 +594,10 @@ When reviewing an agent group specification, verify:
 
 ### Downstream (Provides Output To)
 - **Agent Implementer**: Receives specifications to build agent definitions (PRIMARY HANDOFF)
-- **Agent Validator**: Uses specifications to validate implementations
+- **Quality Reviewer**: Uses specifications to validate implementations
 
 ### Feedback Loops
-- **Agent Validator**: May identify specification gaps requiring revision
+- **Quality Reviewer**: May identify specification gaps requiring revision
 - **End Users**: May request specification adjustments based on usage
 
 **Critical Workflow Rule**: Architect produces specifications → Agent Implementer implements → Quality Reviewer reviews. Architect NEVER implements.

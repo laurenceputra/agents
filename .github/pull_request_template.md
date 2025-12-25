@@ -1,6 +1,6 @@
 # Agent Implementation PR
 
-<!-- This template is used by the Agent Validator when submitting agent implementations to main. -->
+<!-- This template is used by the PR Manager when submitting agent implementations to main. -->
 <!-- Fill in all applicable sections. For agent groups, include group-specific sections. -->
 
 ## Type
@@ -10,8 +10,8 @@
 - [ ] Agent Refactor/Update
 
 ## Validation Status
-<!-- Agent Validator confirms all approval criteria met -->
-- [ ] ✅ **APPROVED** by Agent Validator
+<!-- PR Manager confirms all approval criteria met -->
+- [ ] ✅ **APPROVED** by Quality Reviewer
 - [ ] All critical issues resolved
 - [ ] Quality standards met
 - [ ] Ready for merge
@@ -114,8 +114,8 @@
 
 ---
 
-## Validator Sign-Off
-**Reviewed by**: @agent-validator  
+## Quality Reviewer Sign-Off
+**Reviewed by**: @quality-reviewer  
 **Approval Date**: YYYY-MM-DD  
 **Validation Report**: [Link to detailed validation report if applicable]
 
@@ -123,7 +123,7 @@
 **Recommendation**: Approve and merge
 
 <!-- 
-VALIDATOR CHECKLIST (Internal):
+QUALITY REVIEWER CHECKLIST (Internal):
 - Verified feature branch origin: feature/agent-{name} or feature/group-{name}
 - Confirmed no direct commits to main
 - Validated against original specification
