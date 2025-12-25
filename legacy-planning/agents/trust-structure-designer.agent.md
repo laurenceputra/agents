@@ -10,7 +10,7 @@ handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review these trust structure recommendations for complexity trade-offs, flexibility concerns, and unintended consequences before finalization."
-    send: false
+    send: true
 ---
 
 # Trust Structure Designer

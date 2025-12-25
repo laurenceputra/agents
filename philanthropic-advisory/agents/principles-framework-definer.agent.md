@@ -11,7 +11,7 @@ handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review framework assumptions, challenge values and priorities, identify blind spots in theory of change"
-    send: false
+    send: true
 ---
 
 # Principles & Framework Definer

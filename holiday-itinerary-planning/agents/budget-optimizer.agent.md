@@ -10,6 +10,7 @@ handoffs:
   - label: "Submit to Devil's Advocate for critical review"
     agent: "devils-advocate"
     prompt: "Critically review budget for underestimated costs, missing expenses, and unrealistic pricing assumptions"
+    send: true
 ---
 
 # Budget Optimizer

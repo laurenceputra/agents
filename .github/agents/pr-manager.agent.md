@@ -7,9 +7,11 @@ handoffs:
   - label: "Request more review"
     agent: "quality-reviewer"
     prompt: "Additional quality review needed. Issues discovered during Devil's Advocate review that require quality re-assessment."
+    send: true
   - label: "Send to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Quality review complete and approved. Perform critical review of this implementation. Challenge assumptions, identify blind spots, and document all perspectives before PR submission."
+    send: true
 ---
 
 # PR Manager

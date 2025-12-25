@@ -10,7 +10,7 @@ handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review this Letter of Wishes for clarity, potential family sensitivities, and trustee guidance completeness before finalization."
-    send: false
+    send: true
 ---
 
 # Letter of Wishes Composer

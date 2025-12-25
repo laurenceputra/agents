@@ -72,11 +72,11 @@ After quality approval, the PR Manager:
 
 **Example**: Creates PR details, coordinates Devil's Advocate review → Submits PR when approved.
 
-### Phase 5: Critical Review (Pre-PR Gate)
+### Phase 3.5: Critical Review (Post-Quality Review)
 **Agent**: `devils-advocate.md`
 
-Before PR submission, the Devil's Advocate:
-- Critically reviews work from all agents
+After Quality Reviewer approves, the Devil's Advocate:
+- Critically reviews work from Implementer and Quality Reviewer
 - Challenges assumptions and identifies blind spots
 - Surfaces disagreements between agents
 - Documents all perspectives for human decision-making
@@ -292,7 +292,7 @@ Quality Reviewer reviews implementation:
 - **GitHub Copilot Best Practices**: [Official Documentation](https://docs.github.com/en/enterprise-cloud@latest/copilot/tutorials/coding-agent/get-the-best-results)
 - **Agent Architecture Patterns**: See `agent-architect.md` examples
 - **Implementation Guide**: See `agent-implementer.md` best practices
-- **Quality Standards**: See `agent-validator.md` checklists
+- **Quality Standards**: See `quality-reviewer.agent.md` checklists
 
 ## Support
 
@@ -323,7 +323,7 @@ When improving the meta-system itself:
 1. **Propose Changes**: Describe what you want to improve and why
 2. **Update Specifications**: Use Agent Architect to design changes
 3. **Implement Updates**: Use Agent Implementer for consistency
-4. **Validate Quality**: Use Agent Validator to review
+4. **Validate Quality**: Use Quality Reviewer to review
 5. **Document Changes**: Update this README and copilot-instructions.md
 
 ## Troubleshooting

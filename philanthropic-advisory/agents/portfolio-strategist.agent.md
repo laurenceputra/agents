@@ -11,7 +11,7 @@ handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Challenge strategic fit assumptions, portfolio gaps, and scalability assessments"
-    send: false
+    send: true
 ---
 
 # Portfolio Strategist

@@ -7,11 +7,11 @@ handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"
     prompt: "Critically review marketing content for accuracy, alignment with principles, tone appropriateness, and potential concerns"
-    send: false
+    send: true
   - label: "Clarify Principles"
     agent: "principles-framework-definer"
     prompt: "Request clarification on philanthropic framework values or decision criteria"
-    send: false
+    send: true
 ---
 
 # Marketing Content Writer

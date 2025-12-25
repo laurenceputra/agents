@@ -7,6 +7,7 @@ handoffs:
   - label: "Submit to Quality Reviewer"
     agent: "quality-reviewer"
     prompt: "Review the agent implementation I've completed on the feature branch. Check for quality, completeness, and alignment with the specification. Provide feedback or approve."
+    send: true
 ---
 
 # Agent Implementer
@@ -411,15 +412,15 @@ When implementing an agent definition, provide:
    - Common pitfalls to avoid
 
 4. **Validation Notes**
-   - Checklist items for the Agent Validator
+   - Checklist items for the Quality Reviewer
    - Areas requiring special attention
    - Known limitations
 
-5. **Submit to Validator** (REQUIRED)
+5. **Submit to Quality Reviewer** (REQUIRED)
    - After completing implementation, committing, and pushing to feature branch
-   - **Always use handoff to submit to Validator** for review
+   - **Always use handoff to submit to Quality Reviewer** for review
    - Never end without handoff - workflow must continue automatically
-   - Validator will review, provide feedback, or approve and hand to Devil's Advocate
+   - Quality Reviewer will review, provide feedback, or approve and hand to Devil's Advocate
 
 ### For Agent Group Implementation
 When implementing an agent group, provide:
@@ -447,16 +448,16 @@ When implementing an agent group, provide:
    - Common integration patterns
 
 5. **Validation Notes for Group**
-   - Group-specific checklist for Validator
+   - Group-specific checklist for Quality Reviewer
    - Handoff integrity verification steps
    - Cross-agent consistency checks
    - Portability validation steps
 
-6. **Submit to Validator** (REQUIRED)
+6. **Submit to Quality Reviewer** (REQUIRED)
    - After completing group implementation, committing, and pushing to feature branch
-   - **Always use handoff to submit to Validator** for group review
+   - **Always use handoff to submit to Quality Reviewer** for group review
    - Never end without handoff - workflow must continue automatically
-   - Validator will review group cohesion, provide feedback, or approve and hand to Devil's Advocate
+   - Quality Reviewer will review group cohesion, provide feedback, or approve and hand to Devil's Advocate
 
 ## Examples
 
@@ -473,17 +474,17 @@ When implementing an agent group, provide:
 - Response Format: Strategy overview, functional/non-functional scenarios, implementation guidance
 - Examples: User authentication feature, API endpoint
 - Quality Checklist: 8-10 measurable criteria, natural output verification
-- Integration Points: Handoffs to implementer and validator
+- Integration Points: Handoffs to implementer and quality reviewer
 
 ### Example 2: Agent Group Implementation
-**Input**: Testing agent group specification with 4 agents (strategy-designer, implementer, validator, devils-advocate).
+**Input**: Testing agent group specification with 4 agents (strategy-designer, implementer, quality-reviewer, devils-advocate).
 
 **Output** (condensed group structure):
 - **Folder**: `testing-agents/agents/` with 4 .agent.md files
 - **copilot-instructions.md**: Group overview, agent descriptions, workflow diagram, decision tree
 - **README.md**: Getting started, agent list, usage examples
 - **CHANGELOG.md**: Version history (if > 1.0.0)
-- **Handoff Chain**: strategy → implementer → validator → devils-advocate (with feedback loops)
+- **Handoff Chain**: strategy → implementer → quality-reviewer → devils-advocate (with feedback loops)
 - **Quality Gates**: Consistent terminology, valid handoff references, all agents include devils-advocate handoff
 - **Portability**: No hardcoded paths, folder-agnostic
 
@@ -512,13 +513,13 @@ When implementing an agent group, provide:
 - **Agent Architect**: Receives agent specifications to implement
 
 ### Downstream (Provides Output To)
-- **Agent Validator**: Provides completed agent definitions on feature branch for review (PRIMARY HANDOFF)
+- **Quality Reviewer**: Provides completed agent definitions on feature branch for review (PRIMARY HANDOFF)
 
 ### Feedback Loops
-- **Agent Validator**: Iterates through feedback loop until approval
+- **Quality Reviewer**: Iterates through feedback loop until approval
 - **Agent Architect**: May request specification clarifications if ambiguous
 
-**Critical Workflow Rule**: All implementations on feature branches → Agent Validator reviews → Validator submits PR. Implementer NEVER merges directly.
+**Critical Workflow Rule**: All implementations on feature branches → Quality Reviewer reviews → PR Manager submits PR. Implementer NEVER merges directly.
 
 ## Documentation Requirements (v1.2.0)
 
@@ -572,7 +573,7 @@ The Agent Implementer MUST update documentation files with every implementation.
 ### Added
 - **Documentation Enforcement**: Mandatory CHANGELOG.md and README.md updates
   - Implementer updates CHANGELOG.md with every version bump
-  - Validator validates documentation completeness
+  - Quality Reviewer validates documentation completeness
   - Added format guidelines and examples
 
 ### Changed
@@ -618,7 +619,7 @@ The Agent Implementer MUST update documentation files with every implementation.
 
 ### Self-Review Checklist (Documentation)
 
-Before submitting to Validator:
+Before submitting to Quality Reviewer:
 - [ ] CHANGELOG.md entry added for current version
 - [ ] Changelog follows standard format (Added/Changed/Fixed/etc.)
 - [ ] Changelog includes specific component names (not vague)

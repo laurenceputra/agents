@@ -66,7 +66,7 @@ Each meta-agent has a single, well-defined responsibility:
 - Escalates specification issues back to Architect
 - Approves implementations when quality standards are met
 
-**Handoffs to**: PR Manager (when approved), Implementer (for revisions), Architect (for spec issues)
+**Handoffs to**: Devil's Advocate (when approved), Implementer (for revisions), Architect (for spec issues)
 
 ---
 
@@ -131,6 +131,14 @@ User Need
          │ Specification (.specifications/ directory)
          ↓
 ┌──────────────────┐
+│ Devil's Advocate │ Critical review of specification (Phase 1.5)
+└────┬────┬────────┘
+     │    │
+     │    └─→ Issues found? Return to Architect (iterate)
+     │
+     │ Approved
+     ↓
+┌──────────────────┐
 │ Agent Implementer│ Create agent on feature branch
 └────────┬─────────┘
          │ Implementation on branch
@@ -144,12 +152,7 @@ User Need
      │ Approved
      ↓
 ┌──────────────────┐
-│ PR Manager       │ Create PR details, coordinate reviews
-└────────┬─────────┘
-         │
-         ↓
-┌──────────────────┐
-│ Devil's Advocate │ Critical review, challenge assumptions
+│ Devil's Advocate │ Critical review of work package (Phase 3.5)
 └────┬────┬────────┘
      │    │
      │    └─→ Issues found? Return to Implementer (Quality Reviewer re-reviews)
@@ -171,7 +174,16 @@ User Need
 2. Architect asks clarifying questions
 3. Architect creates specification in `.specifications/` directory
 4. Specification includes: scope, responsibilities, model recommendation, success criteria
-5. **Handoff**: Specification document → Agent Implementer
+5. **Handoff**: Specification document → Devil's Advocate for critical review
+
+#### Phase 1.5: Specification Critical Review (Devil's Advocate)
+1. Challenge specification assumptions and design decisions
+2. Identify blind spots in scope, requirements, or agent boundaries
+3. Question model recommendations and success criteria
+4. Surface potential issues before implementation begins
+5. **Decision Point**:
+   - **Critical Issues**: Provide feedback → Return to Architect
+   - **Approved**: Handoff to Agent Implementer
 
 #### Phase 2: Implementation (Implementer)
 1. Create feature branch: `feature/agent-{name}` or `feature/group-{name}`
@@ -180,7 +192,7 @@ User Need
 4. Self-review against checklist
 5. Update CHANGELOG.md and README.md (if applicable)
 6. Commit and push to branch
-7. **Handoff**: Feature branch → Quality Reviewer
+7. **Handoff**: Feature branch → Quality Reviewer for review
 
 #### Phase 3: Quality Review (Quality Reviewer)
 1. Review implementation against specification
@@ -188,26 +200,24 @@ User Need
 3. **Decision Point**:
    - **Critical Issues**: Provide feedback → Return to Implementer
    - **Spec Issues**: Escalate to Architect for spec revision
-   - **Approved**: Handoff to PR Manager
+   - **Approved**: Handoff to Devil's Advocate with complete work package
 
-#### Phase 4: PR Coordination (PR Manager)
-1. Create PR details file in `.pr_details/{branch-name}.md`
-2. Document Quality Reviewer approval
-3. **Handoff**: Implementation → Devil's Advocate for critical review
-
-#### Phase 5: Critical Review (Devil's Advocate)
-1. Challenge assumptions and identify blind spots
-2. Surface disagreements between agents
-3. Document all perspectives
-4. **Decision Point**:
+#### Phase 3.5: Work Package Critical Review (Devil's Advocate)
+1. Review complete work package: implementation + quality review assessment
+2. Challenge assumptions from both Implementer and Quality Reviewer
+3. Identify blind spots not caught by either agent
+4. Surface disagreements between agents' perspectives
+5. Document all perspectives and trade-offs
+6. **Decision Point**:
    - **Revision Needed**: Return to Implementer (Quality Reviewer re-reviews)
-   - **Approved**: Hand back to PR Manager with writeup
+   - **Approved**: Hand to PR Manager with comprehensive writeup
 
-#### Phase 6: PR Submission (PR Manager)
-1. Update PR details file with Devil's Advocate approval
-2. Include all disagreements and perspectives in PR description
-3. Submit PR with copy-paste ready details
-4. Human reviews PR with full context and merges
+#### Phase 4: PR Submission (PR Manager)
+1. Create PR details file in `.pr_details/{branch-name}.md`
+2. Document all approvals (Quality Reviewer + Devil's Advocate)
+3. Include Devil's Advocate writeup with disagreements documented
+4. Submit PR with all context for human review
+5. Human reviews PR with full context and merges
 
 ---
 
@@ -224,6 +234,18 @@ User Need
 - [ ] If complex, multi-agent split or extraction strategy noted
 
 **Pass**: Specification actionable for Implementer and targets appropriate size
+
+### Gate 1.5: Specification Critical Review (Devil's Advocate)
+- [ ] Specification assumptions challenged
+- [ ] Scope boundaries questioned for completeness
+- [ ] Model recommendation rationale verified
+- [ ] Success criteria evaluated for measurability
+- [ ] Blind spots in requirements identified
+- [ ] Design decisions questioned for appropriateness
+- [ ] Edge cases and integration points validated
+- [ ] All perspectives documented
+
+**Pass**: Specification ready for implementation with critical review complete
 
 ### Gate 2: Implementation Complete (Implementer self-review)
 - [ ] Agent file on feature branch (not main)
@@ -252,17 +274,18 @@ User Need
 - [ ] If 25,000-30,000 characters, optimization recommendations provided
 - [ ] Character count validation documented in review
 
-**Pass**: Approved, hand to PR Manager
+**Pass**: Approved, hand to Devil's Advocate for critical review
 
 **Critical Failures**:
 - Version history section present → Return to Implementer
 - Character count exceeds 30,000 → Return to Implementer (may require Architect for redesign)
 
-### Gate 4: Critical Review Complete (Devil's Advocate)
-- [ ] Assumptions challenged
-- [ ] Blind spots identified
-- [ ] Disagreements documented
-- [ ] All perspectives captured
+### Gate 3.5: Work Package Critical Review Complete (Devil's Advocate)
+- [ ] Assumptions challenged across both Implementer and Quality Reviewer work
+- [ ] Blind spots identified in implementation and quality assessment
+- [ ] Disagreements documented with full reasoning
+- [ ] All perspectives captured from Implementer and Quality Reviewer
+- [ ] Trade-offs clearly articulated
 - [ ] Ready for human decision
 
 **Pass**: Approved for PR submission

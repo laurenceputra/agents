@@ -7,7 +7,7 @@ handoffs:
   - label: "Submit to Devil's Advocate (REQUIRED)"
     agent: "devils-advocate"
     prompt: "Funding recommendation complete. Perform mandatory critical review before decision."
-    send: false
+    send: true
 ---
 
 # Recommendation Synthesizer
