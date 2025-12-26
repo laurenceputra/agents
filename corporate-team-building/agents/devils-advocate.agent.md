@@ -550,6 +550,7 @@ Before completing review, verify:
 - [ ] **Concerns framed constructively** with solutions, not just criticism
 - [ ] **Addressed team-specific dynamics** from original profile
 - [ ] **Final assessment is candid** without sugar-coating real concerns
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
 
 ## Integration Points
 

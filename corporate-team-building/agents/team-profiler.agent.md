@@ -437,6 +437,7 @@ Before handing off to Activity Scout, verify:
 - [ ] **Team personality insights included** to guide activity style
 - [ ] **Recommendations guidance provided** with both positive direction and things to avoid
 - [ ] **Profile feel authentic and specific**, not generic or templated
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
 
 ## Integration Points
 

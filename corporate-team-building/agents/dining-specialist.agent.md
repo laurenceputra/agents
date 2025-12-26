@@ -562,6 +562,7 @@ Before handing to Event Coordinator, verify:
 - [ ] **Pairing with activities considered** (timing, location, mood)
 - [ ] **Top choice recommended with rationale**
 - [ ] **Recommendations feel specific to this team**, not generic lists
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
 ## Integration Points
 
 ### Upstream Dependencies

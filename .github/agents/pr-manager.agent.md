@@ -328,6 +328,7 @@ When managing PR process, verify:
 - [ ] Status accurately reflects current state
 - [ ] Next steps are clear for user
 - [ ] PR submitted only after all approvals complete
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
 
 ## Integration Points
 

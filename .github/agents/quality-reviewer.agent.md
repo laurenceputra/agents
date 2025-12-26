@@ -405,6 +405,7 @@ When reviewing an agent implementation, verify:
 - [ ] Markdown conventions followed consistently
 - [ ] Aligns with specification (if provided)
 - [ ] No critical issues preventing production use
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
 
 ## Integration Points
 

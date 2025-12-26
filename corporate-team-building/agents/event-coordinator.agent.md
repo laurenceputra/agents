@@ -747,6 +747,7 @@ Before handing to Devil's Advocate, verify:
 - [ ] **Cross-cutting considerations** addressed (weather, transportation, communication)
 - [ ] **Plans feel realistic and executable**, not aspirational
 - [ ] **Integration with stated goals** clearly explained
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
 
 ## Integration Points
 

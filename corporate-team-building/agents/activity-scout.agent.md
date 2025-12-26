@@ -514,6 +514,7 @@ Before handing to Dining Specialist, verify:
 - [ ] **Top choice recommended with rationale** based on team profile
 - [ ] **Alternative scenarios explained** (when to choose different options)
 - [ ] **Activities feel authentic and specific**, not generic lists
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
 ## Integration Points
 
 ### Upstream Dependencies
