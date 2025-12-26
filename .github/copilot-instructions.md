@@ -17,6 +17,23 @@ Each meta-agent has a single, well-defined responsibility:
 - **PR Manager**: Manages PR submission process (PR logistics only, no quality review)
 - **Devil's Advocate**: Critically reviews all work, surfaces disagreements, challenges assumptions (pre-PR quality gate)
 
+## Default Handoff Policy
+
+**send_default: true**
+
+All handoffs in the meta-agent group default to `send: true` (auto-send without user confirmation).
+
+### Rationale
+
+The meta-agent workflow includes multiple quality gates (Devil's Advocate critical review, PR approval) that provide sufficient oversight without requiring manual confirmation at each handoff:
+- Workflow iterations are frequent and require rapid feedback loops for agent development
+- Devil's Advocate serves as a critical quality gate before PR submission, catching issues missed in earlier reviews
+- PR approval provides final human oversight with full context of all agent reviews
+- All agents operate within version-controlled branches with full audit trails
+- Manual handoff confirmation at each transition would create checkpoint fatigue without adding meaningful safety
+
+This approach allows velocity while maintaining quality standards through concentrated oversight at critical decision points.
+
 ## The Five Meta-Agents
 
 ### Agent Architect (`agents/architect.agent.md`)

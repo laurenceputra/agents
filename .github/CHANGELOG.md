@@ -5,6 +5,19 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.3.0 - 2025-12-26
+
+### Added
+- **Default Handoff Policy Documentation**: Added comprehensive "Default Handoff Policy" section to copilot-instructions.md
+  - Documented `send_default: true` for meta-agent group with rationale
+  - Rationale: Meta-agents prioritize velocity and automation for agent infrastructure work, with human oversight at quality gates
+  - Testing & Observability: Specified testing plan, observability metrics, and rollback plan
+  - Migration Note: Clarified no user behavior changes required
+  - Resolves meta-agent-issue-2: architect-send-default-missing specification
+
+### Changed
+- **copilot-instructions.md**: Added 16-line "Default Handoff Policy" section after "Core Principle"
+
 ## 2.2.0 - 2025-12-22
 
 ### Added
