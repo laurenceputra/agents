@@ -423,6 +423,133 @@ wc -c path/to/agent.agent.md
 
 ---
 
+## Workflow Orchestration Details
+
+### Phase Transitions and Handoffs
+
+**Phase 1 → Phase 1.5 (Architect → Devil's Advocate)**
+- Architect completes specification and ALWAYS submits to Devil's Advocate for critical review
+- Handoff is automatic (`send: true`)
+- Devil's Advocate reviews specification for assumptions, blind spots, scope issues
+- Returns to Architect with either:
+  - **Approval**: Specification ready for implementation
+  - **Critical Issues**: Specific feedback requiring revision
+
+**Phase 1.5 → Phase 2 (Architect → Implementer)**
+- After Devil's Advocate approval, Architect uses designated handoff to Implementer
+- Architect orchestrates this transition - does NOT implement directly
+- Handoff includes specification location (`.specifications/` directory)
+- Implementer receives approved specification and begins implementation
+
+**Phase 2 → Phase 3 (Implementer → Quality Reviewer)**
+- Implementer completes implementation on feature branch
+- Self-reviews against checklist (Gate 2)
+- Reports character count and any size concerns
+- Submits to Quality Reviewer via handoff (automatic)
+- Quality Reviewer receives branch name and specification reference
+
+**Phase 3 → Phase 3.5 (Quality Reviewer → Devil's Advocate)**
+- Quality Reviewer approves implementation after thorough review
+- Handoff to Devil's Advocate with complete work package
+- Devil's Advocate receives: implementation + quality review assessment
+- Critical review of both Implementer and Quality Reviewer work
+
+**Phase 3.5 → Phase 4 (Devil's Advocate → PR Manager)**
+- Devil's Advocate approves after critical review
+- Handoff to PR Manager with comprehensive writeup
+- PR Manager receives all approvals documented
+- Creates PR details file in `.pr_details/` directory
+
+### Handling Feedback Loops
+
+**Specification Iteration (Phase 1/1.5)**
+- Devil's Advocate identifies critical issues → Returns to Architect
+- Architect revises specification to address concerns
+- Resubmits to Devil's Advocate for re-review
+- Cycle continues until approved
+
+**Implementation Iteration (Phase 2/3)**
+- Quality Reviewer identifies issues → Returns to Implementer
+- Implementer makes changes on same feature branch
+- Commits and pushes updates
+- Notifies Quality Reviewer for re-review
+- Cycle continues until approved
+
+**Work Package Iteration (Phase 3/3.5)**
+- Devil's Advocate identifies issues → Returns to Implementer
+- Implementer makes revisions on feature branch
+- Quality Reviewer re-reviews changes
+- Devil's Advocate re-reviews work package
+- Cycle continues until approved
+
+### Branch Management
+
+**Creating Feature Branches**
+```bash
+# For individual agents
+git checkout -b feature/agent-{agent-name}
+
+# For agent groups
+git checkout -b feature/group-{group-name}
+
+# For refactoring
+git checkout -b feature/refactor-{description}
+```
+
+**Working on Feature Branches**
+- All implementations happen on feature branches
+- Never commit directly to main
+- Push regularly: `git push origin {branch-name}`
+- Multiple commits allowed on same branch during iterations
+
+**Branch Cleanup**
+- PR Manager handles final PR submission
+- Branches merged via PR after human approval
+- Feature branches deleted after merge
+
+### Character Count Management
+
+**Architect's Role**
+- Design specifications targeting 15,000-20,000 character agents
+- Flag specifications approaching 25,000 characters
+- Recommend agent splits for overly complex specifications
+- Monitor specification size during design
+
+**Implementer's Role**
+- Validate character count before submission: `wc -c path/to/agent.agent.md`
+- Alert Quality Reviewer if exceeding 25,000 characters (yellow flag)
+- Critical alert if exceeding 30,000 characters (red flag)
+- Optimize examples, consolidate sections if needed
+- Report character count to Quality Reviewer
+
+**Quality Reviewer's Role**
+- Verify character count under 30,000 (critical requirement)
+- Reject if over 30,000 characters (return to Implementer)
+- Flag for optimization if 25,000-30,000 characters
+- Document character count validation in review
+- May escalate to Architect if fundamental redesign needed
+
+### Workflow Context in Agents
+
+**Minimal Context Principle**
+- Agents include their phase and direct handoffs
+- Detailed workflow orchestration in copilot-instructions.md (here)
+- Agents reference "See copilot-instructions.md for full workflow"
+- Keeps agents focused on "what" not "how"
+
+**What Stays in Agents**
+- Phase identification (e.g., "Phase 1: Specification")
+- Direct handoff targets (who to hand off to)
+- Immediate workflow position (upstream/downstream)
+- Critical workflow rules specific to that agent
+
+**What Moves to copilot-instructions.md**
+- Detailed phase transition logic
+- Complete workflow diagrams
+- Troubleshooting guides
+- Coordination patterns across all agents
+- Quality gate details
+
 ## Troubleshooting
 
 ### "I need a new agent but don't know what to specify"
@@ -442,6 +569,21 @@ wc -c path/to/agent.agent.md
 
 ### "Specification has gaps during implementation"
 **Solution**: Quality Reviewer escalates to Architect for specification revision. Architect updates spec, then Implementer updates implementation.
+
+### "Character count exceeds 30,000"
+**Solution**: Return to Implementer for optimization. If fundamental issue, Quality Reviewer escalates to Architect for specification redesign (may require agent split).
+
+### "Agent too complex to implement in one file"
+**Solution**: Quality Reviewer escalates to Architect. Architect redesigns as agent group or splits responsibilities.
+
+### "Workflow seems stuck in feedback loop"
+**Solution**: Each iteration should show progress. If not converging after 3 cycles, escalate to human review with Devil's Advocate writeup.
+
+### "Which agent handles PR details files?"
+**Answer**: PR Manager creates and manages `.pr_details/{branch-name}.md` files. Architect and Implementer do NOT create these files.
+
+### "Handoff broken or agent not found"
+**Solution**: Implementer fixes handoff references. Quality Reviewer validates handoff integrity in review.
 
 ---
 
