@@ -49,7 +49,7 @@ This approach allows velocity while maintaining quality standards through concen
 - Designs frontmatter schema and handoff chains
 - Documents edge cases and integration points
 - Submits specifications to Devil's Advocate for Phase 1.5 review
-- Handles Devil's Advocate approval and manually invokes Implementer
+- Handles Devil's Advocate approval and uses designated handoff to Implementer
 
 **Handoffs to**: Devil's Advocate (for specification review), Agent Implementer (after DA approval)
 
