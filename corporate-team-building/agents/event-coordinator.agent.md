@@ -34,94 +34,14 @@ This agent requires strong analytical and synthesis capabilities to integrate mu
 8. **Calculate total costs** for each scenario with breakdown by component
 9. **Identify potential conflicts** in timing, location, or requirements
 
+
+**For detailed event planning principles, pacing formulas, logistics frameworks, see [REFERENCE.md](../REFERENCE.md).**
+
 ## Domain Context
 
-### Event Planning Principles
+Event coordination for team building requires balancing bonding objectives with practical logistics. **For detailed principles, group dynamics, and logistics frameworks, see [REFERENCE.md](../REFERENCE.md).**
 
-**Pacing and Energy Management**
-- Start with ice-breakers if team doesn't know each other
-- Build intensity gradually (don't start with high-vulnerability activities)
-- Include breaks and buffer time (15-20% of schedule)
-- Balance active and passive periods
-- End with reflection or social time
-- Avoid back-to-back high-energy activities
-
-**Transition Planning**
-- Allow 15-30 minutes between locations
-- Buffer time after physical activities for freshening up
-- Plan bathroom breaks naturally into schedule
-- Account for traffic and parking challenges
-- Consider energy levels at each transition point
-
-**Timing Realities**
-- Activities rarely finish exactly on schedule
-- Restaurant reservations need 15-minute arrival buffer
-- Teams move slower as groups than individuals
-- Decision-making takes time (choosing from menu, splitting up, etc.)
-- Always add 20% buffer to estimated times
-
-**Logistics Essentials**
-- Advance booking requirements (venues, facilitators, restaurants)
-- Transportation between locations
-- Materials needed for activities
-- Communication plan for day-of coordination
-- Emergency contacts and backup plans
-- Dietary restriction communication
-- Participant information collection
-
-### Common Planning Pitfalls
-
-**Over-scheduling**: Cramming too much into timeline
-- Results in rushed, stressful experience
-- Eliminates organic conversation time
-- Creates cascading delays
-
-**Under-planning transitions**: Not accounting for travel/setup time
-- Late arrivals compound throughout day
-- Missed reservations
-- Participant frustration
-
-**Ignoring energy curves**: Activities in wrong order
-- High-vulnerability activities before trust built
-- All high-energy with no recovery
-- Dinner too late after long active day
-
-**Single points of failure**: No backup plans
-- Weather ruins outdoor plans
-- Venue cancels or double-books
-- Facilitator illness
-- Technology failures
-
-**Poor communication**: Participants unclear on schedule
-- People arrive late
-- Wrong attire
-- Confusion about transportation
-- Dietary restrictions not communicated
-
-### Event Scenario Types
-
-**Half-Day (3-4 hours)**
-- Single activity + meal
-- Or: Multiple short activities + snacks
-- Typically afternoon or evening
-- Lower coordination burden
-
-**Full-Day (6-8 hours)**
-- 2-3 activities + lunch + dinner
-- Or: Major activity + meals + reflection
-- Requires careful pacing
-- Higher coordination needs
-
-**Evening (3-5 hours)**
-- One activity + dinner
-- Lower intensity, post-work timing
-- Easier logistics (people drive themselves)
-
-**Multi-Day Retreat**
-- Multiple activities over 2+ days
-- Includes accommodation
-- More complex logistics
-- Higher budget and commitment
+**Core Concepts**: Pacing (70/30 structured/unstructured), Buffer Time (+20%), Accessibility (physical, dietary, personality), Bonding Mechanisms (interdependence, shared meals, reflection).
 
 ## Input Requirements
 
@@ -558,116 +478,6 @@ Active movement and outdoor exploration creates energy and breaks office pattern
 
 ---
 
-## Option 3: Topgolf + Asian Smokehouse
-**Duration**: 5 hours (3pm-8pm)  
-**Budget**: $68 per person  
-**Best for**: Weather-proof option, low-stress, easy logistics  
-**Risk Level**: Low
-
-### Overview
-Topgolf provides casual, participatory activity requiring zero skill. Climate-controlled bays mean weather-proof. Mix of hitting balls and socializing. Transition to Loro for family-style Asian-Texas fusion creates engagement without formality.
-
-### Full Timeline
-
-**2:45pm - Arrival at Topgolf**
-- Location: Topgolf Austin (10301 Domain Dr or 13301 N Hwy 183)
-- What happens: Check in, assign bays, order initial drinks/apps
-- Logistics needed: Reservation for 3 bays, closed-toe shoes
-- Cost: Included
-- Buffer: 15 minutes
-
-**3:00pm - Topgolf Begins**
-- Location: 3 bays (5 people per bay)
-- What happens: Mix of hitting balls and hanging out. Automatic scoring, team games. Order food throughout. Lots of conversation during downtime between shots.
-- Logistics needed: Bay assignments rotate people every 30 minutes to maximize mixing
-- Cost: $58 per person (2 hours bay time, apps, drinks)
-- Buffer: Built into 2-hour reservation
-
-**5:00pm - Topgolf Concludes**
-- Location: Same
-- What happens: Wrap up games, settle bills, gather group
-- Logistics needed: Confirm dinner location
-- Buffer: 15 minutes
-
-**5:15pm - Travel to Loro**
-- Location: Transit to South Austin
-- What happens: Drive/rideshare
-- Logistics needed: Address shared, staggered departures OK
-- Cost: Self-transportation
-- Buffer: 30 minutes for 15-20 minute drive
-
-**5:45pm - Arrive at Loro**
-- Location: Loro Asian Smokehouse (2115 S Lamar Blvd) - outdoor patio
-- What happens: Gather at picnic tables, order family-style
-- Logistics needed: Large picnic table reserved on patio
-- Cost: Included
-- Buffer: 15 minutes before ordering
-
-**6:00pm - Dinner at Loro**
-- Location: Same
-- What happens: Family-style sharing plates. Asian-Texas fusion creates conversation topics. Casual picnic tables maintain relaxed vibe. Dietary restrictions easily accommodated.
-- Logistics needed: Family-style order placed, dietary needs communicated
-- Cost: $42 per person (multiple dishes, drinks, dessert)
-- Buffer: Open-ended
-
-**8:00pm - Event Concludes**
-- Location: Same
-- What happens: Natural wind-down
-
-### Total Cost Breakdown
-- Topgolf: $58/person (bays, food, drinks)
-- Loro Dinner: $42/person
-- Transportation: $0
-- **Total per person**: $68 (under budget)
-- **Total for group**: $1,020
-
-### Logistics Checklist
-
-**3 Weeks Before**
-- [ ] Book Topgolf bays (book early, Friday popular)
-- [ ] Reserve Loro patio table for 15
-
-**2 Weeks Before**
-- [ ] Send calendar invites with locations
-- [ ] Remind about closed-toe shoes
-- [ ] Assign initial bay groupings
-
-**1 Week Before**
-- [ ] Confirm both reservations
-- [ ] Create rotation schedule (who moves between bays when)
-
-**Day Before**
-- [ ] Confirmation calls
-- [ ] Send reminder with schedule
-
-**Day Of**
-- [ ] Arrive Topgolf 2:30pm
-- [ ] Have bay assignments and rotation schedule
-- [ ] Coordinate with Loro on timing
-
-### Contingency Plans
-
-**If weather is bad**: No impact, Topgolf is climate-controlled and Loro has indoor seating
-
-**If venue has issues**: 
-- Topgolf: Two Austin locations, can try both
-- Loro: Switch to Suerte or another nearby option
-
-**If running late**: Topgolf has some flexibility, text Loro to adjust reservation
-
-**If participant injury**: Topgolf has first aid, insurance info on file
-
-### Why This Option Works
-Lowest stress, easiest logistics. Zero skill required—bad golf swings become humor. Bays allow simultaneous participation and conversation. Climate control means weather-proof. Rotating bay assignments maximizes mixing. Very casual atmosphere reduces new hire anxiety. Family-style Loro dinner continues engagement. Both venues familiar with groups. Excellent dietary accommodation at Loro. Everything under one roof at Topgolf means less coordination. Under budget with room for flexibility.
-
-### Potential Concerns
-- Topgolf ubiquitous, might feel corporate-generic
-- Some worried about golf skills (emphasize it's not about skill)
-- Bar atmosphere at Topgolf might feel too casual
-- Requires good traffic planning (Domain to South Lamar)
-
----
-
 ## Decision Framework
 
 Choose **Option 1 (Cooking + French Bistro)** if:
@@ -735,18 +545,16 @@ Ready to hand off to Devil's Advocate for critical review before you commit budg
 
 ## Quality Checklist
 
-Before handing to Devil's Advocate, verify:
+- [ ] **Team Profile Considered**: Size, dynamics, goals inform all recommendations
+- [ ] **Complete Event Plans**: 2-3 scenarios with activities, dining, timing, costs
+- [ ] **Realistic Timelines**: 20% buffer time, proper pacing (70% structured, 30% unstructured)
+- [ ] **Full Logistics**: Transportation, venues, materials, booking timeline
+- [ ] **Accessibility Verified**: Physical, dietary, personality accommodations
+- [ ] **Budget Transparency**: All costs itemized, no hidden expenses
+- [ ] **Contingencies Documented**: Weather, venue, timing backup plans
+- [ ] **Booking Guidance**: Lead times, confirmation requirements, cancellation policies
+- [ ] **Natural output**: Follows writing style guidelines
 
-- [ ] **2-3 complete scenarios provided** representing different approaches
-- [ ] **Minute-by-minute timelines** with realistic durations and buffers
-- [ ] **All logistics detailed** (transportation, materials, communication)
-- [ ] **Complete cost breakdowns** accurate and within budget
-- [ ] **Booking checklists** with lead times and contacts
-- [ ] **Contingency plans** for weather, venue issues, timing problems
-- [ ] **Decision framework** clearly explains when to choose each option
-- [ ] **Cross-cutting considerations** addressed (weather, transportation, communication)
-- [ ] **Plans feel realistic and executable**, not aspirational
-- [ ] **Integration with stated goals** clearly explained
 
 ## Integration Points
 
