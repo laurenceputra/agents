@@ -39,29 +39,10 @@ Assess how philanthropic programs fit into overall giving strategy and portfolio
 
 ## Domain Context
 
-Portfolio strategy in philanthropy applies investment portfolio principles (diversification, concentration risk, strategic allocation) to social impact funding. Key considerations for Singapore at-risk communities:
+Portfolio strategy ensures philanthropic giving aligns with values, balances risk, and maximizes collective impact. **For detailed portfolio frameworks, concentration risk guidelines, and Singapore-specific gaps, see [REFERENCE.md](../REFERENCE.md#portfolio-strategy-frameworks).**
 
-**Key Concepts**:
-- **Mission Alignment**: How well program serves core philanthropic purpose (uplifting families in crisis, children from lower-income families)
-- **Portfolio Diversification**: Spreading funding across intervention types (crisis/prevention/systemic), age groups (early childhood/youth/adults), and issue areas (education/employment/housing)
-- **Concentration Risk**: Over-investment in one area (e.g., all youth programs, no family support) creates vulnerability if approach doesn't work
-- **Strategic Gaps**: Underserved populations or intervention types not covered by current portfolio
-- **Synergies**: Programs that complement each other (e.g., family stabilization + children's education = reinforcing impacts)
-- **Impact Thesis**: Coherent theory about how portfolio collectively creates systemic change
-- **Scalability**: Can portfolio grow to population-level impact or remain boutique?
+**Key Principles**: Diversification across cause areas (no single >40%), balance upstream/downstream (60/40 target), risk profile mix (70% proven, 30% experimental).
 
-**Singapore Portfolio Context**:
-- **At-Risk Demographics**: 20% of children from lower-income households, 10,000+ families receiving MSF crisis support annually
-- **Intervention Spectrum**: Crisis response (immediate stabilization) → Prevention (reduce future crises) → Systemic change (address root causes)
-- **Geographic Coverage**: Concentration of lower-income families in specific neighborhoods (Jurong West, Woodlands, Tampines) vs island-wide approach
-- **Lifecycle Stages**: Early childhood (0-6), school-age (7-12), youth (13-18), young adults (19-25), families (multi-generational)
-- **Issue Areas**: Education, employment, housing, family stability, mental health, social connection
-
-**Philanthropic Strategy Frameworks**:
-- **Focused vs Broad**: Concentrate on narrow issue (e.g., youth education only) vs diversify across issues
-- **Direct Service vs Systems Change**: Fund programs serving beneficiaries vs advocacy/policy/research
-- **Proven vs Innovative**: Support established models vs pilot new approaches
-- **Geographic Scope**: Neighborhood-focused vs island-wide
 ## Writing Style Guidelines
 
 See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
@@ -666,18 +647,16 @@ Total: $530K annually, 240 beneficiaries, 100% prevention, 0% crisis response
 
 ## Quality Checklist
 
-When completing a portfolio fit assessment, verify:
+- [ ] **Mission Alignment Scored**: 1-10 rating with clear rationale
+- [ ] **Portfolio Fit Assessed**: Diversification, gaps, synergies analyzed
+- [ ] **Strategic Value Clear**: How program enhances portfolio explicitly stated
+- [ ] **Concentration Risks Evaluated**: By cause, stage, geography
+- [ ] **Scalability & Sustainability**: Growth potential and long-term viability assessed
+- [ ] **Singapore Context**: Landscape, gaps, and complementarity addressed
+- [ ] **Recommendation Clear**: Strong Fit/Moderate/Weak with rationale
+- [ ] **Integration Points**: How program connects to existing portfolio
+- [ ] **Natural output**: Follows writing style guidelines
 
-- [ ] **Mission Alignment Assessed**: Target population, intervention approach, and impact thesis fit evaluated with specific scores
-- [ ] **Portfolio Composition Analyzed**: Current portfolio breakdown (intervention types, demographics, issue areas, geographies) documented, shifts calculated if program funded
-- [ ] **Concentration Risk Evaluated**: Identified concentrations (>40% in one category), assessed new concentrations, provided mitigation recommendations
-- [ ] **Strategic Gaps Identified**: Listed current gaps with severity ratings, assessed which gaps program fills, prioritized remaining gaps
-- [ ] **Synergies Mapped**: Identified complementary programs with specific examples, flagged overlaps/redundancies, rated overall synergy level
-- [ ] **Scalability Assessed**: Evaluated program scalability constraints, portfolio-level scalability impact, population-level potential
-- [ ] **Singapore Landscape Integrated**: Assessed government program overlap, other funders, policy trends, landscape fit rated
-- [ ] **Comparative Ranking Provided** (if applicable): Table comparing programs with scoring, clear ranking with trade-offs documented
-- [ ] **Recommendation Clear**: Fund/Decline/Modify/Pilot with portfolio-driven rationale (not just program merit), conditions specified
-- [ ] **Portfolio Actions Specified**: Next steps beyond this program (diversification, rebalancing, sunset decisions)
 ## Integration Points
 
 ### Upstream (Receives Input From)

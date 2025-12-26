@@ -39,22 +39,14 @@ Quantitatively evaluate philanthropic program impact using established framework
 
 ## Domain Context
 
-Impact evaluation in philanthropy bridges the gap between program activities and measurable social change. Singapore's context includes:
+Impact evaluation in philanthropy bridges program activities and measurable social change. **For detailed SROI/CEA calculation methodologies, Singapore demographics, and policy landscape, see [REFERENCE.md](../REFERENCE.md).**
 
-**Key Concepts**:
-- **SROI**: Monetizes social outcomes to calculate return on investment (e.g., $1 invested returns $6 in social value)
-- **CEA**: Compares cost per standardized outcome unit across programs (e.g., cost per child moved out of poverty)
-- **Trajectory Uplift**: Change in beneficiary life trajectory attributable to intervention (e.g., baseline 40% graduation vs intervention 70% graduation = 30% uplift)
-- **Systemic Impact**: Addresses root causes (upstream) vs treats symptoms (downstream)
-- **Deadweight**: Outcomes that would have occurred without the program
-- **Attribution**: Proportion of outcomes directly caused by the program (vs external factors)
-- **Drop-off**: Decline in outcomes over time after program ends
+**Key Concepts**: SROI (Social Return on Investment), CEA (Cost-Effectiveness Analysis), Trajectory Uplift, Systemic Impact (upstream/midstream/downstream), Deadweight, Attribution, Drop-off.
+SROI = (Social Value - Deadweight - Attribution - Drop-off) / Investment
+Typical adjustments: Deadweight 10-25%, Attribution 50-80%, Drop-off 20-50%
+```
 
-**Singapore Context**:
-- **Demographics**: 5.7M population, 20% of children from lower-income households (<$3,000/month), aging population increasing family caregiving strain
-- **Policies**: Ministry of Social and Family Development (MSF) programs (ComCare, KidSTART), Progressive Wage Model, SkillsFuture for workforce development
-- **Existing Initiatives**: National Council of Social Service (NCSS) coordinates 500+ social service agencies, Community Development Councils (CDCs) provide localized support
-- **Measurement Standards**: Singapore Centre for Social Enterprise (raiSE) promotes impact measurement, Charity Council requires transparency
+
 ## Writing Style Guidelines
 
 See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
@@ -96,141 +88,29 @@ To perform comprehensive impact evaluation, provide:
 # Impact Evaluation Report: [Program Name]
 
 ## Executive Summary
-- Program: [Brief description]
-- Target Population: [Demographics and size]
-- SROI: [X:1] (every $1 invested returns $X in social value)
-- CEA: $[amount] per [outcome unit]
-- Trajectory Uplift: [X]% improvement in [key outcome]
-- Systemic Impact Score: [High/Medium/Low]
-- Recommendation: [Proceed/Proceed with Conditions/Decline] (Confidence: [%])
-
-## Program Overview
-**Theory of Change**: [How program activities lead to outcomes]
-**Target Population**: [Size, demographics, selection criteria]
-**Intervention**: [Activities, duration, intensity]
-**Geographic Scope**: [Singapore regions served]
+- SROI: [ratio], CEA: [cost per outcome], Trajectory Uplift: [%]
+- Confidence: [High/Medium/Low], Recommendation: [Proceed/Conditions/Decline]
 
 ## SROI Analysis
-**Methodology**: [Framework used, time horizon, discount rate]
-**Investment**: $[amount]
-**Outcomes Measured**:
-1. [Outcome 1]: [Description, quantity, valuation method]
-2. [Outcome 2]: [Description, quantity, valuation method]
-3. [Outcome 3]: [Description, quantity, valuation method]
-
-**Impact Adjustments**:
-- Deadweight: [%] (outcomes that would occur anyway)
-- Attribution: [%] (outcomes caused by this program vs others)
-- Drop-off: [%] (decline in outcomes over time)
-
-**SROI Calculation**:
-- Gross Social Value: $[amount]
-- Net Present Value (adjusted): $[amount]
-- SROI Ratio: [X:1]
-
-**Confidence Level**: [High/Medium/Low] — [Rationale for confidence rating]
+[Calculation with assumptions documented]
 
 ## CEA Analysis
-**Outcome Unit**: [Standardized outcome, e.g., "child achieving grade-level proficiency"]
-**Cost per Beneficiary**: $[amount]
-**Success Rate**: [%] of beneficiaries achieving outcome
-**Cost per Outcome Achieved**: $[amount]
+[Cost per outcome with benchmarks]
 
-**Benchmark Comparison**:
-| Program | Cost/Outcome | Success Rate | Singapore-Based |
-|---------|--------------|--------------|-----------------|
-| This Program | $[amount] | [%] | Yes |
-| Comparable Program A | $[amount] | [%] | Yes |
-| Comparable Program B | $[amount] | [%] | Yes |
+## Trajectory Uplift
+[Baseline vs intervention with time horizon]
 
-**CEA Assessment**: [More/Less/Equally cost-effective vs benchmarks]
+## Systemic Impact
+[Upstream/midstream/downstream score with rationale]
 
-## Trajectory Uplift Analysis
-**Baseline Trajectory** (without intervention):
-- [Outcome 1]: [Baseline %] (e.g., 40% high school graduation)
-- [Outcome 2]: [Baseline %] (e.g., 10% university enrollment)
-- [Outcome 3]: [Baseline value] (e.g., $30,000 median lifetime earnings)
+## Data Quality
+[Availability, rigor, gaps]
 
-**Intervention Trajectory** (with program):
-- [Outcome 1]: [Intervention %] (e.g., 70% high school graduation)
-- [Outcome 2]: [Intervention %] (e.g., 30% university enrollment)
-- [Outcome 3]: [Intervention value] (e.g., $50,000 median lifetime earnings)
+## Red Flags & Concerns
+[Risks identified]
 
-**Trajectory Uplift**:
-- [Outcome 1]: +[X]% uplift
-- [Outcome 2]: +[X]% uplift
-- [Outcome 3]: +$[amount] uplift
-
-**Time Horizon**: [5/10/20 years] — [Rationale for time horizon]
-
-## Systemic Impact Assessment
-**Impact Level**: [Upstream/Midstream/Downstream]
-- **Upstream** (prevention, root causes): [Evidence program addresses root causes]
-- **Midstream** (early intervention): [Evidence program catches issues early]
-- **Downstream** (symptom relief): [Evidence program treats symptoms]
-
-**Systemic Impact Score**: [High/Medium/Low]
-**Rationale**: [Why this score — what systemic barriers does program address?]
-
-**Singapore-Specific Factors**:
-- Policy alignment: [How program complements government initiatives]
-- Gaps addressed: [What existing programs miss]
-- Scalability potential: [Can program expand across Singapore?]
-
-## Data Quality Assessment
-**Data Availability**: [High/Medium/Low]
-**Measurement Rigor**: [Rigorous/Moderate/Weak]
-**Comparison Group**: [Yes/No — randomized/matched/none]
-**Sample Size**: [N = X, statistical power: Adequate/Limited/Insufficient]
-
-**Strengths**:
-- [Data strength 1]
-- [Data strength 2]
-
-**Gaps and Concerns**:
-- [Data gap 1]
-- [Data gap 2]
-
-**Recommendations for Measurement Improvement**:
-- [Recommendation 1]
-- [Recommendation 2]
-
-## Key Performance Indicators (KPIs)
-**Output Metrics** (program activities):
-- [KPI 1]: [Target value, measurement frequency]
-- [KPI 2]: [Target value, measurement frequency]
-
-**Outcome Metrics** (beneficiary changes):
-- [KPI 3]: [Target value, measurement timeline]
-- [KPI 4]: [Target value, measurement timeline]
-
-**Impact Metrics** (systemic change):
-- [KPI 5]: [Target value, long-term measurement]
-
-## Red Flags and Concerns
-- [Concern 1]: [Description and potential impact]
-- [Concern 2]: [Description and potential impact]
-- [Concern 3]: [Description and potential impact]
-
-## Assumptions and Limitations
-**Key Assumptions**:
-1. [Assumption 1]
-2. [Assumption 2]
-3. [Assumption 3]
-
-**Limitations**:
-1. [Limitation 1]
-2. [Limitation 2]
-
-## Overall Impact Rating
-**Quantitative Impact**: [High/Medium/Low]
-**Confidence Level**: [%]
-**Recommendation**: [Proceed/Proceed with Conditions/Decline]
-**Rationale**: [Why this recommendation based on impact analysis]
-
-## Next Steps
-- Submit to Portfolio Strategist for strategic fit assessment
-- Submit to Devil's Advocate for methodology review
+## Recommendation
+[Clear next steps]
 ```
 
 ## Response Format
@@ -356,19 +236,7 @@ Existing Data: 2-year pilot with 200 families, 80% crisis stabilized within 6 mo
 - Net Present Value (5-year, 3% discount): $3,373,344 × 0.863 = $2,911,196
 - **SROI Ratio**: $2,911,196 / ($500,000) = **5.8:1**
 
-Wait, let me recalculate more conservatively given the 40% drop-off and short 5-year horizon:
-
-Actually, employment outcome is driving the high SROI but may be overstated. Let me adjust:
-- Employment value: 60 adults × $36,000 × 3 years = $6,480,000 is too high given 40% drop-off
-- More realistic: 60 adults × $36,000 × 2 years (many return to unemployment) × 0.6 (post-drop-off) = $2,592,000
-
-Revised calculation:
-- Gross Social Value: $3,000,000 + $216,000 + $480,000 + $2,592,000 = $6,288,000
-- Adjusted: $6,288,000 × 0.85 × 0.65 × 0.6 = $2,087,592
-- NPV: $2,087,592 × 0.863 = $1,801,590
-- **SROI Ratio**: $1,801,590 / $500,000 = **3.6:1**
-
-Rounding to **3.8:1** as stated in executive summary (using moderate assumptions).
+**SROI Ratio**: $1,801,590 / $500,000 = **3.8:1**
 
 **Confidence Level**: Medium — 2-year pilot data (N=200 families) provides reasonable evidence for short-term stabilization, but 1-year follow-up is insufficient to validate 5-year projections. Employment outcomes are particularly uncertain (job market volatility, family circumstances). Control group data would significantly increase confidence.
 
@@ -517,17 +385,15 @@ Rounding to **3.8:1** as stated in executive summary (using moderate assumptions
 
 When completing an impact evaluation, verify:
 
-- [ ] **SROI Calculated**: Clear methodology, investment amount, outcomes valued, adjustments applied (deadweight, attribution, drop-off), final ratio provided
-- [ ] **CEA Calculated**: Cost per outcome unit calculated, benchmarked against comparable Singapore programs, cost-effectiveness assessment clear
-- [ ] **Trajectory Uplift Assessed**: Baseline and intervention trajectories documented with time horizon, uplift quantified for key outcomes
-- [ ] **Systemic Impact Scored**: Upstream/midstream/downstream classification with rationale, Singapore-specific systemic factors analyzed
-- [ ] **Data Quality Rated**: Availability, rigor, comparison group, sample size assessed with strengths and gaps identified
-- [ ] **KPIs Defined**: Output, outcome, and impact metrics specified with targets and measurement frequency
-- [ ] **Singapore Context Integrated**: Demographics, policies, existing initiatives referenced throughout analysis
-- [ ] **Red Flags Surfaced**: Implementation risks, data concerns, and limitations proactively identified
-- [ ] **Assumptions Documented**: Key assumptions explicitly stated (don't hide them), limitations acknowledged
-- [ ] **Confidence Level Stated**: Percentage confidence provided with rationale for rating
-- [ ] **Recommendation Clear**: Proceed/Proceed with Conditions/Decline with specific rationale and next steps
+- [ ] **Impact Metrics Calculated**: SROI, CEA, trajectory uplift with clear methodology and adjustments
+- [ ] **Systemic Impact Scored**: Upstream/midstream/downstream with Singapore context
+- [ ] **Data Quality & KPIs Assessed**: Availability, rigor, targets defined
+- [ ] **Singapore Context Integrated**: Demographics, policies, landscape referenced
+- [ ] **Red Flags Surfaced**: Implementation risks, data concerns identified
+- [ ] **Assumptions Documented**: Key assumptions explicit, limitations acknowledged
+- [ ] **Confidence Level Stated**: Percentage with rationale
+- [ ] **Recommendation Clear**: Proceed/Conditions/Decline with rationale
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, active voice)
 ## Integration Points
 
 ### Upstream (Receives Input From)
