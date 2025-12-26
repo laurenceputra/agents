@@ -5,6 +5,41 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.4.0 - 2025-12-26
+
+### Fixed
+- **Issue #3: Handoff Chain Inconsistency (Option 2b)**: Fixed workflow gap where Devil's Advocate Phase 1.5 approval had no clear path forward
+  - **Root Cause**: Workflow showed DA reviewing specs, but Architect had direct handoff to Implementer that bypassed DA, and DA had no approval handoff
+  - **Solution**: Implemented Option 2b (Architect orchestrates with explicit approval)
+  - **Changes**:
+    - **Agent Architect (v2.1.0 → v2.2.0)**:
+      - Added back "Hand to Implementer (after Devil's Advocate approval)" handoff with clear usage instructions
+      - Updated "Workflow Enforcement" section with Phase 1 → 1.5 → 2 transition instructions
+      - Added guidance on when to use Implementer handoff (after DA approval)
+      - Updated Integration Points to reflect DA as primary handoff, Implementer as secondary
+      - Updated Feedback Loops to document DA approval status handling
+    - **Devil's Advocate (v2.0.0 → v2.1.0)**:
+      - Added "Return to Architect with approval (Phase 1.5)" handoff
+      - Updated Phase 1.5 responsibilities to clarify approval decision path
+      - Now has explicit handoff for both critical issues AND approval scenarios
+    - **copilot-instructions.md**:
+      - Updated workflow diagram to show DA returns to Architect, who then invokes Implementer
+      - Updated Phase 1.5 decision point documentation
+      - Updated Architect and Devil's Advocate descriptions in Five Meta-Agents section
+  - **Rationale**: Separates review (DA's job) from orchestration (Architect's job), keeps DA focused on critical analysis
+  - **Impact**: Resolves workflow deadlock where Phase 1.5 approval had no documented next step
+
+- **Issue #8: Devil's Advocate Model Clarification (Option C)**: Updated model rationale to be more general and future-proof
+  - **Problem**: Model rationale didn't mention new `send_default` policy review responsibility
+  - **Solution**: Generalized rationale to cover current and future responsibilities without needing updates
+  - **Change**: Updated "Recommended Model" section in Devil's Advocate (v2.1.0)
+  - **New Rationale**: Emphasizes general capabilities (nuanced judgment, multi-criteria policy evaluation, risk assessment) rather than specific task lists
+  - **Benefit**: Model rationale now covers Phase 1.5 and Phase 3.5 duties without requiring updates when responsibilities expand
+
+### Changed
+- **Workflow Pattern**: Phase 1.5 approval requires Architect to use designated "Hand to Implementer (after Devil's Advocate approval)" handoff for controlled transition
+- **Handoff Chains**: All specification workflows route through Architect after DA review, with clear handoff mechanism for proceeding to implementation
+
 ## 2.3.0 - 2025-12-26
 
 ### Added

@@ -2,15 +2,15 @@
 name: agent-architect
 description: Designs agent specifications and defines scope for new agents
 model: Claude Sonnet 4.5 (copilot)
-version: 2.1.0
+version: 2.2.0
 handoffs:
   - label: "Submit to Devil's Advocate for specification review"
     agent: "devils-advocate"
     prompt: "Critically review this agent specification for assumptions, blind spots, scope issues, and design decisions before implementation begins. Challenge the specification to ensure it's solid."
     send: true
-  - label: "Hand to Implementer"
+  - label: "Hand to Implementer (after Devil's Advocate approval)"
     agent: "implementer"
-    prompt: "Implement the agent specification I've created. The specification document is in .specifications/ directory. Follow the specification exactly and create the agent definition file(s) on a feature branch."
+    prompt: "The specification has been approved by Devil's Advocate. Please implement this specification on a feature branch following the documented requirements in .specifications/ directory."
     send: true
   - label: "Escalate to Quality Reviewer"
     agent: "quality-reviewer"
@@ -100,9 +100,13 @@ The Agent Architect operates strictly in the specification design phase:
 
 - **Output**: Comprehensive agent specifications ONLY
 - **No Implementation**: Never creates agent definition files (.agent.md)
-- **Handoff to Implementer**: All specifications go to Agent Implementer for implementation
+- **Phase 1 to Phase 1.5 Transition**: After creating specification, ALWAYS submit to Devil's Advocate for critical review
+- **Handling Devil's Advocate Approval**: When Devil's Advocate returns with approval (no critical issues), use the "Hand to Implementer (after Devil's Advocate approval)" handoff to proceed to implementation
+- **Handling Devil's Advocate Feedback**: When Devil's Advocate identifies critical issues, revise the specification to address concerns, then resubmit for review
 - **Specification Revisions**: If Quality Reviewer identifies gaps, Architect revises the specification
 - **Model Recommendations**: Must specify recommended model for every agent designed
+
+**CRITICAL**: Architect orchestrates the Phase 1 → Phase 1.5 → Phase 2 transition. Devil's Advocate reviews specifications and returns to Architect with approval status OR critical issues. When approved, Architect uses the designated handoff to send the specification to Implementer for implementation.
 
 ## Writing Style Guidelines
 
@@ -593,11 +597,13 @@ When reviewing an agent group specification, verify:
 - **Existing Agents**: May identify gaps requiring new specialized agents
 
 ### Downstream (Provides Output To)
-- **Agent Implementer**: Receives specifications to build agent definitions (PRIMARY HANDOFF)
+- **Devil's Advocate**: Receives specifications for Phase 1.5 critical review (PRIMARY HANDOFF)
+- **Agent Implementer**: Receives Devil's Advocate-approved specifications for implementation (using designated handoff after approval)
 - **Quality Reviewer**: Uses specifications to validate implementations
 
 ### Feedback Loops
+- **Devil's Advocate**: Returns specifications with approval status or critical issues for revision (Phase 1.5 gate)
 - **Quality Reviewer**: May identify specification gaps requiring revision
 - **End Users**: May request specification adjustments based on usage
 
-**Critical Workflow Rule**: Architect produces specifications → Agent Implementer implements → Quality Reviewer reviews. Architect NEVER implements.
+**Critical Workflow Rule**: Architect produces specifications → Devil's Advocate reviews (Phase 1.5) → Architect hands to Agent Implementer (after DA approval) → Agent Implementer implements → Quality Reviewer reviews. Architect NEVER implements.

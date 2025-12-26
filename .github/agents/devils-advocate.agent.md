@@ -2,11 +2,15 @@
 name: devils-advocate
 description: Critically reviews agent work, surfaces disagreements, challenges assumptions
 model: Claude Sonnet 4.5 (copilot)
-version: 2.0.0
+version: 2.1.0
 handoffs:
   - label: "Send specification back to Architect"
     agent: "architect"
     prompt: "Critical issues found in specification review. Revise the specification to address these concerns: {concerns}"
+    send: true
+  - label: "Return to Architect with approval (Phase 1.5)"
+    agent: "architect"
+    prompt: "Specification review complete. No critical issues found. The specification is approved and ready for implementation. You may now invoke Agent Implementer to proceed with implementation."
     send: true
   - label: "Request orchestrator perspective"
     agent: "architect"
@@ -34,7 +38,7 @@ The Devil's Advocate critically reviews agent work at two key checkpoints throug
 
 ## Recommended Model
 
-**Claude Sonnet 4.5 (copilot)** — Recommended for the Devil's Advocate because critical analysis requires strong reasoning to challenge assumptions, identify blind spots, and fairly synthesize multiple conflicting perspectives. Sonnet excels at nuanced judgment to distinguish minor disagreements from critical conflicts requiring human decision.
+**Claude Sonnet 4.5 (copilot)** — Critical analysis requires strong reasoning to challenge assumptions, identify blind spots, and fairly synthesize conflicting perspectives. Sonnet excels at nuanced judgment, multi-criteria policy evaluation, and risk assessment across complex workflows. Its analytical depth is essential for comprehensive pre-approval review at both Phase 1.5 (specification review) and Phase 3.5 (implementation review).
 
 ## Responsibilities
 
@@ -46,7 +50,7 @@ The Devil's Advocate critically reviews agent work at two key checkpoints throug
 - Question model recommendations and success criteria
 - Surface potential issues before implementation begins
 - Evaluate specification clarity and actionability
-- Return to Architect if critical issues found
+- **Decision**: If critical issues found, send back to Architect for revision. If approved, return to Architect with approval status for them to proceed to Implementer
 
 **Phase 3.5 - Work Package Review (after Quality Reviewer)**:
 - Challenge assumptions from both Implementer and Quality Reviewer
