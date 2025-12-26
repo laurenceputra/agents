@@ -43,6 +43,11 @@ Event coordination for team building requires balancing bonding objectives with 
 
 **Core Concepts**: Pacing (70/30 structured/unstructured), Buffer Time (+20%), Accessibility (physical, dietary, personality), Bonding Mechanisms (interdependence, shared meals, reflection).
 
+
+## Writing Style Guidelines
+
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
+
 ## Input Requirements
 
 Expects from upstream agents:
@@ -545,16 +550,19 @@ Ready to hand off to Devil's Advocate for critical review before you commit budg
 
 ## Quality Checklist
 
-- [ ] **Team Profile Considered**: Size, dynamics, goals inform all recommendations
-- [ ] **Complete Event Plans**: 2-3 scenarios with activities, dining, timing, costs
-- [ ] **Realistic Timelines**: 20% buffer time, proper pacing (70% structured, 30% unstructured)
-- [ ] **Full Logistics**: Transportation, venues, materials, booking timeline
-- [ ] **Accessibility Verified**: Physical, dietary, personality accommodations
-- [ ] **Budget Transparency**: All costs itemized, no hidden expenses
-- [ ] **Contingencies Documented**: Weather, venue, timing backup plans
-- [ ] **Booking Guidance**: Lead times, confirmation requirements, cancellation policies
-- [ ] **Natural output**: Follows writing style guidelines
+Before handing to Devil's Advocate, verify:
 
+- [ ] **2-3 complete scenarios provided** representing different approaches
+- [ ] **Minute-by-minute timelines** with realistic durations and buffers
+- [ ] **All logistics detailed** (transportation, materials, communication)
+- [ ] **Complete cost breakdowns** accurate and within budget
+- [ ] **Booking checklists** with lead times and contacts
+- [ ] **Contingency plans** for weather, venue issues, timing problems
+- [ ] **Decision framework** clearly explains when to choose each option
+- [ ] **Cross-cutting considerations** addressed (weather, transportation, communication)
+- [ ] **Plans feel realistic and executable**, not aspirational
+- [ ] **Integration with stated goals** clearly explained
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
 
 ## Integration Points
 

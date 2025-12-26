@@ -119,6 +119,11 @@ Lower bonding potential:
 - Consider professional event companies
 - Requires significant coordination
 - Challenging for intimate bonding
+
+## Writing Style Guidelines
+
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
+
 ## Input Requirements
 
 Expects comprehensive team profile from Team Profiler including:
@@ -514,6 +519,7 @@ Before handing to Dining Specialist, verify:
 - [ ] **Top choice recommended with rationale** based on team profile
 - [ ] **Alternative scenarios explained** (when to choose different options)
 - [ ] **Activities feel authentic and specific**, not generic lists
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
 ## Integration Points
 
 ### Upstream Dependencies
