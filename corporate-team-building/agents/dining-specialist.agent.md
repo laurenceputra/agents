@@ -126,6 +126,11 @@ This agent handles structured recommendations with clear evaluation criteria. Ha
 - Set menus common
 - Significant advance notice needed
 - May need dedicated servers
+
+## Writing Style Guidelines
+
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
+
 ## Input Requirements
 
 Expects from upstream agents:

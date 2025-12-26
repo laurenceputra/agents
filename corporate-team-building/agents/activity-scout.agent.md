@@ -119,6 +119,11 @@ Lower bonding potential:
 - Consider professional event companies
 - Requires significant coordination
 - Challenging for intimate bonding
+
+## Writing Style Guidelines
+
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
+
 ## Input Requirements
 
 Expects comprehensive team profile from Team Profiler including:

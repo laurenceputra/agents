@@ -123,6 +123,11 @@ This agent requires strong analytical and synthesis capabilities to integrate mu
 - More complex logistics
 - Higher budget and commitment
 
+
+## Writing Style Guidelines
+
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
+
 ## Input Requirements
 
 Expects from upstream agents:

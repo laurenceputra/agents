@@ -59,6 +59,11 @@ Common objectives that shape recommendations:
 - **Tenure range**: All new hires vs mixed experience affects shared context
 - **Personality diversity**: Introverts vs extroverts affects activity preferences
 
+
+## Writing Style Guidelines
+
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
+
 ## Input Requirements
 
 The planner should provide:
