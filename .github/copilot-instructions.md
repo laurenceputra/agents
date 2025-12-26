@@ -25,12 +25,14 @@ All handoffs in the meta-agent group default to `send: true` (auto-send without 
 
 ### Rationale
 
-The meta-agent workflow is designed for **velocity and automation**:
-- Meta-agents work together to build agent infrastructure, not end-user-facing features
-- Workflow iterations are frequent and require rapid feedback loops
-- Human oversight occurs at critical quality gates (Devil's Advocate reviews, PR approval) rather than every handoff
+The meta-agent workflow includes multiple quality gates (Devil's Advocate critical review, PR approval) that provide sufficient oversight without requiring manual confirmation at each handoff:
+- Workflow iterations are frequent and require rapid feedback loops for agent development
+- Devil's Advocate serves as a critical quality gate before PR submission, catching issues missed in earlier reviews
+- PR approval provides final human oversight with full context of all agent reviews
 - All agents operate within version-controlled branches with full audit trails
-- Workflow errors are low-risk: they affect agent definitions, not production systems or user data
+- Manual handoff confirmation at each transition would create checkpoint fatigue without adding meaningful safety
+
+This approach allows velocity while maintaining quality standards through concentrated oversight at critical decision points.
 
 ### Testing & Observability
 
@@ -43,19 +45,26 @@ The meta-agent workflow is designed for **velocity and automation**:
 - Specification revision count (Architect → Implementer iterations)
 - Implementation revision count (Implementer → Quality Reviewer iterations)
 - Devil's Advocate rejection rate (work packages returned for revision)
+  - **Acceptable**: 5-15% (healthy critical review)
+  - **Warning**: 15-25% (investigate workflow quality)
+  - **Critical**: >25% (trigger rollback)
 - Time-to-merge for agent PRs (workflow velocity)
 - Post-merge issues (quality escapes despite automated handoffs)
+  - **Baseline**: Measure first 10 agent PRs to establish baseline
+  - **Warning**: Post-merge issues increase >50% over baseline
 
 **Rollback Plan:**
-If auto-handoffs cause quality issues (Devil's Advocate rejection rate >30%, post-merge issues increase):
-1. Identify problematic handoff transitions (e.g., Architect → Devil's Advocate)
-2. Set specific handoffs to `send: false` for manual confirmation
-3. Document the change in this section with rationale
-4. Continue monitoring metrics for 2-4 weeks
+If auto-handoffs cause quality issues:
+- **Trigger**: Devil's Advocate rejection rate >25% OR post-merge issues increase >50% over baseline
+- **Actions**:
+  1. Identify problematic handoff transitions (e.g., Architect → Devil's Advocate)
+  2. Set specific handoffs to `send: false` for manual confirmation
+  3. Document the change in this section with rationale
+  4. Continue monitoring metrics for 2-4 weeks
 
 ### Migration Note
 
-All meta-agents were designed with `send: true` from inception. Users experienced with the meta-agent workflow are already accustomed to automated handoffs. No user behavior changes required.
+This documents the current state: all meta-agents have used `send: true` since inception. This policy validates that original design choice by documenting the rationale, testing approach, and rollback plan. Users experienced with the meta-agent workflow are already accustomed to automated handoffs.
 
 ## The Five Meta-Agents
 
