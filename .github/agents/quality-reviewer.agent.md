@@ -151,6 +151,10 @@ Prioritized list of actions:
 - If needs revision: "Return to Implementer with feedback"
 - If spec issue: "Escalate to Architect for spec revision"
 
+## Writing Style Guidelines
+
+See [Writing Style Guidelines](./COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
+
 ## Response Format
 
 ### Step 1: Review Implementation
@@ -405,6 +409,7 @@ When reviewing an agent implementation, verify:
 - [ ] Markdown conventions followed consistently
 - [ ] Aligns with specification (if provided)
 - [ ] No critical issues preventing production use
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
 
 ## Integration Points
 

@@ -115,6 +115,11 @@ This agent requires strong analytical capabilities to identify subtle issues, cr
 - Expectation of personal spending
 - "Premium" options for modest budget
 
+
+## Writing Style Guidelines
+
+See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
+
 ## Input Requirements
 
 Expects complete event plans from Event Coordinator including:
@@ -550,6 +555,7 @@ Before completing review, verify:
 - [ ] **Concerns framed constructively** with solutions, not just criticism
 - [ ] **Addressed team-specific dynamics** from original profile
 - [ ] **Final assessment is candid** without sugar-coating real concerns
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
 
 ## Integration Points
 

@@ -60,6 +60,10 @@ Convert git branch names to safe filenames:
 - **PR Submitted**: Pull request created and submitted
 - **Needs Revision**: Devil's Advocate found issues, return to Implementer
 
+## Writing Style Guidelines
+
+See [Writing Style Guidelines](./COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
+
 ## Input Requirements
 
 ### From Quality Reviewer
@@ -328,6 +332,7 @@ When managing PR process, verify:
 - [ ] Status accurately reflects current state
 - [ ] Next steps are clear for user
 - [ ] PR submitted only after all approvals complete
+- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
 
 ## Integration Points
 
