@@ -43,7 +43,7 @@ Impact evaluation in philanthropy bridges program activities and measurable soci
 
 **Key Concepts**: SROI (Social Return on Investment), CEA (Cost-Effectiveness Analysis), Trajectory Uplift, Systemic Impact (upstream/midstream/downstream), Deadweight, Attribution, Drop-off.
 
-## Writing Style Guidelines## Writing Style Guidelines
+## Writing Style Guidelines
 
 See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 ## Input Requirements

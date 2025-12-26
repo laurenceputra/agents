@@ -43,7 +43,7 @@ Portfolio strategy ensures philanthropic giving aligns with values, balances ris
 
 **Key Principles**: Diversification across cause areas (no single >40%), balance upstream/downstream (60/40 target), risk profile mix (70% proven, 30% experimental).
 
-## Writing Style Guidelines## Writing Style Guidelines
+## Writing Style Guidelines
 
 See [Writing Style Guidelines](../COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
 ## Input Requirements
