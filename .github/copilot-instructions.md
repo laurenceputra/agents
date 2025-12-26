@@ -17,6 +17,46 @@ Each meta-agent has a single, well-defined responsibility:
 - **PR Manager**: Manages PR submission process (PR logistics only, no quality review)
 - **Devil's Advocate**: Critically reviews all work, surfaces disagreements, challenges assumptions (pre-PR quality gate)
 
+## Default Handoff Policy
+
+**send_default: true**
+
+All handoffs in the meta-agent group default to `send: true` (auto-send without user confirmation).
+
+### Rationale
+
+The meta-agent workflow is designed for **velocity and automation**:
+- Meta-agents work together to build agent infrastructure, not end-user-facing features
+- Workflow iterations are frequent and require rapid feedback loops
+- Human oversight occurs at critical quality gates (Devil's Advocate reviews, PR approval) rather than every handoff
+- All agents operate within version-controlled branches with full audit trails
+- Workflow errors are low-risk: they affect agent definitions, not production systems or user data
+
+### Testing & Observability
+
+**Testing Plan:**
+- Monitor specification quality: track iteration count from Architect → Implementer → Quality Reviewer
+- Track Devil's Advocate rejection rate: measure critical issues surfaced pre-PR
+- Validate PR approval process: ensure all quality gates are met despite auto-handoffs
+
+**Observability Metrics:**
+- Specification revision count (Architect → Implementer iterations)
+- Implementation revision count (Implementer → Quality Reviewer iterations)
+- Devil's Advocate rejection rate (work packages returned for revision)
+- Time-to-merge for agent PRs (workflow velocity)
+- Post-merge issues (quality escapes despite automated handoffs)
+
+**Rollback Plan:**
+If auto-handoffs cause quality issues (Devil's Advocate rejection rate >30%, post-merge issues increase):
+1. Identify problematic handoff transitions (e.g., Architect → Devil's Advocate)
+2. Set specific handoffs to `send: false` for manual confirmation
+3. Document the change in this section with rationale
+4. Continue monitoring metrics for 2-4 weeks
+
+### Migration Note
+
+All meta-agents were designed with `send: true` from inception. Users experienced with the meta-agent workflow are already accustomed to automated handoffs. No user behavior changes required.
+
 ## The Five Meta-Agents
 
 ### Agent Architect (`agents/architect.agent.md`)
