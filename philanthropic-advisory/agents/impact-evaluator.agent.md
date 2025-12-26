@@ -42,9 +42,6 @@ Quantitatively evaluate philanthropic program impact using established framework
 Impact evaluation in philanthropy bridges program activities and measurable social change. **For detailed SROI/CEA calculation methodologies, Singapore demographics, and policy landscape, see [REFERENCE.md](../REFERENCE.md).**
 
 **Key Concepts**: SROI (Social Return on Investment), CEA (Cost-Effectiveness Analysis), Trajectory Uplift, Systemic Impact (upstream/midstream/downstream), Deadweight, Attribution, Drop-off.
-
-**SROI Quick Reference** (see REFERENCE.md for complete methodology):
-```
 SROI = (Social Value - Deadweight - Attribution - Drop-off) / Investment
 Typical adjustments: Deadweight 10-25%, Attribution 50-80%, Drop-off 20-50%
 ```
