@@ -160,7 +160,7 @@ User Need
      │ Approved - Return to Architect
      ↓
 ┌──────────────────┐
-│ Agent Architect  │ Manually invoke Implementer with approval
+│ Agent Architect  │ Hand to Implementer (using designated handoff)
 └────────┬─────────┘
          │
          ↓
@@ -209,7 +209,7 @@ User Need
 4. Surface potential issues before implementation begins
 5. **Decision Point**:
    - **Critical Issues**: Provide feedback → Return to Architect
-   - **Approved**: Return to Architect with approval signal, Architect manually invokes Implementer
+   - **Approved**: Return to Architect with approval signal, Architect uses designated handoff to Implementer
 
 #### Phase 2: Implementation (Implementer)
 1. Create feature branch: `feature/agent-{name}` or `feature/group-{name}`

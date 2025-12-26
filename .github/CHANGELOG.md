@@ -13,9 +13,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **Solution**: Implemented Option 2b (Architect orchestrates with explicit approval)
   - **Changes**:
     - **Agent Architect (v2.1.0 → v2.2.0)**:
-      - Removed direct "Hand to Implementer" handoff (enforces mandatory Phase 1.5 gate)
+      - Added back "Hand to Implementer (after Devil's Advocate approval)" handoff with clear usage instructions
       - Updated "Workflow Enforcement" section with Phase 1 → 1.5 → 2 transition instructions
-      - Added guidance on handling Devil's Advocate approval and manually invoking Implementer
+      - Added guidance on when to use Implementer handoff (after DA approval)
       - Updated Integration Points to reflect DA as primary handoff, Implementer as secondary
       - Updated Feedback Loops to document DA approval status handling
     - **Devil's Advocate (v2.0.0 → v2.1.0)**:
@@ -37,8 +37,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - **Benefit**: Model rationale now covers Phase 1.5 and Phase 3.5 duties without requiring updates when responsibilities expand
 
 ### Changed
-- **Workflow Pattern**: Phase 1.5 approval now requires Architect to manually invoke Implementer (controlled transition)
-- **Handoff Chains**: All specification workflows now route through Architect after DA review for consistent orchestration
+- **Workflow Pattern**: Phase 1.5 approval requires Architect to use designated "Hand to Implementer (after Devil's Advocate approval)" handoff for controlled transition
+- **Handoff Chains**: All specification workflows route through Architect after DA review, with clear handoff mechanism for proceeding to implementation
 
 ## 2.3.0 - 2025-12-26
 
