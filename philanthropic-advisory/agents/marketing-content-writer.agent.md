@@ -2,7 +2,7 @@
 name: marketing-content-writer
 description: Creates marketing content and writeups for philanthropic programs aligned with principles
 model: Claude Haiku 4.5 (copilot)
-version: 1.0.0
+version: 1.0.1
 handoffs:
   - label: "Submit to Devil's Advocate"
     agent: "devils-advocate"

@@ -2,7 +2,7 @@
 name: principles-framework-definer
 description: Facilitates definition of philanthropic principles and framework through structured questioning
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.0
+version: 1.0.1
 handoffs:
   - label: "Submit to Impact Evaluator"
     agent: "impact-evaluator"
