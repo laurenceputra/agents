@@ -48,8 +48,10 @@ This approach allows velocity while maintaining quality standards through concen
 - Recommends appropriate model for each agent
 - Designs frontmatter schema and handoff chains
 - Documents edge cases and integration points
+- Submits specifications to Devil's Advocate for Phase 1.5 review
+- Handles Devil's Advocate approval and manually invokes Implementer
 
-**Handoffs to**: Agent Implementer (for implementation)
+**Handoffs to**: Devil's Advocate (for specification review), Agent Implementer (after DA approval)
 
 ---
 
@@ -108,16 +110,18 @@ This approach allows velocity while maintaining quality standards through concen
 **Role**: Critical review and disagreement facilitation  
 **Model**: Claude Sonnet 4.5 (copilot)
 
-**When to use**: Implementation approved by Quality Reviewer and needs critical review before PR
+**When to use**: 
+- Phase 1.5: After Architect creates specification (pre-implementation review)
+- Phase 3.5: After Quality Reviewer approves implementation (pre-PR review)
 
 **Responsibilities**:
-- Critically reviews agent work before PR submission
+- Critically reviews specifications (Phase 1.5) and implementations (Phase 3.5)
 - Challenges assumptions and identifies blind spots
 - Surfaces disagreements between agents
 - Ensures all perspectives are documented for human decision-making
-- Final quality gate before PR submission
+- Quality gates at both specification and implementation stages
 
-**Handoffs to**: PR Manager (for PR submission), Implementer (for revisions), Architect (for perspective)
+**Handoffs to**: Architect (with approval status or revision feedback), PR Manager (for PR submission), Implementer (for revisions)
 
 ---
 
@@ -153,8 +157,13 @@ User Need
      │    │
      │    └─→ Issues found? Return to Architect (iterate)
      │
-     │ Approved
+     │ Approved - Return to Architect
      ↓
+┌──────────────────┐
+│ Agent Architect  │ Manually invoke Implementer with approval
+└────────┬─────────┘
+         │
+         ↓
 ┌──────────────────┐
 │ Agent Implementer│ Create agent on feature branch
 └────────┬─────────┘
@@ -200,7 +209,7 @@ User Need
 4. Surface potential issues before implementation begins
 5. **Decision Point**:
    - **Critical Issues**: Provide feedback → Return to Architect
-   - **Approved**: Handoff to Agent Implementer
+   - **Approved**: Return to Architect with approval signal, Architect manually invokes Implementer
 
 #### Phase 2: Implementation (Implementer)
 1. Create feature branch: `feature/agent-{name}` or `feature/group-{name}`
