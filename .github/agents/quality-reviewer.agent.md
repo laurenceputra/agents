@@ -151,6 +151,10 @@ Prioritized list of actions:
 - If needs revision: "Return to Implementer with feedback"
 - If spec issue: "Escalate to Architect for spec revision"
 
+## Writing Style Guidelines
+
+See [Writing Style Guidelines](./COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
+
 ## Response Format
 
 ### Step 1: Review Implementation

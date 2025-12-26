@@ -60,6 +60,10 @@ Convert git branch names to safe filenames:
 - **PR Submitted**: Pull request created and submitted
 - **Needs Revision**: Devil's Advocate found issues, return to Implementer
 
+## Writing Style Guidelines
+
+See [Writing Style Guidelines](./COMMON-PATTERNS.md#writing-style-guidelines) in COMMON-PATTERNS.md for detailed guidance on producing natural, human-like output.
+
 ## Input Requirements
 
 ### From Quality Reviewer
