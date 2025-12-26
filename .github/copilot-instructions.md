@@ -34,38 +34,6 @@ The meta-agent workflow includes multiple quality gates (Devil's Advocate critic
 
 This approach allows velocity while maintaining quality standards through concentrated oversight at critical decision points.
 
-### Testing & Observability
-
-**Testing Plan:**
-- Monitor specification quality: track iteration count from Architect → Implementer → Quality Reviewer
-- Track Devil's Advocate rejection rate: measure critical issues surfaced pre-PR
-- Validate PR approval process: ensure all quality gates are met despite auto-handoffs
-
-**Observability Metrics:**
-- Specification revision count (Architect → Implementer iterations)
-- Implementation revision count (Implementer → Quality Reviewer iterations)
-- Devil's Advocate rejection rate (work packages returned for revision)
-  - **Acceptable**: 5-15% (healthy critical review)
-  - **Warning**: 15-25% (investigate workflow quality)
-  - **Critical**: >25% (trigger rollback)
-- Time-to-merge for agent PRs (workflow velocity)
-- Post-merge issues (quality escapes despite automated handoffs)
-  - **Baseline**: Measure first 10 agent PRs to establish baseline
-  - **Warning**: Post-merge issues increase >50% over baseline
-
-**Rollback Plan:**
-If auto-handoffs cause quality issues:
-- **Trigger**: Devil's Advocate rejection rate >25% OR post-merge issues increase >50% over baseline
-- **Actions**:
-  1. Identify problematic handoff transitions (e.g., Architect → Devil's Advocate)
-  2. Set specific handoffs to `send: false` for manual confirmation
-  3. Document the change in this section with rationale
-  4. Continue monitoring metrics for 2-4 weeks
-
-### Migration Note
-
-This documents the current state: all meta-agents have used `send: true` since inception. This policy validates that original design choice by documenting the rationale, testing approach, and rollback plan. Users experienced with the meta-agent workflow are already accustomed to automated handoffs.
-
 ## The Five Meta-Agents
 
 ### Agent Architect (`agents/architect.agent.md`)
