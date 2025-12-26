@@ -16,7 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Resolves meta-agent-issue-2: architect-send-default-missing specification
 
 ### Changed
-- **copilot-instructions.md**: Added 44-line "Default Handoff Policy" section after "Core Principle"
+- **copilot-instructions.md**: Added 16-line "Default Handoff Policy" section after "Core Principle"
 
 ## 2.2.0 - 2025-12-22
 
