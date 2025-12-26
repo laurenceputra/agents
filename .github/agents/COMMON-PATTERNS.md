@@ -167,6 +167,48 @@ agent-group-name/
 - Folder can be renamed without breaking
 - `AGENTGROUPNAME` file must contain the exact agent group name (e.g., "recommendation-letter")
 
+## Versioning Strategy
+
+### Repository-Wide Coordination
+
+Agent groups in this repository follow **coordinated versioning** for major and minor versions:
+
+- **Coordinated releases**: When one group receives a major or minor version bump, other groups may be reviewed and updated together
+- **Independent patches**: Individual agents or groups can receive patch versions independently for bug fixes or clarifications
+- **Synchronized major versions**: Repository-wide major version bumps (e.g., 1.x.x → 2.x.x) indicate significant breaking changes across multiple groups
+
+### Version Synchronization Within Groups
+
+Per the hybrid versioning strategy:
+
+- **Major.Minor synchronized**: All agents in a group share the same Major.Minor version (e.g., all at 1.3.x)
+- **Patch versions can vary**: Individual agents may have different patch versions (e.g., one agent at 1.3.1, another at 1.3.2)
+- **Breaking changes**: Require Major bump for entire group
+- **New features**: Require Minor bump for entire group
+- **Bug fixes/clarifications**: Can be Patch bumps for individual agents
+
+### Version Bump Guidelines
+
+**MAJOR (X.0.0)**: Breaking changes requiring user adaptation
+- Workflow redesign, agent splits/merges, removed functionality
+- Example: Splitting validator agent into separate agents
+
+**MINOR (1.Y.0)**: New features, backward-compatible changes
+- New agents added, new quality gates, workflow enhancements
+- Example: Adding devils-advocate to existing group
+
+**PATCH (1.1.Z)**: Bug fixes, clarifications, documentation updates
+- Typo fixes, example improvements, minor clarifications
+- Example: Fixing calculation error in quality checklist
+
+### When Versions Diverge
+
+If an agent group shows version inconsistency (e.g., some agents at 1.3.0, others at 1.3.1), this typically indicates:
+
+1. **Unintentional drift**: Agents missed during a synchronized update → Fix by syncing versions
+2. **Selective patches**: Only some agents needed bug fixes → Document in CHANGELOG why versions differ
+3. **Quality issue**: Violation of versioning strategy → Report and correct
+
 ## Changelog Format
 
 All version bumps require CHANGELOG.md entry:
