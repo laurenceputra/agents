@@ -476,8 +476,9 @@ Found an issue or have a suggestion? This agent group follows the portable agent
 
 ## 📄 Version
 
-**Current Version**: 1.0.0  
+**Current Version**: 1.2.0  
 **Release Date**: December 2024  
+**Last Updated**: December 2025  
 **Agents**: 5 (Facebook Specialist, Instagram Specialist, LinkedIn Specialist, Social Media Coordinator, Devil's Advocate)  
 **Platforms**: 3 (Facebook, Instagram, LinkedIn)
 
