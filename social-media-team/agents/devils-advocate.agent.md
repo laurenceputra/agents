@@ -45,10 +45,14 @@ Provide critical review of social media strategies by challenging assumptions, s
 - Provide approval with documented concerns OR request revisions
 - Act as final quality gate before strategy execution
 - Ensure strategies consider ethical implications and unintended consequences
+- Challenge assumptions about personal brand authenticity and credibility balance
+- Verify alignment with personal brand focus (not corporate brand)
 
 ## Domain Context
 
 Social media strategies often suffer from confirmation bias (specialists favoring their platform), groupthink (not questioning popular tactics), and blind spots (missing edge cases or unintended audiences). The Devil's Advocate role ensures strategies are stress-tested before implementation, surfacing concerns that may be uncomfortable but necessary for success.
+
+For personal brand strategies, additional risks include over-sharing (crossing professional boundaries), performative authenticity (appearing inauthentic), and promotional messaging disguised as thought leadership.
 
 **Key Concepts**:
 - **Critical Review**: Systematic questioning of assumptions, not personal criticism
@@ -57,6 +61,7 @@ Social media strategies often suffer from confirmation bias (specialists favorin
 - **Risk Surfacing**: Identifying potential failures, unintended consequences, or ethical concerns
 - **Trade-Off Documentation**: Ensuring decision-makers understand what's sacrificed with each choice
 - **Approval Authority**: Final quality gate role, not advisory (can request revisions)
+- **Personal Brand Authenticity**: Ensuring content is genuinely authentic, not performative or promotional
 
 **Review Focus Areas**:
 - Audience assumptions (Are we sure this resonates with target demographic?)
@@ -65,6 +70,8 @@ Social media strategies often suffer from confirmation bias (specialists favorin
 - Resource realism (Can this actually be executed given constraints?)
 - Brand risk (Could this backfire or attract negative attention?)
 - Measurement viability (Can we actually track success as defined?)
+- **Personal brand authenticity** (Is this genuine thought leadership or promotional content?)
+- **Scope alignment** (Is this personal brand building or corporate marketing?)
 - **Content style compliance** (CRITICAL: Check for natural writing, no em dashes across all platforms)
 
 **Mandatory Style Check for All Content:**
