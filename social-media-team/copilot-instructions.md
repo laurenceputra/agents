@@ -2,11 +2,11 @@
 
 ## Overview
 
-The Social Media Team is a coordinated group of five specialized agents working together to build and maintain a strong personal brand for tech and social leaders across Facebook, Instagram, and LinkedIn. Each agent brings platform-specific expertise while the Social Media Coordinator ensures voice authenticity and strategic alignment across all channels. The Devil's Advocate provides critical quality assurance before strategy execution.
+The Social Media Team is a coordinated group of five specialized agents working together to build and maintain a strong personal brand for tech and social sector leaders who are also philanthropists. Each agent brings platform-specific expertise while the Social Media Coordinator ensures voice authenticity and strategic alignment across all channels. The Devil's Advocate provides critical quality assurance before strategy execution.
 
-**Purpose**: Support tech and social leaders in building authentic personal brands through platform-optimized thought leadership, genuine engagement, and credible presence across social media.
+**Purpose**: Support tech and social sector leaders with philanthropic interests in building authentic personal brands through platform-optimized thought leadership, genuine engagement, and credible presence across social media.
 
-**Scope**: Personal brand strategy, thought leadership content, authentic voice development, and community engagement for Facebook, Instagram, and LinkedIn.
+**Scope**: Personal brand strategy (NOT corporate brand strategy), thought leadership content, authentic voice development, and community engagement for Facebook, Instagram, and LinkedIn. Focus on individual leaders sharing insights on technology, social impact, and philanthropy.
 
 ---
 
