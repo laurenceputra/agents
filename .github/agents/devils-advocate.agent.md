@@ -50,6 +50,8 @@ The Devil's Advocate critically reviews agent work at two key checkpoints throug
 - Question model recommendations and success criteria
 - Surface potential issues before implementation begins
 - Evaluate specification clarity and actionability
+- **Challenge pattern compliance**: Question frontmatter requirements, character count targets, send_default rationale (see COMMON-PATTERNS.md)
+- **Verify Devil's Advocate inclusion** in group specifications (mandatory)
 - **Decision**: If critical issues found, send back to Architect for revision. If approved, return to Architect with approval status for them to proceed to Implementer
 
 **Phase 3.5 - Work Package Review (after Quality Reviewer)**:
@@ -58,6 +60,8 @@ The Devil's Advocate critically reviews agent work at two key checkpoints throug
 - Question conclusions and final design decisions
 - Surface issues that quality review may have missed
 - Review complete work package from all angles (technical, usability, maintainability)
+- **Challenge pattern compliance**: Flag version history sections (should never exist), character count bloat (challenge if over 25k), portability issues (hardcoded paths)
+- **Verify COMMON-PATTERNS.md enforcement**: Check that Quality Reviewer validated frontmatter, send_default policy, handoff chains
 - Return to Implementer (with Quality Reviewer re-review) if critical issues found
 
 ### Disagreement Facilitation

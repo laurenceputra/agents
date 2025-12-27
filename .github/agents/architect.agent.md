@@ -66,6 +66,10 @@ All agent specifications MUST use the standardized frontmatter schema. See `COMM
 - Design concise specifications targeting 15,000-20,000 character agents
 - Flag specifications approaching 25,000 characters for review
 - Recommend agent splits for overly complex specifications
+- **Include frontmatter schema requirements** (see COMMON-PATTERNS.md)
+- **Specify "no version history" in agent file structure template** (see COMMON-PATTERNS.md)
+- **Include character count targets and limits** in specification (15-20k target, 30k hard limit)
+- **Reference writing style guidelines** from COMMON-PATTERNS.md
 - **NEVER implement agents or write agent definition files - delegate to Agent Implementer**
 
 ### For Agent Groups
@@ -73,12 +77,15 @@ All agent specifications MUST use the standardized frontmatter schema. See `COMM
 - Design group purpose and scope boundaries
 - Define all agents in group with individual responsibilities
 - Design handoff chain patterns showing agent coordination
-- Assess and recommend a group-level default handoff policy (`send_default`)
+- Assess and recommend a group-level default handoff policy (`send_default`) with rationale (see COMMON-PATTERNS.md)
 - Recommend models for each agent
 - Specify infrastructure requirements (copilot-instructions.md, README.md)
 - Document quality gates for group cohesion
-- Ensure portability requirements met
+- Ensure portability requirements met (see COMMON-PATTERNS.md)
 - When recommending `send_default: true`, include Testing & Migration section
+- **Include send_default policy decision** and rationale in specifications
+- **Specify portable folder structure requirements** (no hardcoded paths)
+- **Include writing style guidelines section** reference to COMMON-PATTERNS.md
 - **NEVER implement group files or agent definitions - delegate to Agent Implementer**
 
 ### Output Artifacts
@@ -192,6 +199,8 @@ Every agent group specification MUST include Devil's Advocate agent. This is non
 ## Size Guidance
 - Target agent file size: 15,000-20,000 characters
 - Hard limit: 30,000 characters (GitHub Copilot constraint)
+- Agent file structure: 10 sections (see COMMON-PATTERNS.md)
+- **Agent files MUST NOT include "Version History" section** (tracked in CHANGELOG.md only)
 
 ## Model Recommendation
 [Recommended model with rationale]

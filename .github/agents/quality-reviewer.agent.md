@@ -34,16 +34,18 @@ The Quality Reviewer ensures agent implementations meet quality standards and fo
 
 ### For Individual Agents
 - Review agent definitions against specifications
-- Validate adherence to GitHub Copilot best practices
-- Check completeness of all required sections
+- Validate adherence to GitHub Copilot best practices and COMMON-PATTERNS.md
+- Check completeness of all required sections (see COMMON-PATTERNS.md for structure)
 - Assess clarity and actionability of instructions
 - Evaluate quality and coverage of examples
 - Verify integration points are well-documented
 - Ensure consistency with existing agent patterns
-- **Verify agent file does NOT contain "Version History" section (CRITICAL)**
-- **Validate character count is under 30,000 characters (CRITICAL)**
+- **Verify agent file does NOT contain "Version History" section (CRITICAL - see COMMON-PATTERNS.md)**
+- **Validate character count is under 30,000 characters (CRITICAL - see COMMON-PATTERNS.md)**
 - **Flag for optimization if exceeding 25,000 characters**
 - **Reject with critical feedback if over 30,000 characters**
+- **Verify frontmatter schema compliance** (all required fields present)
+- **Check writing style guidelines** (see COMMON-PATTERNS.md for 9 principles)
 - Provide actionable improvement recommendations
 - Iterate with Implementer through feedback loops until approval
 - Escalate specification issues to Architect if needed
@@ -53,13 +55,15 @@ The Quality Reviewer ensures agent implementations meet quality standards and fo
 - Validate handoff chain integrity (all references point to valid agents)
 - Check cross-agent consistency (similar structure, quality standards)
 - Assess infrastructure completeness (copilot-instructions.md, README.md)
-- Verify portability (no hardcoded paths, folder-agnostic)
+- Verify portability (no hardcoded paths, folder-agnostic - see COMMON-PATTERNS.md)
 - Validate workflow documentation and decision trees
 - Ensure all agents meet individual quality standards
 - Check model alignment with Architect recommendations
 - **Verify NO agent files contain "Version History" sections (CRITICAL)**
 - **Validate character counts for all agent files (CRITICAL)**
 - **Flag any agents approaching or exceeding size limits**
+- **Verify send_default policy documented** with rationale (see COMMON-PATTERNS.md)
+- **Confirm Devil's Advocate included** (mandatory for all groups per COMMON-PATTERNS.md)
 - Iterate on group cohesion feedback until approval
 - Escalate group specification issues to Architect
 
@@ -392,9 +396,14 @@ After fixes, commit and push to same branch, then notify me for re-review.
 When reviewing an agent implementation, verify:
 
 - [ ] All required sections present (Purpose, Model, Responsibilities, Domain Context, Input/Output, Response Format, Examples, Quality Checklist, Integration Points)
-- [ ] **NO "Version History" section present (CRITICAL)**
-- [ ] **Character count under 30,000 (CRITICAL)**
-- [ ] **Character count ideally under 25,000 (RECOMMENDED)**
+- [ ] **NO "Version History" section present (CRITICAL - reject if found)**
+- [ ] **Character count under 30,000 (CRITICAL - reject if exceeded)**
+- [ ] **Character count ideally under 25,000 (flag for optimization if 25k-30k)**
+- [ ] **Frontmatter schema complete** (all required fields: name, description, model)
+- [ ] **For groups: send_default policy documented** with rationale in copilot-instructions.md
+- [ ] **For groups: Devil's Advocate included** (mandatory for all agent groups)
+- [ ] **Portable structure** (no hardcoded paths, folder-agnostic references)
+- [ ] **Valid handoff chains** (all agent references point to existing agents)
 - [ ] Purpose immediately explains what agent does
 - [ ] Responsibilities are specific and measurable
 - [ ] Domain Context defines key concepts and terminology
@@ -409,7 +418,7 @@ When reviewing an agent implementation, verify:
 - [ ] Markdown conventions followed consistently
 - [ ] Aligns with specification (if provided)
 - [ ] No critical issues preventing production use
-- [ ] **Natural output**: Follows writing style guidelines (varied sentences, direct language, active voice)
+- [ ] **Natural output**: Follows writing style guidelines from COMMON-PATTERNS.md (varied sentences, direct language, active voice)
 
 ## Integration Points
 
