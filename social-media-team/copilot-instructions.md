@@ -142,17 +142,24 @@ Write naturally, like you're explaining to a colleague, not documenting for comp
 **Use when**: You need strategy for a single platform
 
 ```
-User → [Platform Specialist] → Devil's Advocate → User
+User → [Platform Specialist] → User
 ```
+
+**Optional Critical Review**: `@devils-advocate` can be manually consulted for complex strategies
 
 **Example**: "Create an Instagram Reel strategy for sharing my tech leadership insights"
 
 **Steps**:
 1. User consults the appropriate Platform Specialist (Facebook, Instagram, or LinkedIn)
 2. Specialist provides platform-optimized strategy with authentic voice guidance
-3. Specialist hands to Devil's Advocate for critical review
-4. Devil's Advocate challenges assumptions, surfaces concerns
-5. Approved strategy returned to User
+3. Strategy returned to User
+4. (Optional) User can consult `@devils-advocate` for critical review if needed
+
+**When to request Devil's Advocate review**:
+- Complex or high-stakes content strategy
+- Strategy involves significant time/resource investment
+- Need validation of assumptions before execution
+- Want critical feedback on approach
 
 **Example Interaction**:
 ```
@@ -160,11 +167,11 @@ User: @instagram-specialist "Create a Reel strategy for sharing my perspective o
 
 Instagram Specialist: [Provides authentic strategy with personal voice, hashtags for tech community, engagement approach]
 
-Instagram Specialist → @devils-advocate "Review this Reel strategy for authenticity and blind spots"
+User receives: Platform-optimized strategy ready to execute
 
-Devil's Advocate: [Challenges assumptions about vulnerability vs. expertise balance, identifies risks, approves with concerns]
+(Optional) User: @devils-advocate "Review this Instagram strategy for blind spots and risks"
 
-User receives: Strategy + critical review for informed decision-making
+Devil's Advocate: [Challenges assumptions about vulnerability vs. expertise balance, identifies risks]
 ```
 
 ---
@@ -174,10 +181,12 @@ User receives: Strategy + critical review for informed decision-making
 **Use when**: You need coordinated strategy across multiple platforms
 
 ```
-User → Social Media Coordinator → [Platform Specialists] → Devil's Advocate → Coordinator → User
+User → Social Media Coordinator → [Platform Specialists] → Devil's Advocate (AUTOMATIC) → Coordinator → User
 ```
 
 **Example**: "Build my personal brand as a tech leader across all platforms"
+
+**Devil's Advocate Review**: AUTOMATIC for all coordinated campaigns (comprehensive strategies require critical review)
 
 **Steps**:
 1. User consults Social Media Coordinator with personal brand goals
@@ -185,7 +194,7 @@ User → Social Media Coordinator → [Platform Specialists] → Devil's Advocat
 3. Coordinator hands to each Platform Specialist for platform-specific approaches
 4. Each Specialist provides platform-optimized recommendations maintaining authentic voice
 5. Specialists hand back to Coordinator for synthesis
-6. Coordinator hands complete strategy to Devil's Advocate for critical review
+6. **Coordinator automatically hands complete strategy to Devil's Advocate for critical review**
 7. Devil's Advocate reviews all plans for authenticity, consistency, and blind spots
 8. Coordinator synthesizes approved recommendations
 9. Final coordinated personal brand strategy to User
@@ -204,7 +213,7 @@ Coordinator → @linkedin-specialist "Provide LinkedIn strategy for professional
 
 Coordinator: [Synthesizes into unified personal brand presence with realistic content calendar]
 
-Coordinator → @devils-advocate "Review this personal brand strategy for authenticity and sustainability"
+Coordinator → @devils-advocate (AUTOMATIC) "Review this personal brand strategy for authenticity and sustainability"
 
 Devil's Advocate: [Critical review, challenges assumptions about posting frequency and vulnerability balance, approves with concerns]
 
@@ -365,8 +374,12 @@ Every social media strategy passes through these quality checkpoints:
 
 ---
 
-### Gate 3: Critical Review (Devil's Advocate - MANDATORY)
+### Gate 3: Critical Review (Devil's Advocate)
 **Owner**: Devil's Advocate  
+**When**: 
+- **AUTOMATIC**: Multi-platform campaigns coordinated by Social Media Coordinator
+- **OPTIONAL**: Single-platform strategies (user can request `@devils-advocate` if needed)
+
 **Checks**:
 - [ ] Assumptions challenged
 - [ ] Blind spots identified
@@ -377,7 +390,7 @@ Every social media strategy passes through these quality checkpoints:
 
 **Pass Criteria**: Strategy stress-tested and ready for human decision-making
 
-**CRITICAL**: No strategy should be executed without Devil's Advocate review. This is the final quality gate ensuring all perspectives are considered.
+**RECOMMENDED**: While only automatic for coordinated campaigns, Devil's Advocate review is valuable for any high-stakes or complex strategy. Users can manually consult `@devils-advocate` for single-platform strategies when critical review would be beneficial.
 
 ---
 
