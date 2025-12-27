@@ -263,180 +263,198 @@ When providing an Instagram content strategy, structure your response as:
 
 ## Examples
 
-### Example 1: Product Launch Reel
+### Example 1: Tech Leader Personal Brand Launch
 
 **Input:**
 ```
-Brand: GlowSkin (skincare brand)
-Product: New vitamin C serum
-Target Audience: Women 25-40, skincare enthusiasts, clean beauty interested
-Objective: Drive product awareness and website traffic
-Timeline: Launch week (7 posts)
-Resources: Product photos, ingredient close-ups, before/after photos (3 weeks), testimonials
+Leader: Sarah Chen (CTO, building personal brand in AI ethics)
+Background: 15 years in tech, led AI initiatives at Fortune 500, now advocating for responsible AI
+Target Audience: Tech leaders, AI practitioners, policy makers, tech-interested general public
+Objective: Establish thought leadership, build community around AI ethics
+Timeline: Launch month (12 posts: 4 Reels, 4 carousels, 4 stories)
+Resources: Speaking photos from conferences, behind-the-scenes from AI projects, personal journey photos
 ```
 
 **Output:**
 ```markdown
-# Instagram Content Strategy: GlowSkin Vitamin C Serum Launch
-
-### Example 2: Behind-the-Scenes Story Series
-
-**Input:**
-```
-Brand: ArtisanRoast (small-batch coffee roaster)
-Content: Behind-the-scenes of coffee roasting process
-Target Audience: Coffee enthusiasts, millennials, values-driven consumers
-Objective: Build community and brand storytelling
-Timeline: Single day (story series), save to highlights
-Resources: Photos/video from roasting facility, founder interview clips
-```
-
-**Output:**
-```markdown
-# Instagram Story Strategy: ArtisanRoast Behind-the-Scenes
+# Instagram Personal Brand Strategy: Sarah Chen - AI Ethics Thought Leader
 
 ## Strategy Overview
-**Objective**: Build authentic community connection and brand storytelling through behind-the-scenes content
-**Target Audience**: Coffee enthusiasts, millennials 25-40, values-driven consumers interested in craft, sustainability, small business
-**Success Metrics**: Story completion rate 60%+, 200+ replies, 150+ shares, 100+ profile visits, highlight saves 50+
+**Objective**: Establish Sarah as approachable AI ethics thought leader through authentic storytelling and education
+**Target Audience**: Tech leaders 30-50, AI practitioners, policy makers, tech-curious individuals interested in responsible innovation
+**Success Metrics**: 1,000+ engaged followers month 1, 5% engagement rate, 50+ meaningful DMs from industry peers
 
 ## Content Recommendations
 
-### Story Series Structure (12-15 Slides)
+### Launch Content Mix (12 Posts Over 4 Weeks)
 
-**Format Strategy**
-- **Primary Format**: Instagram Story series (12-15 slides, mix of photo and video)
-- **Rationale**: Stories allow for authentic, low-polish storytelling; multiple slides let viewers opt-in to deeper engagement; interactive stickers build community connection
-- **Specifications**: 1080x1920px (9:16), photos + 15-second video clips, <4MB per slide
+**Week 1: Introduction & Credibility**
+- **Reel 1**: "Why I Left My CTO Role to Talk About AI Ethics" (60 seconds)
+  - Hook first 3 seconds showing headline news about AI risks
+  - Personal story: moment she realized AI systems were making biased decisions
+  - Vulnerable share: "I helped build systems I'm now questioning"
+  - CTA: "Here to start real conversations about responsible AI"
+  - Trending audio aligned with reflective tone
+  - Caption: Personal narrative (300 words), ends with question to audience
+  
+- **Carousel 1**: "5 Things Most People Get Wrong About AI" (5 slides)
+  - Myth-busting educational content
+  - Slide 1: Hook "Let's clear up AI misconceptions"
+  - Slides 2-5: One myth per slide with simple explanation
+  - Last slide: "What questions do you have?" with question box
+  - Visual style: Clean sans-serif text, tech-inspired gradients, her headshot on first slide
 
-**Visual Style**
-**Aesthetic**: Warm, earthy, authentic (not overly produced)
-**Color Palette**: Coffee browns, cream, warm lighting from roasting facility
-**Composition**: Mix of close-up (coffee beans, roasting action) and wide shots (facility, people)
-**Consistency**: Use consistent text overlay style (sans-serif white text with subtle shadow for readability)
+**Week 2: Behind-the-Scenes Expertise**
+- **Story Series**: Day-in-the-life at AI conference (8-10 slides)
+  - Humanizes expertise through authentic moments
+  - Speaking prep, hallway conversations, key takeaways
+  - Interactive: Poll "What AI topic should I cover next?"
+  
+- **Carousel 2**: "The AI Decision That Kept Me Up at Night" (7 slides)
+  - Vulnerable storytelling about hard ethical choice
+  - Builds trust through transparency
+  - Shows expertise through real experience
 
-**Story Arc** (12 Slides):
+**Week 3: Community Building**
+- **Reel 2**: "Ask Me Anything: AI Ethics" (90 seconds, Q&A format)
+  - Answers 5 questions from DMs/comments
+  - Shows she listens and engages
+  - Builds community feeling
+  
+- **Story Highlights**: "Your AI Questions Answered" (ongoing)
+  - Save Q&A responses for new followers
 
-**Slide 1: Hook**
-- **Visual**: Close-up of fresh-roasted coffee beans pouring (satisfying video clip)
-- **Text Overlay**: "Ever wondered how your coffee goes from bean to cup? ☕️ Take a tour with us 👇"
-- **Sticker**: None (clean hook)
+**Week 4: Vision & Call-to-Action**
+- **Reel 3**: "The Future of AI I Want to Build" (60 seconds)
+  - Optimistic vision grounded in responsibility
+  - Personal stake: why this matters to her
+  - Invitation: "Join me in building better AI"
+  
+- **Carousel 3**: "3 Ways You Can Influence Responsible AI" (4 slides)
+  - Empowers audience with actionable steps
+  - Positions Sarah as guide, not gatekeeper
 
-**Slide 2: Introduction**
-- **Visual**: Photo of roasting facility wide shot
-- **Text Overlay**: "Welcome to our roastery in Portland 🏭 Where the magic happens every day"
-- **Sticker**: Location tag (Portland, OR - increases local discoverability)
-
-**Slide 3: Interactive Engagement**
-- **Visual**: Photo of green coffee beans (pre-roast)
-- **Text Overlay**: "We start with ethically sourced beans from around the world 🌍"
-- **Sticker**: Poll "Have you tried single-origin coffee? ☕️ Yes / Not yet"
-- **Purpose**: Engagement + audience insight
-
-**Slide 4-5: Process Education**
-- **Visual**: Video clip of roasting drum spinning, beans roasting (15 seconds)
-- **Text Overlay**: "Each batch is roasted in small quantities (just 15 lbs at a time!) for perfect flavor"
-- **Sticker**: None (let video shine)
-
-**Slide 6: Founder Story**
-- **Visual**: Photo of founder with roasting machine
-- **Text Overlay**: "Meet Sarah, our founder & head roaster 👋"
-- **Sticker**: None
-
-**Slide 7: Interactive Questions**
-- **Visual**: Photo of Sarah holding beans
-- **Text Overlay**: None
-- **Sticker**: Question sticker "Ask Sarah anything about coffee! ⬇️"
-- **Purpose**: Collect UGC, build personal connection, content ideas for future
-
-**Slide 8-9: Sustainability Story**
-- **Visual**: Video of compostable packaging being sealed
-- **Text Overlay**: "Sustainability matters to us. Our bags are 100% compostable 🌱"
-- **Sticker**: None
-
-**Slide 10: Quiz (Educational + Fun)**
-- **Visual**: Photo of different roast levels (light, medium, dark beans)
-- **Text Overlay**: None
-- **Sticker**: Quiz "Which roast has the MOST caffeine? ☕️ A) Light B) Medium C) Dark" (Answer: A - light)
-- **Purpose**: Educational + engagement + fun surprise (most people think dark has more caffeine)
-
-**Slide 11: Product Connection**
-- **Visual**: Photo of packaged coffee bags ready to ship
-- **Text Overlay**: "Fresh-roasted and shipped to your door within 48 hours 📦"
-- **Sticker**: Product sticker (link to shop page if Shopping enabled)
-
-**Slide 12: CTA + Interactive**
-- **Visual**: Photo of coffee cup with latte art
-- **Text Overlay**: "Thanks for joining us today! ☕️ Your support means everything to our small team"
-- **Sticker**: Emoji slider "How much do you love behind-the-scenes content? 🤎" (heart slider)
-- **Purpose**: Positive engagement, sentiment gauge
-
-**Slide 13: Link**
-- **Visual**: Simple branded graphic with logo
-- **Text Overlay**: "Shop our fresh-roasted coffee"
-- **Sticker**: Link sticker (swipe up if 10K+ followers, or "Link in bio" text)
+### Visual Identity
+**Aesthetic**: Professional but approachable—not corporate
+**Color Palette**: Deep blue (trust), warm orange (innovation), white space
+**Photo Style**: Mix of professional conference shots and candid behind-the-scenes
+**Grid Strategy**: Alternate Reels and carousels for visual variety
 
 ### Algorithm Optimization
+- **Reels**: Target 60-90 seconds with strong hook in first 3 seconds; use trending audio but with original voiceover for authenticity
+- **Carousels**: 5-7 slides optimal (higher saves rate); last slide always has question/CTA
+- **Stories**: Daily stories showing real work, reactions to news, personal thoughts (keeps her top-of-mind)
+- **Hashtag Strategy**: Mix of niche (#AIEthics #ResponsibleAI 10K-100K posts) and broader (#TechLeadership #WomenInTech 500K+ posts)
 
-**Story Signals**:
-- **Completion Rate**: Keep total series under 15 slides (optimal completion rate); use compelling visuals and varied content to retain viewers
-- **Replies**: Question sticker on Slide 7 drives direct replies (strong signal for relationship)
-- **Shares**: Educational quiz (Slide 10) and satisfying visuals (Slide 1, 4-5) encourage shares to friends
-- **Profile Visits**: Link sticker on final slide drives profile visits (algorithm rewards this)
+### Performance Expectations
+- **Month 1 Targets**: 800-1,200 followers (quality over quantity), 5-8% engagement rate (high intent audience), 40-60 saves per carousel (educational content performs well)
+- **Engagement Quality**: Prioritize meaningful DMs over likes—target 50+ substantive conversations with industry peers
 
-**Interactive Sticker Strategy**:
-- Poll (Slide 3): Low-effort engagement, warms up audience
-- Question (Slide 7): High-effort but high-value engagement, collects content ideas
-- Quiz (Slide 10): Fun + educational, highly shareable
-- Emoji Slider (Slide 12): Positive engagement to end series
+```
 
-### Posting Strategy
-- **Best Posting Times**: 
-  - Tuesday or Thursday, 10 AM - 12 PM EST (mid-morning coffee time, high story viewing)
-  - Avoid Monday (story fatigue) and Friday (weekend mindset)
-- **Frequency**: One-time story series, save to "Our Story" or "Behind-the-Scenes" highlight for evergreen viewing
-- **Content Mix**: Balance BTS stories (30%) with product features (30%), customer spotlights (20%), and daily moments (20%)
+### Example 2: Social Entrepreneur Visual Storytelling
 
-### Highlight Strategy
-**Highlight Reel**: Save entire series to "Our Story" or "Roasting Process" highlight
-- **Cover Image**: Use Slide 1 visual (coffee beans pouring) or custom highlight cover matching brand aesthetic
-- **Purpose**: Allows new followers to discover brand story anytime, builds brand narrative
+**Input:**
+```
+Leader: Marcus Williams (social entrepreneur, opened community center in underserved neighborhood)
+Background: Former corporate executive, left to create community space for youth programs, arts, job training
+Target Audience: Local community members, social impact supporters, potential partners/donors, youth and families
+Objective: Build local awareness, attract community participation, showcase impact
+Timeline: 2 weeks (story series + 3 feed posts)
+Resources: Photos from center opening, youth program videos, community testimonials, behind-the-scenes of setup
+```
 
-## Performance Expectations
-- **Story Views**: 30-40% of follower base will view first slide (industry average)
-- **Completion Rate Target**: 60%+ complete all slides (benchmark: 40-50%, BTS content performs higher)
-- **Replies Target**: 200+ replies to question sticker (2-3% of viewers typically reply)
-- **Shares Target**: 150+ shares (compelling education + satisfying visuals)
-- **Profile Visits**: 100+ from story views (link sticker + brand interest drives profile clicks)
+**Output:**
+```markdown
+# Instagram Story Strategy: Marcus Williams - Community Center Launch
 
-## Interactive Response Strategy
-**Question Sticker Responses** (Slide 7 "Ask Sarah anything"):
-- **Response Time**: Respond to questions within 2-4 hours via text reply or follow-up story
-- **Response Format**: Create 3-5 follow-up story slides answering top questions (extend story series life)
-- **Engagement**: Tag users who asked great questions (with permission) in follow-up stories, creating community spotlight
-- **Content Bank**: Save questions for future FAQ content, blog posts, or Q&A highlights
+## Strategy Overview
+**Objective**: Build local awareness and excitement around community center through authentic storytelling
+**Target Audience**: Local community 18-65, social impact supporters, families, youth, potential program participants
+**Success Metrics**: 500+ local reach, 60%+ story completion rate, 100+ location sticker taps, 50+ DMs asking about programs
 
-## A/B Testing Recommendations
-- **Test Variable**: Interactive sticker placement (early vs. late in series)
-- **Variant A**: Poll on Slide 3 (early engagement)
-- **Variant B**: Poll on Slide 9 (later engagement, only engaged viewers reach)
-- **Decision Criteria**: Compare completion rate and poll response rate; determine optimal placement for future BTS stories
+## Story Series Structure (14 Slides - Opening Week)
 
-## Risks & Mitigation
-- **Risk**: 12-slide series may lose viewers before completion (story drop-off)
-- **Mitigation**: Keep most compelling content (satisfying visuals, quiz) in middle slides (4-10) to retain viewers; monitor completion rate via Insights and adjust length for future series
-- **Risk**: Behind-the-scenes content may not drive direct sales (softer ROI)
-- **Mitigation**: This is relationship-building content (top of funnel); pair with product-focused stories throughout week; measure success by engagement metrics and highlight saves, not immediate sales
+**Slide 1: Personal Hook**
+- **Visual**: Video of Marcus unlocking center doors for first time
+- **Text Overlay**: "Two years ago I made the hardest decision of my life... 👇"
+- **Sticker**: None (let the hook breathe)
 
-## Next Steps
-1. Gather BTS photos and video clips from roasting facility (12-15 pieces of content)
-2. Write text overlays for each slide (keep concise, readable in 3 seconds)
-3. Add interactive stickers (poll, question, quiz, emoji slider) to designated slides
-4. Schedule story series for Tuesday 10 AM EST
-5. Set reminder to monitor question sticker responses within 2 hours, respond throughout day
-6. Create 3-5 follow-up story slides answering top questions (post 4-6 hours after initial series)
-7. Save entire series + Q&A follow-ups to "Our Story" highlight for permanent viewing
-8. Analyze completion rate and engagement metrics in Insights 24 hours after posting
+**Slide 2: The Why**
+- **Visual**: Photo of Marcus in former corporate office (throwback)
+- **Text Overlay**: "I left my VP role because I couldn't ignore what I saw in my own neighborhood"
+- **Sticker**: None
+
+**Slide 3: The Need**
+- **Visual**: Photo of neighborhood (respectful, showing need for resources)
+- **Text Overlay**: "Kids here deserve the same opportunities I had growing up"
+- **Sticker**: None
+
+**Slide 4: The Dream**
+- **Visual**: Video walkthrough of empty space (before renovation)
+- **Text Overlay**: "This became The Commons - a place for our community to thrive"
+- **Sticker**: Location tag (The Commons Community Center)
+
+**Slide 5: Community Input**
+- **Visual**: Photo collage of community meetings
+- **Text Overlay**: "We designed this place TOGETHER - every program, every detail"
+- **Sticker**: Poll "What program excites you most? 🎨 Arts / 💼 Job Training"
+
+**Slide 6-7: The Transformation**
+- **Visual**: Before/after video of renovation (timelapse if available)
+- **Text Overlay**: "Watch what happens when a community comes together"
+- **Sticker**: None (let transformation shine)
+
+**Slide 8: Programs Preview**
+- **Visual**: Photo of art supplies in new art room
+- **Text Overlay**: "Free after-school arts program starting next week 🎨"
+- **Sticker**: Countdown to program launch
+
+**Slide 9: Meet the Team**
+- **Visual**: Photo of volunteer instructors and staff
+- **Text Overlay**: "Meet the people making this possible—all from right here in our neighborhood"
+- **Sticker**: None
+
+**Slide 10: Youth Voice**
+- **Visual**: Short video clip of teen testimonial about what center means
+- **Text Overlay**: Let the youth speak (authentic voice)
+- **Sticker**: None
+
+**Slide 11: Interactive Engagement**
+- **Visual**: Photo of Marcus in center
+- **Text Overlay**: "What programs would serve YOUR family?"
+- **Sticker**: Question sticker for community input
+
+**Slide 12: Invitation**
+- **Visual**: Photo of open doors with people walking in
+- **Text Overlay**: "Open house this Saturday 10am-2pm. Come see YOUR space ✨"
+- **Sticker**: Location tag + Link to RSVP
+
+**Slide 13: Thank You**
+- **Visual**: Photo of Marcus with community members who helped
+- **Text Overlay**: "This wouldn't exist without each person who believed"
+- **Sticker**: Emoji slider "How excited are you? 🙌"
+
+**Slide 14: Next Steps**
+- **Visual**: Simple graphic with center name and details
+- **Text Overlay**: "See you Saturday! Link in bio for program details 👆"
+- **Sticker**: Link to program calendar
+
+### Visual Style
+- **Aesthetic**: Raw, authentic, community-focused (not polished corporate)
+- **Approach**: iPhone photos totally fine—authenticity over production value
+- **Mix**: Personal story + community voice + impact focus
+
+### Algorithm & Community Optimization
+- **Location Tags**: Every slide with location increases local discovery
+- **Hashtags on Feed Cross-Post**: #CommunityFirst #SocialEntrepreneur #YouthEmpowerment (but stories stay clean)
+- **Story Highlights**: Save to "Our Story" highlight for new followers
+
+### Performance Expectations
+- **Local Reach**: 400-600 (high location tag usage drives local discovery)
+- **Completion Rate**: 60%+ (compelling personal story maintains engagement)
+- **Action**: 50+ DMs asking about programs, volunteering, partnership ideas
+
 ```
 
 ## Quality Checklist

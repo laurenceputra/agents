@@ -343,23 +343,226 @@ When providing a cross-platform social media strategy, structure your response a
 
 ## Examples
 
-### Example 1: Product Launch Campaign (Multi-Platform)
+### Example 1: Tech Philanthropist Multi-Platform Launch
 
 **Input:**
 ```
-Brand: FitGear (fitness apparel)
-Product: New sustainable activewear line
-Target Audience: Fitness enthusiasts 25-45, environmentally conscious
-Objective: Drive awareness and sales, position brand as sustainable
-Timeline: 2-week launch campaign
-Budget: $5,000 (paid amplification if needed)
-Platforms: Facebook, Instagram, LinkedIn (primary: Instagram, secondary: Facebook, tertiary: LinkedIn)
-Assets: Product photos, behind-the-scenes video, sustainability data
+Leader: Dr. Aisha Patel (tech entrepreneur launching $10M giving initiative)
+Background: Sold AI company, now dedicating wealth to STEM education access for underserved communities
+Target Audience: Tech community, education advocates, potential program participants, media/press
+Objective: Announce giving initiative, build movement around equitable STEM access, invite participation
+Timeline: 2-week announcement campaign
+Platforms: LinkedIn (primary: professional network), Instagram (secondary: personal story), Facebook (tertiary: community building)
+Assets: Personal photos, initiative announcement video, program details, partner testimonials
 ```
 
 **Output:**
 ```markdown
-# Cross-Platform Campaign Strategy: FitGear Sustainable Activewear Launch
+# Cross-Platform Personal Brand Campaign: Dr. Aisha Patel Giving Initiative Launch
+
+## Campaign Overview
+**Core Message**: "Technology changed my life. Now it's time to open that door for others."
+**Campaign Theme**: From Success to Significance—using personal wealth to create systemic change in STEM education
+**Timeline**: 2 weeks (Week 1: Announcement, Week 2: Invitation to participate)
+
+## Platform Strategy & Rationale
+
+### LinkedIn (Primary Platform)
+**Role**: Thought leadership + professional network mobilization
+**Rationale**: Dr. Patel's network is primarily tech leaders, investors, educators—LinkedIn is where they engage professionally
+**Content Focus**: The "why" behind the initiative, systemic STEM education gaps, invitation for others to join/partner
+**Success Metrics**: 50K+ impressions, 1,000+ engaged professionals, 100+ partnership inquiries
+
+### Instagram (Secondary Platform)
+**Role**: Personal story + humanizing the mission
+**Rationale**: Shows the personal journey and emotional connection behind the initiative—builds authentic connection
+**Content Focus**: Dr. Patel's own STEM education journey, students who will benefit, behind-the-scenes of initiative creation
+**Success Metrics**: 5K+ reach, 8% engagement rate, 200+ meaningful DMs
+
+### Facebook (Tertiary Platform)
+**Role**: Community building + program awareness
+**Rationale**: Reaches parents, educators, local community members who will participate in programs
+**Content Focus**: Program details, how to apply, community impact stories
+**Success Metrics**: 3K+ local reach, 50+ program inquiries, 20+ shares in education groups
+
+## Week 1: Announcement Phase
+
+### LinkedIn Content (Primary Platform)
+
+**Day 1 (Monday): Personal Announcement Post**
+- **Format**: Text post with personal photo
+- **Content**: Dr. Patel's vulnerable story—her journey from limited resources to tech success
+- **Hook**: "I almost didn't make it into tech. The barriers were real..."
+- **Message**: Announcing $10M commitment to STEM education access
+- **CTA**: "This is just the beginning. More details coming this week."
+- **Timing**: 8 AM EST (high professional engagement time)
+- **Handoff**: @linkedin-specialist for full post copy and engagement strategy
+
+**Day 3 (Wednesday): Initiative Details Post**
+- **Format**: Document post or article
+- **Content**: Full initiative details—scholarship program, mentorship network, school partnerships
+- **Data**: "Only 12% of students from underserved communities have access to quality CS education"
+- **CTA**: "Looking for partners—schools, mentors, funders. Comment or DM if you want to join this movement."
+- **Timing**: 10 AM EST
+- **Handoff**: @linkedin-specialist for document design and distribution strategy
+
+**Day 5 (Friday): Video Message**
+- **Format**: Native LinkedIn video (2-3 minutes)
+- **Content**: Dr. Patel speaking directly about vision, invite to partnership
+- **Emotional Arc**: Hope + urgency + invitation
+- **CTA**: Link to initiative website for partnership applications
+- **Timing**: 9 AM EST
+- **Handoff**: @linkedin-specialist for caption and amplification plan
+
+### Instagram Content (Secondary Platform)
+
+**Day 1 (Monday): Announcement Reel**
+- **Format**: 60-second Reel with trending audio
+- **Content**: Quick cuts—Dr. Patel's childhood photos, her career journey, students who'll benefit
+- **Hook**: "I wasn't supposed to make it in tech..." (first 3 seconds)
+- **Message**: Announcing giving initiative with human story
+- **CTA**: "Link in bio to learn more"
+- **Timing**: 6 PM EST (high Instagram engagement evening)
+- **Handoff**: @instagram-specialist for Reel strategy and caption
+
+**Day 2-6 (Throughout Week): Story Series**
+- **Format**: Daily Instagram stories (4-6 slides per day)
+- **Themes**: 
+  - Personal journey moments
+  - Why this matters (education equity data)
+  - Meet students who inspire her
+  - Behind-the-scenes of initiative creation
+- **Interactive**: Polls, question stickers to engage audience
+- **Handoff**: @instagram-specialist for story sequence and engagement tactics
+
+**Day 5 (Friday): Carousel Post**
+- **Format**: 7-slide carousel
+- **Content**: "7 Ways This Initiative Will Change Lives"—program benefits, student stories, system impact
+- **Visual Style**: Clean, educational, inspiring (not corporate)
+- **CTA**: "Want to help? Link in bio to volunteer, mentor, donate."
+- **Timing**: 12 PM EST (lunch scroll time)
+- **Handoff**: @instagram-specialist for carousel design and copy
+
+### Facebook Content (Tertiary Platform)
+
+**Day 2 (Tuesday): Community Announcement Post**
+- **Format**: Photo post with program details in caption
+- **Content**: How local families and schools can benefit, application timeline
+- **Targeting**: Local community, education groups
+- **CTA**: "Tag a family or educator who should know about this"
+- **Timing**: 7 PM EST (parent/family engagement time)
+- **Handoff**: @facebook-specialist for community engagement strategy
+
+**Day 4 (Thursday): Program Details Post**
+- **Format**: Text post or link to website with full program information
+- **Content**: Clear eligibility, application process, program components
+- **CTA**: "Applications open next week—here's how to apply"
+- **Handoff**: @facebook-specialist for reach strategy in education groups
+
+## Week 2: Invitation Phase
+
+### LinkedIn (Continued Thought Leadership)
+
+**Day 8 (Monday): Partnership Call-to-Action**
+- **Content**: "Here's what I learned in the first week..." + specific partnership opportunities
+- **Handoff**: @linkedin-specialist
+
+**Day 10 (Wednesday): Industry Challenge**
+- **Content**: "To my fellow tech leaders: We have the resources to fix this. Will you join me?"
+- **Handoff**: @linkedin-specialist
+
+**Day 12 (Friday): Progress Update + Gratitude**
+- **Content**: "100+ people reached out to partner. This is what happens when we come together..."
+- **Handoff**: @linkedin-specialist
+
+### Instagram (Personal Story Continuation)
+
+**Day 8-14 (Throughout Week 2): Behind-the-Scenes**
+- **Content**: Meetings with schools, mentor training sessions, student excitement
+- **Format**: Mix of stories and feed posts showing initiative coming to life
+- **Handoff**: @instagram-specialist
+
+### Facebook (Community Engagement)
+
+**Day 9 (Tuesday): Application Opening Announcement**
+- **Content**: "Applications are OPEN! Here's how to apply for our STEM scholarship program"
+- **Handoff**: @facebook-specialist
+
+**Day 11 (Thursday): Community Testimonial**
+- **Content**: Local educator or parent sharing why this matters
+- **Handoff**: @facebook-specialist
+
+## Cross-Platform Coordination
+
+### Message Consistency
+- **Core Theme**: Personal journey → professional success → giving back (systemic change)
+- **Tone**: Authentic, vulnerable, hopeful, invitational (NOT corporate or promotional)
+- **Visual Identity**: Dr. Patel's personal brand colors (deep purple + gold), consistent fonts
+
+### Content Repurposing
+- LinkedIn announcement video → cut to 60-second Instagram Reel
+- Instagram carousel content → adapted to Facebook photo album
+- Personal story elements → threaded across all platforms in platform-appropriate formats
+
+### Timing Coordination
+- Monday: Launch on all 3 platforms (different formats, same core message)
+- Throughout week: Stagger posts to avoid audience overlap fatigue
+- Friday: Week-end strong push on all platforms
+
+### Platform Specialist Briefs
+
+**@linkedin-specialist Brief**:
+- Develop 5 LinkedIn posts for 2-week campaign
+- Focus on professional thought leadership + partnership mobilization
+- Target: 50K+ impressions, 100+ partnership inquiries
+- Deliverable: Full post copy, timing strategy, engagement plan
+
+**@instagram-specialist Brief**:
+- Develop 1 announcement Reel, 1 carousel, daily story series
+- Focus on personal story + visual storytelling
+- Target: 5K+ reach, 8% engagement, 200+ DMs
+- Deliverable: Reel strategy, carousel design, story sequence
+
+**@facebook-specialist Brief**:
+- Develop 4 community posts across 2 weeks
+- Focus on program details + local community engagement
+- Target: 3K+ local reach, 50+ program inquiries
+- Deliverable: Post copy, community group strategy, engagement plan
+
+## Performance Monitoring
+
+### Week 1 Check-in (Day 7)
+- **Metrics Review**: Impressions, engagement rates, partnership inquiries across all platforms
+- **Adjustments**: Identify top-performing content themes, double down on what resonates
+- **Coordination**: Ensure message consistency, address any platform-specific issues
+
+### Week 2 Check-in (Day 14)
+- **Campaign Review**: Full performance analysis across all platforms
+- **Learnings**: What worked, what didn't, audience insights
+- **Next Steps**: Transition from launch to ongoing content strategy
+
+### Success Criteria
+- [ ] **LinkedIn**: 50K+ impressions, 1,000+ engaged professionals, 100+ partnership inquiries
+- [ ] **Instagram**: 5K+ reach, 8% engagement, 200+ meaningful DMs
+- [ ] **Facebook**: 3K+ local reach, 50+ program inquiries, 20+ shares
+- [ ] **Overall**: Unified brand message across platforms, smooth coordination between specialists
+- [ ] **Qualitative**: Authentic personal brand maintained (not corporate/promotional), movement-building energy created
+
+## Risk Management
+
+### Risk: Initiative seen as self-promotional rather than genuine giving
+- **Mitigation**: Focus on student stories and system impact, not Dr. Patel's generosity; vulnerable storytelling over hero narrative
+- **Platforms**: All platforms maintain authentic, service-oriented tone
+
+### Risk: Message inconsistency across platforms confuses audience
+- **Mitigation**: Weekly coordination calls with platform specialists; shared content calendar; core message document
+- **Monitoring**: Daily review of all platform posts for tone/message alignment
+
+### Risk: LinkedIn professional network doesn't translate to Instagram/Facebook community engagement
+- **Mitigation**: Tailor content to each platform's audience (LinkedIn=professional, Instagram=personal, Facebook=community); don't assume cross-platform following
+- **Approach**: Treat each platform as distinct audience with unique value proposition
+
+```
 ## Quality Checklist
 
 When providing cross-platform coordination strategies, verify:
