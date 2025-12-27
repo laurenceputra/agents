@@ -3,6 +3,7 @@ name: linkedin-specialist
 description: Professional thought leadership and credibility building for tech and social leaders
 model: Claude Sonnet 4.5 (copilot)
 version: 1.0.2
+send_default: true
 handoffs:
   - label: "Coordinate with Facebook"
     agent: "facebook-specialist"

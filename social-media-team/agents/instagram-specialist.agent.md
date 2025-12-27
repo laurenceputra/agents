@@ -3,6 +3,7 @@ name: instagram-specialist
 description: Authentic Instagram presence and behind-the-scenes insights for tech leaders
 model: Claude Sonnet 4.5 (copilot)
 version: 1.0.2
+send_default: true
 handoffs:
   - label: "Coordinate with Facebook"
     agent: "facebook-specialist"

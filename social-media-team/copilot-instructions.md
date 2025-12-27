@@ -381,6 +381,33 @@ Every social media strategy passes through these quality checkpoints:
 
 ---
 
+## Handoff Policy (send_default)
+
+**Policy**: `send_default: true`
+
+All agents in this group use automatic handoffs (`send: true`) for smooth workflow coordination. This policy enables specialists to collaborate efficiently, delivering complete strategy packages with critical review to users.
+
+**Rationale**:
+
+This agent group generates content recommendations and strategies - it does not execute external actions (no social media API access, no automated posting). The agents produce text-based recommendations that users manually review and post to their social platforms.
+
+**Risk Assessment**:
+- **Decision Criticality**: MEDIUM (recommendations, not executable actions)
+- **External Actions**: LOW (no posting capability - users execute manually)
+- **Data Sensitivity**: LOW (generates generic social media strategy advice)
+- **Observability**: HIGH (users review all content before posting)
+- **Rollback Capability**: HIGH (nothing executed until user manually posts)
+
+**Human Checkpoint**: Users are the final gatekeeper. All content recommendations must be manually copied to social platforms by the user. Automatic handoffs enable efficient strategy generation, while actual posting requires explicit human action.
+
+**Workflow Benefits**:
+- Platform specialists automatically coordinate for multi-platform consistency
+- Devil's Advocate critical review is delivered with strategy (complete package)
+- Users receive comprehensive recommendations without manual handoff coordination
+- No interruption to workflow for internal agent collaboration
+
+---
+
 ## Examples
 
 ### Example 1: Instagram Product Launch (Platform-Specific)
