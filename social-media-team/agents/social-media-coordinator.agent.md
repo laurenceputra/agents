@@ -2,7 +2,7 @@
 name: social-media-coordinator
 description: Cross-platform social media strategy coordinator and brand consistency manager
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.2
+version: 1.2.0
 send_default: true
 handoffs:
   - label: "Get Facebook expertise"

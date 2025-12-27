@@ -2,7 +2,7 @@
 name: devils-advocate
 description: Critical reviewer challenging social media strategy assumptions and surfacing blind spots
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.2
+version: 1.2.0
 send_default: true
 handoffs:
   - label: "Return to coordinator"

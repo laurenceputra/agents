@@ -2,7 +2,7 @@
 name: facebook-specialist
 description: Facebook-specific content strategy and algorithm optimization expert
 model: Claude Sonnet 4.5 (copilot)
-version: 1.0.2
+version: 1.2.0
 send_default: true
 handoffs:
   - label: "Coordinate with Instagram"
