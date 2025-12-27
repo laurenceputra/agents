@@ -117,6 +117,115 @@ Program Proposal Submitted
     └─ Synthesis issues → @recommendation-synthesizer (adjust recommendation)
 ```
 
+## Send Default Policy
+
+### Overview
+
+This agent group uses a **hybrid auto-send policy** designed for high-stakes philanthropic decisions involving potentially millions of dollars and multi-year commitments.
+
+**Core Principle**: Workflow advances require human confirmation (`send: false`), but critical reviews and feedback loops auto-send (`send: true`) for iterative improvement efficiency.
+
+### Policy Rules
+
+#### Primary Workflow Transitions: `send: false` (Human Confirmation Required)
+
+**Rationale**: Each analytical stage (impact → portfolio → risk → synthesis) represents a critical decision checkpoint where philanthropists should review findings before proceeding.
+
+**Affected Handoffs**:
+- `principles-framework-definer → impact-evaluator` (send: false)
+- `impact-evaluator → portfolio-strategist` (send: false)
+- `portfolio-strategist → risk-opportunity-analyst` (send: false)
+- `risk-opportunity-analyst → recommendation-synthesizer` (send: false)
+
+**Why Manual Confirmation**:
+- High-stakes decisions: Funding amounts typically $100k-$1M+ per program
+- Multi-year commitments: Programs often 3-5 year commitments
+- Irreversible impact: Funding decisions affect beneficiaries' lives
+- Strategic implications: Portfolio composition affects long-term giving strategy
+- Human judgment needed: Quantitative metrics don't capture full context
+
+**User Experience**: After each agent completes analysis, user reviews output and explicitly confirms to proceed to next stage. This creates natural checkpoints for reflection.
+
+#### Critical Reviews: `send: true` (Auto-Send)
+
+**Rationale**: Critical review by devils-advocate is **mandatory**, not optional. Auto-sending ensures quality gate is never skipped while reducing friction in iterative feedback loops.
+
+**Affected Handoffs**:
+- `recommendation-synthesizer → devils-advocate` (send: true, mandatory)
+- `marketing-content-writer → devils-advocate` (send: true, mandatory)
+
+**Why Auto-Send**:
+- **Mandatory gate**: Devils-advocate review is non-negotiable for all funding recommendations and marketing content
+- **No decision bypass**: Prevents users from accidentally making decisions without critical review
+- **Quality enforcement**: Ensures assumptions challenged, disagreements surfaced, blind spots identified
+
+#### Feedback Loops: `send: true` (Auto-Send)
+
+**Rationale**: When devils-advocate identifies issues requiring revision, the feedback loop should be frictionless to enable rapid iteration.
+
+**Affected Handoffs** (all devils-advocate feedback routes):
+- `devils-advocate → impact-evaluator` (send: true)
+- `devils-advocate → portfolio-strategist` (send: true)
+- `devils-advocate → risk-opportunity-analyst` (send: true)
+- `devils-advocate → recommendation-synthesizer` (send: true)
+- `devils-advocate → principles-framework-definer` (send: true)
+- `devils-advocate → marketing-content-writer` (send: true)
+
+**Why Auto-Send**:
+- **Iterative improvement**: Revisions are collaborative, not adversarial
+- **Efficiency**: No value in manual confirmation for "fix this and return" loops
+- **Clear context**: Devils-advocate provides specific feedback, agent acts on it
+
+#### Optional/Clarification Paths: `send: true` (Auto-Send)
+
+**Rationale**: When agents need clarification or additional information from supporting agents, auto-send reduces friction.
+
+**Affected Handoffs**:
+- `principles-framework-definer → devils-advocate` (send: true, framework review)
+- `impact-evaluator → devils-advocate` (send: true, methodology review)
+- `portfolio-strategist → devils-advocate` (send: true, strategic assumptions review)
+- `risk-opportunity-analyst → devils-advocate` (send: true, risk assumptions review)
+- `marketing-content-writer → principles-framework-definer` (send: true, clarification)
+
+**Why Auto-Send**:
+- **Supporting workflows**: These are auxiliary paths for quality improvement, not primary decision points
+- **Low risk**: Clarification requests don't commit resources, just improve analysis
+- **User retains control**: Primary workflow still has manual checkpoints
+
+### Policy Rationale Summary
+
+| Transition Type | Send Policy | Rationale |
+|---|---|---|
+| Workflow advance (impact → portfolio → risk → synthesis) | `send: false` | High-stakes checkpoints, human judgment needed |
+| Mandatory critical review (→ devils-advocate) | `send: true` | Quality gate enforcement, prevent bypass |
+| Feedback loops (devils-advocate → agents) | `send: true` | Iterative efficiency, clear revision context |
+| Clarification/support (auxiliary paths) | `send: true` | Low-risk, supporting workflows |
+
+### Testing and Observability
+
+**How to Test**:
+1. Run full workflow: principles → impact → portfolio → risk → synthesis → devils-advocate
+2. Verify user is prompted for confirmation at each primary workflow transition
+3. Verify auto-send to devils-advocate after recommendation-synthesizer completes
+4. Verify feedback loops auto-send without manual confirmation
+
+**Success Metrics**:
+- User reports feeling in control of workflow progression (manual checkpoints valued)
+- Devils-advocate review never skipped (100% compliance on funding recommendations)
+- Feedback iteration cycles complete within 1-2 days (not delayed by manual confirmations)
+
+**Rollback Strategy**:
+If policy proves problematic:
+- Change all primary workflow handoffs to `send: true` if users want full automation
+- Change devils-advocate handoffs to `send: false` if users want manual review trigger
+- No code changes needed, only frontmatter `send:` values in agent files
+
+### Migration Notes
+
+**Version 1.2.0**: Policy formalized and documented (policy existed in agent files but was undocumented)
+
+**No Breaking Changes**: Agent behavior unchanged, only documentation added to explain existing pattern.
+
 ## Quality Gates
 
 ### Gate 1: Impact Evaluation Complete
@@ -300,6 +409,46 @@ Program Proposal Submitted
 
 **Time Horizon**: 5-20 years depending on intervention (short-term outcomes vs lifetime impact)
 
+## REFERENCE.md Usage Guide
+
+### Purpose
+
+`REFERENCE.md` contains detailed methodologies (SROI formulas, CEA calculations, trajectory uplift frameworks) to keep agent files concise while maintaining comprehensive guidance.
+
+### Which Agents Should Reference REFERENCE.md?
+
+**Current Usage** (agents with explicit REFERENCE.md links):
+- **impact-evaluator**: References for SROI/CEA calculation details, formula steps, benchmark interpretation
+- **portfolio-strategist**: References for strategic portfolio frameworks and alignment scoring
+
+**Recommended Additional Usage** (agents that use SROI/CEA concepts but don't link):
+- **devils-advocate**: Should reference REFERENCE.md when challenging SROI/CEA methodology assumptions, questioning deadweight/attribution/drop-off estimates
+- **recommendation-synthesizer**: Should reference REFERENCE.md when integrating quantitative metrics (SROI, CEA) into funding recommendations
+- **risk-opportunity-analyst**: May benefit from referencing systemic impact frameworks (upstream/midstream/downstream)
+
+### Rationale for Expanded References
+
+**Why devils-advocate needs REFERENCE.md**:
+- Devils-advocate challenges SROI/CEA assumptions but doesn't link to methodology details
+- When questioning "why 20% deadweight?" or "is 70% attribution reasonable?", agent should reference REFERENCE.md for typical ranges (deadweight 10-25%, attribution 50-80%)
+- Critical review is stronger when grounded in documented methodology standards
+
+**Why recommendation-synthesizer needs REFERENCE.md**:
+- Recommendation-synthesizer integrates SROI/CEA metrics but doesn't link to interpretation benchmarks
+- When synthesizing "SROI 4.2:1 is strong but not exceptional", should reference REFERENCE.md benchmarks (3:1-5:1 typical, 5:1-10:1 strong)
+- Synthesis credibility improves when citing documented standards
+
+### Implementation Status
+
+**Version 1.2.0**: Documentation issue identified but not yet resolved in agent files.
+
+**Future Enhancement** (targeted for v1.3.0):
+- Add REFERENCE.md links to devils-advocate.agent.md (Domain Context section)
+- Add REFERENCE.md links to recommendation-synthesizer.agent.md (Domain Context section)
+- Consider adding risk-opportunity-analyst link if systemic impact frameworks used
+
+**No Breaking Changes**: Adding reference links is non-breaking enhancement (agents already use concepts, just making documentation explicit).
+
 ## Examples
 
 ### Example 1: Evaluating Youth Mentorship Program
@@ -407,6 +556,74 @@ Program Proposal Submitted
 
 **If urgent**: Request devils-advocate provide expedited review focusing on top 3 challenges (not comprehensive), but still required.
 
-## Version History
+## Agent Size and Complexity Monitoring
 
-- **1.0.0** (Initial): Comprehensive philanthropic advisory group with five agents (impact-evaluator, portfolio-strategist, risk-opportunity-analyst, recommendation-synthesizer, devils-advocate) for Singapore-focused philanthropic decision support
+### Current Size Distribution (Version 1.2.0)
+
+| Agent | Size (chars) | % of 30k Limit | Status |
+|---|---|---|
+| principles-framework-definer | 26,716 | 89% | 🔴 Monitor closely |
+| portfolio-strategist | 26,071 | 87% | 🔴 Monitor closely |
+| impact-evaluator | 23,204 | 77% | 🟡 Acceptable |
+| devils-advocate | 21,226 | 71% | ✅ Comfortable |
+| marketing-content-writer | 16,265 | 54% | ✅ Comfortable |
+| risk-opportunity-analyst | 15,784 | 53% | ✅ Comfortable |
+| recommendation-synthesizer | 15,765 | 53% | ✅ Comfortable |
+
+**Hard Limit**: 30,000 characters (GitHub Copilot constraint)
+**Yellow Flag Threshold**: 25,000 characters (trigger optimization review)
+**Target Range**: 15,000-20,000 characters for new agents
+
+### Size Imbalance Rationale
+
+**Why principles-framework-definer is largest (26,716 chars)**:
+- Facilitates 8 comprehensive foundational question areas (values, beneficiaries, problem areas, theory of change, decision criteria, risk tolerance, portfolio strategy, non-negotiables)
+- Each question area requires detailed prompts, examples, and Singapore context
+- Produces complex framework documents with quantitative thresholds
+- Complexity justified: framework definition is foundational to entire decision process
+
+**Why portfolio-strategist is second largest (26,071 chars)**:
+- Covers multiple analytical dimensions: mission alignment, portfolio composition, gap analysis, synergy mapping, concentration risk
+- Requires extensive Singapore philanthropic landscape context
+- Integration point between quantitative impact metrics and strategic decision criteria
+- Complexity justified: portfolio strategy bridges multiple stakeholder perspectives
+
+**Size Distribution Justification**:
+- Core analytical agents (impact, portfolio) are larger due to technical depth
+- Supporting agents (risk, synthesis, marketing) are smaller and more focused
+- Size gap (26k vs 15k) reflects differing complexity requirements, not responsibility creep
+
+### Future Size Management Strategy
+
+**If agents approach 30k limit**:
+1. **First**: Optimize examples (consolidate, remove redundancy)
+2. **Second**: Move detailed methodology to REFERENCE.md (already done for SROI/CEA)
+3. **Third**: Consider agent split if fundamental redesign needed
+   - Example: Split principles-framework-definer into two agents (values-definer + criteria-builder)
+   - Example: Split portfolio-strategist into two agents (alignment-assessor + portfolio-manager)
+
+**Monitoring Plan**:
+- Check agent sizes after each minor version release
+- Flag any agent exceeding 27,000 characters for review
+- Document size changes in CHANGELOG.md
+
+### Quality Checklist Standards
+
+**Current Checklist Size Range**: 8-12 items per agent
+
+**Rationale for Variation**:
+- **Complex analytical agents** (impact-evaluator, portfolio-strategist): 10-12 items
+  - More methodologies to verify (SROI, CEA, trajectory uplift, portfolio composition)
+  - More stakeholder perspectives to consider
+- **Focused functional agents** (risk-opportunity-analyst, recommendation-synthesizer): 8-10 items
+  - Narrower scope, fewer integration points
+  - Clear success criteria (risk matrix complete, recommendation actionable)
+- **Critical review agent** (devils-advocate): 10-12 items
+  - Must verify multiple agents' work, surface disagreements, identify blind spots
+
+**Consistency Standard**: Similar complexity agents should have similar rigor
+- Analytical agents (impact, portfolio, risk): Similar checklist depth ✓
+- Synthesis agents (recommendation, devils-advocate): Similar checklist depth ✓
+- Supporting agents (principles, marketing): Appropriate checklist depth for scope ✓
+
+**No Action Needed**: Checklist variation justified by agent complexity differences.

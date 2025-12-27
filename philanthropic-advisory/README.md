@@ -243,12 +243,6 @@ This is a reference implementation. To adapt for your context:
 
 These agents follow GitHub Copilot agent patterns and are provided as-is for philanthropic decision support.
 
-## Version History
-
-- **1.2.0** (2025-12-21): Added marketing-content-writer agent for creating marketing content aligned with principles
-- **1.1.0** (2025-12-21): Added principles-framework-definer agent and self-update capability
-- **1.0.0** (2024-12-16): Initial release with five agents (impact-evaluator, portfolio-strategist, risk-opportunity-analyst, recommendation-synthesizer, devils-advocate)
-
 ## Updating This Agent Group
 
 This agent group can be updated from the upstream repository to get the latest improvements, bug fixes, and new features.
