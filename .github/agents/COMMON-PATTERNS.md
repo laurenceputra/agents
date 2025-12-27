@@ -2,6 +2,8 @@
 
 This document contains common patterns, schemas, and guidelines referenced by multiple meta-agents. It's a reference document, not an agent.
 
+⚠️ **CRITICAL**: When changing this file, update the enforcing agents (Quality Reviewer, Architect, Devil's Advocate) to reflect new pattern rules. See copilot-instructions.md for pattern update process.
+
 ## Frontmatter Schema
 
 All agents MUST use this standardized YAML frontmatter schema:

@@ -356,6 +356,71 @@ For detailed information on these topics, see `agents/COMMON-PATTERNS.md`:
 
 ---
 
+## Pattern Update Process
+
+### Process Overview
+
+When COMMON-PATTERNS.md changes, the enforcing agents MUST be updated to reflect new pattern rules. This prevents pattern drift and ensures consistent enforcement.
+
+### Pattern-to-Agent Enforcement Mapping
+
+| Pattern Rule | Architect | Quality Reviewer | Devil's Advocate |
+|--------------|-----------|------------------|------------------|
+| Frontmatter schema | Include in spec template | CRITICAL: Validate all fields | Challenge completeness |
+| No version history in agents | Note in spec template | CRITICAL: Reject if found | Flag if present |
+| Character limits (30k hard, 25k flag) | Target 15-20k in spec | CRITICAL: Reject >30k, flag 25-30k | Challenge bloat >25k |
+| Send_default policy | Design & document policy | Verify documented with rationale | Challenge rationale |
+| Devil's Advocate mandatory | Include in all group specs | Verify present in groups | Confirm not forgotten |
+| Portable structure | Specify in requirements | Verify no hardcoded paths | Flag portability issues |
+| Valid handoff chains | Design in spec | Verify all references valid | Check for broken links |
+| Writing style guidelines | Reference in spec | Check compliance | Assess naturalness |
+
+### Update Workflow
+
+When adding or modifying a pattern rule in COMMON-PATTERNS.md:
+
+1. **Categorize the rule**:
+   - **CRITICAL**: Must enforce (reject violations) - e.g., version history, character limits
+   - **IMPORTANT**: Should check (flag violations) - e.g., send_default policy, handoff chains
+   - **GUIDANCE**: Consider (recommend) - e.g., writing style preferences
+
+2. **Update enforcing agents**:
+   - **Quality Reviewer**: Add to quality checklist with appropriate severity
+   - **Architect**: Add to specification template requirements
+   - **Devil's Advocate**: Add to critical review criteria
+
+3. **Test enforcement**:
+   - Create test case violating the new rule
+   - Verify agents detect the violation during reviews
+   - Document detection in pattern update commit
+
+4. **Document in mapping**:
+   - Update the pattern-to-agent mapping table above
+   - Note which agent is primary enforcer for the rule
+
+### Active Pattern Rules
+
+Current enforceable rules from COMMON-PATTERNS.md:
+
+**CRITICAL Rules** (reject violations):
+- No version history section in agent files
+- Character count under 30,000 characters
+- Frontmatter schema complete (all required fields)
+
+**IMPORTANT Rules** (flag violations):
+- Character count 25,000-30,000 (recommend optimization)
+- Send_default policy documented for groups
+- Devil's Advocate included in all groups
+- Portable structure (no hardcoded paths)
+- Valid handoff chains (no broken references)
+
+**GUIDANCE Rules** (recommendations):
+- Writing style guidelines (9 principles)
+- Target character count 15,000-20,000
+- Model recommendations per task type
+
+---
+
 ## Workflow Rules (Critical)
 
 1. **All implementations on feature branches** - Never commit directly to main
