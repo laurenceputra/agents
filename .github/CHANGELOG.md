@@ -5,6 +5,42 @@ All notable changes to the Meta-Agent System will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## 2.5.0 - 2025-12-26
+
+### Changed
+- **Issue #9: Workflow Agent Scope Creep - Refactored Architect and Implementer**: Extracted workflow orchestration from agents to centralize in copilot-instructions.md
+  - **Problem**: Architect (29k chars) and Implementer (26k chars) bloated with workflow orchestration details, approaching 30k limit
+  - **Solution**: Separated "what to do" (agent responsibilities) from "how to orchestrate" (workflow coordination)
+  - **Changes**:
+    - **Agent Architect (v2.2.0 → v2.3.0)**:
+      - Reduced from 29,110 to 14,575 characters (50% reduction, saved ~14.5k)
+      - Removed detailed workflow diagrams, phase descriptions, gate specifications
+      - Removed lengthy template sections and redundant troubleshooting
+      - Kept core responsibilities, specification design process, model recommendations
+      - Added "Workflow Position" section referencing copilot-instructions.md
+      - Streamlined examples to condensed format
+    - **Agent Implementer (v2.1.0 → v2.2.0)**:
+      - Reduced from 26,371 to 13,891 characters (47% reduction, saved ~12.5k)
+      - Removed detailed workflow steps (Workflow A/B), extensive infrastructure specs
+      - Removed redundant template sections and verbose formatting guidelines
+      - Kept core responsibilities, implementation standards, validation requirements
+      - Added "Workflow Position" section referencing copilot-instructions.md
+      - Streamlined documentation requirements section
+    - **copilot-instructions.md**:
+      - Enhanced from 19,725 to 25,450 characters (added ~5.7k)
+      - Added comprehensive "Workflow Orchestration Details" section
+      - Documented phase transitions and handoff mechanics
+      - Added feedback loop handling patterns
+      - Added branch management guidance
+      - Added character count management workflow
+      - Expanded troubleshooting guide with 10+ scenarios
+  - **Rationale**: Centralized orchestration provides single source of truth, agents stay focused on capabilities
+  - **Impact**: Total system reduction of ~21k characters, agents well under 20k target with 10k buffer for growth
+  - **Benefits**:
+    - Easier maintenance: Workflow changes update 1 file (copilot-instructions.md) not 5 agents
+    - Better clarity: Agents read faster with less workflow noise
+    - Future-proof: Both agents have 15k+ characters buffer under 30k limit
+
 ## 2.4.0 - 2025-12-26
 
 ### Fixed
