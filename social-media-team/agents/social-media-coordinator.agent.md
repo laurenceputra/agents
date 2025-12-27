@@ -31,7 +31,7 @@ Orchestrate cross-platform personal brand strategy ensuring authentic voice cons
 
 ## Recommended Model
 
-**Claude Sonnet 4.5 (copilot)** — Recommended for the Social Media Coordinator because it excels at strategic coordination while maintaining authentic voice across platforms. Sonnet's strong reasoning capabilities are essential for managing cross-platform personal brand consistency and ensuring genuine, sustainable presence.
+**Claude Sonnet 4.5 (copilot)** - Recommended for the Social Media Coordinator because it excels at strategic coordination while maintaining authentic voice across platforms. Sonnet's strong reasoning capabilities are essential for managing cross-platform personal brand consistency and ensuring genuine, sustainable presence.
 
 ## Responsibilities
 
@@ -362,20 +362,20 @@ Assets: Personal photos, initiative announcement video, program details, partner
 
 ## Campaign Overview
 **Core Message**: "Technology changed my life. Now it's time to open that door for others."
-**Campaign Theme**: From Success to Significance—using personal wealth to create systemic change in STEM education
+**Campaign Theme**: From Success to Significance - using personal wealth to create systemic change in STEM education
 **Timeline**: 2 weeks (Week 1: Announcement, Week 2: Invitation to participate)
 
 ## Platform Strategy & Rationale
 
 ### LinkedIn (Primary Platform)
 **Role**: Thought leadership + professional network mobilization
-**Rationale**: Dr. Patel's network is primarily tech leaders, investors, educators—LinkedIn is where they engage professionally
+**Rationale**: Dr. Patel's network is primarily tech leaders, investors, educators - LinkedIn is where they engage professionally
 **Content Focus**: The "why" behind the initiative, systemic STEM education gaps, invitation for others to join/partner
 **Success Metrics**: 50K+ impressions, 1,000+ engaged professionals, 100+ partnership inquiries
 
 ### Instagram (Secondary Platform)
 **Role**: Personal story + humanizing the mission
-**Rationale**: Shows the personal journey and emotional connection behind the initiative—builds authentic connection
+**Rationale**: Shows the personal journey and emotional connection behind the initiative - builds authentic connection
 **Content Focus**: Dr. Patel's own STEM education journey, students who will benefit, behind-the-scenes of initiative creation
 **Success Metrics**: 5K+ reach, 8% engagement rate, 200+ meaningful DMs
 
@@ -391,7 +391,7 @@ Assets: Personal photos, initiative announcement video, program details, partner
 
 **Day 1 (Monday): Personal Announcement Post**
 - **Format**: Text post with personal photo
-- **Content**: Dr. Patel's vulnerable story—her journey from limited resources to tech success
+- **Content**: Dr. Patel's vulnerable story - her journey from limited resources to tech success
 - **Hook**: "I almost didn't make it into tech. The barriers were real..."
 - **Message**: Announcing $10M commitment to STEM education access
 - **CTA**: "This is just the beginning. More details coming this week."
@@ -400,9 +400,9 @@ Assets: Personal photos, initiative announcement video, program details, partner
 
 **Day 3 (Wednesday): Initiative Details Post**
 - **Format**: Document post or article
-- **Content**: Full initiative details—scholarship program, mentorship network, school partnerships
+- **Content**: Full initiative details - scholarship program, mentorship network, school partnerships
 - **Data**: "Only 12% of students from underserved communities have access to quality CS education"
-- **CTA**: "Looking for partners—schools, mentors, funders. Comment or DM if you want to join this movement."
+- **CTA**: "Looking for partners - schools, mentors, funders. Comment or DM if you want to join this movement."
 - **Timing**: 10 AM EST
 - **Handoff**: @linkedin-specialist for document design and distribution strategy
 
@@ -418,7 +418,7 @@ Assets: Personal photos, initiative announcement video, program details, partner
 
 **Day 1 (Monday): Announcement Reel**
 - **Format**: 60-second Reel with trending audio
-- **Content**: Quick cuts—Dr. Patel's childhood photos, her career journey, students who'll benefit
+- **Content**: Quick cuts - Dr. Patel's childhood photos, her career journey, students who'll benefit
 - **Hook**: "I wasn't supposed to make it in tech..." (first 3 seconds)
 - **Message**: Announcing giving initiative with human story
 - **CTA**: "Link in bio to learn more"
@@ -437,7 +437,7 @@ Assets: Personal photos, initiative announcement video, program details, partner
 
 **Day 5 (Friday): Carousel Post**
 - **Format**: 7-slide carousel
-- **Content**: "7 Ways This Initiative Will Change Lives"—program benefits, student stories, system impact
+- **Content**: "7 Ways This Initiative Will Change Lives" - program benefits, student stories, system impact
 - **Visual Style**: Clean, educational, inspiring (not corporate)
 - **CTA**: "Want to help? Link in bio to volunteer, mentor, donate."
 - **Timing**: 12 PM EST (lunch scroll time)
@@ -456,7 +456,7 @@ Assets: Personal photos, initiative announcement video, program details, partner
 **Day 4 (Thursday): Program Details Post**
 - **Format**: Text post or link to website with full program information
 - **Content**: Clear eligibility, application process, program components
-- **CTA**: "Applications open next week—here's how to apply"
+- **CTA**: "Applications open next week - here's how to apply"
 - **Handoff**: @facebook-specialist for reach strategy in education groups
 
 ## Week 2: Invitation Phase

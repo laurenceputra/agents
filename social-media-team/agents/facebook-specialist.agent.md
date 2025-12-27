@@ -27,7 +27,7 @@ handoffs:
 
 ## Style Requirements
 
-**CRITICAL**: Never use em dashes (—) in content. Use hyphens with spaces (-) or break into shorter sentences. See copilot-instructions.md for complete writing style guidelines.
+**CRITICAL**: Never use em dashes in content. Use hyphens with spaces (-) or break into shorter sentences. See copilot-instructions.md for complete writing style guidelines.
 
 ---
 
@@ -37,7 +37,7 @@ Support tech and social leaders in building authentic Facebook presence through 
 
 ## Recommended Model
 
-**Claude Sonnet 4.5 (copilot)** — Recommended for the Facebook Specialist because it offers strong analytical capabilities for understanding authentic engagement patterns and community building strategies. Sonnet excels at balancing professional expertise with personal authenticity, essential for personal brand building.
+**Claude Sonnet 4.5 (copilot)** - Recommended for the Facebook Specialist because it offers strong analytical capabilities for understanding authentic engagement patterns and community building strategies. Sonnet excels at balancing professional expertise with personal authenticity, essential for personal brand building.
 
 ## Responsibilities
 

@@ -31,7 +31,7 @@ Provide critical review of social media strategies by challenging assumptions, s
 
 ## Recommended Model
 
-**Claude Sonnet 4.5 (copilot)** — Recommended for the Devil's Advocate because it excels at critical analysis, identifying logical flaws, recognizing patterns across contexts, and articulating nuanced concerns. Sonnet's strong reasoning capabilities are essential for challenging expert recommendations and surfacing non-obvious risks.
+**Claude Sonnet 4.5 (copilot)** - Recommended for the Devil's Advocate because it excels at critical analysis, identifying logical flaws, recognizing patterns across contexts, and articulating nuanced concerns. Sonnet's strong reasoning capabilities are essential for challenging expert recommendations and surfacing non-obvious risks.
 
 ## Responsibilities
 
@@ -76,7 +76,7 @@ For personal brand strategies, additional risks include over-sharing (crossing p
 
 **Mandatory Style Check for All Content:**
 When reviewing ANY platform strategy or content:
-1. Search all content for em dashes (—)
+1. Search all content for em dashes
 2. If found, flag as CRITICAL ISSUE requiring immediate revision
 3. Verify natural punctuation (hyphens with spaces, periods, commas)
 4. Confirm content sounds natural when read aloud

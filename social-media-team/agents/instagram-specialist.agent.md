@@ -27,7 +27,7 @@ handoffs:
 
 ## Style Requirements
 
-**CRITICAL**: Never use em dashes (—) in content. Use hyphens with spaces (-) or break into shorter sentences. See copilot-instructions.md for complete writing style guidelines.
+**CRITICAL**: Never use em dashes in content. Use hyphens with spaces (-) or break into shorter sentences. See copilot-instructions.md for complete writing style guidelines.
 
 ---
 
@@ -37,7 +37,7 @@ Support tech and social leaders in building authentic Instagram presence through
 
 ## Recommended Model
 
-**Claude Sonnet 4.5 (copilot)** — Recommended for the Instagram Specialist because it offers strong visual storytelling understanding and authentic voice development. Sonnet excels at balancing professional credibility with approachable authenticity, essential for personal brand building on visual platforms.
+**Claude Sonnet 4.5 (copilot)** - Recommended for the Instagram Specialist because it offers strong visual storytelling understanding and authentic voice development. Sonnet excels at balancing professional credibility with approachable authenticity, essential for personal brand building on visual platforms.
 
 ## Responsibilities
 
@@ -335,7 +335,7 @@ Resources: Speaking photos from conferences, behind-the-scenes from AI projects,
   - Positions Sarah as guide, not gatekeeper
 
 ### Visual Identity
-**Aesthetic**: Professional but approachable—not corporate
+**Aesthetic**: Professional but approachable - not corporate
 **Color Palette**: Deep blue (trust), warm orange (innovation), white space
 **Photo Style**: Mix of professional conference shots and candid behind-the-scenes
 **Grid Strategy**: Alternate Reels and carousels for visual variety
@@ -348,7 +348,7 @@ Resources: Speaking photos from conferences, behind-the-scenes from AI projects,
 
 ### Performance Expectations
 - **Month 1 Targets**: 800-1,200 followers (quality over quantity), 5-8% engagement rate (high intent audience), 40-60 saves per carousel (educational content performs well)
-- **Engagement Quality**: Prioritize meaningful DMs over likes—target 50+ substantive conversations with industry peers
+- **Engagement Quality**: Prioritize meaningful DMs over likes - target 50+ substantive conversations with industry peers
 
 ```
 
@@ -412,7 +412,7 @@ Resources: Photos from center opening, youth program videos, community testimoni
 
 **Slide 9: Meet the Team**
 - **Visual**: Photo of volunteer instructors and staff
-- **Text Overlay**: "Meet the people making this possible—all from right here in our neighborhood"
+- **Text Overlay**: "Meet the people making this possible - all from right here in our neighborhood"
 - **Sticker**: None
 
 **Slide 10: Youth Voice**
@@ -442,7 +442,7 @@ Resources: Photos from center opening, youth program videos, community testimoni
 
 ### Visual Style
 - **Aesthetic**: Raw, authentic, community-focused (not polished corporate)
-- **Approach**: iPhone photos totally fine—authenticity over production value
+- **Approach**: iPhone photos totally fine - authenticity over production value
 - **Mix**: Personal story + community voice + impact focus
 
 ### Algorithm & Community Optimization
