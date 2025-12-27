@@ -117,6 +117,53 @@ Program Proposal Submitted
     └─ Synthesis issues → @recommendation-synthesizer (adjust recommendation)
 ```
 
+## Send Default Policy
+
+**Core Principle**: Workflow advances require human confirmation (`send: false`), but critical reviews and feedback loops auto-send (`send: true`) for iterative efficiency.
+
+### Policy Rules
+
+**Primary Workflow Transitions: `send: false`** (Manual confirmation at each analytical stage)
+- `principles-framework-definer → impact-evaluator`
+- `impact-evaluator → portfolio-strategist`
+- `portfolio-strategist → risk-opportunity-analyst`
+- `risk-opportunity-analyst → recommendation-synthesizer`
+
+**Rationale**: High-stakes funding decisions ($100k-$1M+, multi-year commitments) require human checkpoints for review before proceeding.
+
+**Critical Reviews: `send: true`** (Mandatory quality gates auto-send)
+- `recommendation-synthesizer → devils-advocate` (mandatory)
+- `marketing-content-writer → devils-advocate` (mandatory)
+
+**Rationale**: Devils-advocate review is non-negotiable; auto-send prevents bypass while ensuring assumptions challenged.
+
+**Feedback Loops: `send: true`** (Devils-advocate returns auto-send)
+- `devils-advocate → [any agent for revision]` (all 6 agents)
+
+**Rationale**: Revision cycles should be frictionless for rapid iteration.
+
+**Clarification Paths: `send: true`** (Supporting workflows auto-send)
+- All auxiliary paths between agents for clarification/review
+
+**Rationale**: Low-risk supporting workflows don't need manual confirmation.
+
+### Summary Table
+
+| Transition Type | Send Policy | Rationale |
+|---|---|---|
+| Workflow advance | `send: false` | High-stakes checkpoints |
+| Mandatory review | `send: true` | Quality gate enforcement |
+| Feedback loops | `send: true` | Iterative efficiency |
+| Clarification | `send: true` | Low-risk support |
+
+### Testing
+
+1. Verify manual confirmation at workflow transitions
+2. Verify auto-send to devils-advocate (mandatory gate)
+3. Verify feedback loops auto-send
+
+**Rollback**: Change `send:` values in agent frontmatter (no code changes needed).
+
 ## Quality Gates
 
 ### Gate 1: Impact Evaluation Complete
@@ -300,6 +347,18 @@ Program Proposal Submitted
 
 **Time Horizon**: 5-20 years depending on intervention (short-term outcomes vs lifetime impact)
 
+## REFERENCE.md Usage Guide
+
+`REFERENCE.md` contains detailed methodologies (SROI, CEA, trajectory uplift) to keep agent files concise.
+
+**Current Usage**: impact-evaluator and portfolio-strategist reference REFERENCE.md for methodology details.
+
+**Recommended Enhancement (v1.3.0)**:
+- **devils-advocate**: Add REFERENCE.md link for challenging SROI/CEA assumptions with documented benchmarks
+- **recommendation-synthesizer**: Add REFERENCE.md link for interpreting quantitative metrics against standards
+
+**Rationale**: Both agents use SROI/CEA concepts but don't link to methodology documentation, weakening critical review and synthesis credibility.
+
 ## Examples
 
 ### Example 1: Evaluating Youth Mentorship Program
@@ -407,6 +466,38 @@ Program Proposal Submitted
 
 **If urgent**: Request devils-advocate provide expedited review focusing on top 3 challenges (not comprehensive), but still required.
 
-## Version History
+## Agent Size and Complexity Monitoring
 
-- **1.0.0** (Initial): Comprehensive philanthropic advisory group with five agents (impact-evaluator, portfolio-strategist, risk-opportunity-analyst, recommendation-synthesizer, devils-advocate) for Singapore-focused philanthropic decision support
+### Current Size Distribution (v1.2.0)
+
+| Agent | Size | % of 30k | Status |
+|---|---|---|---|
+| principles-framework-definer | 26,716 | 89% | 🔴 Monitor |
+| portfolio-strategist | 26,071 | 87% | 🔴 Monitor |
+| impact-evaluator | 23,204 | 77% | 🟡 OK |
+| devils-advocate | 21,226 | 71% | ✅ OK |
+| Others (marketing, risk, synthesis) | 15-16k | 50-54% | ✅ OK |
+
+**Limits**: 30k hard limit, 25k yellow flag. **Target**: 15-20k for new agents.
+
+### Size Imbalance Rationale
+
+**Principles-framework-definer (26.7k)**: 8 comprehensive question areas, each with detailed prompts and Singapore context. Justified by foundational scope.
+
+**Portfolio-strategist (26k)**: Multiple analytical dimensions (alignment, composition, gaps, synergies, concentration risk) with extensive landscape context. Justified by integration complexity.
+
+**Size gap (26k vs 15k)** reflects differing complexity requirements, not responsibility creep.
+
+### Management Strategy
+
+**If approaching 30k**: (1) Optimize examples, (2) Move methodology to REFERENCE.md, (3) Consider agent split.
+
+**Monitoring**: Check sizes after minor releases, flag agents >27k, document in CHANGELOG.
+
+### Quality Checklist Standards
+
+**Range**: 8-12 items per agent depending on complexity.
+- Complex analytical agents: 10-12 items (more methodologies to verify)
+- Focused functional agents: 8-10 items (narrower scope)
+
+Variation justified by agent complexity differences.
