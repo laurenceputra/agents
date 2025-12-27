@@ -1,10 +1,10 @@
 # Social Media Team Agent Group
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-1.2.0-blue.svg)
 ![Agents](https://img.shields.io/badge/agents-5-green.svg)
 ![Platforms](https://img.shields.io/badge/platforms-Facebook%20%7C%20Instagram%20%7C%20LinkedIn-orange.svg)
 
-**Personal brand building for tech and social leaders across Facebook, Instagram, and LinkedIn with platform-specific thought leadership and authentic voice.**
+**Personal brand building for tech and social sector leaders with philanthropic interests across Facebook, Instagram, and LinkedIn - focused on individual thought leadership, not corporate branding.**
 
 ---
 
@@ -82,6 +82,24 @@ Every strategy passes through three checkpoints:
 ❌ Provide influencer marketing or paid promotion strategies  
 ❌ Handle customer service or community management  
 ❌ Replace authentic personal voice with corporate messaging
+
+### Who This Is For
+
+**Primary Audience**: Individual tech and social sector leaders with philanthropic interests who want to build their personal brand through authentic thought leadership.
+
+**Ideal User Profile**:
+- Technology leaders sharing insights on AI, innovation, digital transformation
+- Social sector professionals discussing community impact, equity, social justice
+- Philanthropists sharing perspectives on giving, social change, impact investing
+- Individuals combining tech expertise with social responsibility
+
+**NOT Designed For**:
+- Corporate brand pages or company social media accounts
+- Marketing teams managing brand campaigns for organizations
+- Agencies managing multiple client brands
+- B2B companies seeking corporate thought leadership
+
+**Note**: While strategies focus on personal branding for individuals, principles may be adaptable to corporate contexts with significant modification.
 
 ---
 
@@ -458,8 +476,9 @@ Found an issue or have a suggestion? This agent group follows the portable agent
 
 ## 📄 Version
 
-**Current Version**: 1.0.0  
+**Current Version**: 1.2.0  
 **Release Date**: December 2024  
+**Last Updated**: December 2025  
 **Agents**: 5 (Facebook Specialist, Instagram Specialist, LinkedIn Specialist, Social Media Coordinator, Devil's Advocate)  
 **Platforms**: 3 (Facebook, Instagram, LinkedIn)
 

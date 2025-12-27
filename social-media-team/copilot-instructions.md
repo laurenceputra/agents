@@ -2,11 +2,11 @@
 
 ## Overview
 
-The Social Media Team is a coordinated group of five specialized agents working together to build and maintain a strong personal brand for tech and social leaders across Facebook, Instagram, and LinkedIn. Each agent brings platform-specific expertise while the Social Media Coordinator ensures voice authenticity and strategic alignment across all channels. The Devil's Advocate provides critical quality assurance before strategy execution.
+The Social Media Team is a coordinated group of five specialized agents working together to build and maintain a strong personal brand for tech and social sector leaders who are also philanthropists. Each agent brings platform-specific expertise while the Social Media Coordinator ensures voice authenticity and strategic alignment across all channels. The Devil's Advocate provides critical quality assurance before strategy execution.
 
-**Purpose**: Support tech and social leaders in building authentic personal brands through platform-optimized thought leadership, genuine engagement, and credible presence across social media.
+**Purpose**: Support tech and social sector leaders with philanthropic interests in building authentic personal brands through platform-optimized thought leadership, genuine engagement, and credible presence across social media.
 
-**Scope**: Personal brand strategy, thought leadership content, authentic voice development, and community engagement for Facebook, Instagram, and LinkedIn.
+**Scope**: Personal brand strategy (NOT corporate brand strategy), thought leadership content, authentic voice development, and community engagement for Facebook, Instagram, and LinkedIn. Focus on individual leaders sharing insights on technology, social impact, and philanthropy.
 
 ---
 
@@ -142,17 +142,24 @@ Write naturally, like you're explaining to a colleague, not documenting for comp
 **Use when**: You need strategy for a single platform
 
 ```
-User → [Platform Specialist] → Devil's Advocate → User
+User → [Platform Specialist] → User
 ```
+
+**Optional Critical Review**: `@devils-advocate` can be manually consulted for complex strategies
 
 **Example**: "Create an Instagram Reel strategy for sharing my tech leadership insights"
 
 **Steps**:
 1. User consults the appropriate Platform Specialist (Facebook, Instagram, or LinkedIn)
 2. Specialist provides platform-optimized strategy with authentic voice guidance
-3. Specialist hands to Devil's Advocate for critical review
-4. Devil's Advocate challenges assumptions, surfaces concerns
-5. Approved strategy returned to User
+3. Strategy returned to User
+4. (Optional) User can consult `@devils-advocate` for critical review if needed
+
+**When to request Devil's Advocate review**:
+- Complex or high-stakes content strategy
+- Strategy involves significant time/resource investment
+- Need validation of assumptions before execution
+- Want critical feedback on approach
 
 **Example Interaction**:
 ```
@@ -160,11 +167,11 @@ User: @instagram-specialist "Create a Reel strategy for sharing my perspective o
 
 Instagram Specialist: [Provides authentic strategy with personal voice, hashtags for tech community, engagement approach]
 
-Instagram Specialist → @devils-advocate "Review this Reel strategy for authenticity and blind spots"
+User receives: Platform-optimized strategy ready to execute
 
-Devil's Advocate: [Challenges assumptions about vulnerability vs. expertise balance, identifies risks, approves with concerns]
+(Optional) User: @devils-advocate "Review this Instagram strategy for blind spots and risks"
 
-User receives: Strategy + critical review for informed decision-making
+Devil's Advocate: [Challenges assumptions about vulnerability vs. expertise balance, identifies risks]
 ```
 
 ---
@@ -174,10 +181,12 @@ User receives: Strategy + critical review for informed decision-making
 **Use when**: You need coordinated strategy across multiple platforms
 
 ```
-User → Social Media Coordinator → [Platform Specialists] → Devil's Advocate → Coordinator → User
+User → Social Media Coordinator → [Platform Specialists] → Devil's Advocate (AUTOMATIC) → Coordinator → User
 ```
 
 **Example**: "Build my personal brand as a tech leader across all platforms"
+
+**Devil's Advocate Review**: AUTOMATIC for all coordinated campaigns (comprehensive strategies require critical review)
 
 **Steps**:
 1. User consults Social Media Coordinator with personal brand goals
@@ -185,7 +194,7 @@ User → Social Media Coordinator → [Platform Specialists] → Devil's Advocat
 3. Coordinator hands to each Platform Specialist for platform-specific approaches
 4. Each Specialist provides platform-optimized recommendations maintaining authentic voice
 5. Specialists hand back to Coordinator for synthesis
-6. Coordinator hands complete strategy to Devil's Advocate for critical review
+6. **Coordinator automatically hands complete strategy to Devil's Advocate for critical review**
 7. Devil's Advocate reviews all plans for authenticity, consistency, and blind spots
 8. Coordinator synthesizes approved recommendations
 9. Final coordinated personal brand strategy to User
@@ -204,7 +213,7 @@ Coordinator → @linkedin-specialist "Provide LinkedIn strategy for professional
 
 Coordinator: [Synthesizes into unified personal brand presence with realistic content calendar]
 
-Coordinator → @devils-advocate "Review this personal brand strategy for authenticity and sustainability"
+Coordinator → @devils-advocate (AUTOMATIC) "Review this personal brand strategy for authenticity and sustainability"
 
 Devil's Advocate: [Critical review, challenges assumptions about posting frequency and vulnerability balance, approves with concerns]
 
@@ -365,8 +374,12 @@ Every social media strategy passes through these quality checkpoints:
 
 ---
 
-### Gate 3: Critical Review (Devil's Advocate - MANDATORY)
+### Gate 3: Critical Review (Devil's Advocate)
 **Owner**: Devil's Advocate  
+**When**: 
+- **AUTOMATIC**: Multi-platform campaigns coordinated by Social Media Coordinator
+- **OPTIONAL**: Single-platform strategies (user can request `@devils-advocate` if needed)
+
 **Checks**:
 - [ ] Assumptions challenged
 - [ ] Blind spots identified
@@ -377,7 +390,34 @@ Every social media strategy passes through these quality checkpoints:
 
 **Pass Criteria**: Strategy stress-tested and ready for human decision-making
 
-**CRITICAL**: No strategy should be executed without Devil's Advocate review. This is the final quality gate ensuring all perspectives are considered.
+**RECOMMENDED**: While only automatic for coordinated campaigns, Devil's Advocate review is valuable for any high-stakes or complex strategy. Users can manually consult `@devils-advocate` for single-platform strategies when critical review would be beneficial.
+
+---
+
+## Handoff Policy (send_default)
+
+**Policy**: `send_default: true`
+
+All agents in this group use automatic handoffs (`send: true`) for smooth workflow coordination. This policy enables specialists to collaborate efficiently, delivering complete strategy packages with critical review to users.
+
+**Rationale**:
+
+This agent group generates content recommendations and strategies - it does not execute external actions (no social media API access, no automated posting). The agents produce text-based recommendations that users manually review and post to their social platforms.
+
+**Risk Assessment**:
+- **Decision Criticality**: MEDIUM (recommendations, not executable actions)
+- **External Actions**: LOW (no posting capability - users execute manually)
+- **Data Sensitivity**: LOW (generates generic social media strategy advice)
+- **Observability**: HIGH (users review all content before posting)
+- **Rollback Capability**: HIGH (nothing executed until user manually posts)
+
+**Human Checkpoint**: Users are the final gatekeeper. All content recommendations must be manually copied to social platforms by the user. Automatic handoffs enable efficient strategy generation, while actual posting requires explicit human action.
+
+**Workflow Benefits**:
+- Platform specialists automatically coordinate for multi-platform consistency
+- Devil's Advocate critical review is delivered with strategy (complete package)
+- Users receive comprehensive recommendations without manual handoff coordination
+- No interruption to workflow for internal agent collaboration
 
 ---
 
@@ -645,11 +685,3 @@ Review Devil's Advocate categorization and make informed decision.
   - TikTok → Instagram Specialist (short-form video, trends)
   - Pinterest → Instagram Specialist (visual, discovery-focused)
 - Note: Recommendations will need adaptation for platform-specific nuances
-
----
-
-## Version History
-
-- **1.0.2** (2024-12-19): Streamlined agents by extracting Writing Style Guidelines to copilot-instructions.md (eliminates 32-line duplication across 5 agents). Reduced repetitive em-dash warnings from 25 lines to 3-line references. Removed LinkedIn validation from coordinator (platform checks belong in platform agents). Fixed remaining em-dash in example content. Overall reduction: ~200 lines across agent files while maintaining all functionality.
-- **1.0.1** (Previous): Added Writing Style Guidelines section with 9 principles for natural, human-like output to all agents
-- **1.0.0** (Initial Release): Five-agent social media team (Facebook, Instagram, LinkedIn specialists + Coordinator + Devil's Advocate) with four primary workflows, quality gates, and portable structure
